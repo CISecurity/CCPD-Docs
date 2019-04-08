@@ -674,7 +674,7 @@ Please repeat every step of this section for each client who wants to access the
 This step is required if you want to use the "POST Reports to URL" with https in order to upload an Asset Report Format (ARF) results from CIS-CAT Pro Assessor to CIS-CAT Pro Dashboard.
 For more details about the integration between the Assessor and the Dashboard, please read the "Importing CIS-CAT Assessor Results" section from CIS-CAT Pro Dashboard User's Guide.
 
-Find the location of the java executable being used to launch Tomcat and host CIS-CAT Pro Dashboard.  For the purposes of this guide, assume the location of java can be found at `C:\Program Files\Java\jdk1.8.0_144`.  When using Java 8, the required `cacerts` file will be located at `C:\Program Files\Java\jdk1.8.0_144\jre\lib\security\cacerts`.  The location of the `cacerts` file should be noted before importing the certificate using `keytool`.
+Find the location of the java executable being used to launch Tomcat and host CIS-CAT Pro Dashboard.  For the purposes of this guide, assume the location of java can be found at `C:\Program Files\Java\jdk1.8.0_144`.  When using Java 8, the required `cacerts` file will be located in your **JRE** directory, here it's at `C:\Program Files\Java\jdk1.8.0_144\jre\lib\security\cacerts`.  The location of the `cacerts` file should be noted before importing the certificate using `keytool`.
 
 Finally, using the java `keytool` application, import the certificate:
 
