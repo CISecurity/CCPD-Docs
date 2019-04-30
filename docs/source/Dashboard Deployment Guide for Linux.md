@@ -104,6 +104,15 @@ To set the JVM Heap Settings, add the following line in setenv.sh or catalina.sh
 
 	export CATALINA_OPTS="-Xms1024M -Xmx2048M "
 
+The application requires tomcat to use **UTF-8** as a default character encoding.<br/>
+If you receive the following error during an import, that means your system uses another character encoding:
+
+	Invalid byte 1 of 1-byte UTF-8 sequence
+
+To change the tomcat default character encoding to UTF-8, please add `-Dfile.encoding=UTF-8` option in the above CATALINA_OPTS as following:
+
+	export CATALINA_OPTS="-Xms1024M -Xmx2048M -Dfile.encoding=UTF-8"
+
 
 #### Security Considerations ####
 As a final step we want to remove the default applications available from the Tomcat install, including the examples and management applications.  These default sites can and will give away information about the environment and present an information security risk.

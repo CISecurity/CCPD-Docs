@@ -123,6 +123,15 @@ For example, I added `-XX:MaxPermSize=2048m` in java option and set up initial `
 
 ![](https://i.imgur.com/LnauYAR.png)
 
+The application requires tomcat to use **UTF-8** as a default character encoding.<br/>
+If you receive the following error during an import, that means your system uses another character encoding:
+
+	Invalid byte 1 of 1-byte UTF-8 sequence
+
+To change the tomcat default character encoding to UTF-8, please add `-Dfile.encoding=UTF-8` option as following:
+
+![](https://i.imgur.com/aBhGbY7.png)
+
 
 Tomcat service can be started/stopped from the system tray tomcat monitoring icon or from the windows services screen. 
 
