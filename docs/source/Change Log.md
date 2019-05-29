@@ -4,6 +4,26 @@
 
 ----------
 
+## CIS-CAT Pro Dashboard v1.1.6 ##
+
+SYSTEM ENHANCEMENTS
+
+ - Supports MacOS 10.13 CIS Benchmark.
+ - Updated, more consistent schema validation process upon vulnerability report import. Per existing functionality, reports failing validation will generate a Dashboard inbox alert and will be moved to the error directory.
+ - New users will be assigned ROLE_USER and ROLE_BASIC_USER on default upon creation.
+
+BUGS
+
+ - Updated vulnerability validation process on import of a Windows 10 vulnerability assessment from CIS-CAT Pro Assessor v4. 
+ - Resolved error on configuration assessment report display when no evidence is collected.
+ - HTML reports display 4 digit Benchmark version numbers
+ 
+DOCUMENTATION UPDATES
+
+ - Dashboard and Assessor documentation configuration updated for tool integration. Instructions in the online Dashboard documentation is now more clearly defined by modifying some text and moving around sections of the instructions.
+ - Linux Deployment instructions enhanced. Many clients required additional information regarding legacy/import folder permissions and configuration. 
+
+
 ## CIS-CAT Pro Dashboard v1.1.5 ##
 
 FUNCTIONAL ENHANCEMENTS
