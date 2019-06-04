@@ -125,6 +125,10 @@ As a final step we want to remove the default applications available from the To
 
 This will remove all the default applications from the tomcat installation to help reduce the attack surface of the application server.
 
+
+### Web Browser###
+The CIS-CAT Pro Dashboard officially supports **Google Chrome** web browser. Other browsers may also work but may produce unexpected behavior.
+
 <a name="confAndDeploymentInstaller"></a>
 ##Configuration and Deployment - Installer##
 <b>This section describes how to configure and deploy the Dashboard using the Installer.  For instructions on how to configure and deploy the Dashboard manually, see [Configuration and Deployment - Manual](#confAndDeploymentManual).</b>
