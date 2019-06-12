@@ -4,9 +4,24 @@
 
 ----------
 ## Introduction ##
-CIS-CAT Pro Dashboard is a web application built using the Grails Framework.  The grails framework uses a hibernate data model to remain DBMS agnostic.  Grails code compiles into java byte code and therefore runs on the JVM.  As such,  CIS-CAT Pro dashboard can be deployed in many RDBMS, and on any web container that can handle java WAR's.  The documentation below describes how to deploy CIS-CAT Pro Dashboard on the following stack, which is officially supported by CIS:  SQL Server 2017 running on Windows Server 2016, a separate Windows 2016 server for Tomcat 8.5 and IIS 10.0.  Prerequisite to using this documentation is having two separate Windows Server 2016 instances running in your environment.
+CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The grails framework uses a hibernate data model, which allows CIS-CAT Pro Dashboard to be database management system (DBMS) agnostic. Grails code compiles into java byte code and runs on the Java virtual machine (JVM). Although CIS-CAT Pro dashboard is database agnostic, CIS only tests and supports use of the listed databases below. The documentation below describes how to deploy CIS-CAT Pro Dashboard on the CIS-preferred, officially supported components.
 
-**Reiteration:**  Although this document is written assuming a SQL Server database, Windows 2016 servers, Tomcat and IIS web server, they are not required.  The Hibernate data model ensures a database-agnostic environment, so many relational database management system can be used (i.e. MySQL until version 5.7 (including MariaDB),MS SQL Server, and Oracle).  Further, any operating system can host the application server, which can also utilize any software capable of hosting a java web application archive (.war file).
+**CIS Supported Relational Database Management Systems (RDBMS)**
+
+ - MySQL until version 5.7 (MariaDB)
+ - MS SQL Server
+ - Oracle
+
+**CIS Preferred Component Installation**
+
+*The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
+
+ - 2 Windows Server 2016 servers* 
+ - MS SQL Server 2017 (Server #1)
+ - Tomcat 8.5 (Server #2)
+ - IIS 10.0 Web Server (Server #2)
+
+*Separate servers are recommended to contain the identified components above for security and performance purposes.
 
 ## System Recommendations ##
  There are no strict requirements associated with our Dashboard application. Any OS will be suitable so long as it can run Tomcat. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
