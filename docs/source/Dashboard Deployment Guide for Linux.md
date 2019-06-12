@@ -12,8 +12,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
  - MS SQL Server
  - Oracle
 
-**CIS Preferred Component Installation**
-
+**CIS Preferred Component Installation**<br/>
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
 
  - 2 Ubuntu 16.04 servers* 
