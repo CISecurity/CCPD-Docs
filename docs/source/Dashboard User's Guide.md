@@ -404,29 +404,29 @@ Both Configuration and Vulnerability Assessments can be deleted from their respe
   
          
 
-##Tagging Target Systems##
+##Group Target Systems with Tags##
 
-Assign tags that fit your organization’s endpoint management process. A group or tag could represent a region, a department, internal/external ownership, functional use, operating systems, etc. 
+CIS-CAT Pro Dashboard allows you to group target systems by assigning user-defined tags names that best fit your organization. A tag name could represent a region, a department, internal/external ownership, functional use, operating systems, etc. Once a tag name has been assigned to a target system, you have the option of creating CIS Benchmark [exceptions](./Dashboard%20User%27s%20Guide/#exceptions) or utilizing the graphical display of tagged systems in the [Dashboard - Tag View](./Dashboard%20User%27s%20Guide/#dashboard).
 
-Regularly reviewing target systems, for example, by organizational departments or geographical locations helps you focus remediation efforts in the right places. 
+Regularly reviewing target systems, for example, by organizational departments or geographical locations helps you focus remediation efforts in the right places.
 
 
-**Assign Tag to a single Target System**
+**Assign Tag to a Single Target System**
 
-Once a taggable system entity is created you can navigate to it's view page by clicking on the Target Primary ID on the List and Search Page, lets look at Target Systems as an example:
+To tag an existing target system individually, navigate to Target Systems in the menu, locate the desired system, and click on the target system's primary identifier in the "Target Primary ID" column.
 
 
 ![](https://i.imgur.com/EQ4vD3v.jpg)
 
-Once navigated to the view page, users can manage the Target's tags by simply typing in the Tag box, or deleting from the tag box:
+From within the target system's individual screen, create a new tag by entering a unique string, select an existing tag, or click the "x" on any tag to remove it from the system.
 
 ![](http://i.imgur.com/ygcH1Gn.png)
 
-**Assign Tags to multiple target systems**
+**Assign Tags to Multiple Target Systems**
 
-In Target Systems search page, to apply or remove tags to multiple target systems based on the result set and the selection boxes, select the “Add/Remove Tags” button. Enter tags to apply or remove from the selected systems in your result set and select “Apply.”
+Navigate to Target Systems - Search screen to add or remove tags to multiple target systems based on the searched result set and the selection boxes. Enter target system criteria and press the Search button. Once search results are present, select the "Add/Remove Tags" button. Enter tags to apply or remove from the selected systems in your result set and select "Apply."
 
-Since modifying tag assignment currently affects Benchmark exception application, we’ve restricted the use of this option to users with ROLE_ADMIN only.
+The "Add/Remove Tags" button is available only to users with ROLE_ADMIN. Modifying tag assignment currently affects Benchmark exception application.
 
 ![](https://i.imgur.com/66pyhG6.png)
 
@@ -434,14 +434,14 @@ Both the Add and Remove Tags field feature an autocomplete functionality with a 
 
 ![](https://i.imgur.com/4HoOTAk.png)
 
-Tags will be applied or removed from the selected systems in the original result set. Upon selecting “Apply,” you are returned to the results screen and the results are refreshed with the existing criteria.
+Tags will be applied or removed from the selected systems in the original result set. Upon selecting "Apply," a refreshed result screen based on the existing criteria is presented.
 
 ![](https://i.imgur.com/gj7kIyi.png)
 
 
 **Searching**
 
-Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an "AND" or "OR" operator and a list of tags to exclude from your search group.  You can also search directly by Primary ID as well as IPv4 Range.
+Once tagged, use individual tags, or logical combinations of tags to search for a specific set of end points. Utilize the include/exclude tags field that offer an "AND" or "OR" operator applicable to the tag fields only. Search directly by Primary ID or IPv4 Range.
 
 ![](https://i.imgur.com/GRINkek.png)
 
