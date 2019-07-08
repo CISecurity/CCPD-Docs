@@ -406,7 +406,7 @@ Both Configuration and Vulnerability Assessments can be deleted from their respe
 
 ##Group Target Systems with Tags##
 
-CIS-CAT Pro Dashboard allows you to group target systems by assigning user-defined tags names that best fit your organization. A tag name could represent a region, a department, internal/external ownership, functional use, operating systems, etc. Once a tag name has been assigned to a target system, you have the option of creating CIS Benchmark [exceptions](./Dashboard%20User%27s%20Guide/#exceptions) or utilizing the graphical display of tagged systems in the [Dashboard - Tag View](./Dashboard%20User%27s%20Guide/#dashboard).
+CIS-CAT Pro Dashboard allows you to group target systems by assigning user-defined tag names that best fit your organization. A tag name could represent a region, a department, internal/external ownership, functional use, operating systems, etc. Once a tag name has been assigned to a target system, you have the option of creating CIS Benchmark [exceptions](./Dashboard%20User%27s%20Guide/#exceptions) or utilizing the graphical display of tagged systems in the [Dashboard - Tag View](./Dashboard%20User%27s%20Guide/#dashboard).
 
 Regularly reviewing target systems, for example, by organizational departments or geographical locations helps you focus remediation efforts in the right places.
 
