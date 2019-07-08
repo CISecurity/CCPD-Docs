@@ -404,28 +404,50 @@ Both Configuration and Vulnerability Assessments can be deleted from their respe
   
          
 
-##Tagging##
+##Tagging Target Systems##
 
-Tags can be used to organize various system entities into groups, such as Target Systems, Users, Roles, or Exceptions.  A n entity can have any number of Tags which can signify a couple of things within CIS-CAT Pro Dashboard.  Tags can be used to search for entities that have a specific tag or group of tags, or one tag but not another.  Dashboards can be viewed by tag, so that user's can see how a specifically tagged group of endpoints is complying with CIS benchmarks.  Alerts and Workflow Tasks can be sent to Users by tag, so that a group of tagged users will all receive the alert or task.
+Assign tags that fit your organization’s endpoint management process. A group or tag could represent a region, a department, internal/external ownership, functional use, operating systems, etc. 
 
-**Creation**
-
-Once a taggable system entity is created you can navigate to it's view page by clicking on the entity's row on the List Page, lets look at Target Systems as an example:
+Regularly reviewing target systems, for example, by organizational departments or geographical locations helps you focus remediation efforts in the right places. 
 
 
-![](http://i.imgur.com/KjlNHvP.png)
+**Assign Tag to a single Target System**
 
-Once navigated to the view page, users can manage the Targets tags by simply typing in the Tag box, or deleting from the tag box:
+Once a taggable system entity is created you can navigate to it's view page by clicking on the Target Primary ID on the List and Search Page, lets look at Target Systems as an example:
+
+
+![](https://i.imgur.com/EQ4vD3v.jpg)
+
+Once navigated to the view page, users can manage the Target's tags by simply typing in the Tag box, or deleting from the tag box:
 
 ![](http://i.imgur.com/ygcH1Gn.png)
 
-Tagging works the same for other taggable entities, such as Users and Exceptions.
+**Assign Tags to multiple target systems**
+
+In Target Systems search page, to apply or remove tags to multiple target systems based on the result set and the selection boxes, select the “Add/Remove Tags” button. Enter tags to apply or remove from the selected systems in your result set and select “Apply.”
+
+Since modifying tag assignment currently affects Benchmark exception application, we’ve restricted the use of this option to users with ROLE_ADMIN only.
+
+![](https://i.imgur.com/66pyhG6.png)
+
+Both the Add and Remove Tags field feature an autocomplete functionality with a list of tags that already exist.
+
+![](https://i.imgur.com/4HoOTAk.png)
+
+Tags will be applied or removed from the selected systems in the original result set. Upon selecting “Apply,” you are returned to the results screen and the results are refreshed with the existing criteria.
+
+![](https://i.imgur.com/gj7kIyi.png)
+
 
 **Searching**
 
-Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an "AND" or "OR" operator and a list of tags to exclude from your search group.  You can also search directly by Primary ID.
+Once tagged, you can use individual tags, or logical combinations of tags to search for a specific set of end points.  The search screen has a list of tags to include, either using an "AND" or "OR" operator and a list of tags to exclude from your search group.  You can also search directly by Primary ID as well as IPv4 Range.
 
-![](http://i.imgur.com/wGx4CMT.png)
+![](https://i.imgur.com/GRINkek.png)
+
+- **Target Primary ID** - Search by Target Primary ID is case insensitive. Use % as a wildcard character.
+
+- **IPv4 Range** - Use the IPv4 Range fields to search by minimum or maximum IPv4 or both. The fields need to have a valid IPv4 value (0.0.0.1 to 255.255.255.255), and will return a warning if not valid.
 
 - **Include Tags** - type into the include tags list the tags you would like to see in the search results.  i.e.  if you would like to see target systems with the "PCI" tag, simply type it in the box and click search.
 
