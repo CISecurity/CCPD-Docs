@@ -4,6 +4,28 @@
 
 ----------
 
+## CIS-CAT Pro Dashboard v1.1.7 ##
+
+FUNCTIONAL ENHANCEMENTS
+
+ - Enhanced process for adding and removing tags to target system allows for updates in bulk vs. single target system updates. Available on the Target search screen only to users with admin role. 
+ - Search by IPv4 IP range has been added to the Target search screen.
+ - New autocomplete function displays existing tags in the Target search screen tag field. Enter a space to show all tags.
+
+SYSTEM ENHANCEMENTS
+
+ - Target system deletion is now only available to users with admin role.
+ - Target System Identifier deletion, edit, and creation is now only available to users with admin role.
+ - Configuration and Vulnerability assessments deletion is now only available to users with admin role.
+ - Configuration assessment and difference reports now show "no collected data" in the assessment section of a recommendation when the result is 'unknown' or 'not selected'.
+ 
+DOCUMENTATION UPDATES
+
+ - Linux/Windows deployment introduction modified to clearly define CIS-Supported components required for Dashboard operation.
+ - Component documentation modified to indicate official support of Google Chrome web browser for CIS-CAT Pro Dashboard.
+ 
+
+
 ## CIS-CAT Pro Dashboard v1.1.6 ##
 
 SYSTEM ENHANCEMENTS
