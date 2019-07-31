@@ -351,6 +351,10 @@ This file is also available in the CIS-CAT-Pro-Dashboard bundle.
 
 **NOTE:** This file is configured for MySQL database by default. If you want to use SQL Server or Oracle, please follow the instructions in Database Configuration section. 
 
+**NOTE 2:** To create a new schema called `ccpd` for MySQL database using UTF-8 Character set (required), please run the following command:
+
+	CREATE DATABASE ccpd CHARACTER SET utf8 COLLATE utf8_general_ci;
+
 
 **MySQL Timezone setting:** It is important for the timezone on the application server and the database server to be the same.  If this is not the case in your environment you can set the timezone of the database connection using a jdbc option:
 

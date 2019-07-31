@@ -57,9 +57,9 @@ This will give you access to the mysql command.
 From the MySQL database instructions above, note the hostname/ip of the database server as `<hostname>`, and the configured `<username>` and `<password>`
 run: `mysql -h <hostname> -u <username> -p`, you will then be prompted for the `<password>`.  If you see a `mysql>` prompt, then you have successfully connected to the database.
  
-run: `create schema ccpd;`
+run: `CREATE DATABASE ccpd CHARACTER SET utf8 COLLATE utf8_general_ci;`
 
-This will create a DB schema named `ccpd` for CIS-CAT Dashboard Pro data.
+This will create a DB schema named `ccpd` for CIS-CAT Dashboard Pro data using UTF-8 character set (required).
 
 **NOTE:** If your database server is not installed on the same machine as tomcat, make sure that your database user has privileges for remote access.
 Here is a SQL statement to enable access for the remote user:
