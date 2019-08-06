@@ -1059,7 +1059,7 @@ This api can also be called from a script (python, powershell etc...). So organi
 **Description**
 
 
-- **Url**: ```http(s)://[YOUR-DASHBOARD-SERVER]/CCPD/api/reports/upload```
+- **Url**: ```http(s)://[MY-DASHBOARD-SERVER]/CCPD/api/reports/upload```
 - **Method:** ```POST```
 - **Header:** <br/>
 **'Authorization':** ```'Bearer=[MY_DASHBOARD_AUTHENTICATION_TOKEN]'``` <br/>
