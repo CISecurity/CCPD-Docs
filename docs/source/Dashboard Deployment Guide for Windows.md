@@ -144,7 +144,7 @@ If you receive the following error during an import, that means your system uses
 
 To change the tomcat default character encoding to UTF-8, please add `-Dfile.encoding=UTF-8` option as following:
 
-![](https://i.imgur.com/aBhGbY7.png)
+![](https://i.imgur.com/d5iUQZX.png)
 
 
 Tomcat service can be started/stopped from the system tray tomcat monitoring icon or from the windows services screen. 
