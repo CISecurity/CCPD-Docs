@@ -420,7 +420,10 @@ To tag an existing target system individually, navigate to Target Systems in the
 
 From within the target system's individual screen, create a new tag by entering a unique string, select an existing tag, or click the "x" on any tag to remove it from the system.
 
+
 ![](http://i.imgur.com/ygcH1Gn.png)
+
+The "Tags" field is available only to users with ROLE_ADMIN. Modifying tag assignment currently affects Benchmark exception application.
 
 **Assign Tags to Multiple Target Systems**
 
