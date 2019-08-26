@@ -777,7 +777,7 @@ Again, clicking on the CVE ID will bring up the CVE Dialog.
 
 There are several ways to import the NVD data into your dashboard instance:
 
- - **Update NVD Data via Direct NIST Connectivity** -  Internet connectivity required. Use the Update CVEs button from the Vulnerability list page. On button selection, a direct connection to NIST NVD is made and the latest JSON NVD version will update the database storage with the current CVE definitions. The update is completed with an asyncronous process. Depending on environment factors, the process could take some time to import the thousands of CVE definitions. A Dashboard Inbox one alert will be present upon completion.
+ - **Update NVD Data via Direct NIST Connectivity** -  Internet connectivity required. Use the Update CVEs button from the Vulnerability list page. On button selection, a direct connection to NIST NVD is made and the latest JSON NVD version will update the database storage with the current CVE definitions. The update is completed with an asyncronous process. Depending on environment factors, the process could take some time to import the thousands of CVE definitions. One Dashboard Inbox alert will be present upon completion.
  - **Update NVD Data via Import** - Internet connectivity not required. Manually download most recent JSON vulnerability feed from NVD. Move the files to the Legacy folder on the supporting Dashboard machine or use the Import Vulnerability Feed button from the Vulnerability list page to manually select the files. The import is completed with an asyncronous process. A Dashboard Inbox alert will be present for each completely imported file.
 
 **Note:** Import of NVD feeds in **XML format is no longer supported**. Please use the JSON format. 
