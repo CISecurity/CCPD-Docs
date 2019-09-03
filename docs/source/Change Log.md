@@ -5,7 +5,7 @@
 ----------
 ## CIS-CAT Pro Dashboard v1.1.8 ##
 
-CIS-CAT Pro Updates
+### CIS-CAT Pro Updates ###
 
  - Support for NIST vulnerability JSON data feeds including the latest information. **Important: because of NIST XML Vulnerability Feed retirement, import of NVD feeds in XML format is no longer supported in the Dashboard.**
  - CIS Benchmark version number added to Configuration Exception Search, Individual Target - Configuration Tab, and Assessment Results List.
@@ -15,7 +15,7 @@ CIS-CAT Pro Updates
  - Dashboard Installer process now creates MySQL databases with UTF-8 character sets.
  - Help text added to Linux installer process regarding import folder permissions.
  
-Documentation Updates
+### Documentation Updates ###
 
  - CIS-CAT Pro Dashboard Upload Report API defined. Located in Linux and Windows Deployment section as a subsection titled "Dashboard API."
  - Manual instructions for MySQL database installation updated to include accommodation for UTF-8 character sets.
