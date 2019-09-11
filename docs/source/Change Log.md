@@ -7,7 +7,7 @@
 
 ### CIS-CAT Pro Updates ###
 
- - Support for NIST vulnerability JSON data feeds including the latest information. **Important: because of NIST XML Vulnerability Feed retirement, import of NVD feeds in XML format is no longer supported in the Dashboard.**
+ - Support for NIST vulnerability JSON data feeds version 1.1 including the latest information. **Important: because of NIST XML Vulnerability Feed retirement, import of NVD feeds in XML format is no longer supported in the Dashboard.**
  - CIS Benchmark version number added to Configuration Exception Search, Individual Target - Configuration Tab, and Assessment Results List.
  - New auto complete function displays existing tags for selection in the tag field in the Exception popup and Dashboard Tag Chart.
  - Target system tag assignment is now only available to users with Admin role in individual Target screens.
