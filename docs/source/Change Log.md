@@ -3,6 +3,20 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v1.1.9 ##
+
+### CIS-CAT Pro Updates ###
+
+ - The result import process has been modified to decompress and import result XML reports from CIS-CAT Pro Assessor v4 when sent via the API. Compressed reports will be sent when the Assessor v4 property is set to compress result XML reports.
+ - The tag field on an individual target system is read only for users without the admin role.
+ 
+### Documentation Updates ###
+
+ - More emphasis added on required UTF-8 encoding set for Tomcat configuration.
+ - The supported version of Maria DB has been specified in the online documentation.
+ - More emphasis on the type of MS SQL server User required for Dashboard installation.
+
+
 ## CIS-CAT Pro Dashboard v1.1.8 ##
 
 ### CIS-CAT Pro Updates ###
