@@ -8,7 +8,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 
 **CIS Supported Relational Database Management Systems (RDBMS)**
 
- - MySQL until version 5.7 (MariaDB)
+ - MySQL until version 5.7 (MariaDB 10.2)
  - MS SQL Server
  - Oracle
 
@@ -67,7 +67,7 @@ This allows the username and password to be added later to CIS-CAT Pro Dashboard
 Please note the following information in order to configure later SQL Server client as well as CIS-CAT Pro Dashboard application:<br/>
 - hostname/IP of database server (machine which hosts the database)<br/>
 - port for connecting, by default this is 1433<br/>
-- username/password for connecting to the database<br/>
+- username/password for connecting to the database. **This will need to be a SQL user, Domain users are not currently supported.**<br/>
 
 #### Windows Firewall Configuration for SQL Server####
 To access an instance of the SQL Server through a firewall, Windows firewall ports needs to be opened for TCP/IP port 1433.
@@ -126,6 +126,15 @@ Download tomcat 8.5 32-bit/64-bit Windows Service Installer from [the official w
 
 Install the application server as following, for more details, please follow [the official guide.](https://tomcat.apache.org/tomcat-8.5-doc/)<br/>
 
+**Required Tomcat Configurations:**
+
+ - UTF 8 default character encoding
+ - Set Service Startup option
+ - maxPostSize attribute
+ - Set memory pool
+ - Remove default applications
+
+
 Check "Service startup" during the installation, so Tomcat service will start automatically when the computer starts. <br/> I also suggest to keep "Start Menu Items" checked.
 
 ![](https://i.imgur.com/JeJCORn.png)
@@ -164,6 +173,8 @@ and add the maxPostSize attribute:
            maxPostSize="35728640"/>
 
 This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
+
+**Note:** During an import, if you receive an exception related to the maxPostSize limitation, make sure that you use CIS-CAT Pro Dashboard 1.1.9+ and CIS-CAT Pro Assessor V4 4.0.12+ with the property set to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
 
 
 **Security Considerations:** <br/>

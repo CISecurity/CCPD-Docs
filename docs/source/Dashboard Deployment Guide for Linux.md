@@ -8,7 +8,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 
 **CIS Supported Relational Database Management Systems (RDBMS)**
 
- - MySQL until version 5.7 (MariaDB)
+ - MySQL until version 5.7 (MariaDB 10.2)
  - MS SQL Server
  - Oracle
 
@@ -82,6 +82,14 @@ Ensure that the Java version displayed starts with 1.8.***
 ### Application Server ###
 Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.
 
+**Required Tomcat Configurations:**
+
+ - UTF 8 default character encoding
+ - maxPostSize attribute
+ - Environment variables
+ - JVM Heap Settings
+ - Remove default applications
+
 **NOTE:** The tomcat version in the article is no longer available. <br/>
 Please access to [this url](http://apache.mirrors.ionfish.org/tomcat/tomcat-8/) in order to know the latest version of tomcat 8.5. Then replace the `VERSION_NUMBER` tags in the following link and use it to download tomcat in the curl command:
  
@@ -106,6 +114,8 @@ and add the maxPostSize attribute:
            maxPostSize="35728640"/>
 
 This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
+
+**Note:** During an import, if you receive an exception related to the maxPostSize limitation, make sure that you use CIS-CAT Pro Dashboard 1.1.9+ and CIS-CAT Pro Assessor V4 4.0.12+ with the property set to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
 
 Open `/opt/tomcat/bin/catalina.sh` and add the following lines to the top of the file, which will add some environment variables that CIS-CAT Pro Dashboard requires to run.
 
