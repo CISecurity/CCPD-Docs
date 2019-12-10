@@ -253,6 +253,32 @@ Add an additional indicator to set the property:
 
 		PRIMARY_IDENTIFIER=$ENV_VAR_IDENTIFIER
 
+## System Integrations ##
+
+**CIS-CAT Pro Release alerts**
+
+After [establishing a connection with CIS WorkBench](./Dashboard%20Deployment%20Guide%20for%20Windows/#cis-workbench-integration), CIS-CAT Pro Dashboard will check CIS WorkBench daily at 5PM for the availability of a new release of CIS-CAT Pro.
+
+If a new CIS-CAT Pro release is available, the following alert will appear in the inbox:
+
+![](https://i.imgur.com/wL5aHsa.png)
+
+The alert provides the bundle title, version, description, hashes, and release date.
+
+The alert provides a link to download directly the latest bundle.
+
+**Connection errors alert**
+
+Error alerts will appear in the inbox when the connection between CIS-CAT Pro Dashboard and CIS WorkBench is not successful.
+
+See below an example of potential alerts you might receive: 
+
+1. SecureSuite membership status changed:
+![](https://i.imgur.com/ao5xwZV.png)
+
+2. CIS WorkBench Api client cannot be found:
+![](https://i.imgur.com/kzA1tq1.png)
+
 ## Importing CIS-CAT Assessor Results ##
 **In-Application Import**
 

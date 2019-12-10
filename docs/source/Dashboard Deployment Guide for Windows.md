@@ -1060,6 +1060,93 @@ In order to test the proper installation of the cis-cat-centralized-ccpd.sh scri
 
 If configured correctly, the standard CIS-CAT assessment output will be displayed to the user, and a successful CIS-CAT Pro Dashboard upload message will be displayed at the conclusion of the assessment.
 
+##CIS WorkBench Integration##
+
+### Introduction ###
+This new feature is an optional service provided to members to receive automatic notifications on new CIS-CAT Pro releases. 
+
+**Setting up the connection is an admin only ability.**
+
+When the connection is active, inbox alerts will appear within CIS-CAT Pro Dashboard when a new CIS-CAT Pro release is available.
+
+Retrieve the new release using links in the alert message from within CIS-CAT Pro Dashboard without logging directly into CIS WorkBench.
+
+CIS utilizes [OAuth 2.0](https://oauth.net/2/) authorization framework to establish a connection between the two applications.
+
+A one-way API is established from this instance of CIS-CAT Pro Dashboard to CIS WorkBench.
+
+CIS-CAT Pro Dashboard will check CIS WorkBench daily for the availability of a new release of CIS-CAT Pro. Establishing this connection will not allow CIS to collect any assessment results from your organization.
+
+### Establish a connection with CIS WorkBench ###
+Under the settings menu, an option called Systems Integrations is available to users with the admin role.
+
+Select System Integrations menu item:
+
+![](https://i.imgur.com/HfHZQ0g.png)
+
+In System Integrations, select the Connect button:
+
+![](https://i.imgur.com/Q4qkL1n.png)
+
+Select Continue to CIS WorkBench:
+
+![](https://i.imgur.com/9ylrwiY.png)
+
+Enter CIS WorkBench credentials and select Authorize:
+
+![](https://i.imgur.com/EFYFETG.png)
+
+Review the screen and Select Authorize:
+
+![](https://i.imgur.com/3A2tpw4.png)
+
+The connection is successfully made:
+
+![](https://i.imgur.com/vIyIvw1.png)
+
+**Note:** The switch button appeared grayed out because "Downloads of new CIS-CAT Pro updates" is the only service offered so far. In the future, members will have the option to opt-in/out from multiple services.
+
+###Test connection between CIS-CAT Pro Dashboard and CIS WorkBench###
+Test button is available to verify the connection between CIS-CAT Pro Dashboard and CIS WorkBench.
+
+When a connection is active, test the connection by pressing Test button:
+
+![](https://i.imgur.com/gCZYSfw.png)
+
+If successful, a message will show on the screen.
+
+If not, instructions will be provided in an error message.
+
+###Disconnect from CIS WorkBench###
+Select Disconnect:
+
+![](https://i.imgur.com/11eJySi.png)
+
+Select Disconnect again in the popup:
+
+![](https://i.imgur.com/Zej4j5f.png)
+
+The disconnection is successfully made:
+
+![](https://i.imgur.com/vF4arRf.png)
+
+Now CIS-CAT Pro Dashboard and CIS WorkBench are disconnected.
+
+Although your connection is no longer active between CIS-CAT Pro Dashboard and CIS WorkBench, **an active API client exists on your organization’s profile on the CIS WorkBench**. We keep this API client to allow you to reconnect easily.
+ 
+However, if you no longer want to utilize the service, below are the steps to delete the API client:
+
+Identify your Instance ID from System Integrations page:
+
+![](https://i.imgur.com/HSzqZEr.png)
+
+Navigate to your organization on CIS WorkBench, select API clients on left menu:
+
+![](https://i.imgur.com/gxxK7Wq.png)
+
+Press delete for your instance ID:
+
+![](https://i.imgur.com/c3TsyZU.png)
 
 ##Dashboard API##
 
