@@ -267,11 +267,11 @@ The alert provides the bundle title, version, description, hashes, and release d
 
 The alert provides a link to download directly the latest bundle.
 
-**Connection errors alert**
+**Connection Error Alerts**
 
 Error alerts will appear in the inbox when the connection between CIS-CAT Pro Dashboard and CIS WorkBench is not successful.
 
-See below an example of potential alerts you might receive: 
+See below examples of potential alerts you might receive: 
 
 1. SecureSuite membership status changed:
 ![](https://i.imgur.com/ao5xwZV.png)

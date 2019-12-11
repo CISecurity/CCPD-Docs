@@ -1073,7 +1073,9 @@ Retrieve the new release using links in the alert message from within CIS-CAT Pr
 
 CIS utilizes [OAuth 2.0](https://oauth.net/2/) authorization framework to establish a connection between the two applications.
 
-A one-way API is established from this instance of CIS-CAT Pro Dashboard to CIS WorkBench.
+A one-way API is established from an instance of CIS-CAT Pro Dashboard to CIS WorkBench.
+
+Each connection or integration is unique per Dashboard installation, which allows organizations with multiple instances of Dashboard to establish a communication between CIS-CAT Pro Dashboard and CIS WorkBench.
 
 CIS-CAT Pro Dashboard will check CIS WorkBench daily for the availability of a new release of CIS-CAT Pro. Establishing this connection will not allow CIS to collect any assessment results from your organization.
 
@@ -1086,7 +1088,7 @@ Select System Integrations menu item:
 
 In System Integrations, select the Connect button:
 
-![](https://i.imgur.com/Q4qkL1n.png)
+![](https://i.imgur.com/PG4AxDt.png)
 
 Select Continue to CIS WorkBench:
 
@@ -1099,6 +1101,8 @@ Enter CIS WorkBench credentials and select Authorize:
 Review the screen and Select Authorize:
 
 ![](https://i.imgur.com/3A2tpw4.png)
+
+**Note:** The switch button appears grayed out because "Downloads of new CIS-CAT Pro updates" is the only service offered so far. In the future, members will have the option to opt-in/out from multiple services.
 
 The connection is successfully made:
 
