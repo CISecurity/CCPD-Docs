@@ -1028,19 +1028,7 @@ Now CIS-CAT Pro Dashboard and CIS WorkBench are disconnected.
 
 Although your connection is no longer active between CIS-CAT Pro Dashboard and CIS WorkBench, **an active API client exists on your organization’s profile on the CIS WorkBench**. We keep this API client to allow you to reconnect easily.
  
-However, if you no longer want to utilize the service, below are the steps to delete the API client:
-
-Identify your Instance ID from System Integrations page:
-
-![](https://i.imgur.com/HSzqZEr.png)
-
-Navigate to your organization on CIS WorkBench, select API clients on left menu:
-
-![](https://i.imgur.com/gxxK7Wq.png)
-
-Press delete for your instance ID:
-
-![](https://i.imgur.com/c3TsyZU.png)
+However, if you no longer want to utilize the service, please contact CIS Support at support@cisecurity.org in order to delete the API client.
 
 ##Dashboard API##
 
