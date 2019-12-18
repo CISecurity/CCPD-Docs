@@ -3,6 +3,15 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v1.1.10 ##
+
+### CIS-CAT Pro Updates ###
+
+ - Members now have the option to receive an in-application alert when a new CIS-CAT Pro release has been uploaded to CIS WorkBench. Requires some setup in Dashboard Setting menu to configure an integration with CIS WorkBench.
+
+**IMPORTANT**: To receive new release alerts, make sure the application has the **write privileges** to **ccpd-config.yml** file.
+
+
 ## CIS-CAT Pro Dashboard v1.1.9 ##
 
 ### CIS-CAT Pro Updates ###
