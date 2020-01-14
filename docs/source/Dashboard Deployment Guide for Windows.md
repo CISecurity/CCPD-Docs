@@ -1075,7 +1075,7 @@ Modify ccpd-config.yml in one of the examples based on current installation conf
 
 Installations configured with SMTP or LDAP: 
 
-![](https://i.imgur.com/gE8ieYq.png)
+![](https://i.imgur.com/cCjHDZf.png)
 
 Installations without SMTP or LDAP configurations:
 
