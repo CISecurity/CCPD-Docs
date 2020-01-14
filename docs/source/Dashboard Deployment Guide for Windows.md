@@ -1060,6 +1060,35 @@ In order to test the proper installation of the cis-cat-centralized-ccpd.sh scri
 
 If configured correctly, the standard CIS-CAT assessment output will be displayed to the user, and a successful CIS-CAT Pro Dashboard upload message will be displayed at the conclusion of the assessment.
 
+##CIS-CAT Pro Assessor v4 Service Integration##
+
+CIS-CAT Pro Assessor v4 Service is a separate application that is available only to CIS SecureSuite members from the Download section of CIS WorkBench. For installation instructions, please see the [CIS-CAT Pro Assessor v4 documentation](https://ccpa-docs.readthedocs.io/en/latest/). This component of CIS-CAT Pro allows CIS-CAT Pro Dashboard users to orchestrate assessments using the Dashboard interface. Details on how to integrate an installed version CIS-CAT Pro Assessor v4 Service with CIS-CAT Pro Dashboard are provided below.
+
+###Enable Assessor v4 Service Features###
+
+Pre-Requisites:
+
+- Installation of CIS-CAT Pro v4 Service
+- CIS-CAT Pro Dashboard v1.1.11+
+
+Modify ccpd-config.yml in one of the examples based on current installation configuration.
+
+Installations configured with SMTP or LDAP: 
+
+![](https://i.imgur.com/gE8ieYq.png)
+
+Installations without SMTP or LDAP configurations:
+
+![](https://i.imgur.com/frcG67S.png)
+
+- **active:** hides(false) or displays(true) features for orchestrating an assessment. 
+- **url:** Mandatory value when active:true representing URL of the Assessor v4 Service web server. 
+- **ignoreSslCertErrors:** ignores(true) or allows(false) certificate errors
+
+###Establish authentication with Assessor v4 Service###
+
+Modifications must be made to CIS-CAT Pro Assessor v4 Service files to authenticate with CIS-CAT Pro Dashboard. See [CIS-CAT Pro Assessor v4](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20-%20Assessor%20Service/) for detailed instructions.
+
 ##CIS WorkBench Integration##
 
 ### Introduction ###

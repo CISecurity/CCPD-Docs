@@ -486,6 +486,94 @@ Once tagged, use individual tags, or logical combinations of tags to search for 
 
 - **Exclude Tags** - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the "Server" tag into the Include Tags box and "PCI" into the Exclude Tags box.
 
+## Assess a Target System ##
+To assess a target system from within CIS-CAT Pro Dashboard, ensure that [CIS-CAT Pro Assessor v4 Service Integration](./Dashboard%20Deployment%20Guide%20for%20Windows/#cis-cat-pro-assessor-v4-service-integration) procedures have been executed. The assessment features currently only supports a remote assessment.
+
+Pre-Requisites:
+
+- Installation of CIS-CAT Pro v4 Service
+- CIS-CAT Pro Dashboard v1.1.11+
+- CIS-CAT Pro v4 Service has been configured and started
+- CIS-CAT Pro Assessor v4 Service Integration steps have been followed
+- CIS-CAT Pro Dashboard is able to communicate with CIS-CAT Pro Assessor v4 Service system
+	- Verify that benchmark data is returned by entering <assessor-service url>/benchmarks in the Dashboard’s system’s browser
+- Assessed target system is configured for remote assessment (WinRM setup, SSH enabled, etc.)
+- Assessed target system is able to communicate with CIS-CAT Pro Assessor v4 Service host system
+
+Steps:
+
+1.	Navigate to a single target system via the Target Systems menu
+2.	Search for the desired target system to assess
+3.	Select the link for the desired target system in the Target Primary ID column
+4.	Select Assess<br/>
+![](https://i.imgur.com/FRF8Sxp.png)
+5.	Enter the required information <br/>
+![](https://i.imgur.com/1AotdL2.png)
+6.	Select Start Assessment to begin an assessment or Cancel to clear and close the form
+7.	Correct missing, required information if necessary<br/>
+![](https://i.imgur.com/5xsqPLA.png)	
+
+All values entered in the modal are the same values expected in the  CIS-CAT Pro Assessor v4 sessions.properties or assessor-config.xml files. See the [CIS-CAT Pro Assessor v4 User’s Guide](https://ccpa-docs.readthedocs.io/en/latest/User's%20Guide/) for detailed information on each of the below values. The target system to be assessed must be configured to accept a remote connection and must be able to communicate with the system that hosts CIS-CAT Pro Assessor v4 Service.
+
+None of the below information will be stored in the supporting database. It is highly recommended that CIS-CAT Pro Dashboard and CIS-CAT Pro Assessor v4 Service communicate using an HTTPS protocol due to the sensitive nature of the data transferred. 
+
+- **Username:** username with elevated privileges as a root or sudo for ssh or member of Administrator's group
+- **Password:** the credentials for the above username
+- **Target System Type**: remote connection type to the target system
+- **Port:** The port number on which the communication takes place between Assessor v4 and the target system. Auto populates with recommended remote ports.
+- **IP Address / Hostname:** Primary active IP Address or hostname that designates the location of the target system.
+- **Temporary File Path:** Optional. If specified, directory must exist on target system and above user must have read/write ability. If not specified, the default temp folder will be used.
+- **Benchmark:** Supported benchmarks for dashboard orchestration. See Assessor Service guide for more information on supported benchmarks.
+- **Profile:** List of profiles related to the selected benchmark.
+
+Once the Start Assessment button has been selected, the below message confirms that the assessment request was sent to CIS-CAT Pro Assessor v4 Service. Status can be tracked in the Job Status screen.
+
+![](https://i.imgur.com/9WmNQS5.png)
+
+The below error message may be received if communication to CIS-CAT Pro Assessor v4 Service is interrupted. To troubleshoot, navigate to the CIS-CAT Pro Assessor v4 Service host and verify the status of the service.
+
+![](https://i.imgur.com/LTbrcYq.png)
+
+
+**Job Status Screen**
+
+The Job Status screen (Reports menu) lists only assessments requested from within the CIS-CAT Pro Dashboard. The latest assessments will appear at the top of the list.
+
+![](https://i.imgur.com/xu3N2iJ.png)
+
+![](https://i.imgur.com/B6Jn8Q5.png)
+
+- **Job ID:** Sequential, system generated number used to help identify requests.
+- **Target Primary ID:** The Primary ID for the target system where an assessment was requested.
+- **Benchmark and Profile:** The name of the benchmark and profile used for the evaluation of the target system.
+- **Status:** Shows the life cycle of the request. 
+	- **Pending:** Assessor confirmed receipt of assessment request, waiting for CIS-CAT Pro Assessor v4 to start assessment activity.
+	- **In Progress:** Assessment activity has started.
+	- **Error:** Assessment could not start or encountered an error and could not finish. Hover over Error to learn more about the problem.
+	- **Assessment Complete:** The assessment has completed. The report may be in the process of uploading if Assessor has been configured to POST reports to Dashboard via the existing API. If the API has not been configured to POST to Dashboard, then the report is available at the desired Assessor configured location.
+- **Requested By:** The username that requested the assessment.
+- **Start Date:** The date and time of when the assessment was requested.
+- **End Date:** The date and time an assessment report was generated.
+
+The screen can be manually refreshed by selecting the Job Status menu item or by selecting the “Refresh” link near the top of the results. A total count of requests and time of last screen refresh appears at the top of the results.
+
+**Note:** The date and time for these fields are based off of the location of the server that host CIS-CAT Pro Dashboard.
+
+**Errors in the Job Status Screen**
+
+|Error Message|Potential Cause|Solution|
+|---|---| ---|
+|An unknown error occurred.|- Username was incorrect<br/>- Password was incorrect<br/>- User does not have admin or sudo permissions<br/>- Wrong IP or domain name of system<br/>- Unsupported Benchmark selected| - Verify username and password and privilege to run scan on target system<br/>- Verify CIS-CAT log for more detail on error<br/>- Only use the unchanged Benchmarks delivered with the application|
+|An XML file was parsed, but contained an invalid signature.|- The signature in the benchmark file is not valid.  To invalidate the signature, simply modify the XCCDF in some way (e.g., open it and add some extra text to the title of the benchmark).|- Only use the unchanged Benchmarks delivered with the application|
+|Could not find requested assessment content|- The selected Benchmark was removed from the Benchmark directory in Assessor v4 Service just before assessment ran|- Do not remove the Benchmarks from the Benchmark directory once an assessment has been requested|
+|CIS-CAT Pro Assessor encountered invalid assessment content.|- The Assessor parsed the assessment file requested to be run, but could not determine what type of assessment it is for (e.g., benchmark or vulnerability assessment). <br/>- For Benchmark assessments, the root of the benchmark file should be <Benchmark> or <data-stream-collection>.<br/>- For OVAL Definitions or Vulnerability assessments, the root of the file should be <oval_definitions>.|- Only use the unchanged Benchmarks delivered with the application|
+|An XML file was parsed but XML Schema validation errors.|An XML file has schema validation errors.  This exit code is used when validating the schema for the Benchmark file requested to be run.|- Only use the unchanged Benchmarks delivered with the application|
+|Could not parse an XML file required for assessment.|- The assessment content (e.g., benchmark file) contains XML formatting errors.  For example, an end tag for an element does not match the start tag.|- Only use the unchanged Benchmarks delivered with the application|
+
+
+
+
+
 ## Reports ##
 CIS-CAT Pro Dashboard reports provide a variety of views of CIS-CAT Assessment Results.  An individual Test Results Report provides the same view as the legacy HTML report from CIS-CAT, with some enhanced features, including a controls based view, and the ability to create exceptions for specific rules.  The remediation report provides a list of only the latest failed results for a target or group of targets.  The intent is for a remediator to print this report and use it to manually remediate misconfigurations on the target.  The complete Results Report will give an abbreviated version of the complete results for a system.  This is intended for an auditor to get a full picture of CIS compliance for a specific target or set of targets.
 
