@@ -487,7 +487,7 @@ Once tagged, use individual tags, or logical combinations of tags to search for 
 - **Exclude Tags** - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the "Server" tag into the Include Tags box and "PCI" into the Exclude Tags box.
 
 ## Assess a Target System ##
-To assess a target system from within CIS-CAT Pro Dashboard, ensure that [CIS-CAT Pro Assessor v4 Service Integration](./Dashboard%20Deployment%20Guide%20for%20Windows/#cis-cat-pro-assessor-v4-service-integration) procedures have been executed. The assessment features currently only supports a remote assessment.
+To assess a target system from within CIS-CAT Pro Dashboard, ensure that [CIS-CAT Pro Assessor v4 Service Integration](./Dashboard%20Deployment%20Guide%20for%20Windows/#cis-cat-pro-assessor-v4-service-integration) procedures have been executed. The assessment features currently only support a remote assessment.
 
 Pre-Requisites:
 
