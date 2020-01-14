@@ -496,7 +496,7 @@ Pre-Requisites:
 - CIS-CAT Pro v4 Service has been configured and started
 - CIS-CAT Pro Assessor v4 Service Integration steps have been followed
 - CIS-CAT Pro Dashboard is able to communicate with CIS-CAT Pro Assessor v4 Service system
-	- Verify that benchmark data is returned by entering <assessor-service url>/benchmarks in the Dashboard’s system’s browser
+	- Verify that benchmark data is returned by entering `<assessor-service url>/benchmarks` in the Dashboard’s system’s browser
 - Assessed target system is configured for remote assessment (WinRM setup, SSH enabled, etc.)
 - Assessed target system is able to communicate with CIS-CAT Pro Assessor v4 Service host system
 
