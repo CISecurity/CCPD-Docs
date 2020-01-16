@@ -3,6 +3,18 @@
 # Change Log #
 
 ----------
+
+## CIS-CAT Pro Dashboard v1.1.11 ##
+
+### CIS-CAT Pro Updates ###
+
+- Ability to orchestrate a remote ad-hoc assessment for an individual target system with a selected CIS Benchmark.
+
+- Delete buttons, such as assessment report delete, will now only allow users to click once. Deletion is assumed "in progress" when the button is disabled.
+
+**IMPORTANT**: To use the remote ad-hoc assessment capability, installation of CIS-CAT Pro Assessor v4 Service v1.0.0+ is required.
+
+
 ## CIS-CAT Pro Dashboard v1.1.10 ##
 
 ### CIS-CAT Pro Updates ###
