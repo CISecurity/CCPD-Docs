@@ -978,7 +978,7 @@ Installations without SMTP or LDAP configurations:
 
 ###Establish authentication with Assessor v4 Service###
 
-Modifications must be made to CIS-CAT Pro Assessor v4 Service files to authenticate with CIS-CAT Pro Dashboard. See [CIS-CAT Pro Assessor v4](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20-%20Assessor%20Service/) for detailed instructions.
+Modifications must be made to CIS-CAT Pro Assessor v4 Service files to authenticate with CIS-CAT Pro Dashboard. See [CIS-CAT Pro Assessor v4](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/) for detailed instructions.
 
 ##CIS WorkBench Integration##
 

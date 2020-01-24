@@ -513,7 +513,7 @@ Steps:
 7.	Correct missing, required information if necessary<br/>
 ![](https://i.imgur.com/5xsqPLA.png)	
 
-All values entered in the modal are the same values expected in the  CIS-CAT Pro Assessor v4 sessions.properties or assessor-config.xml files. See the [CIS-CAT Pro Assessor v4 User’s Guide](https://ccpa-docs.readthedocs.io/en/latest/User's%20Guide/) for detailed information on each of the below values. The target system to be assessed must be configured to accept a remote connection and must be able to communicate with the system that hosts CIS-CAT Pro Assessor v4 Service.
+All values entered in the modal are the same values expected in the  CIS-CAT Pro Assessor v4 sessions.properties or assessor-config.xml files. See the [CIS-CAT Pro Assessor v4 User’s Guide](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/) for detailed information on each of the below values. The target system to be assessed must be configured to accept a remote connection and must be able to communicate with the system that hosts CIS-CAT Pro Assessor v4 Service.
 
 None of the below information will be stored in the supporting database. It is highly recommended that CIS-CAT Pro Dashboard and CIS-CAT Pro Assessor v4 Service communicate using an HTTPS protocol due to the sensitive nature of the data transferred. 
 
