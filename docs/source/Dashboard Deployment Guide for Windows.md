@@ -1062,39 +1062,55 @@ If configured correctly, the standard CIS-CAT assessment output will be displaye
 
 ##CIS-CAT Pro Assessor v4 Service Integration##
 
-CIS-CAT Pro Assessor v4 Service is a separate application that is available only to CIS SecureSuite members from the Download section of CIS WorkBench. For installation instructions, please see the [CIS-CAT Pro Assessor v4 documentation](https://ccpa-docs.readthedocs.io/en/latest/). This component of CIS-CAT Pro allows CIS-CAT Pro Dashboard users to orchestrate assessments using the Dashboard interface. Details on how to integrate an installed version CIS-CAT Pro Assessor v4 Service with CIS-CAT Pro Dashboard are provided below.
+CIS-CAT Pro Assessor v4 Service is a separate application that is available only to CIS SecureSuite members from the Download section of CIS WorkBench. CIS-CAT Pro Assessor v4 Service is designed to interact with the CIS-CAT Pro Dashboard v1.1.11+ to allow configuration assessments to be run from CIS-CAT Pro Dashboard against a specified target system. For installation instructions, please see the [CIS-CAT Pro Assessor v4 documentation](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/). Details on how to integrate a configured version CIS-CAT Pro Assessor v4 Service with CIS-CAT Pro Dashboard are provided below.
 
 ###Enable Assessor v4 Service Features###
 
-Pre-Requisites:
+**Pre-Requisites:**
 
-- Installation of CIS-CAT Pro v4 Service
-- CIS-CAT Pro Dashboard v1.1.11+
+- CIS-CAT Pro v4 Service deployed. [See the guide.](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/)
+- CIS-CAT Pro Dashboard v1.1.11+ installed
 
-Modify ccpd-config.yml in one of the examples based on current installation configuration.
 
-Installations configured with SMTP or LDAP: 
+----------
 
-![](https://i.imgur.com/cCjHDZf.png)
 
-Installations without SMTP or LDAP configurations:
+1. Note location of Assessor v4 Service deployment
+	- Separate host system
+	- CIS-CAT Pro Dashboard's Tomcat host
+3. Configure CIS-CAT Pro Dashboard ccpd-yml file
+	- Ensure spacing and tabbing matches the examples very closely as yml files are particular with information "lining up"
+	- For Assessor v4 Service deployments on Tomcat host, avoid local port conflict by setting the assessor service to an open port 
+2. Modify ccpd-config.yml in one of the examples based on current installation configuration
+	- HTTP communication: when setting URL, use the port set in Assessor v4 Service server.conf file (http://localhost:2222)
+	- HTTPS communication: set URL as set in Assessor v4 Service server.conf file (https://your_url)  
 
-![](https://i.imgur.com/frcG67S.png)
+	Installations configured with SMTP or LDAP: 
 
-- **active:** hides(false) or displays(true) features for orchestrating an assessment. 
-- **url:** Mandatory value when active:true representing URL of the Assessor v4 Service web server. 
-- **ignoreSslCertErrors:** ignores(true) or allows(false) certificate errors
+	![](https://i.imgur.com/cCjHDZf.png)
 
-###Establish authentication with Assessor v4 Service###
+	Installations without SMTP or LDAP configurations:
 
-Modifications must be made to CIS-CAT Pro Assessor v4 Service files to authenticate with CIS-CAT Pro Dashboard. See [CIS-CAT Pro Assessor v4](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/) for detailed instructions.
+	![](https://i.imgur.com/frcG67S.png)
+
+1. Restart Tomcat
+2. Ensure [assessor-service.properties](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/#configuration) in Assessor v4 Service has been configured 
+
+| Property                         | Description                                   |
+| -------------------------------- | --------------------------------------------- |
+| active  | hides(false) or displays(true) features for orchestrating an assessment |
+| url | Mandatory value when active:true representing URL of the Assessor v4 Service web server.|
+| ignoreSslCertErrors | ignores(true) or allows(false) certificate errors |
+
+
+
 
 ##CIS WorkBench Integration##
 
 ### Introduction ###
 This new feature is an optional service provided to members to receive automatic notifications on new CIS-CAT Pro releases. 
 
-**Setting up the connection is an admin only ability.**
+**Setting up the connection is an admin only ability. Additionally, the application requires a direct internet connection, a proxy will not work.**
 
 When the connection is active, inbox alerts will appear within CIS-CAT Pro Dashboard when a new CIS-CAT Pro release is available.
 
