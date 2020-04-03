@@ -81,6 +81,8 @@ This will navigate you to the System Settings List, where you can modify the val
 |testResult.score.low|The percentage score for a group of recommendations that will have the group appear in orange on the assessment results, indicating poor compliance.  Scores below this will appear in red, indicating very poor compliance.|number between 0-100|
 |alert.diffScoreThreshold|Threshold for producing the &quot;Test Result Diff Alert&quot; when test results are imported and when the score goes down compared to the previous score (same machine/benchmark/profile). The value is the score difference between the 2 test results. Default is 0.|A percentage between 0-100|
 |controls.version.default|Set your preferred CIS Controls default view.|CIS Controls version|
+|delete.assessment.start.time| Sets the start time that a job will begin processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.| A whole integer from 0 to 23
+|delete.assessment.end.time| Sets the end time that a job will stop processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.|A whole integer from 0 to 23
 
 
 ## Logging In/User Profile ##
@@ -653,6 +655,36 @@ The complete results report will give you a full view of a target system or grou
 The complete report lists the Target System, Benchmark,  Rule Number and Title, as well as the overall pass fail result of each individual rule.
 
 ![](http://i.imgur.com/Q9CmiC0.png)
+
+
+## Delete Multiple Configuration Reports ##
+Getting started with CIS Benchmark adoption often involves a period of analysis. During the analysis phase, reports may be imported, but results are not desired to be stored for a long period of time. Select multiple reports for removal the database, thus removing it from overall averages displayed in the graphical dashboard views.
+
+The report delete process begins by selecting desired reports in the "Assessment Results Search" screen. On confirmation, the selected reports are flagged for deletion. Once flagged, the flagged reports are removed from all averages in the Dashboard and can no longer be searched. The final purge will occur during the hours specified in system settings. The delete button and system settings are available to user with ROLE_ADMIN.
+
+It is highly recommended that a routine database backup process is in place, as the deletion process is permanent.
+
+### Select Reports for Deletion ###
+
+Navigate to “Assessment Results Search” in the “Reports” menu.
+
+![](https://i.imgur.com/F1HyoGj.png)
+
+Enter desired criteria, and press “Search”. The “Delete Report” button is available to Dashboard users with an admin role. View the reports by selecting “View”.
+
+![](https://i.imgur.com/TYRC5xk.png)
+
+Select the reports desired for removal from the database using the checkbox to the left of each report and select the “Delete Report” button. Confirm the delete by selecting “Delete” once more.
+
+![](https://i.imgur.com/NrXLZ9u.png)
+
+### Configure Final Report Delete Run Time ###
+
+Navigate to "Systems Settings" and locate the `delete.assessment.start.time` and `delete.assessment.end.time`. Only whole integers ranging from 0 to 23 will enable to final purge job to run successfully. For example, if the process should run between the hours of 5 p.m. and 11 p.m., then enter 17 as the `delete.assessment.start.time` and 23 as the `delete.assessment.end.time`. For jobs that should run between 11 p.m. and 5 a.m. the next morning, configure the `delete.assessment.start.time` to 23 and the `delete.assessment.end.time` to 5. A setting of any other value in either setting such as -1, will disable the job.
+
+![](https://i.imgur.com/jrwUuwh.png)
+
+![](https://i.imgur.com/Nzqx5pM.png)
 
 ## Exceptions ##
 The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules or groups of rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.

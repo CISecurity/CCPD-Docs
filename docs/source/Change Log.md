@@ -3,6 +3,19 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v1.1.12 ##
+
+### CIS-CAT Pro Updates ###
+
+- Multi-select configuration assessment report(s) for daily delete from database.
+- In-Dashboard alerts will now occur for new versions of Assessor v4 Service.
+- Full 2020 vulnerability definitions, downloaded from NIST, are now supported.
+- Resolved error on target system delete when ad hoc assessment job records exist for deleted target.
+
+### Documentation Updates ###
+
+ - Documentation and Dashboard installer updated to support recommended location of import directories as residing in the Tomcat structure.
+ - User guide emphasizes requirement of direct internet connectivity when integrated with CIS Workbench and downloading updated NVD Data from NIST.
 
 ## CIS-CAT Pro Dashboard v1.1.11 ##
 
