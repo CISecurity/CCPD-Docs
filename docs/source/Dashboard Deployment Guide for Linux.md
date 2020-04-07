@@ -82,10 +82,9 @@ Because CIS-CAT Pro Dashboard is a java-based application, members will need to 
 
 Ensure that the Java version displayed starts with 1.8.***
 
-
+<a name="applicationServerInstallation"></a>
 ### Application Server ###
 
-<a name="applicationServerInstallation"></a>
 
 Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.
 
