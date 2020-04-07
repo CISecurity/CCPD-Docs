@@ -16,6 +16,7 @@
 
  - Documentation and Dashboard installer updated to support recommended location of import directories as residing in the Tomcat structure.
  - User guide emphasizes requirement of direct internet connectivity when integrated with CIS Workbench and downloading updated NVD Data from NIST.
+ - Corrected key tool file path mentioned in Linux Deployment section in guide.
 
 ## CIS-CAT Pro Dashboard v1.1.11 ##
 
