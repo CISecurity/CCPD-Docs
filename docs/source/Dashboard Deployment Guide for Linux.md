@@ -46,7 +46,10 @@ Once the MySQL database has been installed, note the following information:
 
 ### Application Server ###
 On a separate server from the database server, install Ubuntu 16.04 (or any operating system supported in the member's environment).  It is important that the database server be separated from the application server for security reasons.  The application server needs to be accessible over the network so that users can access the application, but if the application database were on the same server, it could also be exposed.  By having a separate server, the database can be configured to only communicate over the network via the MySQL port, and therefore be more secure.  Secondly, this configuration is more scalable.  Members can add application servers to the environment as load increases and have the applications communicate with the same database server.
-Once Ubuntu 16.04 is installed, and a user can log in, run: sudo apt-get update, this will download the latest package lists from the known repositories so we can install some more software. 
+
+The [Application Server Instructions](#applicationServerInstallation) will further guide the installation.
+
+ 
 
 ### MySQL Client ###
 A MySQL client should be installed in order to test connectivity with the database and create the schema for CIS-CAT Pro Dashboard.
@@ -79,7 +82,11 @@ Because CIS-CAT Pro Dashboard is a java-based application, members will need to 
 
 Ensure that the Java version displayed starts with 1.8.***
 
+
 ### Application Server ###
+
+<a name="applicationServerInstallation"></a>
+
 Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.
 
 **Required Tomcat Configurations:**
@@ -159,17 +166,24 @@ The CIS-CAT Pro Dashboard officially supports **Google Chrome** web browser. Oth
 
 The permissions on the configuration file (ccpd-config.yml) and the logs directory for CIS-CAT Pro Dashboard need to allow the tomcat user to read and/or write.
 
-Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard Unix bundle from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance.
 
-After the CIS-CAT Pro Dashboard Unix bundle has been extracted, please confirm that its contents look similar to the following image:
+
+- Locate latest version of CIS-CAT Pro Dashboard in the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/)
+- Download the CIS-CAT Pro Dashboard Unix bundle from [CIS WorkBench](https://workbench.cisecurity.org/)
+- Extract the bundle on your tomcat instance and move contents of the extracted bundle to be placed under `/opt/tomcat/` as opposed to `/opt/tomcat/CIS-CAT Pro Dashboard...`.
+- Confirm contents of the bundle look similar to the following image:
 
 ![](https://i.imgur.com/h8sedNq.png)				
 
-We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) has been completed before continuing.
-
-Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer.sh` in this example).
-
-You must be logged in as root or as a user that has root privileges (use "sudo" or "su" to elevate your privileges) when you run the CIS-CAT Pro Dashboard Installer.
+- Stop Tomcat application server
+	- `run: sudo service tomcat stop`
+- Verify completed component installation
+	- Java8
+	- Tomcat 8.5
+	- Database
+- Execute CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer.sh` in this example) as root or user that has root privileges (use "sudo" or "su" to elevate your privileges)
+	- `run: sudo chmod 755 CIS-CAT_Pro_Dashboard_Installer.sh`
+	- `run: sudo ./CIS-CAT_Pro_Dashboard_Installer.sh`
 
 ####Welcome (First-time user)####
 First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. On this screen you can also see the location of the temporary installation log.
