@@ -3,11 +3,7 @@
 # Change Log #
 
 ----------
-## CIS-CAT Pro Dashboard v1.1.13 ##
 
-### CIS-CAT Pro Updates ###
-
-- Support added to facilitate import of configuration assessment results for CIS Benchmark VMWare ESXi 6.7.
 
 
 ## CIS-CAT Pro Dashboard v1.1.12 ##
