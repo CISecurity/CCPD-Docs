@@ -9,6 +9,10 @@
 
 - Support added to facilitate import of configuration assessment results for CIS Benchmark VMWare ESXi 6.7.
 
+### Documentation Updates ###
+
+ - Updated Java requirements to indicate that Java 8.251+ is not supported.
+
 
 ## CIS-CAT Pro Dashboard v1.1.12 ##
 

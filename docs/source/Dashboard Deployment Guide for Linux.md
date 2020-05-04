@@ -72,7 +72,8 @@ Here is a SQL statement to enable access for the remote user:
 For more details, refer to [this article](https://support.rackspace.com/how-to/mysql-connect-to-your-database-remotely/).
 
 ### Java 8 ###
-Because CIS-CAT Pro Dashboard is a java-based application, a compatible java is required. It may be necessary to remove an installed version prior to installing the compatible version. 
+Because CIS-CAT Pro Dashboard is a java-based application, a compatible java is required. It may be necessary to remove an installed version prior to installing the compatible version. Version 8.251+ of Java is NOT supported.
+
 
 
 1. Verify if Java is installed 

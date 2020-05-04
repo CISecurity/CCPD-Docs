@@ -114,7 +114,7 @@ Because CIS-CAT Pro Dashboard is a java-based application, members will need to 
 	java -version
 
 Ensure that the Java version displayed starts with 1.8.***.
-If it's not the case, please install the JDK/JRE 1.8.
+If it's not the case, please install the JDK/JRE 1.8. Version 8.251+ of Java is NOT supported.
 
 Oracle 1.8 can be downloaded from [the official website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
