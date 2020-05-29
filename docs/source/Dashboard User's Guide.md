@@ -552,7 +552,7 @@ The Job Status screen (Reports menu) lists only assessments requested from withi
 	- **Pending:** Assessor confirmed receipt of assessment request, waiting for CIS-CAT Pro Assessor v4 to start assessment activity.
 	- **In Progress:** Assessment activity has started.
 	- **Error:** Assessment could not start or encountered an error and could not finish. Hover over Error to learn more about the problem.
-	- **Assessment Complete:** The assessment has completed. The report may be in the process of uploading if Assessor has been configured to POST reports to Dashboard via the existing API. If the API has not been configured to POST to Dashboard, then the report is available at the desired Assessor configured location.
+	- **Assessment Complete:** The assessment has completed. This status does not represent viewing status in the Dashboard. The report may be in the process of uploading if Assessor Service has been configured to POST reports to Dashboard via the API. If the API has not been configured to POST to Dashboard or there is an issue uploading, then the report will not be viewable in the Dashboard. 
 - **Requested By:** The username that requested the assessment.
 - **Start Date:** The date and time of when the assessment was requested.
 - **End Date:** The date and time an assessment report was generated.
