@@ -650,22 +650,13 @@ Open a web browser and type `http://<public url of web server>/CCPD`, you should
 
 **Note 2**: Your network should now block traffic on 8080. Disable the inbound rule in Windows firewall on TCP 8080 (if needed).
 
-**Set Application Request Routing**
+### Set Application Request Routing ###
 
-In order for some CIS-CAT Pro Dashboard features to work, certain proxy settings must be enabled. If this is not enabled, it will not be possible to authenticate with the CIS Dashboard to receive in-Dashboard alerts when a new CIS-CAT Pro release is available.
+In order to integrate with and establish [authentication with CIS WorkBench](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/Dashboard%20Deployment%20Guide%20for%20Windows/#cis-workbench-integration), certain proxy settings must be configured. Configure the following:
 
 1. Navigate to the ARR proxy settings under IIS --> Application Request Routing Cache --> Server Proxy Settings
 2. Uncheck `Reverse rewrite host in response headers`
 
-See examples below:
-
-![](img/Serverproxysettings.png)
-
-
-![](img/Application_routing_cache.png)
-
-
-![](img/ApplicationRequestRouting.png)
 
 
 ### Securing Web Traffic ###
