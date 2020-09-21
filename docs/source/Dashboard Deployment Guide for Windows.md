@@ -144,7 +144,7 @@ The default tomcat location can be changed during the installation, for the purp
 To configure Tomcat Options, click right on system tray tomcat icon then click Configure, see screenshot. If the system tray tomcat icon is not present, go to "Start Menu/Apache Tomcat" and click on "Monitor Tomcat"<br/>
 For example, I added `-XX:MaxPermSize=2048m` in java option and set up initial `Initial memory pool` to `1024` and `Maximum memory pool` to `2048`. 
 
-!![](img/java_max_perm_size.png)
+![](img/java_max_perm_size.png)
 
 The application requires tomcat to use **UTF-8** as a default character encoding.<br/>
 If you receive the following error during an import, that means your system uses another character encoding:
@@ -153,7 +153,7 @@ If you receive the following error during an import, that means your system uses
 
 To change the tomcat default character encoding to UTF-8, please add `-Dfile.encoding=UTF-8` option as following:
 
-!![](img/java_UTF8.png)
+![](img/java_UTF8.png)
 
 
 Tomcat service can be started/stopped from the system tray tomcat monitoring icon or from the windows services screen. 
