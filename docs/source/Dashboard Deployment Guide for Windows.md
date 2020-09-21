@@ -658,6 +658,9 @@ In order to integrate with and establish [authentication with CIS WorkBench](htt
 2. Uncheck `Reverse rewrite host in response headers`
 
 
+![](img/Application_routing_cache.png)
+
+![](img/ApplicationRequestRouting.png)
 
 ### Securing Web Traffic ###
 The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port `80`.  This presents a risk as data, including user credentials, will be transmitted in clear text. It is recommended that traffic be secured using HTTPS.  
