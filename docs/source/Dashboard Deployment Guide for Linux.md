@@ -17,7 +17,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 
  - 2 Ubuntu 16.04 servers* 
  - MySQL 5.6 (Server #1)
- - Tomcat 8 (Server #2)
+ - Tomcat 8 or 9 (recommended) (Server #2)
  - Apache 2.4 (Server #2)
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
@@ -101,7 +101,7 @@ Because CIS-CAT Pro Dashboard is a java-based application, a compatible java is 
 ### Application Server ###
 
 
-Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6.
+Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. Install Apache Tomcat 9 by reviewing [this article](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804).
 
 **Required Tomcat Configurations:**
 
@@ -112,13 +112,12 @@ Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com
  - Remove default applications
 
 **NOTE:** The tomcat version in the article is no longer available. <br/>
-Please access to [this url](http://apache.mirrors.ionfish.org/tomcat/tomcat-8/) in order to know the latest version of tomcat 8.5. Then replace the `VERSION_NUMBER` tags in the following link and use it to download tomcat in the curl command:
+Please access the Apache Tomcat (Apache Tomcat 9 recommended) site to download the [application](http://tomcat.apache.org/). 
  
-	http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.<VERSION_NUMBER>/bin/apache-tomcat-8.5.<VERSION_NUMBER>.tar.gz
 
-As an example, if your version of tomcat is `8.5.28`, your curl command would look like the below:
+As an example, if your version of tomcat is `9.0.39`, your curl command would look like the below:
 	
-	curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz
+	curl -O paste_the_copied_link_here
 
 
 Open `/opt/tomcat/conf/server.xml` and find this line:
@@ -192,8 +191,8 @@ The permissions on the configuration file (ccpd-config.yml) and the logs directo
 - Stop Tomcat application server
 	- `run: sudo service tomcat stop`
 - Verify completed component installation
-	- Java8
-	- Tomcat 8.5
+	- Java 8+
+	- Tomcat 8 or 9
 	- Database
 - Execute CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer.sh` in this example) as root or user that has root privileges (use "sudo" or "su" to elevate your privileges)
 	- `run: sudo chmod 755 CIS-CAT_Pro_Dashboard_Installer.sh`
@@ -284,7 +283,7 @@ If the installer process was successful, the Complete screen will be presented. 
 ![](https://i.imgur.com/PiIB6RR.jpg)
 
 ####Installer Logs
-During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). 
+During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file on a [support ticket created on our support portal](https://www.cisecurity.org/support/). 
 
 The permissions on the configuration file (ccpd-config.yml) and the logs directory for CIS-CAT Pro Dashboard need to allow the tomcat user to read and/or write.
 
@@ -1101,7 +1100,7 @@ Now CIS-CAT Pro Dashboard and CIS WorkBench are disconnected.
 
 Although your connection is no longer active between CIS-CAT Pro Dashboard and CIS WorkBench, **an active API client exists on your organization’s profile on the CIS WorkBench**. We keep this API client to allow you to reconnect easily.
  
-However, if you no longer want to utilize the service, please contact CIS Support at support@cisecurity.org in order to delete the API client.
+However, if you no longer want to utilize the service, please contact CIS Support by opening a [support ticket](https://www.cisecurity.org/support/) in order to delete the API client.
 
 ##Dashboard API##
 

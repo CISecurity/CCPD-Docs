@@ -927,3 +927,9 @@ There are several ways to import the NVD data into your dashboard instance:
  - **Update NVD Data via Import** - Internet connectivity not required. Manually download most recent JSON vulnerability feed from NVD. Move the files to the Legacy folder on the supporting Dashboard machine or use the Import Vulnerability Feed button from the Vulnerability list page to manually select the files. The import is completed with an asyncronous process. A Dashboard Inbox alert will be present for each completely imported file.
 
 **Note:** Import of NVD feeds in **XML format is no longer supported**. Please use the JSON format. 
+
+## Trouble Shooting and Support ##
+
+For CIS support, enter a support request at our [online support portal](https://www.cisecurity.org/support/).
+
+Start a discussion on the [CIS-CAT Discussion Group](https://workbench.cisecurity.org/communities/30), (login required). These discussions are a great way for members to use their experience to support each other.

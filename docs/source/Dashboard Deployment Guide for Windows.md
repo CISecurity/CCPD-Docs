@@ -17,7 +17,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 
  - 2 Windows Server 2016 servers* 
  - MS SQL Server 2017 (Server #1)
- - Tomcat 8.5 (Server #2)
+ - Tomcat 8.5 or 9 (recommended) (Server #2)
  - IIS 10.0 Web Server (Server #2)
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
@@ -107,24 +107,22 @@ Connected to the distant SQL server using as following:
 Then click right on "Databases" folder on the left panel (I.E. Object Explorer) then click on "New Database". Set the Database Name to `ccpd`. 
 
 
-###Java 8###
-Because CIS-CAT Pro Dashboard is a java-based application, members will need to ensure that java is installed. On a Command Prompt, type the following command:
+###Java###
 
-	# Ensure Java is installed at the proper version level
+Java versions 8 through 14 are supported by CIS-CAT Pro Dashboard v2.0.0+. Only Java 8 is supported for prior versions of the Dashboard.
+
+Verify the version of Java installed using the command below at Command Prompt:
+
+	# Ensure the Java installed is version 8 to 14 if using Dashboard v2.0.0+ and 8 if using any other
 	java -version
 
-Ensure that the Java version displayed starts with 1.8.***.
-If it's not the case, please install the JDK/JRE 1.8. Version 8.251+ of Java is NOT supported.
-
-Oracle 1.8 can be downloaded from [the official website](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-
-OpenJDK can be used in addition to the Oracle version. OpenJDK 1.8 can be downloaded from [the official website](http://jdk.java.net/).
 
 ### Application Server###
 
-Download tomcat 8.5 32-bit/64-bit Windows Service Installer from [the official website](https://tomcat.apache.org/download-80.cgi).
+Apache Tomcat 9 is supported as of version 2.0.0 of the CIS-CAT Pro Dashboard. 
 
-Install the application server as following, for more details, please follow [the official guide.](https://tomcat.apache.org/tomcat-8.5-doc/)<br/>
+Install Apache Tomcat 9 by reviewing [this article](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804). Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. 
+<br/>
 
 **Required Tomcat Configurations:**
 
@@ -275,7 +273,7 @@ If the installer process was successful, the Complete screen will be presented. 
 ![](https://i.imgur.com/KYAkuGj.png)
 
 ####Installer Logs
-During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each installation attempt will create an individual log with a timestamp. For Windows, this location would be `C:\Users\loggedinUser\AppData\Local\Temp`. If you have trouble with the installation, please provide this log file to [support@cisecurity.org](mailto://support@cisecurity.org). To view the log at any time, select the button that says Get Installation log.
+During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each installation attempt will create an individual log with a timestamp. For Windows, this location would be `C:\Users\loggedinUser\AppData\Local\Temp`. If you have trouble with the installation, please provide this log file on a [support ticket](https://www.cisecurity.org/support/). To view the log at any time, select the button that says Get Installation log.
 
 <a name="confAndDeploymentManual"></a>
 ##Configuration and Deployment - Manual##
@@ -1195,7 +1193,7 @@ Now CIS-CAT Pro Dashboard and CIS WorkBench are disconnected.
 
 Although your connection is no longer active between CIS-CAT Pro Dashboard and CIS WorkBench, **an active API client exists on your organization’s profile on the CIS WorkBench**. We keep this API client to allow you to reconnect easily.
  
-However, if you no longer want to utilize the service, please contact CIS Support at support@cisecurity.org in order to delete the API client.
+However, if you no longer want to utilize the service, please open a ticket at the [CIS Support Portal](https://www.cisecurity.org/support/) in order to delete the API client.
 
 ##Dashboard API##
 
