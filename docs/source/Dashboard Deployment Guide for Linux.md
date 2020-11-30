@@ -17,7 +17,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 
  - 2 Ubuntu 16.04 servers* 
  - MySQL 5.6 (Server #1)
- - Tomcat 8 or 9 (recommended) (Server #2)
+ - Tomcat 8 (Server #2)
  - Apache 2.4 (Server #2)
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
@@ -101,7 +101,7 @@ Because CIS-CAT Pro Dashboard is a java-based application, a compatible java is 
 ### Application Server ###
 
 
-Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. Install Apache Tomcat 9 by reviewing [this article](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804).
+Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. 
 
 **Required Tomcat Configurations:**
 
@@ -112,12 +112,13 @@ Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com
  - Remove default applications
 
 **NOTE:** The tomcat version in the article is no longer available. <br/>
-Please access the Apache Tomcat (Apache Tomcat 9 recommended) site to download the [application](http://tomcat.apache.org/). 
+Please access to [this url](http://apache.mirrors.ionfish.org/tomcat/tomcat-8/) in order to know the latest version of tomcat 8.5. Then replace the `VERSION_NUMBER` tags in the following link and use it to download tomcat in the curl command:
  
+http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.<VERSION_NUMBER>/bin/apache-tomcat-8.5.<VERSION_NUMBER>.tar.gz
 
-As an example, if your version of tomcat is `9.0.39`, your curl command would look like the below:
+As an example, if your version of tomcat is `8.5.28`, your curl command would look like the below:
 	
-	curl -O paste_the_copied_link_here
+	curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz
 
 
 Open `/opt/tomcat/conf/server.xml` and find this line:
@@ -191,8 +192,8 @@ The permissions on the configuration file (ccpd-config.yml) and the logs directo
 - Stop Tomcat application server
 	- `run: sudo service tomcat stop`
 - Verify completed component installation
-	- Java 8+
-	- Tomcat 8 or 9
+	- Java 8
+	- Tomcat 8.5
 	- Database
 - Execute CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer.sh` in this example) as root or user that has root privileges (use "sudo" or "su" to elevate your privileges)
 	- `run: sudo chmod 755 CIS-CAT_Pro_Dashboard_Installer.sh`

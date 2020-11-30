@@ -17,7 +17,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 
  - 2 Windows Server 2016 servers* 
  - MS SQL Server 2017 (Server #1)
- - Tomcat 8.5 or 9 (recommended) (Server #2)
+ - Tomcat 8.5 (Server #2)
  - IIS 10.0 Web Server (Server #2)
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
@@ -109,20 +109,21 @@ Then click right on "Databases" folder on the left panel (I.E. Object Explorer) 
 
 ###Java###
 
-Java versions 8 through 14 are supported by CIS-CAT Pro Dashboard v2.0.0+. Only Java 8 is supported for prior versions of the Dashboard.
+CIS-CAT Pro Dashboard requires a JRE version 8. OpenJDK versions are also supported.
 
 Verify the version of Java installed using the command below at Command Prompt:
 
-	# Ensure the Java installed is version 8 to 14 if using Dashboard v2.0.0+ and 8 if using any other
+	# Ensure the Java installed is version 8 is installed
 	java -version
 
+**NOTE: JRE versions 8.251+ are not supported.** 
 
 ### Application Server###
 
-Apache Tomcat 9 is supported as of version 2.0.0 of the CIS-CAT Pro Dashboard. 
+Download tomcat 8.5 32-bit/64-bit Windows Service Installer from [the official website](https://tomcat.apache.org/download-80.cgi).
 
-Install Apache Tomcat 9 by reviewing [this article](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804). Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. 
-<br/>
+Install the application server as following, for more details, please follow [the official guide.](https://tomcat.apache.org/tomcat-8.5-doc/)<br/>
+
 
 **Required Tomcat Configurations:**
 
