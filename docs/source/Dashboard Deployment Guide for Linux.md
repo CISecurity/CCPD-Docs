@@ -16,9 +16,10 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
 
  - 2 Ubuntu 16.04 servers* 
- - MySQL 5.6 (Server #1)
- - Tomcat 8 (Server #2)
- - Apache 2.4 (Server #2)
+	 - **Server 1**: MySQL 5.6
+	 - **Server 2:** Tomcat 8 or 9 (Recommended)
+	 - **Server 2:** Apache 2.4
+	 - **Server 2:** JRE 8 to 11.0.2 (OpenJDK versions supported)
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
 
@@ -45,7 +46,7 @@ Once the MySQL database has been installed, note the following information:
 - username/password for connecting to the database
 
 ### Application Server ###
-On a separate server from the database server, install Ubuntu 16.04 (or any operating system supported in the member's environment).  It is important that the database server be separated from the application server for security reasons.  The application server needs to be accessible over the network so that users can access the application, but if the application database were on the same server, it could also be exposed.  By having a separate server, the database can be configured to only communicate over the network via the MySQL port, and therefore be more secure.  Secondly, this configuration is more scalable.  Members can add application servers to the environment as load increases and have the applications communicate with the same database server.
+As security best practice, CIS recommends a separate server installation for the database and the application.  The application server requires network accessibility for multiple users of the Dashboard application. To reduce exposure of the data in the database to the broader network, install the database on a separate server.  Configure the database to only only allow communication over the network via the MySQL port.  A separate server for the database also helps with performance. Where necessary as load increases, application servers can be added to the environment with the same database server connectivity.
 
 The [Application Server Instructions](#applicationServerInstallation) will further guide the installation.
 
@@ -71,55 +72,57 @@ Here is a SQL statement to enable access for the remote user:
 	
 For more details, refer to [this article](https://support.rackspace.com/how-to/mysql-connect-to-your-database-remotely/).
 
-### Java 8 ###
-Because CIS-CAT Pro Dashboard is a java-based application, a compatible java is required. It may be necessary to remove an installed version prior to installing the compatible version. Version 8.251+ of Java is NOT supported.
+### Java Runtime Environment (JRE) ###
+Because CIS-CAT Pro Dashboard is a java-based application, a compatible java runtime environment (JRE) is required. OpenJDK versions are also supported. 
 
+Java versions 8 through 11.0.2 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
 
-
-1. Verify if Java is installed 
+1. Verify if JRE is installed 
 	
 	`java -version`
 
 
-
-1. Ensure that the Java version displayed starts with 1.8.***
-
-
-
 1. If Java is not installed, install an OpenJDK JDK/JRE
 	
-	`sudo apt-get install openjdk-8-jre`
+	`sudo apt-get install openjdk-11-jre`
 
-1. If the installed version of Java is not 8, uninstall using a command similar to below (depending on the installed version of Java)
+
+
+CIS currently tests with JRE versions 8 and 11.0.2. However, the Dashboard may run successfully with later versions of JRE. Below is a useful command to uninstall versions of JRE:
 	
-	`sudo apt-get autoremove openjdk-11-jre` 
+	`sudo apt-get autoremove openjdk-14-jre` 
  
-	
 	
 
 <a name="applicationServerInstallation"></a>
 ### Application Server ###
 
+It is recommended to [download and install Apache Tomcat 9](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804) to support CIS-CAT Pro Dashboard v2.0.0+.
 
-Install Apache Tomcat 8 by following [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. 
+Should Apache Tomcat 8 be required by your organization for prior versions of Dashboard, follow [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. 
+
+The below instructions will assume installation of Apache Tomcat 9.
+
+The CIS Apache Tomcat 9 Benchmark provides prescriptive guidance for establishing a secure configuration posture for Apache Tomcat versions 9 running on Linux. CIS recommends consulting this guidance in addition to CIS-CAT specific configurations. For example, many of the recommendations make the assumption that the privileged access is granted only to `tomcat_admin`. See [CIS Tomcat Benchmark](https://workbench.cisecurity.org/benchmarks/4439/files).
 
 **Required Tomcat Configurations:**
 
- - UTF 8 default character encoding
  - maxPostSize attribute
  - Environment variables
  - JVM Heap Settings
+ - UTF 8 default character encoding
  - Remove default applications
+ - Add bcprov*.jar to "jars to skip" in catalina.properites file
 
 **NOTE:** The tomcat version in the article is no longer available. <br/>
-Please access to [this url](http://apache.mirrors.ionfish.org/tomcat/tomcat-8/) in order to know the latest version of tomcat 8.5. Then replace the `VERSION_NUMBER` tags in the following link and use it to download tomcat in the curl command:
- 
-http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.<VERSION_NUMBER>/bin/apache-tomcat-8.5.<VERSION_NUMBER>.tar.gz
+Please access the Apache Tomcat (Apache Tomcat 9 recommended) site to download the application.
+As an example, if your version of tomcat is 9.0.39, your curl command would look like the below:
 
-As an example, if your version of tomcat is `8.5.28`, your curl command would look like the below:
 	
-	curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz
+	curl -O paste_the_copied_link_here
 
+#### Configure maxPostSize Attribute ####
+This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
 
 Open `/opt/tomcat/conf/server.xml` and find this line:
 
@@ -134,9 +137,10 @@ and add the maxPostSize attribute:
            redirectPort="8443"
            maxPostSize="35728640"/>
 
-This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
 
 **Note:** During an import, if you receive an exception related to the maxPostSize limitation, make sure that you use CIS-CAT Pro Dashboard 1.1.9+ and CIS-CAT Pro Assessor V4 4.0.12+ with the property set to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
+
+#### Add Environment Variables ####
 
 Open `/opt/tomcat/bin/catalina.sh` and add the following lines to the top of the file, which will add some environment variables that CIS-CAT Pro Dashboard requires to run.
 
@@ -145,9 +149,13 @@ Open `/opt/tomcat/bin/catalina.sh` and add the following lines to the top of the
 
 **Note:**  The values of these environment variables can be configured to any location the administrator wishes, and must be to file system locations to which the Tomcat application server can access on startup.
 
+#### Configure JVM Heap Settings ####
+
 To set the JVM Heap Settings, add the following line in setenv.sh or catalina.sh:
 
 	export CATALINA_OPTS="-Xms1024M -Xmx2048M "
+
+#### Set UTF 8 Character Encoding ####
 
 The application requires tomcat to use **UTF-8** as a default character encoding.<br/>
 If you receive the following error during an import, that means your system uses another character encoding:
@@ -159,8 +167,8 @@ To change the tomcat default character encoding to UTF-8, please add `-Dfile.enc
 	export CATALINA_OPTS="-Xms1024M -Xmx2048M -Dfile.encoding=UTF-8"
 
 
-#### Security Considerations ####
-As a final step we want to remove the default applications available from the Tomcat install, including the examples and management applications.  These default sites can and will give away information about the environment and present an information security risk.
+#### Remove Default Applications ####
+Remove the default applications available from the Tomcat install, including the examples and management applications.  These default sites can and will give away information about the environment and present an information security risk.
 
 	# Navigate to the Tomcat applications directory
 	cd /opt/tomcat/webapps
@@ -169,6 +177,14 @@ As a final step we want to remove the default applications available from the To
 	sudo rm -R *  
 
 This will remove all the default applications from the tomcat installation to help reduce the attack surface of the application server.
+
+#### Modify Property File ####
+
+Add bcprov*.jar to the list that appears here:
+
+Open `/opt/tomcat/conf/catalina.properties` and add `bcprov*.jar` to list that appears under: 
+
+	tomcat.util.scan.StandardJarScanFilter.jarsToSkip
 
 
 ### Web Browser###
@@ -192,8 +208,8 @@ The permissions on the configuration file (ccpd-config.yml) and the logs directo
 - Stop Tomcat application server
 	- `run: sudo service tomcat stop`
 - Verify completed component installation
-	- Java 8
-	- Tomcat 8.5
+	- JRE 8+ (see Java notes above)
+	- Tomcat 8 or 9 (recommended for Dashboard v2.0.0+)
 	- Database
 - Execute CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer.sh` in this example) as root or user that has root privileges (use "sudo" or "su" to elevate your privileges)
 	- `run: sudo chmod 755 CIS-CAT_Pro_Dashboard_Installer.sh`
