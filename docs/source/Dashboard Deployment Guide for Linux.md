@@ -100,7 +100,7 @@ Replace `14` above with the desired version to uninstall.
 <a name="applicationServerInstallation"></a>
 ### Application Server ###
 
-It is recommended to [utilize Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi) with CIS-CAT Pro Dashboard v2.0.0+. We have found [this site]((https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804) useful to guide installation. The below instructions will assume installation of Apache Tomcat 9.
+It is recommended to [utilize Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi) with CIS-CAT Pro Dashboard v2.0.0+. We have found [this site](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804) useful to guide installation. The below instructions will assume installation of Apache Tomcat 9.
 
 
 Should Apache Tomcat 8 be required by your organization for prior versions of Dashboard, follow [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. 
