@@ -15,11 +15,15 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 **CIS Preferred Component Installation**<br/>
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
 
- - 2 Ubuntu 16.04 servers* 
-	 - **Server 1**: MySQL 5.6
-	 - **Server 2:** Tomcat 8 or 9 (Recommended)
-	 - **Server 2:** Apache 2.4
-	 - **Server 2:** JRE 8 to 11.0.2 (OpenJDK versions supported)
+ 2 Ubuntu 16.04 servers* 
+	
+
+- **Server 1**: MySQL 5.6
+- **Server 2:** Tomcat 8 or 9 (Recommended)
+- **Server 2:** Apache 2.4
+- **Server 2:** JRE 8 to 11
+	- OpenJDK versions supported
+	- Java Development Kits (JDK) versions 9+ contain the JRE
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
 
@@ -75,7 +79,7 @@ For more details, refer to [this article](https://support.rackspace.com/how-to/m
 ### Java Runtime Environment (JRE) ###
 Because CIS-CAT Pro Dashboard is a java-based application, a compatible java runtime environment (JRE) is required. OpenJDK versions are also supported. 
 
-Java versions 8 through 11.0.2 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
+Java versions 8 through 11 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
 
 1. Verify if JRE is installed 
 	
@@ -87,21 +91,27 @@ Java versions 8 through 11.0.2 are officially supported by CIS-CAT Pro Dashboard
 	`sudo apt-get install openjdk-11-jre`
 
 
-
-CIS currently tests with JRE versions 8 and 11.0.2. However, the Dashboard may run successfully with later versions of JRE. Below is a useful command to uninstall versions of JRE:
+CIS currently tests with JRE versions 8 and 11. However, the Dashboard may run successfully with later versions of JRE. Below is a example command to uninstall a specific version of JRE:
 	
 	`sudo apt-get autoremove openjdk-14-jre` 
  
-	
+Replace `14` above with the desired version to uninstall.	
 
 <a name="applicationServerInstallation"></a>
 ### Application Server ###
 
-It is recommended to [download and install Apache Tomcat 9](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804) to support CIS-CAT Pro Dashboard v2.0.0+.
+It is recommended to [utilize Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi) with CIS-CAT Pro Dashboard v2.0.0+. We have found [this site]((https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804) useful to guide installation. The below instructions will assume installation of Apache Tomcat 9.
+
 
 Should Apache Tomcat 8 be required by your organization for prior versions of Dashboard, follow [this article](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-ubuntu-16-04), through the end of Step 6. 
 
-The below instructions will assume installation of Apache Tomcat 9.
+The specific versions of Tomcat 8 or 9 mentioned in the installation articles are no longer available for download, but the instructions are still applicable to currently available downloads.
+
+As an example, if your version of tomcat is 9.0.39, your curl command would look like the below:
+
+	
+	curl -O paste_the_copied_link_here
+
 
 The CIS Apache Tomcat 9 Benchmark provides prescriptive guidance for establishing a secure configuration posture for Apache Tomcat versions 9 running on Linux. CIS recommends consulting this guidance in addition to CIS-CAT specific configurations. For example, many of the recommendations make the assumption that the privileged access is granted only to `tomcat_admin`. See [CIS Tomcat Benchmark](https://workbench.cisecurity.org/benchmarks/4439/files).
 
@@ -112,14 +122,9 @@ The CIS Apache Tomcat 9 Benchmark provides prescriptive guidance for establishin
  - JVM Heap Settings
  - UTF 8 default character encoding
  - Remove default applications
- - Add bcprov*.jar to "jars to skip" in catalina.properites file
+ - Add bcprov*.jar to "jars to skip" in catalina.properties file
 
-**NOTE:** The tomcat version in the article is no longer available. <br/>
-Please access the Apache Tomcat (Apache Tomcat 9 recommended) site to download the application.
-As an example, if your version of tomcat is 9.0.39, your curl command would look like the below:
 
-	
-	curl -O paste_the_copied_link_here
 
 #### Configure maxPostSize Attribute ####
 This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
@@ -138,7 +143,7 @@ and add the maxPostSize attribute:
            maxPostSize="35728640"/>
 
 
-**Note:** During an import, if you receive an exception related to the maxPostSize limitation, make sure that you use CIS-CAT Pro Dashboard 1.1.9+ and CIS-CAT Pro Assessor V4 4.0.12+ with the property set to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
+**Note:** During an import, if you receive an exception related to the maxPostSize limitation, make sure that you use CIS-CAT Pro Dashboard 1.1.9+ and CIS-CAT Pro Assessor v4.0.12+ with the property set to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
 
 #### Add Environment Variables ####
 
@@ -188,7 +193,7 @@ Open `/opt/tomcat/conf/catalina.properties` and add `bcprov*.jar` to list that a
 
 
 ### Web Browser###
-The CIS-CAT Pro Dashboard officially supports **Google Chrome** web browser. Other browsers may also work but may produce unexpected behavior.
+The CIS-CAT Pro Dashboard officially supports **Google Chrome** web browser. Other browsers  may produce unexpected behavior.
 
 <a name="confAndDeploymentInstaller"></a>
 ##Configuration and Deployment - Installer##
