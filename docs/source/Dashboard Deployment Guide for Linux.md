@@ -320,75 +320,79 @@ The permissions on these files need to allow the tomcat user to read/write.  The
 
 Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-config.yml`, including the following lines:
 
-	environments:
-	    production:
-	        grails:
-	                serverURL: 'http://<url_of_apache_or_tomcat>:8080/CCPD' #if apache is not set up, only tomcat
-	                #serverURL: 'http://<url_of_apache_or_tomcat>/CCPD' #if apache is set up use
-	                #serverURL: 'https://<url_of_apache_or_tomcat>/CCPD' #if HTTPS is set up use
-	        server:
-	            'contextPath': '/CCPD'
-	        dataSource:
-	            dbCreate: update
-	
-	            #MySQL DB Settings
-	
-	            driverClassName: org.mariadb.jdbc.Driver
-	            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-	            url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
-	            username: <db_user>
-	            password: <db_password>
-	
-	            #SQL Server DB Setting
-	
-	            #driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-	            #dialect: org.hibernate.dialect.SQLServer2008Dialect
-	            #url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
-	            #username: <db_user>
-	            #password: <db_password>
-	
-	            #Oracle DB Settings
-	
-	            #driverClassName: oracle.jdbc.OracleDriver
-	            #dialect: org.hibernate.dialect.Oracle10Dialect
-	            #url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
-	            #username: <db_user>
-	            #password: <db_password>
-	
-	            properties:
-	                  jmxEnabled: true
-	                  initialSize: 5
-	                  maxActive: 50
-	                  minIdle: 5
-	                  maxIdle: 25
-	                  maxWait: 10000
-	                  maxAge: 600000
-	                  # validationQuery: SELECT 1 from DUAL #ORACLE
-	                  validationQuery: SELECT 1 #Non-Oracle
-	                  validationQueryTimeout: 3
-	                  validationInterval: 15000
-	                  defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
-	                  #defaultTransactionIsolation: 1 #SQL SERVER ONLY
-	                  dbProperties:
-	                        autoReconnect: true
-	
-	
 	grails:
-	    mail:
-	        host: <smtp server host name>
-	        port: 465
-	        username: <username>
-	        password: <password>
-	        props:
-	            mail.transport.protocol: "smtps"
-	            mail.smtp.port: "465"
-	            mail.smtp.auth: "true"
-	            mail.smtp.starttls.enable: "true"
-	            mail.smtp.starttls.required: "true"
+    	serverURL: 'http://<url_of_apache_or_tomcat>:8080/CCPD' #if apache is not set up, only tomcat
+		#serverURL: 'http://<url_of_apache_or_tomcat>/CCPD' #if apache is set up use
+		#serverURL: 'https://<url_of_apache_or_tomcat>/CCPD' #if HTTPS is set up use
+    	mail:
+        	host: ""
+        	port: 
+        	username: ""
+       	 	password: ""
+        	props:
+            	mail.smtp.auth: ""
+            	mail.smtp.socketFactory.port: ""
+            	mail.smtp.socketFactory.class: ""
+            	mail.smtp.socketFactory.fallback: ""
+            	mail.smtp.starttls.enable: ""
+    
+		plugin:
+        	springsecurity:
+            	ui:
+                	forgotPassword:
+                    	emailFrom: "no-reply@CISCATProDashboard.com"
+    	assessorService:
+        	active: false
+        	url: ""
+        	ignoreSslCertErrors: false
+	server:
+    	'contextPath': '/CCPD'
+    	servlet:
+        	context-path: '/CCPD'
+	dataSource:
+		dbCreate: update
 	
-	database: MySQL
-	#database: SQLServer
-	#database: Oracle
+		#MySQL DB Settings
+
+		driverClassName: org.mariadb.jdbc.Driver
+		dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+		url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
+		username: <db_user>
+		password: <db_password>
+
+		#SQL Server DB Setting
+
+		#driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+		#dialect: org.hibernate.dialect.SQLServer2008Dialect
+		#url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
+		#username: <db_user>
+		#password: <db_password>
+
+		#Oracle DB Settings
+
+		#driverClassName: oracle.jdbc.OracleDriver
+		#dialect: org.hibernate.dialect.Oracle10Dialect
+		#url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
+		#username: <db_user>
+		#password: <db_password>
+	
+		properties:
+			  jmxEnabled: true
+			  initialSize: 5
+			  maxActive: 50
+			  minIdle: 5
+			  maxIdle: 25
+			  maxWait: 10000
+			  maxAge: 600000
+			  #validationQuery: SELECT 1 from DUAL #ORACLE
+			  validationQuery: SELECT 1 #Non-Oracle
+			  validationQueryTimeout: 3
+			  validationInterval: 15000
+			  defaultTransactionIsolation: 2 # ORACLE AND MYSQL
+			  #defaultTransactionIsolation: 1 #SQL SERVER ONLY
+			  dbProperties:
+					autoReconnect: true
+	database: MySQL										
 
 
 This file is also available in the CIS-CAT-Pro-Dashboard bundle, you will just need to replace the pertinent information, marked with <>, with the specifics of your environment.
@@ -406,6 +410,13 @@ If you use MySQL 5.7 version, you need to replace:
 by:
 
 	database: MySQL.5.7
+
+### Manually Upgrading Dashboard Configuration File from Prior Versions to v2.0.0+###
+
+If updating Dashboard's ccpd-config.yml file manually, there are a few spacing changes that need to occur as well as a removal of two lines. See the below screen shot for what to change.
+
+![](img/ConfigManualUpdate.png)
+
 
 ### Database Configuration ###
 By default the ccpd-config.yml is configured to utilize a MySQL database.  Starting with version v1.0.3 you will be able to use MS SQL Server and Oracle Databases as well.  In the ccpd-config.yml, there are several settings you need to make to utilize these other DBMS:

@@ -19,7 +19,9 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
  - **Server 1:** Microsoft SQL Server 2017
  - **Server 2:** Tomcat 8.5 or 9 (Recommended for Dashboard v2.0.0+)
  - **Server 2:** IIS 10.0 Web Server
- - **Server 2:** Java Runtime or Development Environment 8 to 11 (OpenJDK versions also supported)
+ - **Server 2:** Java Runtime or Development Environment 8 to 11
+ 	- OpenJDK versions supported
+	- Java Development Kits (JDK) versions 9+ contain the JRE
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
 
@@ -112,7 +114,7 @@ Then click right on "Databases" folder on the left panel (I.E. Object Explorer) 
 
 Because CIS-CAT Pro Dashboard is a java-based application, a compatible java runtime environment (JRE) is required. OpenJDK versions are also supported. 
 
-Java versions 8 through 11.0.2 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
+Java versions 8 through 11 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
 
 Verify the version of Java installed using the command below at Command Prompt:
 
@@ -402,6 +404,13 @@ by:
 
 	database: MySQL.5.7 
  
+### Manually Upgrading Dashboard Configuration File from Prior Versions to v2.0.0+###
+
+If updating Dashboard's ccpd-config.yml file manually, there are a few spacing changes that need to occur as well as a removal of two lines. See the below screen shot for what to change.
+
+![](img/ConfigManualUpdate.png)
+
+
 
 ### Database Configuration ###
 By default, the ccpd-config.yml is configured to utilize a MySQL database.  Microsoft SQL Server and Oracle Databases are also supported.  In the ccpd-config.yml, there are several settings you need to make to utilize these other DBMS:
