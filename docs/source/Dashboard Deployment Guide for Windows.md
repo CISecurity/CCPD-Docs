@@ -213,7 +213,7 @@ After the CIS-CAT Pro Dashboard bundle has been extracted, please confirm that i
 
 ![](https://i.imgur.com/xthTnYn.png)
 
-We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java8, Tomcat 8.5 and a Database (MySQL, SQL Server or Oracle) has been completed before continuing.
+We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java Runtime Environment, Tomcat and a Database (MySQL, SQL Server or Oracle) has been completed before continuing.
 
 Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer-x64.exe` in this example).
 
@@ -227,12 +227,11 @@ First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented w
 ####Welcome (From previous installation)####
 Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen.
 
-![](https://i.imgur.com/9hEFkHE.png)
+![](img/InstallerWelcomeExisting.png)
 
-####Installation Actions####
-As part of Installation Actions, at least one action must be selected in order to navigate to the next step. As an option, the actions can also be completed together. Both actions must be completed successfully (together or separately) as part of the overall CIS-CAT Pro Dashboard Deployment Guide. The screens will navigate only to the information required to be collected for the installation actions selected.
+####Existing Dashboard Installation and Express Installation ####
+If there are no expected changes to the existing installation, this is the best option to select to simply update the *.war file with the latest. 
 
-![](https://i.imgur.com/KyDgIxi.png)
 
 ####Configuration File Location####
 If this is a new installation <u>and</u> “Create/update CIS-CAT Pro Dashboard configuration File” was previously selected, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
