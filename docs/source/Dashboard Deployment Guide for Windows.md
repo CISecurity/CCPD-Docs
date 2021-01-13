@@ -16,14 +16,15 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
 
  - 2 Windows Server 2016 servers* 
- - MS SQL Server 2017 (Server #1)
- - Tomcat 8.5 (Server #2)
- - IIS 10.0 Web Server (Server #2)
+ - **Server 1:** Microsoft SQL Server 2017
+ - **Server 2:** Tomcat 8.5 or 9 (Recommended for Dashboard v2.0.0+)
+ - **Server 2:** IIS 10.0 Web Server
+ - **Server 2:** Java Runtime or Development Environment 8 to 11 (OpenJDK versions also supported)
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
 
 ## System Recommendations ##
- There are no strict requirements associated with our Dashboard application. Any OS will be suitable so long as it can run Tomcat. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
+ CIS currently tests using Microsoft Windows Server 2016, but we know Members find success with later versions of Microsoft servers. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
 
 Our test environment uses an AWS t2.large instance (designed for burst processing), which has:
 
@@ -107,43 +108,52 @@ Connected to the distant SQL server using as following:
 Then click right on "Databases" folder on the left panel (I.E. Object Explorer) then click on "New Database". Set the Database Name to `ccpd`. 
 
 
-###Java###
+###Java Runtime Environment (JRE)###
 
-CIS-CAT Pro Dashboard requires a JRE version 8. OpenJDK versions are also supported.
+Because CIS-CAT Pro Dashboard is a java-based application, a compatible java runtime environment (JRE) is required. OpenJDK versions are also supported. 
+
+Java versions 8 through 11.0.2 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
 
 Verify the version of Java installed using the command below at Command Prompt:
 
 	# Ensure the Java installed is version 8 is installed
 	java -version
 
-**NOTE: JRE versions 8.251+ are not supported.** 
+**NOTE: JRE versions 8.251+ are not supported if using Dashboard versions prior to v2.0.0** 
 
 ### Application Server###
 
-Download tomcat 8.5 32-bit/64-bit Windows Service Installer from [the official website](https://tomcat.apache.org/download-80.cgi).
+It is recommended to utilize Apache Tomcat 9 with Dashboard v2.0.0+. Install Apache Tomcat 9 by reviewing the [Apache Official Guide](https://tomcat.apache.org/tomcat-9.0-doc/index.html). Find and download the [Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi). 
 
-Install the application server as following, for more details, please follow [the official guide.](https://tomcat.apache.org/tomcat-8.5-doc/)<br/>
+Should Apache Tomcat 8 be required by your organization for prior versions of Dashboard, follow, download tomcat 8.5 32-bit/64-bit Windows Service Installer from [the official website](https://tomcat.apache.org/download-80.cgi). Follow [the official guide.](https://tomcat.apache.org/tomcat-8.5-doc/)<br/>
 
 
 **Required Tomcat Configurations:**
 
+ - Start Options: Service Startup and Start Menu
+ - Memory pool and maxPermSize
  - UTF 8 default character encoding
- - Set Service Startup option
  - maxPostSize attribute
- - Set memory pool
  - Remove default applications
+ - Add bcprov*.jar to "jars to skip" in catalina.properites file
 
+#### Set Start Options ####
 
-Check "Service startup" during the installation, so Tomcat service will start automatically when the computer starts. <br/> I also suggest to keep "Start Menu Items" checked.
+Select the `Service startup` and `Start Menu Items` options during the installation.
 
-![](https://i.imgur.com/JeJCORn.png)
+![](img/ApacheTomcatStartup.png)
 
-The default tomcat location can be changed during the installation, for the purposes of this User's Guide, assume the tomcat location is set to "C:\tomcat" directory.    
+The default tomcat location can be changed during the installation. For the purposes of this User's Guide, assume the tomcat location is set to "C:\tomcat" directory.    
 
-To configure Tomcat Options, click right on system tray tomcat icon then click Configure, see screenshot. If the system tray tomcat icon is not present, go to "Start Menu/Apache Tomcat" and click on "Monitor Tomcat"<br/>
-For example, I added `-XX:MaxPermSize=2048m` in java option and set up initial `Initial memory pool` to `1024` and `Maximum memory pool` to `2048`. 
+Configure Tomcat Options by selecting the system tray Tomcat icon and click Configure. If the system tray tomcat icon is not present, navigate to "Start Menu/Apache Tomcat" and click on "Monitor Tomcat"<br/>
+
+####Set Memory Pool and maxPermSize ####
+
+Add `-XX:MaxPermSize=2048m` in java option and set up initial `Initial memory pool` to `1024` and `Maximum memory pool` to `2048`. 
 
 ![](img/java_max_perm_size.png)
+
+####Set UTF 8 Character Encoding ####
 
 The application requires tomcat to use **UTF-8** as a default character encoding.<br/>
 If you receive the following error during an import, that means your system uses another character encoding:
@@ -157,6 +167,7 @@ To change the tomcat default character encoding to UTF-8, please add `-Dfile.enc
 
 Tomcat service can be started/stopped from the system tray tomcat monitoring icon or from the windows services screen. 
 
+####Set maxPostSize
 
 Open `C:\tomcat\conf\server.xml` and find this line:
 
@@ -176,9 +187,17 @@ This will increase the max allowable file size for upload.  Many CIS-CAT Pro Ass
 **Note:** During an import, if you receive an exception related to the maxPostSize limitation, make sure that you use CIS-CAT Pro Dashboard 1.1.9+ and CIS-CAT Pro Assessor V4 4.0.12+ with the property set to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
 
 
-**Security Considerations:** <br/>
-As a final step we want to remove the default applications available from the Tomcat install, including the examples and management applications. These default sites can and will give away information about the environment and present an information security risk.<br/>
+#### Remove Default Applications ####
+
+Remove the default applications available from the Tomcat install, including the examples and management applications. These default sites may expose information about the environment and present an information security risk.<br/>
 Please delete every directory inside `C:\tomcat\webapps\*` to help reduce the attack surface of the application server.
+
+#### Modify Property File ####
+
+Locate the catalina.properties file, typically located in `c:\tomcat\conf` and add bcprov*.jar to the list that appears here:
+
+
+	tomcat.util.scan.StandardJarScanFilter.jarsToSkip
 
 ### Web Browser###
 The CIS-CAT Pro Dashboard officially supports **Google Chrome** web browser. Other browsers may also work but may produce unexpected behavior.
@@ -285,81 +304,86 @@ Download the CIS-CAT Pro Dashboard bundle from [CIS WorkBench](https://workbench
 
 Create the CIS-CAT Pro Dashboard runtime configuration file (configured by default for MySQL database): `C:\tomcat\ccpd-config.yml`, and add to the file the following lines:
 
-	environments:
-	    production:
-	        grails:
-	                serverURL: 'http://<url_of_apache_or_tomcat>:8080/CCPD' #if apache is not set up, only tomcat
-	                #serverURL: 'http://<url_of_apache_or_tomcat>/CCPD' #if apache is set up use
-	                #serverURL: 'https://<url_of_apache_or_tomcat>/CCPD' #if HTTPS is set up use
-	        server:
-	            'contextPath': '/CCPD'
-	        dataSource:
-	            dbCreate: update
-	
-	            #MySQL DB Settings
-	
-	            driverClassName: org.mariadb.jdbc.Driver
-	            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-	            url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
-	            username: <db_user>
-	            password: <db_password>
-	
-	            #SQL Server DB Setting
-	
-	            #driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-	            #dialect: org.hibernate.dialect.SQLServer2008Dialect
-	            #url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
-	            #username: <db_user>
-	            #password: <db_password>
-	
-	            #Oracle DB Settings
-	
-	            #driverClassName: oracle.jdbc.OracleDriver
-	            #dialect: org.hibernate.dialect.Oracle10Dialect
-	            #url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
-	            #username: <db_user>
-	            #password: <db_password>
-	
-	            properties:
-	                  jmxEnabled: true
-	                  initialSize: 5
-	                  maxActive: 50
-	                  minIdle: 5
-	                  maxIdle: 25
-	                  maxWait: 10000
-	                  maxAge: 600000
-	                  #validationQuery: SELECT 1 from DUAL #ORACLE
-                  	  validationQuery: SELECT 1 #Non-Oracle
-	                  validationQueryTimeout: 3
-	                  validationInterval: 15000
-	                  defaultTransactionIsolation: 2 # ORACLE AND MYSQL
-	                  #defaultTransactionIsolation: 1 #SQL SERVER ONLY
-	                  dbProperties:
-	                        autoReconnect: true
-	
 	grails:
-	    mail:
-	        host: <smtp server host name>
-	        port: 465
-	        username: <username>
-	        password: <password>
-	        props:
-	            mail.transport.protocol: "smtps"
-	            mail.smtp.port: "465"
-	            mail.smtp.auth: "true"
-	            mail.smtp.starttls.enable: "true"
-	            mail.smtp.starttls.required: "true"
+    	serverURL: 'http://<url_of_apache_or_tomcat>:8080/CCPD' #if apache is not set up, only tomcat
+		#serverURL: 'http://<url_of_apache_or_tomcat>/CCPD' #if apache is set up use
+		#serverURL: 'https://<url_of_apache_or_tomcat>/CCPD' #if HTTPS is set up use
+    	mail:
+        	host: ""
+        	port: 
+        	username: ""
+       	 	password: ""
+        	props:
+            	mail.smtp.auth: ""
+            	mail.smtp.socketFactory.port: ""
+            	mail.smtp.socketFactory.class: ""
+            	mail.smtp.socketFactory.fallback: ""
+            	mail.smtp.starttls.enable: ""
+    
+		plugin:
+        	springsecurity:
+            	ui:
+                	forgotPassword:
+                    	emailFrom: "no-reply@CISCATProDashboard.com"
+    	assessorService:
+        	active: false
+        	url: ""
+        	ignoreSslCertErrors: false
+	server:
+    	'contextPath': '/CCPD'
+    	servlet:
+        	context-path: '/CCPD'
+	dataSource:
+		dbCreate: update
 	
-	database: MySQL
-	#database: SQLServer
-	#database: Oracle
+		#MySQL DB Settings
+
+		driverClassName: org.mariadb.jdbc.Driver
+		dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+		url: jdbc:mysql://<path_to_mysql_database_server>:3306/<schema_name_of_mysql_database>
+		username: <db_user>
+		password: <db_password>
+
+		#SQL Server DB Setting
+
+		#driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+		#dialect: org.hibernate.dialect.SQLServer2008Dialect
+		#url: jdbc:sqlserver://<path_to_mysql_database_server>:1433;databaseName=<schema_name_of_database>
+		#username: <db_user>
+		#password: <db_password>
+
+		#Oracle DB Settings
+
+		#driverClassName: oracle.jdbc.OracleDriver
+		#dialect: org.hibernate.dialect.Oracle10Dialect
+		#url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
+		#username: <db_user>
+		#password: <db_password>
+	
+		properties:
+			  jmxEnabled: true
+			  initialSize: 5
+			  maxActive: 50
+			  minIdle: 5
+			  maxIdle: 25
+			  maxWait: 10000
+			  maxAge: 600000
+			  #validationQuery: SELECT 1 from DUAL #ORACLE
+			  validationQuery: SELECT 1 #Non-Oracle
+			  validationQueryTimeout: 3
+			  validationInterval: 15000
+			  defaultTransactionIsolation: 2 # ORACLE AND MYSQL
+			  #defaultTransactionIsolation: 1 #SQL SERVER ONLY
+			  dbProperties:
+					autoReconnect: true
+	database: MySQL										
+			
 
 Replace the pertinent information, marked with <>, with the specifics of your environment.
 
-This file is also available in the CIS-CAT-Pro-Dashboard bundle.
 
 
-**NOTE:** This file is configured for MySQL database by default. If you want to use SQL Server or Oracle, please follow the instructions in Database Configuration section. 
+**NOTE:** This example file is exhibits configuration for the 3 supported databases. See each individual database section for more information. Remove the database section that are not utilized in your environment. 
 
 **NOTE 2:** To create a new schema called `ccpd` for MySQL database using UTF-8 Character set (required), please run the following command:
 
@@ -381,7 +405,7 @@ by:
  
 
 ### Database Configuration ###
-By default the ccpd-config.yml is configured to utilize a MySQL database.  Starting with version v1.0.3 you will be able to use MS SQL Server and Oracle Databases as well.  In the ccpd-config.yml, there are several settings you need to make to utilize these other DBMS:
+By default, the ccpd-config.yml is configured to utilize a MySQL database.  Microsoft SQL Server and Oracle Databases are also supported.  In the ccpd-config.yml, there are several settings you need to make to utilize these other DBMS:
 
 **SQL Server**
 
