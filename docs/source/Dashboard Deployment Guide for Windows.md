@@ -224,7 +224,7 @@ Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer-x6
 ####Welcome (First-time user)####
 First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented with the below screen.
 
-![](https://i.imgur.com/6m71Uwp.png)
+![](img/InstallerWelcome.png)
 
 ####Welcome (From previous installation)####
 Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen.
@@ -238,27 +238,27 @@ If there are no expected changes to the existing installation, this is the best 
 ####Configuration File Location####
 If this is a new installation <u>and</u> “Create/update CIS-CAT Pro Dashboard configuration File” was previously selected, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
 
-![](https://i.imgur.com/zQfJDks.png)
+![](img/InstallerConfFileLoc.png)
 
 ####Application Server Location####
 For users performing the Installation Action, “Install/update CIS-CAT Pro Dashboard application”, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `C:\tomcat`, then the CCPD.war will be created under `C:\tomcat\webapps\CCPD.war`.
 
-![](https://i.imgur.com/p5YGEBv.png)
+![](img/InstallerAppServerLocation.png)
 
 ####Import Directory####
 It is required to setup processing folders that the Dashboard will use while importing files.Example report folder structure is shown within the CIS-CAT Pro Dashboard Installer.
 
-![](https://i.imgur.com/Osub35w.png)
+![](img/InstallerImportDir.png)
 
 ####Environment Variables####
 Specify the Windows environment variables needed by the CIS-CAT Pro Dashboard. `CCPD_CONFIG_FILE` points to CIS-CAT Pro Dashboard runtime configuration file (`ccpd-config.yml`). `CCPD_LOG_DIR` is the logs directory for CIS-CAT Pro Dashboard.
 
-![](https://i.imgur.com/57N5KbG.png)
+![](img/InstallerEnvVar.png)
 
 ####Application Server URL 
 Specifies the application URL of the CIS-CAT Pro Dashboard application. Example formats are shown within the CIS-CAT Pro Dashboard Installer.
 
-![](https://i.imgur.com/vrbfX7f.png)
+![](img/InstallerAppServerURL.png)
 
 ####Email Configuration####
 The email configuration information is optional and is intended for users that want to send email messages such as password reset requests. CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send email messages. CIS-CAT Pro Dashboard utilizes the Grails mail plugin for email communication.
@@ -266,7 +266,7 @@ The email configuration information is optional and is intended for users that w
 Along with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server in order to correctly distribute the "forgot password" messages. Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange. CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information entered below is correct.
 By default, the plugin assumes an unsecured mail server configured at `localhost` on `port 25`. However, this can be modified in the email configuration screen.
 
-![](https://i.imgur.com/nctuocK.png)
+![](img/InstallerEmailConfig.png)
 
 ####Database Configuration####
 The primary purpose of this screen is to assist in establishing a connection to the database for the CIS-CAT Pro Dashboard. Three types of databases are currently supported: MySQL, SQL Server and Oracle. Optional functions are available in this screen:
@@ -274,24 +274,24 @@ The primary purpose of this screen is to assist in establishing a connection to 
  - **Create a Schema:** Enter correct Hostname/IP, Port, Username, Password and select the “Create Schema” button. This process currently applies only to MySQL and SQL Server databases. 
  - **Test Database Connection:** Enter correct Hostname/IP, Port, Username, Password, and Schema name and select the “Test Database Connection” button. A message will indicate if the connection was successful.
 
-![](https://i.imgur.com/uGITRPm.png)
+![](img/InstallerEmailConfig.png)
 
 ####Summary####
 The Summary screen is intended for a final review of all information provided in previous screens. If any information is incorrect, the back button can be used to navigate to the appropriate screen and make a correction.
 
-![](https://i.imgur.com/PHRhlma.png)
+![](img/InstallerSummary.png)
 
 ####Installation####
-The system may ask for permission to create a backup of the current configuration file (`ccpd-config.yml`) and/or a backup of the current CCPD.war file. This is a recommended procedure.
+The system will always take a backup of the current configuration file (`ccpd-config.yml`) and/or a backup of the current CCPD.war file. This is a recommended procedure.
 
 The installer does not preserve or setup LDAP configuration. This is done manually using the backup file to merge any existing LDAP settings to the latest ccpd-config.yml
 
-![](https://i.imgur.com/besLapY.jpg)
+![](img/InstallerSummaryConfirm.png)
 
 ####Complete####
 If the installer process was successful, the Complete screen will be presented. Select Finish to complete the selected Installer actions. The tomcat application server can now be started if it was previously stopped.
 
-![](https://i.imgur.com/KYAkuGj.png)
+![](img/InstallerComplete.png)
 
 ####Installer Logs
 During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each installation attempt will create an individual log with a timestamp. For Windows, this location would be `C:\Users\loggedinUser\AppData\Local\Temp`. If you have trouble with the installation, please provide this log file on a [support ticket](https://www.cisecurity.org/support/). To view the log at any time, select the button that says Get Installation log.
