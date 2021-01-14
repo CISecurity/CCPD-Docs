@@ -143,7 +143,7 @@ Should Apache Tomcat 8 be required by your organization for prior versions of Da
 
 Select the `Service startup` and `Start Menu Items` options during the installation.
 
-![](img/ApacheTomcatStartup.png)
+![](img/TomcatInstallStart.png)
 
 The default tomcat location can be changed during the installation. For the purposes of this User's Guide, assume the tomcat location is set to "C:\tomcat" directory.    
 
@@ -153,7 +153,7 @@ Configure Tomcat Options by selecting the system tray Tomcat icon and click Conf
 
 Add `-XX:MaxPermSize=2048m` in java option and set up initial `Initial memory pool` to `1024` and `Maximum memory pool` to `2048`. 
 
-![](img/java_max_perm_size.png)
+![](img/Tomcat9MaxPermSize.png)
 
 ####Set UTF 8 Character Encoding ####
 
@@ -164,7 +164,7 @@ If you receive the following error during an import, that means your system uses
 
 To change the tomcat default character encoding to UTF-8, please add `-Dfile.encoding=UTF-8` option as following:
 
-![](img/java_UTF8.png)
+![](img/Tomcat9UTF8.png)
 
 
 Tomcat service can be started/stopped from the system tray tomcat monitoring icon or from the windows services screen. 
