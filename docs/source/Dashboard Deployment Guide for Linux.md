@@ -50,7 +50,7 @@ Once the MySQL database has been installed, note the following information:
 - username/password for connecting to the database
 
 ### Application Server ###
-As security best practice, CIS recommends a separate server installation for the database and the application.  The application server requires network accessibility for multiple users of the Dashboard application. To reduce exposure of the data in the database to the broader network, install the database on a separate server.  Configure the database to only only allow communication over the network via the MySQL port.  A separate server for the database also helps with performance. Where necessary as load increases, application servers can be added to the environment with the same database server connectivity.
+As security best practice, CIS recommends a separate server installation for the database and the application.  The application server requires network accessibility for multiple users of the Dashboard application. To reduce exposure of the data in the database to the broader network, install the database on a separate server.  Configure the database to only allow communication over the network via the MySQL port.  A separate server for the database also helps with performance. Where necessary, as load increases, application servers can be added to the environment with the same database server connectivity.
 
 The [Application Server Instructions](#applicationServerInstallation) will further guide the installation.
 
@@ -81,12 +81,12 @@ Because CIS-CAT Pro Dashboard is a java-based application, a compatible java run
 
 Java versions 8 through 11 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
 
-1. Verify if JRE is installed 
+1. Verify presence of a Java Runtime Environment (see [Component Installation](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/Dashboard%20Deployment%20Guide%20for%20Linux/#introduction))
 	
 	`java -version`
 
 
-1. If Java is not installed, install an OpenJDK JDK/JRE
+1. To install, use an example command like below to obtain a compatible version: 
 	
 	`sudo apt-get install openjdk-11-jre`
 
