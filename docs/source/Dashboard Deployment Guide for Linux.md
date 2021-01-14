@@ -223,12 +223,16 @@ The permissions on the configuration file (ccpd-config.yml) and the logs directo
 ####Welcome (First-time user)####
 First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. On this screen you can also see the location of the temporary installation log.
 
-![](https://i.imgur.com/kshuehK.png)
+![](img/LinuxInstaller/welcome.png)
 
 ####Welcome (From previous installation)####
 Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. The screens will navigate only to the information required to be collected for the installation actions selected.
 
-![](https://i.imgur.com/PX7OErd.png)
+![](img/LinuxInstaller/update-welcome.png)
+
+
+####Existing Dashboard Installation and Express Installation ####
+If there are no expected changes to the existing installation, this is the best option to select to simply update the *.war file with the latest. 
 
 ####Preload configuration file####
 
@@ -238,18 +242,13 @@ The Installer might be able to detect an existing CIS-CAT Pro Dashboard configur
 
 ![](https://i.imgur.com/APv8rx1.png)
 
-####Installation Actions####
-As part of Installation Actions, at least one action must be selected in order to navigate to the next step. As an option, the actions can also be completed together. Both actions must be completed successfully (together or separately) as part of the overall CIS-CAT Pro Dashboard Deployment Guide. The screens will navigate only to the information required to be collected for the installation actions selected.
-
-![](https://i.imgur.com/V6MyIj1.png)
-
 ####Configuration File Location####
-If this is a new installation and “Create/update CIS-CAT Pro Dashboard configuration file (ccpd.config.yml)” was previously selected, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
+If this is a new installation, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
 
-![](https://i.imgur.com/wyxp8Ag.png)
+![](img/LinuxInstaller/configure-file-location.png)
 
 ####Application Server Location####
-For users performing the Installation Action, “This action deploys the WAR file to the application server. The WAR file has to be present in the same location as this installer. Install/update the CIS-CAT Pro Dashboard application”, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `C:\tomcat`, then the CCPD.war will be created under `C:\tomcat\webapps\CCPD.war`.
+For users performing a new installation, or modifying existing configuration information, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `/opt/tomcat`, then the CCPD.war will be created under `/opt/tomcat/webapps/CCPD.war`.
 
 ![](https://i.imgur.com/iBxuUXQ.png)
 
