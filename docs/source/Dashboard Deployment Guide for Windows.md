@@ -236,17 +236,17 @@ If there are no expected changes to the existing installation, this is the best 
 
 
 ####Configuration File Location####
-If this is a new installation <u>and</u> “Create/update CIS-CAT Pro Dashboard configuration File” was previously selected, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
+If this is a new installation, selecting `Next` on the Welcome screen will begin the setup of the configuration file that supports Dashboard. The first screen will define the location where CIS-CAT Pro Dashboard configuration file `ccpd-config.yml` will be created.
 
 ![](img/InstallerConfFileLoc.png)
 
 ####Application Server Location####
-For users performing the Installation Action, “Install/update CIS-CAT Pro Dashboard application”, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `C:\tomcat`, then the CCPD.war will be created under `C:\tomcat\webapps\CCPD.war`.
+Specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `C:\tomcat`, then the CCPD.war will be created under `C:\tomcat\webapps\CCPD.war`.
 
 ![](img/InstallerAppServerLocation.png)
 
 ####Import Directory####
-It is required to setup processing folders that the Dashboard will use while importing files.Example report folder structure is shown within the CIS-CAT Pro Dashboard Installer.
+It is required to setup processing folders that the Dashboard will use while importing files. Example report folder structure is shown within the CIS-CAT Pro Dashboard Installer.
 
 ![](img/InstallerImportDir.png)
 
@@ -282,7 +282,7 @@ The Summary screen is intended for a final review of all information provided in
 ![](img/InstallerSummary.png)
 
 ####Installation####
-The system will always take a backup of the current configuration file (`ccpd-config.yml`) and/or a backup of the current CCPD.war file. This is a recommended procedure.
+The system will always take a backup of the current configuration file `ccpd-config.yml` as well as the `CCPD.war`.
 
 The installer does not preserve or setup LDAP configuration. This is done manually using the backup file to merge any existing LDAP settings to the latest ccpd-config.yml
 
