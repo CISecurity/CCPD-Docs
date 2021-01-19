@@ -223,12 +223,12 @@ The permissions on the configuration file (ccpd-config.yml) and the logs directo
 ####Welcome (First-time user)####
 First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. On this screen you can also see the location of the temporary installation log.
 
-![](img/LinuxInstaller/welcome.png)
+![](img/welcome.png)
 
 ####Welcome (From previous installation)####
 Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. The screens will navigate only to the information required to be collected for the installation actions selected.
 
-![](img/LinuxInstaller/update-welcome.png)
+![](img/update-welcome.png)
 
 
 ####Existing Dashboard Installation and Express Installation ####
@@ -245,7 +245,7 @@ The Installer might be able to detect an existing CIS-CAT Pro Dashboard configur
 ####Configuration File Location####
 If this is a new installation, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
 
-![](img/LinuxInstaller/configure-file-location.png)
+![](img/configure-file-location.png)
 
 ####Application Server Location####
 For users performing a new installation, or modifying existing configuration information, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `/opt/tomcat`, then the CCPD.war will be created under `/opt/tomcat/webapps/CCPD.war`.
@@ -495,10 +495,9 @@ CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email m
 Configuration of the mail plugin will be member-specific, and those configuration items will also be added to the `/opt/tomcat/ccpd-config.yml` file, noted above.
 
 #### Default Sender Email Address ####
-CIS-CAT Pro Dashboard can be configured with a default "sender" email address, indicating that the application has sent a "forgot password" message, allowing users to enter new logon credentials.  In the `/opt/tomcat/ccpd-config.yml` file (noted above), add the following section:
+CIS-CAT Pro Dashboard can be configured with a default "sender" email address, indicating that the application has sent a "forgot password" message, allowing users to enter new logon credentials.  Add the following section indented under the `grails` like in the below examples. In the `/opt/tomcat/ccpd-config.yml` file (noted above), add the following section:
 
     ---
-    grails:
 	    plugin:
 	    	springsecurity:
 	    		ui:
@@ -508,12 +507,11 @@ CIS-CAT Pro Dashboard can be configured with a default "sender" email address, i
 #### SMTP Configuration ####
 Coupled with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server, in order to correctly distribute the "forgot password" messages.  Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange.  CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information is correct in the configuration file (the `/opt/tomcat/ccpd-config.yml` noted above).
 
-By default the plugin assumes an unsecured mail server configured at `localhost` on port `25`. However you can change this via the application configuration file (the `/opt/tomcat/ccpd-config.yml` noted above). 
+By default the plugin assumes an unsecured mail server configured at `localhost` on port `25`. However you can change this via the application configuration file (the `/opt/tomcat/ccpd-config.yml` noted above). Add the following section indented under the `grails` like in the below examples.
 
 For example here is how you would configure the default sender to send with a Gmail account:
 #### *Mail Configuration - Gmail* ####
     ---
-    grails:
 	    mail:
 		    host: "smtp.gmail.com"
 		    port: 465
@@ -528,7 +526,6 @@ For example here is how you would configure the default sender to send with a Gm
 And the configuration for sending via a Hotmail/Live account:
 #### *Mail Configuration - Hotmail/Live* ####
     ---
-    grails:
 	    mail:
 		    host: "smtp.live.com"
 		    port: 587
@@ -541,7 +538,6 @@ And the configuration for sending via a Hotmail/Live account:
 And the configuration for sending via a Outlook account:
 #### *Mail Configuration - Outlook* ####
     ---
-    grails:
 	    mail:
 		    host: "smtp-mail.outlook.com"
 		    port: 587
@@ -554,7 +550,6 @@ And the configuration for sending via a Outlook account:
 And the configuration for sending via a Yahoo account:
 #### *Mail Configuration - Yahoo* ####
     ---
-    grails:
 	    mail:
 		    host: "smtp.correo.yahoo.es"
 		    port: 465
@@ -714,10 +709,9 @@ Users will use their LDAP/AD credentials to log into the application. LDAP/AD ro
 Here is an example of LDAP structure in OpenLDAP:
 ![](https://i.imgur.com/6nNTW0X.png)
 
-Based on the above structure, add the following section in the `/opt/tomcat/ccpd-config.yml` file (noted above): 
+Based on the above structure, add the following section in the `/opt/tomcat/ccpd-config.yml` file (noted above) indented under the `grails` like below: 
 		
 	---
-	grails:
 		plugin:
 			springsecurity:
 				providerNames: ['ldapAuthProvider','rememberMeAuthenticationProvider','restAuthenticationProvider','anonymousAuthenticationProvider']
