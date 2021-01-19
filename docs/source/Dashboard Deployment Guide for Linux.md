@@ -1029,13 +1029,13 @@ CIS-CAT Pro Assessor v4 Service is a separate application that is available only
 	- HTTP communication: when setting URL, use the port set in Assessor v4 Service server.conf file (http://localhost:2222)
 	- HTTPS communication: set URL as set in Assessor v4 Service server.conf file (https://your_url)  
 
-	Installations configured with SMTP or LDAP: 
+	Example entry in ccpd-config.yml which must be place indented under single `grails` section: 
 
-	![](https://i.imgur.com/cCjHDZf.png)
-
-	Installations without SMTP or LDAP configurations:
-
-	![](https://i.imgur.com/frcG67S.png)
+       	---
+       		assessorService: 
+				active: true
+				url: 'http://localhost:2222'
+				ignoreSslCertErrors: true
 
 1. Restart Tomcat
 2. Ensure [assessor-service.properties](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/#configuration) in Assessor v4 Service has been configured 

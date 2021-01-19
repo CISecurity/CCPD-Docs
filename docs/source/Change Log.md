@@ -8,7 +8,7 @@
 ### CIS-CAT Pro Updates ###
 
 - Baseline framework upgrade that includes:
-	- Grails v4.0.4 which includes upgrades to Spring and Spring boot
+	- Grails v4.0.4 which includes upgrades to Spring and Spring Boot
 	- Spring Security v5.1.6
 - 2021 vulnerability definitions, downloaded from NIST, are now supported.
 - New CVE definitions will now correctly attach to existing vulnerability data in the database when utilizing the "Attach CVEs to Existing Definitions" button.
