@@ -133,6 +133,7 @@ Should Apache Tomcat 8 be required by your organization for prior versions of Da
 **Required Tomcat Configurations:**
 
  - Start Options: Service Startup and Start Menu
+ - Specify JRE (OpenJDK or JDK)
  - Memory pool and maxPermSize
  - UTF 8 default character encoding
  - maxPostSize attribute
@@ -148,6 +149,12 @@ Select the `Service startup` and `Start Menu Items` options during the installat
 The default tomcat location can be changed during the installation. For the purposes of this User's Guide, assume the tomcat location is set to "C:\tomcat" directory.    
 
 Configure Tomcat Options by selecting the system tray Tomcat icon and click Configure. If the system tray tomcat icon is not present, navigate to "Start Menu/Apache Tomcat" and click on "Monitor Tomcat"<br/>
+
+####Set Java Location####
+If the installation of a Java Runtime Environment is not automatically found, navigate to the installation's root.
+
+![](img/TomcatJRE.png)
+
 
 ####Set Memory Pool and maxPermSize ####
 
@@ -215,7 +222,7 @@ After the CIS-CAT Pro Dashboard bundle has been extracted, please confirm that i
 
 ![](https://i.imgur.com/xthTnYn.png)
 
-We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of Java Runtime Environment, Tomcat and a Database (MySQL, SQL Server or Oracle) has been completed before continuing.
+We recommend that the Tomcat application server has been stopped before continuing. Additionally, ensure that component installation including installation of a [Java Runtime Environment](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#introduction) (or JRE equivalent), Apache Tomcat and a Database (MySQL, SQL Server or Oracle) has been completed before continuing.
 
 Execute the CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer-x64.exe` in this example).
 
@@ -226,14 +233,17 @@ First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented w
 
 ![](img/InstallerWelcome.png)
 
-####Welcome (From previous installation)####
+####Welcome (Previous installation)####
 Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen.
 
 ![](img/InstallerWelcomeExisting.png)
 
 ####Existing Dashboard Installation and Express Installation ####
-If there are no expected changes to the existing installation, this is the best option to select to simply update the *.war file with the latest. 
+If there are no expected changes to the existing installation, this is the best option to select to simply update the *.war file with the latest. The CCPD.war and ccpd-config.yml will automatically be backed up as part of this process.
 
+
+####Modify Existing Configuration Information####
+Select this option on upgrade if you would like to review previous settings and potentially modify information. The following options and screens will be part of the navigation on a new installation or if you have selected to modify the existing information.
 
 ####Configuration File Location####
 If this is a new installation, selecting `Next` on the Welcome screen will begin the setup of the configuration file that supports Dashboard. The first screen will define the location where CIS-CAT Pro Dashboard configuration file `ccpd-config.yml` will be created.
@@ -274,7 +284,7 @@ The primary purpose of this screen is to assist in establishing a connection to 
  - **Create a Schema:** Enter correct Hostname/IP, Port, Username, Password and select the “Create Schema” button. This process currently applies only to MySQL and SQL Server databases. 
  - **Test Database Connection:** Enter correct Hostname/IP, Port, Username, Password, and Schema name and select the “Test Database Connection” button. A message will indicate if the connection was successful.
 
-![](img/InstallerEmailConfig.png)
+![](img/InstallerDBConfig.png)
 
 ####Summary####
 The Summary screen is intended for a final review of all information provided in previous screens. If any information is incorrect, the back button can be used to navigate to the appropriate screen and make a correction.
@@ -489,11 +499,10 @@ CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email m
 Configuration of the mail plugin will be member-specific, and those configuration items will also be added to the `C:\tomcat\ccpd-config.yml` file, noted above.
 
 #### Default Sender Email Address ####
-CIS-CAT Pro Dashboard can be configured with a default "sender" email address, indicating that the application has sent a "forgot password" message, allowing users to enter new logon credentials.  In the `C:\tomcat\ccpd-config.yml` file (noted above), add the following section:
+CIS-CAT Pro Dashboard can be configured with a default "sender" email address, indicating that the application has sent a "forgot password" message, allowing users to enter new logon credentials.  In the `C:\tomcat\ccpd-config.yml` file (noted above), add the following section indented under the `grails` like below and also in [this example](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#configuration-and-deployment-manual):
 
     ---
-    grails:
-	    plugin:
+        plugin:
 	    	springsecurity:
 	    		ui:
 	    			forgotPassword:
@@ -504,11 +513,10 @@ Coupled with the default sender email address, CIS-CAT Pro Dashboard's mailing c
 
 By default the plugin assumes an unsecured mail server configured at `localhost` on port `25`. However you can change this via the application configuration file (the `C:\tomcat\ccpd-config.yml` noted above). 
 
-For example here is how you would configure the default sender to send with a Gmail account:
+For example, configure the default sender to send with a Gmail account section indented under the `grails` like below and also in [this example](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#configuration-and-deployment-manual)::
 #### *Mail Configuration - Gmail* ####
     ---
-    grails:
-	    mail:
+        mail:
 		    host: "smtp.gmail.com"
 		    port: 465
 		    username: "youracount@gmail.com"
@@ -522,8 +530,7 @@ For example here is how you would configure the default sender to send with a Gm
 And the configuration for sending via a Hotmail/Live account:
 #### *Mail Configuration - Hotmail/Live* ####
     ---
-    grails:
-	    mail:
+        mail:
 		    host: "smtp.live.com"
 		    port: 587
 		    username: "youracount@live.com"
@@ -535,8 +542,7 @@ And the configuration for sending via a Hotmail/Live account:
 And the configuration for sending via a Outlook account:
 #### *Mail Configuration - Outlook* ####
     ---
-    grails:
-	    mail:
+        mail:
 		    host: "smtp-mail.outlook.com"
 		    port: 587
 		    username: "youracount@outlook.com"
@@ -548,8 +554,7 @@ And the configuration for sending via a Outlook account:
 And the configuration for sending via a Yahoo account:
 #### *Mail Configuration - Yahoo* ####
     ---
-    grails:
-	    mail:
+        mail:
 		    host: "smtp.correo.yahoo.es"
 		    port: 465
 		    username: "myuser"
@@ -583,7 +588,7 @@ Either way, after the deployment of the CCPD.war file you should keep following 
 
 Once Tomcat is done with its deployment you should be able to access the application by entering `http://<public url of application server>:8080/CCPD/`, into a browser.
 
-You may need to restart tomcat in order to complete the deployment.
+It is necessary to restart tomcat in order to complete the deployment.
 
 CIS-CAT Pro Dashboard will bootstrap in a user with:
 
@@ -683,7 +688,7 @@ Open a web browser and type `http://<public url of web server>/CCPD`, you should
 
 ### Set Application Request Routing ###
 
-In order to integrate with and establish [authentication with CIS WorkBench](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/Dashboard%20Deployment%20Guide%20for%20Windows/#cis-workbench-integration), certain proxy settings must be configured. Configure the following:
+In order to integrate with and establish [authentication with CIS WorkBench](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#cis-workbench-integration), certain proxy settings must be configured. Configure the following:
 
 1. Navigate to the ARR proxy settings under IIS --> Application Request Routing Cache --> Server Proxy Settings
 2. Uncheck `Reverse rewrite host in response headers`
@@ -945,10 +950,10 @@ CIS-CAT Pro Dashboard-specific scripts have been developed to allow for reports 
 #### Assessor V4: ####
 
 #### Microsoft Windows Environments: cis-cat-centralized-ccpd.bat####
-To use `cis-cat-centralized-ccpd.bat` script, please follow [Assessing Multiple Windows Targets](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#assessing-multiple-windows-targets) from Assessor V4 Configuration guide.
+To use `cis-cat-centralized-ccpd.bat` script, please follow [Assessing Multiple Windows Targets](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#centralized-windows) from Assessor V4 Configuration guide.
 
 #### Unix/Linux Environments: cis-cat-centralized-ccpd.sh ####
-To use `cis-cat-centralized-ccpd.sh` script, please follow [Assessing Multiple Unix/Linux Targets](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#assessing-multiple-unixlinux-targets) from Assessor V4 Configuration guide.
+To use `cis-cat-centralized-ccpd.sh` script, please follow [Assessing Multiple Unix/Linux Targets](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#centralized-unixlinux) from Assessor V4 Configuration guide.
 
 
 #### Assessor V3: ####

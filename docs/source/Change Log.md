@@ -8,23 +8,22 @@
 ### CIS-CAT Pro Updates ###
 
 - Baseline framework upgrade that includes:
-	- Grails 4
-	- Spring Security
+	- Grails v4.0.4 which includes upgrades to Spring and Spring boot
+	- Spring Security v5.1.6
 - 2021 vulnerability definitions, downloaded from NIST, are now supported.
 - New CVE definitions will now correctly attach to existing vulnerability data in the database when utilizing the "Attach CVEs to Existing Definitions" button.
-- Support and compatibility offered for Apache Tomcat 9 and later versions of Java. The stable JRE version 11.0.2 is recommended and is the version used in CIS testing.
-- Target System and Benchmark View graphs updated to allow selection of the check box when choosing data to display.
+- Support and compatibility offered for Apache Tomcat 9 and Java Runtime Environment (JRE) 8 to 11.
 - Unsupported files will be moved to the error folder when manually dropped into the legacy import folder.
 - Purged assessment reports are no longer returned in assessment report result searches.
 
-**NOTE:** This is a major upgrade to Dashboard. Please ensure to backup your Dashboard system accordingly. It is highly recommended to utilize the Dashboard Installer as formats of the configuration has changed due to the Grails upgrade. This can be done manually, but there is risk of typographical errors.
+**NOTE:** This is a major upgrade to Dashboard. Please ensure to backup your database and deploy in a test environment. It is highly recommended to utilize the Dashboard Installer as formats of the configuration has changed due to the Grails upgrade. Please check the Windows and Linux Deployment guides for updates to `ccpd-config.yml` formatting.
 
 ### Documentation Updates ###
 
  - Modifications to Linux and Windows Deployment Guide
 	 - Application Server and java components contain more detail
 	 - Support for Apache Tomcat 9 added
-	 - Support for Java 8 through 11.0.2
+	 - Support for Java Runtime Environment 8 through 11
 	 - Updated link for product support portal
 	 - Additional detail added to Java configuration to ensure sucessful report exports from the Dashboard
  - IIS configuration instructions updated to support optional authentication with CIS WorkBench for receiving in-application alerts on new CIS-CAT Pro releases.
