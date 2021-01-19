@@ -760,26 +760,27 @@ Now if you access the application using https, the web browser will indicate tha
 Please repeat every step of this section for each client who wants to access the application. 
 
 #### Importing the certificate into the java trust store ####
-This step is required if you want to use the "POST Reports to URL" with https in order to upload an Asset Report Format (ARF) results from CIS-CAT Pro Assessor to CIS-CAT Pro Dashboard.
-For more details about the integration between the Assessor and the Dashboard, please read the "Importing CIS-CAT Assessor Results" section from CIS-CAT Pro Dashboard User's Guide.
+To POST reports to Dashboard from Assessor using the `POST Reports to URL` option with HTTPS, a certificate must be imported to the java trust store.
 
-Find the location of the java executable being used to launch Tomcat and host CIS-CAT Pro Dashboard.  For the purposes of this guide, assume the location of java can be found at `C:\Program Files\Java\jdk1.8.0_144`.  When using Java 8, the required `cacerts` file will be located in your **JRE** directory, here it's at `C:\Program Files\Java\jdk1.8.0_144\jre\lib\security\cacerts`.  The location of the `cacerts` file should be noted before importing the certificate using `keytool`.
+- Locate JRE, JDK, or openJDK used to launch Tomcat on the Tomcat/Dashboard server
+- Note the location of the `cacerts` file prior to importing certificate to `keytool`
+	- For example, if OpenJDK is located at `C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101`.  When using OpenJDK 11, then `cacerts` file will be located in `C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101\lib\security\cacerts`
+- Use the java `keytool` application to import the certificate:
 
-Finally, using the java `keytool` application, import the certificate:
-
-    # Navigate to the $JAVA_HOME folder's bin directory.
-    cd C:\Program Files\Java\jdk1.8.0_144\jre\bin
+    	# Navigate to the $JAVA_HOME folder's bin directory.
+    	cd C:\Program Files\AdoptOpenJDK\jdk-11.0.9.101\bin
      
-    # Execute keytool
-    keytool -import -alias ccpd -keystore ../lib/security/cacerts -file c:\rootCertificate.crt
-The user should be prompted to enter the keystore credentials.  By default, this credential is `changeit`.
+    	# Execute keytool
+    	keytool -import -alias ccpd -keystore ../lib/security/cacerts -file c:\rootCertificate.crt
 
-    # The user will be asked for confirmation
-    Trust this certificate? [no]:
+- Enter keystore credentials at prompt.  By default, this credential is `changeit`.
+- Answer `yes` to import the certificate into the trust store
+ 		
+		# The user will be asked for confirmation
+    	Trust this certificate? [no]:
 
-Answering `yes` to this confirmation prompt will import the certificate into the trust store.
+- Restart application server to incorporate trust store
 
-**NOTE**:  If the application server is currently running, it must be restarted in order to incorporate the trust store.
 
 ##Upgrading from a previous version##
 

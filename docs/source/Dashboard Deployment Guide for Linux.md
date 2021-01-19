@@ -644,26 +644,26 @@ Select the "DER encoded binary X.509 (.CER)" radio button.  This selection shoul
 Select or browse to a location to where the `.cer` file will be saved.  Clicking "Next" and finally "Finish" to complete the wizard and save the file to the selected location/filename.  This file will need to be transferred via SCP, S/FTP to the application server hosting the CIS-CAT Pro Dashboard application.  Note the location to which the file is transferred.  For the purposes of this User's Guide, assume the location of the `ccpd_cert.cer` file is `/home/ubuntu/ccpd_cert.cer`.
 
 #### Importing the certificate into the java trust store ####
-This step is required if you want to use the "POST Reports to URL" with https in order to upload an Asset Report Format (ARF) results from CIS-CAT Pro Assessor to CIS-CAT Pro Dashboard.
-For more details about the integration between the Assessor and the Dashboard, please read the "Importing CIS-CAT Assessor Results" section of CIS-CAT Pro Dashboard User's Guide.
+To POST reports to Dashboard from Assessor using the `POST Reports to URL` option with HTTPS, a certificate must be imported to the java trust store.
 
-Once the file has been transferred to the application server, locate the `$JAVA_HOME` file location, i.e. the filesystem location of the java executable being used to launch Tomcat and host CIS-CAT Pro Dashboard.  For the purposes of this guide, assume the location of `$JAVA_HOME` can be found at `/usr/lib/jvm/java-8-openjdk-amd64`.  When using Java 8, the required `cacerts` file will be located at `$JAVA_HOME/lib/security/cacerts`.  The location of the `cacerts` file should be noted before importing the certificate using `keytool`.
+- Locate JRE, JDK, or openJDK used to launch Tomcat on the Tomcat/Dashboard server
+- Note the location of the `cacerts` file prior to importing certificate to `keytool`
+	- For example, if OpenJDK is located at `usr/lib/jvm/jdk-11.0.9.101`, then `cacerts` file will be located in `usr/lib/jvm/jdk-11.0.9.101\lib\security\cacerts`
+- Use java `keytool` application to import the certificate:
 
-Finally, using the java `keytool` application, import the certificate:
-
-    # Navigate to the $JAVA_HOME folder's bin directory.
-    cd /usr/lib/jvm/java-8-openjdk-amd64/bin
+   	 	# Navigate to the $JAVA_HOME folder's bin directory
+   		 cd /usr/lib/jvm/jdk-11.0.9.101/bin
      
-    # Execute keytool
-    sudo keytool -import -alias ccpd -keystore jre/lib/security/cacerts -file /home/ubuntu/ccpd_cert.cer
-The user should be prompted to enter the keystore credentials.  By default, this credential is `changeit`.
+   	 	# Execute keytool
+    	sudo keytool -import -alias ccpd -keystore jre/lib/security/cacerts -file /home/ubuntu/ccpd_cert.cer
 
-    # The user will be asked for confirmation
-    Trust this certificate? [no]:
+- Enter keystore credentials at prompt.  By default, this credential is `changeit`.
+- Answer `yes` to import the certificate into the trust store
+ 		
+		# The user will be asked for confirmation
+    	Trust this certificate? [no]:
 
-Answering `yes` to this confirmation prompt will import the certificate into the trust store.
-
-**NOTE**:  If the application server is currently running, it must be restarted in order to incorporate the trust store.
+- Restart application server to incorporate trust store
 
 ###Set up Import Folders###
 In order to import files into the Dashboard, you need to set up the temp folders that it uses for processing.  Login to the system as a user with ROLE_ADMIN, and set the following three settings to directories on the server running the dashboard application:
