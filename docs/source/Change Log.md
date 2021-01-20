@@ -25,7 +25,7 @@
 	 - Support for Apache Tomcat 9 added
 	 - Support for Java Runtime Environment 8 through 11
 	 - Updated link for product support portal
-	 - Additional detail added to Java configuration to ensure sucessful report exports from the Dashboard
+	 - Additional detail added to Java configuration to ensure successful report exports from the Dashboard
  - IIS configuration instructions updated to support optional authentication with CIS WorkBench for receiving in-application alerts on new CIS-CAT Pro releases.
  
 ## CIS-CAT Pro Dashboard v1.1.13 ##
