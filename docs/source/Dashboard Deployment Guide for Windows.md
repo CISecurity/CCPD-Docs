@@ -20,7 +20,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
  - **Server 2:** Tomcat 8.5 or 9 (Recommended for Dashboard v2.0.0+)
  - **Server 2:** IIS 10.0 Web Server
  - **Server 2:** Java Runtime or Development Environment 8 to 11
- 	- OpenJDK versions supported
+ 	- OpenJDK (free and open-source) implementations are supported. We have found this [website](https://adoptopenjdk.net/) easy to navigate. The official source is [OpenJDK](https://openjdk.java.net/).
 	- Java Development Kits (JDK) versions 9+ contain the JRE
 
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
