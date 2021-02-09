@@ -577,30 +577,34 @@ The screen can be manually refreshed by selecting the Job Status menu item or by
 
 
 ## Reports ##
-CIS-CAT Pro Dashboard reports provide a variety of views of CIS-CAT Assessment Results.  An individual Test Results Report provides the same view as the legacy HTML report from CIS-CAT, with some enhanced features, including a controls based view, and the ability to create exceptions for specific rules.  The remediation report provides a list of only the latest failed results for a target or group of targets.  The intent is for a remediator to print this report and use it to manually remediate misconfigurations on the target.  The complete Results Report will give an abbreviated version of the complete results for a system.  This is intended for an auditor to get a full picture of CIS compliance for a specific target or set of targets.
+CIS-CAT Pro Dashboard reports provide a few options to view CIS-CAT Assessment Results.  An individual configuration or vulnerability result view provides the same information as the HTML report generated from CIS-CAT Pro Assessor. The Dashboard views offer more flexibility in results presentation, including a CIS Controls-based view. The Dashboard also offers the ability to apply exceptions for benchmark recommendations.  Exceptions can be applied from the various result views. The remediation report provides a list of only the latest failed results for a target or group of targets.  The intent is for a remediator to print this report and use it to manually remediate desired configurations when they depart from a benchmark recommendation.  The complete Results Report will give an abbreviated version of the complete results for a system.  This is intended for an auditor to get a full picture of CIS compliance for a specific target or set of targets.
 
 **Assessment Results**
 
-The individual test results report provides a complete picture of a given Target System's compliance with a CIS benchmark at a single point in time.  This report was designed to mimic the functionality of the HTML version of the CIS-CAT Security Configuration Assessment Results report.
+The individual test results report provides a view of a selected target system's results when compared to expected benchmark states.  The display is aligned with the order of an HTML report generated from CIS-CAT Pro Assessor.
 
 
- **Navigation** - there are several ways to navigate to the Test Results Report.  Under the reports menu, you can click the Assessment Results List menu item.  From the list, you can select the individual assessment result that you would like to view.  You can also navigate to an individual target system, and listed in the Results box are all of the benchmarks for which the current target has results stored in the database.  Clicking one of the benchmarks, will open the list of all the results for that target and that benchmark,  from there you can select an individual result.  Finally you can Navigate to the individual benchmarks, there is a results section which contains all the results in that system for that particular benchmark.
+ View an assessment result by selecting `Reports` menu and select `Assessment Results Search` or `Assessment Results List`.  Select the `view` link to display the results for an individual assessment.  As an alternative,  navigate to an individual target system and select an assessment to view.  
 
-![](https://i.imgur.com/iowQLDE.png)
+![](img/ConfigurationAssessmentResults.png)
 
-1. **Results View** - the results view shows the test result in the same structure as the original benchmark.  The results for each recommendation are organized into the groups the same way as the benchmark.  Each group and subgroup is scored individually as a tally of all the rules contained within.  This is a dynamic version of the old CIS-CAT HTML report.  Users can also manage Exceptions to rules from this view (see below).
+1. **Results View** - Dynamically shows the test results in the same order and structure as the original benchmark.  Each group and subgroup is scored individually.   Exceptions can be applied to recommendations from this view.
+		
+	**Report Score:** Total Pass Results / Sum Results of (Pass + Fail + Error + Unknown). When active, Exception counts are removed from Scored Recommendation Total and affected result category (Pass, Fail, etc.) of related Section. As a result, they are also removed from the overall Report Score. When a recommendation is weighted, each individual result will be multiplied by the weight value (e.g.: (Pass * weight value), etc.) By default, all scores are weighted at 1. The weight can only be modified manually in the xccdf Benchmark content.
+
+	**Section Score:** Each section shows a section score following the same calculation. Report scores will match report scores as shown on CIS-CAT Pro Assessor v4 HTML reports as of CIS-CAT Pro Dashboard v2.1.0+ when there are no exceptions applied in the Dashboard for a particular result.
+
   
-2. **CIS Controls View** - in this view, the recommendations and results are presented in the CIS Benchmarks structure. The general grouping is determined by the individual consensus communities.  This view mirrors the traditional CIS-CAT HTML report, with each group having rule totals and scoring information, as well as the actual evidence from the assessment.  
-<br/>The controls view takes the same set of results, and using mapping metadata from the recommendations in the benchmark, reorganizes the rules into CIS Controls View. In this view, CIS Controls and Subcontrols as they relate to a recommendation are listed. This view is useful in identifying which recommendations represent or support a CIS Control. If no recommendation has been mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
+2. **CIS Controls View** - Recommendations and results are presented in the CIS Controls structure where mappings are present to CIS Controls and Subcontrols where they relate to a recommendation. This view is useful in identifying which recommendations represent or support a CIS Control. If no recommendation has been mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
 <br/><br/>Change the CIS Controls version displayed by selecting a different version in the "CIS Controls Version" dropdown on the top of the page.<br/> Below is an example of the CIS Controls View screen:
 ![](https://i.imgur.com/6rtb18r.png)
 <br/><br/>The number in the bracket, for example `[6]` for `CIS Control 2`, indicates the count of Recommendations mapped to a specific CIS Controls version (V7.0 here). Absence of a number in the brackets means that no recommendations have been mapped to this CIS Control for this CIS Benchmark. Also not all Benchmarks will be mapped to a CIS Control. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls (V7.0 here). You can verify from the CIS website which benchmark is mapped to which CIS Controls version(s). 
  
-3. **Exceptions View** - the exceptions view lists all exceptions that apply to the recommendations in this benchmark.  An exception can be associated with a single test result either by applying directly to that target system,  applying to a tag that the target system has, or by being a global exception.  This view provides a complete list of exceptions applying to the test result.
+3. **Exceptions View** - Displays exceptions associated with the selected configuration results.  Exceptions may be associated per target system, per tag associated with the selected target system, or per benchmark (global). 
  
 **Vulnerability Report**
 
-After running a vulnerability assessment in CIS-CAT Pro Assessor, you can import the results into the CIS-CAT Pro Dashboard using any of the methods used to import assessment results (CIS-CAT Upload, Legacy folder, Import button in CCPD).  To import a result from within CCPD, navigate to the target system you have a vulnerability result for.  From the Results History List, open the Vulnerability Reports accordion and click the import button:
+Vulnerability results in XML format can be imported into Dashboard using the API, manually placing in the Legacy folder, or by manually importing.  To import a result manually from the Dashboard, navigate to the target system you have a vulnerability result for.  From the Results History List, open the Vulnerability Reports accordion and click the import button:
 
 ![](http://i.imgur.com/YObutFW.png)
 
@@ -612,7 +616,7 @@ Clicking on a row in the list will bring you to the Vulnerability Report:
 
 ![](http://i.imgur.com/6ThKVvs.png)
 
-The top of the report contains some information about the target system assessed and the vunerability definitions that were assessed.  Opening the High, Medium, or Low accordions below will show you details about the vulnerabilities found:
+The top of the report contains some information about the target system assessed and the vulnerability definitions that were assessed.  Opening the High, Medium, or Low accordions below will show you details about the vulnerabilities found:
 
 ![](http://i.imgur.com/NyWD3cV.png)
 
@@ -636,23 +640,23 @@ You can also configure the High/Medium/Low thresholds in the system settings.  T
 
 **Remediation Report**
 
-The remediation report is designed to allow an operator to have a list of failure results, as well as the remediation steps to fix the failure.  An operator can take this report, follow the remediation steps, and bring a target system or target systems into compliance.  To generate this report navigate to the Remediation report from the CIS-CAT Pro Dashboard Reports menu.  The first step is to chose the target systems you want included in the report.  First, use the search criteria to get a list of target systems, and the latest result for each benchmark.
+The Remediation Report provides a list of recommendations with a `Failed` status. Remediation steps are included. It is useful to utilize this report as a focused effort on remediation of system states departing from the benchmark recommendations.  If a recommendation has been excepted in the Dashboard and it has a result of `Fail`, it will still be shown on this report. Generate this report by selecting `Remediation Report` from the CIS-CAT Pro Dashboard Reports Menu.  Select the desired Target System and the latest results for a benchmark.
 
 ![](http://i.imgur.com/pUJpXoX.png)
 
-You can then use the "Selected" checkboxes to choose which Assessment Results you would like to appear on the report.  Once you have the correct results you select the "Remediation Report" button and the report will be generated.
+Use the "Selected" checkboxes to filter the Target System results to be included on the report.  To generate the report, scroll to the bottom of the results and select the `Remediation Report` button.
 
 ![](http://i.imgur.com/21ZzQIg.png)
 
-The report lists the target system, the benchmark, the rule number and title, and the remediation steps for each failed result.  Users can then utilize the buttons in the upper right side of the screen to export the report in a variety of formats.
+The report lists the target system, benchmark, each recommendation and associated remediation steps for each `Fail` result.  Optionally export the results in HTML, csv, or Text using the buttons in the upper, right corner.
 
 **Complete Results Report**
 
-The complete results report will give you a full view of a target system or group of target systems compliance accross multiple CIS benchmarks.  Similar to the Remediation Report, you search for target systems,  select the ones you would like to see complete results for, then generate the report. 
+The Complete Results Report provides all, detailed results of a target system or group of target systems compliance across multiple CIS benchmarks.  To generate the Complete Results Report, select the menu option under reports, search and select desired for target systems, then click on the `Complete Results Report` listed at the bottom of the results. 
 
 ![](http://i.imgur.com/09wOdvf.png)
 
-The complete report lists the Target System, Benchmark,  Rule Number and Title, as well as the overall pass fail result of each individual rule.
+The Complete Report lists the Target System, Benchmark,  Rule Number and Title, as well as the overall pass fail result of each individual rule.
 
 ![](http://i.imgur.com/Q9CmiC0.png)
 
