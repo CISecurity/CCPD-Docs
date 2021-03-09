@@ -3,7 +3,30 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.1.0 ##
+March ,2021
+
+### CIS-CAT Pro Updates ###
+
+-  Exported HTML reports now consistent with Assessor v4 in format and content when imported in Dashboard v2.1.0+. This includes advanced assessment evidence. Stored assessment data prior to v2.1.0 will continue to be exported in the old HTML style.
+-  Assessment results will now import successfully to Dashboard when mac addresses are > 60 characters, which adds support for infiniband devices.
+-  Configuration assessment result screen now correctly include "unknown" and "error" results. Views streamlined and help text added.
+-  Resolved an error with Active Directory and LDAP integration when using Dashboard v2.1.0+.
+-  Resolved issue with display of Target System IPs in Target System search results.
+-  Target System and Benchmark View graphs updated to allow selection of the check box when choosing data to display.
+
+**NOTE:** 
+
+### Documentation Updates ###
+
+ - User Guide updates
+	 - Updated scoring information available in guide on configuration assessment view screen. Screen shots updated to show new "unknown" and "error" columns.
+	 - Updated functionality on user roles
+
+
+
 ## CIS-CAT Pro Dashboard v2.0.0 ##
+January 20, 2021
 
 ### CIS-CAT Pro Updates ###
 
@@ -29,6 +52,7 @@
  - IIS configuration instructions updated to support optional authentication with CIS WorkBench for receiving in-application alerts on new CIS-CAT Pro releases.
  
 ## CIS-CAT Pro Dashboard v1.1.13 ##
+May 5, 2020
 
 ### CIS-CAT Pro Updates ###
 

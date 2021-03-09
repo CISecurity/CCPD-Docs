@@ -14,49 +14,73 @@ See here for Linux:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment
 See here for Windows:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment%20Guide%20for%20Windows/)
 
 ## User Administration ##
-CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users.  Within the application an administrator can create new users, create new user roles, assign multiple user roles to each user, and assign access rights to various functionality to those roles.  This section describes how to administer CIS-CAT Pro Dashboard users and security.
+CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
 
 ## Users ##
 To create a new User in CIS-CAT Pro Dashboard you need to log in as an administrator. 
 
 Login as an administrator. (NOTE: By default the user: admin, with the password: @admin123 has ROLE_ADMINISTRATOR and ROLE_BASIC_USER)  Navigate to the Administration -> User Management -> User menu item.  This will navigate to the User List.
 
-- Creating a New User - On the user list, click the New User button. On the create user screen, you enter a first and last name for your user, required unique username, a password. The password must adhere to this format: at least one letter, number, and special character: !@#$%^&, and be between 8 and 64 characters in length. By default all users will have ROLE_BASIC_USER and ROLE_USER roles.   
-- Note that the password you enter is temporary. The user will be asked to change the password during their initial login. 
-- View an existing User - To view an existing user simply click on the users row in the table, this will navigate to the User view page.  From there you can see the various details about the user, as well as edit or delete the user.
-- Editing an existing user - Once you've clicked on an existing user and navigate to the view page, you can edit that user by selecting the edit button.  On the edit page you can change the user's first and last name,  expire the user's password, enable/disable their account, or change their user roles
-- Deleting a user - Once you've navigated to the User view page you can delete a user by selecting the delete button.  A confirmation message will appear to allow you to insure you want to delete the user.  Once you click "yes", the user will be deleted
+**Create a New User**
 
-**NOTE:** If LDAP is integrated with CCPD, user creation is no longer accessible from the user list. Once the user is authenticated against LDAP from CCPD, roles and user properties such firstname, lastname and email will be imported from LDAP. 
-If the user doesn't exist in CCPD (based on username), a user account will be created on the fly, and granted with basic user roles (ROLE\_BASIC\_USER and ROLE\_USER) by default, plus additional LDAP Roles. With LDAP integration, when you edit a user, only enable/disable account is accessible. Password and user properties are managed from LDAP.    
+Creating a new user from within CIS-CAT Pro Dashboard is possible if LDAP is not integrated. If LDAP is integrated with CCPD, user creation is no longer accessible from the user list. Once the user is authenticated against LDAP from CCPD, roles and user properties such firstname, lastname and email will be imported from LDAP. 
+If the user doesn't exist in CCPD (based on username), a user account will be created, and granted with standard user roles (`ROLE_USER`) by default, plus additional LDAP Roles. With LDAP integration, when you edit a user, only enable/disable account is accessible. Password and user properties are managed from LDAP.
 
+By default, newly created users will be granted the security access role or `ROLE_USER`.
+
+1. Login as an Admin
+2. Select the Settings --> User Management
+3. Select the `New User` button
+4. Enter a unique username
+5. Enter first and last name
+6. Enter a temporary Password between 8 and 64 characters with at least one letter, number, and special character(!@#$%^&)
+ 
+New users will be asked to change their password on initial login.
+
+
+![](img\UserList.png)
+
+
+**Modify or View a User**
+ 
+1. Login as an Admin
+2. Select the Settings --> User Management 
+3. Select a user from the list or utilize the `Search Users` button to help find the desired user
+4. To edit the user, select the `Edit` button
+5. Modify the desired information and select `Update`
+
+    
 ## Roles ##
-Roles in CIS-CAT Pro Dashboard are assigned to users, and allow access to functionality.  The role section is used for creating new roles, but you will need to add them to users and to Functional Areas in order for them to control access meaningfully.  
+Roles in CIS-CAT Pro Dashboard are assigned to users and allow access to functionality.  The application deploys with the following supported roles. 
 
-**NOTE:** when creating a new role, you must prefix the name you chose with "ROLE_",  otherwise the role will be unrecognizable to spring security.
+|Role|System Access|
+|---|---|
+|ROLE_ADMIN|Can perform all functions and access all available areas in the application. Cannot generate the API token.|
+|ROLE_USER|No access to `System` menu. Prevented from assigning or removing system tags, deleting target systems or assessment reports, and exception approval. Cannot generate the API token.|
+|ROLE_API|Utilized to create the authentication token for CIS-CAT Pro Assessor. At least one user must be assigned this role in order to generate the `CIS-CAT Authentication Token`. The token is required to be placed in the `assessor-cli.properties` file associated with CIS-CAT Pro Assessor when assessment reports will be uploaded to Dashboard.|
 
-A specific Role which has significance in a CIS-CAT Pro Assessor/Dashboard hybrid environment is the "ROLE_API" role.  This role is built in to an out-of-the-box CIS-CAT Pro Dashboard deployment and must exist in order to use CIS-CAT to upload results to the Dashboard application.  Once a user is assigned the "ROLE_API" role, the User's information page will display a button labeled "Generate CIS-CAT Authentication Token".  
+**NOTE:** As of CIS-CAT Pro Dashboard v2.1.0, new user-named roles can no longer be added. Prior versions of Dashboard supported role addition.  
 
-![](http://i.imgur.com/MPBh3Dy.png)
+**The API User Role**
 
-Clicking the button will open a dialog box where the user is required to enter the "ROLE_API" user's credentials.  Once that user has been re-authenticated, the token is generated and displayed on the page.  That token can now be incorporated into CIS-CAT, as per the instructions below, under "Import CIS-CAT Results - CIS-CAT Import"
+![](img\APIUser.png)
 
-## Security Functional Areas ##
-Functional Areas are groups of functionality that are assigned to Roles to give them meaning.  Each functional area covers a specific group of functionality within CIS-CAT Pro Dashboard.  By default there is: Reports, Dashboards, Target Systems, System Administration, API, and Developer.  These roles individually encompass the functionality within the menu options at the top of the CIS-CAT Pro Dashboard Application.
 
-Functional Areas can be administered through the Roles interface.  When you select a Role from the Role List,  you are taken to the show Role page.  Here you can add/delete users access to this role, and you can add/delete functional areas that this role allows access to.
 
-![](http://i.imgur.com/cPSn0zC.png)
+Clicking the button will open a dialog box where the user is required to enter the "ROLE_API" user's credentials.  Once that user has been re-authenticated, the token is generated and displayed on the page.  To support automatic imported results into Dashboard from an assessment, the token must be placed into the properties file of CIS-CAT Pro Assessor. See deployment guide for Dashboard for Windows or Linux and learn about where to place this token for Assessor v4 or Assessor v4 Service Integration.
+
 
 
 ## System Settings ##
-There are a variety of configuration items that can be customized via System Settings.  To modify these values you can navigate to the System Settings via the administration menu:
+The `System Settings` menu is only available to users with `ROLE_ADMIN`.  Various default system configurations can be set. System administrators can navigate to this screen by selecting the gear icon in the upper, right area of the application.
 
-![](https://i.imgur.com/jTHDrue.png)
+![](img/SystemSettings.png)
 
-This will navigate you to the System Settings List, where you can modify the values of the settings:
+
 
 ![](https://i.imgur.com/UENaR6x.png)
+
+Below are explanations of each of the different possible configurations.
 
 
 |Setting Name|Description|Values|
@@ -100,9 +124,9 @@ Clicking on the username, a menu will appear, showing the user options for contr
 
 Click on the Profile link to navigate to the user's profile:
 
-![](http://i.imgur.com/GptCUED.png)
+![](img/UserProfile.png)
 
-The User's profile screen shows account and role information, as assigned by an administrator.  From this screen, an individual user may change their password, or edit those profile fields to which they have access to change.  Clicking the Change Password button opens a dialog box allowing the user to enter and confirm new credentials to be used when logging in to CIS-CAT Pro Dashboard:
+The User's profile screen shows account and role information, as assigned by an administrator.  Clicking the Change Password button opens a dialog box allowing the user to enter and confirm new credentials to be used when logging in to CIS-CAT Pro Dashboard:
 
 ![](http://i.imgur.com/iUreF3M.png)
 
@@ -598,7 +622,7 @@ The individual test results report provides a view of a selected target system's
 2. **CIS Controls View** - Recommendations and results are presented in the CIS Controls structure where mappings are present to CIS Controls and Subcontrols where they relate to a recommendation. This view is useful in identifying which recommendations represent or support a CIS Control. If no recommendation has been mapped to that  control,  clicking on it will simply provide more information about that particular control/subcontrol.
 <br/><br/>Change the CIS Controls version displayed by selecting a different version in the "CIS Controls Version" dropdown on the top of the page.<br/> Below is an example of the CIS Controls View screen:
 ![](https://i.imgur.com/6rtb18r.png)
-<br/><br/>The number in the bracket, for example `[6]` for `CIS Control 2`, indicates the count of Recommendations mapped to a specific CIS Controls version (V7.0 here). Absence of a number in the brackets means that no recommendations have been mapped to this CIS Control for this CIS Benchmark. Also not all Benchmarks will be mapped to a CIS Control. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls (V7.0 here). You can verify from the CIS website which benchmark is mapped to which CIS Controls version(s). 
+<br/><br/>The number in the bracket, for example `[6]` for `CIS Control 2`, indicates the count of recommendations mapped to a specific CIS Controls version. Absence of a number in the brackets means that no recommendations have been mapped to this CIS Control for this CIS Benchmark. Also not all Benchmarks will be mapped to a CIS Control. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls. You can verify from the CIS website which benchmark is mapped to which CIS Controls version(s). 
  
 3. **Exceptions View** - Displays exceptions associated with the selected configuration results.  Exceptions may be associated per target system, per tag associated with the selected target system, or per benchmark (global). 
  
@@ -652,7 +676,7 @@ The report lists the target system, benchmark, each recommendation and associate
 
 **Complete Results Report**
 
-The Complete Results Report provides all, detailed results of a target system or group of target systems compliance across multiple CIS benchmarks.  To generate the Complete Results Report, select the menu option under reports, search and select desired for target systems, then click on the `Complete Results Report` listed at the bottom of the results. 
+The Complete Results Report provides all detailed results of a target system or group of target systems compliance across multiple CIS benchmarks.  To generate the Complete Results Report, select the menu option under reports, search and select desired for target systems, then click on the `Complete Results Report` listed at the bottom of the results. 
 
 ![](http://i.imgur.com/09wOdvf.png)
 
@@ -772,50 +796,14 @@ The tag view allows you to aggregate vulnerability results for all target system
 
 ![](https://i.imgur.com/cHEsOCR.png)
 
- 
-## "Reference" Data Administration ##
-Users assigned (currently) the ROLE_CIS user role are granted access to application views which allow for the import and viewing of assessment resources, such as Data Stream Collections, XCCDF Benchmarks, OVAL Definitions, and CPE Dictionaries.
 
-In general, CIS content will be delivered using one of four structures:
 
-1. **XCCDF 1.1 (Legacy):** A single-file format consisting of a benchmark XCCDF, containing CIS' proprietary embedded check language (ECL).  When importing legacy XCCDF 1.1 content, simply navigate to the "Benchmarks" list page (shown below) and complete the "Import" workflow.
-2. **XCCDF 1.2 "data-stream":** A 2-or-4-file format consisting of a benchmark XCCDF, an OVAL Definitions file, and optionally, a CPE Dictionary and CPE OVAL Definitions file.  When importing XCCDF 1.2 information as part of a 4-file bundle of assessment content, first proceed to the CPE Dictionary import, followed by the CPE OVAL Definitions import, the OVAL Definitions import, and conclude with the XCCDF Benchmark import workflow.
-3. **SCAP 1.2 "data-stream collection":** A single file format which acts as a sort-of "envelope" containing components representing the XCCDF, OVAL, CPE Dictionary, and CPE OVAL files.  The SCAP 1.2 "data-stream collection" import workflow simply involves navigating to the "Data Stream Collections" list, and subsequently importing the appropriate file.
-4. **OVAL Definitions & OVAL Variables:**  A 2-file format in which the OVAL Variables file contains variable values to be used by the evaluation of the OVAL Definitions.  Importing an OVAL Definitions/Variables combination must begin with the import of the OVAL Variables file, followed by the OVAL Definitions file import.   Also, OVAL Results content may need to be imported into CIS-CAT Pro Dashboard.  OVAL Results information can include Vulnerability Assessment results produced from the CIS-CAT desktop application.
+## Supporting Data ##
 
-**CPE Dictionaries**
+**Benchmarks List**
+To access to a Benchmark, simply navigate to Supporting Data --> Benchmarks List. There is also a link to the Benchmark in the Configuration Assessment Results view.
 
-To import a CPE Dictionary XML file, simply navigate to Collections --> OVAL --> CPE Dictionary:
-
-![](http://i.imgur.com/gEHG8YF.png)
-
-Once navigated to the CPE Dictionary List screen, click on the "Import CPE Dictionary" button to display the file upload dialog.  Find and select the appropriate "-cpe-dict.xml" file and click the "Upload" button.  The CPE Dictionary will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.
-
-**OVAL Variables**
-
-To import an OVAL Variables XML file, simply navigate to Collections --> OVAL --> OVAL Variable:
-
-![](http://i.imgur.com/ZBN7pkS.png)
-
-Once navigated to the OVAL Variables List screen, click on the "Import OVAL Variables" button to display the file upload dialog.  Find and select the appropriate "-variables.xml" file and click the "Upload" button.  The OVAL Variables will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.
-
-**OVAL Definitions**
-
-To import an OVAL Definitions XML file, simply navigate to Collections --> OVAL --> OVAL Definition:
-
-![](http://i.imgur.com/HVhhb2j.png)
-
-Once navigated to the OVAL Definitions List screen, click on the "Import OVAL Definintions" button to display the file upload dialog.  Find and select the appropriate "-oval.xml" or "-cpe-oval.xml" file and click the "Upload" button.  The OVAL Definitions will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.
-
-**OVAL Results**
-
-To import an OVAL Results XML file, simply navigate to Collections --> OVAL --> OVAL Result:
-
-![](http://i.imgur.com/Tfjyx8s.png)
-
-Once navigated to the OVAL Results List screen, click on the "Import OVAL Results" button to display the file upload dialog.  Find and select the appropriate OVAL Results file (such as CIS-CAT produced Vulnerability Assessment results XML) and click the "Upload" button.  The OVAL Results will be imported into the CIS-CAT Pro Dashboard database and displayed for the user.  Note that, depending on the size of the OVAL Results file, this import could take several minutes to complete, albeit asynchronously.
-
-**Benchmarks**
+![](https://i.imgur.com/W8xngXR.png)
 
 To view a Benchmark, simply navigate to Collections --> Benchmarks or Supporting Data --> Benchmarks List. There is also a link to the Benchmark in the Security Configuration Assessment Results view.
 
@@ -854,23 +842,6 @@ The CIS Controls version selected in the CIS Controls Version dropdown will be t
 
 4. **Results** - this is the list of Security Configuration Assessment Results for the selected benchmark.
 ![](https://i.imgur.com/nUn0WLQ.png)
-
-
-**Data Stream Collections**
-
-To import a SCAP 1.2 Data Stream Collection XML file, simply navigate to Collections --> Data Stream Collection:
-
-![](http://i.imgur.com/UiVppTm.png)
-
-
-## Supporting Data ##
-
-**Benchmarks List**
-To access to a Benchmark, simply navigate to Supporting Data --> Benchmarks List or Collections --> Benchmarks. There is also a link of the Benchmark in the Security Configuration Assessment Results view.
-
-![](https://i.imgur.com/W8xngXR.png)
-
-For more details about the Benchmark view, please refer to **Benchmarks** section of **"Reference" Data Administration** sub-menu. 
 
  
 **CIS Controls**
