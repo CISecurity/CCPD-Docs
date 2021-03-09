@@ -3,7 +3,11 @@
 # CIS-CAT Pro Dashboard User's Guide #
 
 ## Introduction ##
-CIS-CAT Pro Dashboard is a companion application for CIS-CAT Pro Assessor.  The application features a database back end for storing target system individual assessment results. Using CIS-CAT Pro Dashboard is a great way to visualize assessment results. Dashboards show configuration assessment results over time with the ability to drill down to individual results. Navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to individual assessment results that produce a compliance score.  When viewing these individual assessment results, create exceptions for certain rules along with a reason for the exception.  This will remove the rule from compliance scoring as long as the exception is active, but provide supporting evidence for auditors as to why the rule was excepted.  The application also offers a Remediation Report, for an operator only concerned with "failure" results of a given assessment and a Complete Results Report, to provide auditors with the complete assessment results of a given endpoint, or group of end points.  Users can also view CIS-CAT assessment results through the lens of the CIS Controls with the Controls View of assessment Results.  CIS-CAT Pro Dashboard provides users with the capability to Tag target systems (endpoints) in order to group them together for aggregation onto these new dashboards and reports.  This guide is intended to assist CIS Members with deployment, configuration, and use of the Dashboard application.
+CIS-CAT Pro Dashboard is a companion application for CIS-CAT Pro Assessor.  Using CIS-CAT Pro Dashboard is a great way to visualize assessment results. Dashboards show configuration assessment results over time with the ability to drill down to individual results. Navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to individual assessment results that produce a compliance score.
+
+CIS-CAT Pro Dashboard supports creation of exceptions to CIS Benchmark recommendations where organizations can indicate why a particular recommendation is resolved other ways or risk is accepted.  When exceptions are approved, compliance scoring can be improved where the exception is active.  
+
+The application also offers a Remediation Report, for an operator only concerned with "failure" results of a given assessment and a Complete Results Report, to provide auditors with the complete assessment results of a given endpoint, or group of end points.  Users can also view CIS-CAT assessment results through the lens of the CIS Controls with the Controls View of assessment Results.  CIS-CAT Pro Dashboard provides users with the capability to Tag target systems (endpoints) in order to group them together for aggregation onto these new dashboards and reports.  
 
 ## Deployment ##
 CIS-CAT Pro Dashboard is a companion application to CIS-CAT Pro Assessor.  CIS-CAT collects and evaluates system characteristics as described by the CIS Benchmark content.  CIS-CAT traditionally provided assessment results in various report formats, including HTML, XML, CSV, and plain text.  CIS-CAT can now upload its assessment results to the web-based Pro Dashboard application using a REST API.  CIS-CAT Pro Dashboard will import these XML document-based results into its application database.  This section describes how to configure the web application in your environment, as well as how to configure CIS-CAT to send assessment results to the Pro Dashboard application.
@@ -17,14 +21,15 @@ See here for Windows:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployme
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
 
 ## Users ##
-To create a new User in CIS-CAT Pro Dashboard you need to log in as an administrator. 
 
-Login as an administrator. (NOTE: By default the user: admin, with the password: @admin123 has ROLE_ADMINISTRATOR and ROLE_BASIC_USER)  Navigate to the Administration -> User Management -> User menu item.  This will navigate to the User List.
+Only a user with the role of administrator can create create and manage users.
+
+By default the administrator username is `admin` with the password `@admin123`.  Navigate to the Settings menu (gear icon) and select `User Management` to access the user list.
 
 **Create a New User**
 
-Creating a new user from within CIS-CAT Pro Dashboard is possible if LDAP is not integrated. If LDAP is integrated with CCPD, user creation is no longer accessible from the user list. Once the user is authenticated against LDAP from CCPD, roles and user properties such firstname, lastname and email will be imported from LDAP. 
-If the user doesn't exist in CCPD (based on username), a user account will be created, and granted with standard user roles (`ROLE_USER`) by default, plus additional LDAP Roles. With LDAP integration, when you edit a user, only enable/disable account is accessible. Password and user properties are managed from LDAP.
+Creating a new user is possible if LDAP is not integrated. When a user is authenticated against LDAP from the Dashboard, roles and user properties such firstname, lastname and email will be imported from LDAP. 
+If the user doesn't exist in the Dashboard (based on username), a user account will be created, and granted with a non-admin user role (`ROLE_USER`) by default, plus additional LDAP Roles. With LDAP integration, when you edit a user, only enable/disable account is accessible. Password and user properties are managed from LDAP.
 
 By default, newly created users will be granted the security access role or `ROLE_USER`.
 
