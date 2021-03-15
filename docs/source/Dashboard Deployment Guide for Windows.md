@@ -16,7 +16,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
 
  - 2 Windows Server 2016 servers* 
- - **Server 1:** Microsoft SQL Server 2017
+ - **Server 1:** Microsoft SQL Server 2017 or 2019
  - **Server 2:** Tomcat 8.5 or 9 (Recommended for Dashboard v2.0.0+)
  - **Server 2:** IIS 10.0 Web Server
  - **Server 2:** Java Runtime or Development Environment 8 to 11
@@ -42,11 +42,13 @@ The application is fairly lightweight on processor and memory use. However, when
 The following sections describe the installation and configuration of all components necessary to deploy CIS-CAT Pro Dashboard.
 
 ###Database###
-#### SQL Server 2017 ###
+#### Microsoft SQL Server ###
  
-Downloaded SQL Server 2017 from [the official website.](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
+Download SQL Server 2017 or 2019 from [the official website.](https://www.microsoft.com/en-us/sql-server/sql-server-editions-express)
 
 Install the database following the important steps described below, for more details regarding the installation, please follow [the official guide](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/installation-for-sql-server) or [this unofficial website](https://www.brentozar.com/archive/2017/10/sql-server-2017-installation-screenshot-tour-windows/).
+
+The below screen shots depict SQL Server 2017. There should be minimal differences between the look of 2017 and 2019. CIS uses both database versions in testing.
 
 Chose "Custom" type installation and a target location to download.
 

@@ -117,11 +117,11 @@ Below are explanations of each of the different possible configurations.
 ## Logging In/User Profile ##
 When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
 
-![](http://i.imgur.com/vnZJve1.png)
+![](img/NewUserPassword.png)
 
 Once the user configures their password, they are asked to re-login using those new credentials.  Once logged in with updated credentials, the user is taken to the "Overview" Dashboard view.  In the top right-hand corner of the application now resides the display of the logged-in user's username:
 
-![](http://i.imgur.com/bcyWVtc.png)
+![](img/UserLoginBar.png)
 
 Clicking on the username, a menu will appear, showing the user options for controlling their user account, such as editing their user profile, or logging out of the application:
 
@@ -144,7 +144,7 @@ Making changes to this dialog and clicking Save will update the user's informati
 
 The user profile screen also features a list of Alerts that the user is currently subscribed to, as a well as why they are subscribed to that alert type:
 
-![](http://i.imgur.com/s4khpxq.png)
+![](img/UserProfileAlert.png)
 
 From this list users can choose to opt out of any of the alert types that they are receiving.
 
@@ -334,7 +334,7 @@ This process is asynchronous, so after you start the import you can navigate awa
 
 Importing Asset Report Format (ARF) results from CIS-CAT assumes that the CIS-CAT Deployment instructions have been completed.  The end result of that configuration is that a user has been created in CIS-CAT Pro Dashboard, been assigned to the "ROLE_API" role, and an authentication token has been generated.  
 
-![](http://i.imgur.com/roQk64u.png)
+![](img/APIUser.png)
 
 Once generated, that authentication token must be added to the CIS-CAT properties file in order for automated upload to function.
 
@@ -357,7 +357,7 @@ assessor-cli.properties:
 Save the property file and execute CIS-CAT.
 
 
-**Graphical User Interface (GUI)**
+**Graphical User Interface (GUI) for Assessor v3**
 
 When executing the CIS-CAT GUI, users will select a benchmark and profile, and subsequently be navigated to the "Report Output Options" screen.  To upload reports to CIS-CAT Pro Dashboard, a user may select EITHER the XML results or the Asset Report Format to be generated.  At the bottom of the "Report Output Options" screen, click the button to "POST Reports to URL".  When clicked, a dialog box will open allowing users to select the URL to which the generated report is uploaded.  
 
@@ -366,6 +366,10 @@ When executing the CIS-CAT GUI, users will select a benchmark and profile, and s
 **NOTE: The CIS-CAT Pro Dashboard API is "resource-based" and, as such, only a specific URL pattern can be entered.** This pattern will always end with "/api/reports/upload".  For example, if the context URL for a member's CIS-CAT Pro Dashboard deployment is http://myapp.example.com/CCPD, the URL for reports upload will always be http://myapp.example.com/CCPD/api/reports/upload.  
 
 ![](http://i.imgur.com/21WzjyZ.png)
+
+**Graphical User Interface (GUI) for Assessor v4**
+
+On the Assessment Options
 
 **Command Line User Interface (CLI)**
 
