@@ -369,7 +369,7 @@ When executing the CIS-CAT GUI, users will select a benchmark and profile, and s
 
 **Graphical User Interface (GUI) for Assessor v4**
 
-On the Assessment Options
+On the Assessment Options page, enter the Dashboard URL where the resulting report should upload. Utilize the help icon on this screen to understand the format to use.
 
 **Command Line User Interface (CLI)**
 
