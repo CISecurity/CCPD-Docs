@@ -48,7 +48,7 @@ Download SQL Server 2017 or 2019 from [the official website.](https://www.micros
 
 Install the database following the important steps described below, for more details regarding the installation, please follow [the official guide](https://docs.microsoft.com/en-us/sql/database-engine/install-windows/installation-for-sql-server) or [this unofficial website](https://www.brentozar.com/archive/2017/10/sql-server-2017-installation-screenshot-tour-windows/).
 
-The below screen shots depict SQL Server 2017. There should be minimal differences between the look of 2017 and 2019. CIS uses both database versions in testing.
+The below screen shots depict SQL Server 2019. There should be minimal differences between the look of 2017 and 2019. CIS uses both database versions in testing.
 
 Chose "Custom" type installation and a target location to download.
 
@@ -58,16 +58,16 @@ During the SQL Server installation wizard, make sure that you follow those impor
 
 - In "Install Rules" step, you might have a warning regarding Windows firewall ports which needs to be opened for TCP/IP, as following. Please ignore the warning, the firewall configuration will be set up during the next section.
 
-![](https://i.imgur.com/GCYkrqN.png)
+![](img/SQLServer2019Setup.png)
 
 - In "Instance Configuration" step, make sure that you select **default instance** instead of "named instance". The default instance will listen on a static port (1433). The "named instance" will listen on a dynamic port which changes every time the server restarts.
   
-![](https://i.imgur.com/hMxsvbn.png)
+![](img/SQLServer2019Instance.png)
  
 - In "Database Engine Configuration" step, select Mixed Mode for the authentication.
 This allows the username and password to be added later to CIS-CAT Pro Dashboard configuration file (ccpd-config.yml). You also need to set the password of the "sa" user.
 
-![](https://i.imgur.com/vyz7xas.png)
+![](img/SQLServer2019DBEngine.png)
 
 Please note the following information in order to configure later SQL Server client as well as CIS-CAT Pro Dashboard application:<br/>
 - hostname/IP of database server (machine which hosts the database)<br/>
