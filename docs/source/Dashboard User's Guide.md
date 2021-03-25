@@ -3,7 +3,7 @@
 # CIS-CAT Pro Dashboard User's Guide #
 
 ## Introduction ##
-CIS-CAT Pro Dashboard is a companion application for CIS-CAT Pro Assessor.  Using CIS-CAT Pro Dashboard is a great way to visualize assessment results. Dashboards show configuration assessment results over time with the ability to drill down to individual results. Navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to individual assessment results that produce a compliance score.
+CIS-CAT Pro Dashboard is a companion application for CIS-CAT Pro Assessor.  Using CIS-CAT Pro Dashboard is a great way to visualize assessment results. Dashboards show configuration assessment results over time with the ability to drill down to individual results. Navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to individual assessment results that produce a compliance score.  MK
 
 CIS-CAT Pro Dashboard supports creation of exceptions to CIS Benchmark recommendations where organizations can indicate why a particular recommendation is resolved other ways or risk is accepted.  When exceptions are approved, compliance scoring can be improved where the exception is active.  
 
