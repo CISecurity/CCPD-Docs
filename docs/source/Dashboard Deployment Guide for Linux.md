@@ -833,12 +833,13 @@ The setting for Authentication Token is a key piece of the integrations between 
 
 Once the authentication token is generated in CIS-CAT Pro Dashboard, place the token in the assessor-cli.properties file for the Assessor that will post to the Dashboard. This file is typically located in the config folder of the Assessor v4. See the [Assessor Configuration Guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#cis-cat-pro-dashboard-integration) for more information.
  
-**NOTE:** By default there is a user named apiuser which has ROLE_API.  The default password for this user is @apiuser123.  In order to generate the token correctly, you must:
+**NOTE:** By default there is a user named apiuser which has ROLE_API.  The default password for this user is @apiuser123.  
 
- 1. Login once as the apiuser and reset the temporary default password.  
- 2. Login as an administrator and navigate to the user management page for the apiuser.
- 3. Generate the token using the new password you assigned to the apiuser.
+ **Generate the token**
 
+ 1. Login initially as the apiuser and reset the temporary default password  
+ 2. Login as an administrator and navigate to the user management page for the apiuser
+ 3. Generate the token
 
 ### Assessor Centralized deployment Dashboard Integration ###
 CIS-CAT Pro Dashboard-specific scripts have been developed to allow for reports to be generated in the correct format and uploaded to the CIS-CAT Pro Dashboard database.
