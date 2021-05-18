@@ -10,7 +10,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 
  - MySQL until version 5.7 (MariaDB 10.2)
  - MS SQL Server
- - Oracle
+ - Oracle (versions 12c, 18c, 19c)
 
 **CIS Preferred Component Installation**<br/>
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
