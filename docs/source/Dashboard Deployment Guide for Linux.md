@@ -370,7 +370,7 @@ Create the CIS-CAT Pro Dashboard runtime configuration file: `/opt/tomcat/ccpd-c
 		#Oracle DB Settings
 
 		#driverClassName: oracle.jdbc.OracleDriver
-		#dialect: org.hibernate.dialect.Oracle10Dialect
+		#dialect: org.hibernate.dialect.Oracle12cDialect
 		#url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
 		#username: <db_user>
 		#password: <db_password>
@@ -470,7 +470,7 @@ You will need to comment out the MySQL configuration and uncomment the SQL Serve
     #Oracle DB Settings
 	
     driverClassName: oracle.jdbc.OracleDriver
-    dialect: org.hibernate.dialect.Oracle10Dialect
+    dialect: org.hibernate.dialect.Oracle12cDialect
     url: jdbc:oracle:thin:@<path_to_mysql_database_server>:1521:<schema_name_of_database>
     username: <db_user>
     password: <db_password>
