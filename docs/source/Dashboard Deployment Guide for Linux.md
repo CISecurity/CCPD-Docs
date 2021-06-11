@@ -30,7 +30,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 ## System Recommendations ##
  There are no strict requirements associated with our Dashboard application. Any OS will be suitable so long as it can run Tomcat. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
 
-Running Dashboard behind a load balancer is not currently supported.
+Load balanced configurations are not currently supported.
 
 Our test environment uses an AWS t2.large instance (designed for burst processing), which has:
 

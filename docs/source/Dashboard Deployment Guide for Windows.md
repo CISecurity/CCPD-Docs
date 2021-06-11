@@ -28,7 +28,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 ## System Recommendations ##
  CIS currently tests using Microsoft Windows Server 2016, but we know Members find success with later versions of Microsoft servers. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
 
-Running Dashboard behind a load balancer is not currently supported.
+Load balanced configurations are not currently supported.
 
 Our test environment uses an AWS t2.large instance (designed for burst processing), which has:
 
