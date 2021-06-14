@@ -15,7 +15,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 **CIS Preferred Component Installation**<br/>
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
 
- - 2 Windows Server 2016 servers* 
+ - 2 Windows Server 2016 or 2019 servers* 
  - **Server 1:** Microsoft SQL Server 2017 or 2019
  - **Server 2:** Tomcat 8.5 or 9 (Recommended for Dashboard v2.0.0+)
  - **Server 2:** IIS 10.0 Web Server
@@ -26,7 +26,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
 
 ## System Recommendations ##
- CIS currently tests using Microsoft Windows Server 2016, but we know Members find success with later versions of Microsoft servers. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
+ CIS currently tests using Microsoft Windows Server 2019. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
 
 Load balanced configurations are not currently supported.
 
@@ -34,7 +34,7 @@ Our test environment uses an AWS t2.large instance (designed for burst processin
 
  - 8GB RAM
  - 2 vCPU’s with 4 cores each
- - Microsoft Windows Server 2016 Base
+ - Microsoft Windows Server 2016 or 2019 Base
  
 The application is fairly lightweight on processor and memory use. However, when importing results, the usage will spike. Our recommendation would be to conduct importing off hours and then the functionality of the application will not be hindered during business hours.
 
@@ -628,7 +628,7 @@ You can also set legacy.processedRetentionNumber setting, which determines how m
 The final configuration is for a web server to proxy the Tomcat instance and to answer traffic on port `80/443`.
 
 ### IIS Web Server Installation###
-For the purposes of this User's Guide, IIS 10.0 will be installed in Windows Server 2016.
+For the purposes of this User's Guide, IIS 10.0 will be installed in Windows Server 2016 or 2019.
 
 Install IIS 10.0 using Server Manager application as following:
 
@@ -649,7 +649,7 @@ Once installed, IIS server will appear in Server Manager Dashboard.
   
 As a final test, open a web browser and type `http://localhost/`, you should see the default IIS page.
 
-For more details, please follow "Install IIS Through GUI" from [this website](https://www.rootusers.com/how-to-install-iis-in-windows-server-2016/). 
+For more details, please follow "Install IIS Through GUI" on [Server 2016](https://www.rootusers.com/how-to-install-iis-in-windows-server-2016/) or [Server 2019](https://www.rootusers.com/how-to-install-iis-in-windows-server-2019/). 
 
 ###Initial Site Configuration###
 Access Internet Information Service (IIS) Manager tool as following:

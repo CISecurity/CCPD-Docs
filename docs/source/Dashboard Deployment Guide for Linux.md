@@ -15,7 +15,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 **CIS Preferred Component Installation**<br/>
 *The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
 
- 2 Ubuntu 16.04 servers* 
+ 2 Ubuntu 18.04 servers* 
 	
 
 - **Server 1**: MySQL 5.6
@@ -28,7 +28,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
 
 ## System Recommendations ##
- There are no strict requirements associated with our Dashboard application. Any OS will be suitable so long as it can run Tomcat. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoints you have.
+ Most operating systems will be suitable to host Dashboard provided Tomcat can be installed. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoint result data will be stored.
 
 Load balanced configurations are not currently supported.
 
@@ -36,7 +36,7 @@ Our test environment uses an AWS t2.large instance (designed for burst processin
 
  - 8GB RAM
  - 2 vCPU’s with 4 cores each
- - Ubuntu 16.04
+ - Ubuntu 18.04
  
 The application is fairly lightweight on processor and memory use. However, when importing results, the usage will spike. Our recommendation would be to conduct importing off hours and then the functionality of the application will not be hindered during business hours.
 
@@ -44,7 +44,7 @@ The application is fairly lightweight on processor and memory use. However, when
 The following sections describe the installation and configuration of all components necessary to deploy CIS-CAT Pro Dashboard.
 
 ### Database ###
-Install MySQL Server 5.6 onto the database Ubuntu server using [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04).  
+Install MySQL Server 5.6 onto the database Ubuntu server using [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04).  
 Once the MySQL database has been installed, note the following information:
 
 - hostname/IP of database server
@@ -626,7 +626,7 @@ Execute the following commands to enable the reverse proxy to Tomcat:
 The Apache HTTP server should now be configured to serve requests to CIS-CAT Pro Dashboard.  The application should be available at the URL entered into your `ccpd-config.yml`: `http://<public url http server>/CCPD`
 
 ### Securing Web Traffic ###
-The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port `80`.  This presents a risk as data, including user credentials, will be transmitted in clear text.  It is recommended that traffic be secured using HTTPS.  The following article explains how to create a self-signed certificate and apply it to a web server in Ubuntu 16.04: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04)
+The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port `80`.  This presents a risk as data, including user credentials, will be transmitted in clear text.  It is recommended that traffic be secured using HTTPS.  The following article explains how to create a self-signed certificate and apply it to a web server in Ubuntu 18.04: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04)
 
 **NOTE:** 
 After completing the steps in the article, you will have to change your connector in ccpd.conf to use port 443 instead of port 80.  Also, when you chose a common name in the certificate creation process, the name must match the DNS name portion of the serverURL in ccpd-config.yml.  i.e.  if your serverURL is https://www.example.com/CCPD, then the common name in the certificate must be www.example.com
