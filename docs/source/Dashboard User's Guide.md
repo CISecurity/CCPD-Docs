@@ -810,51 +810,41 @@ The tag view allows you to aggregate vulnerability results for all target system
 ## Supporting Data ##
 
 **Benchmarks List**
-To access to a Benchmark, simply navigate to Supporting Data --> Benchmarks List. There is also a link to the Benchmark in the Configuration Assessment Results view.
+
+Navigate to Supporting Data > Benchmarks List to view the details of imported CIS Benchmark recommendations. Benchmarks are uniquely identified by their internal ID and version number.  Therefore, there may be multiple instances of the CIS Debian Linux 8 benchmark, but with different version numbers, such as 1.0.0, 2.0.0, or 3.0.0.  Assessment results imported into CIS-CAT Pro Dashboard are associated with a specific version of a benchmark.
 
 ![](https://i.imgur.com/W8xngXR.png)
 
-To view a Benchmark, simply navigate to Collections --> Benchmarks or Supporting Data --> Benchmarks List. There is also a link to the Benchmark in the Security Configuration Assessment Results view.
-
-![](http://i.imgur.com/2HioSTk.png)
-
-**View**
-
-Once navigated to the Benchmarks List screen, the list of previously-imported benchmarks will be displayed in a table format:
+Select a CIS Benchmark version to view.
 
 ![](https://i.imgur.com/uHYAZ9m.png)
 
-Each entry in the table represents a unique benchmark XCCDF document.  Benchmarks are uniquely identified by their internal ID and version number.  Therefore, there may be multiple instances of the CIS Debian Linux 8 benchmark, but with different version numbers, such as 1.0.0, 2.0.0, or 3.0.0.  Assessment results imported into CIS-CAT Pro Dashboard are associated with a specific version of a benchmark.
 
-Once a user selects a benchmark to view, he/she is taken to the benchmark home page:
+Once selected, the additional details of a CIS Benchmark are available. Review the description below on each tab of data.
 
 ![](https://i.imgur.com/9A3rEPk.png)
 
 
-1. **General** - the General tab display a description of the selected benchmark, the version number, and additional information such as status or style.
-The CIS Controls version selected in the CIS Controls Version dropdown will be the version displayed in Recommendations/CIS Controls View. By clicking on the dropdown, the user can change the CIS Controls version presented.
+1. **General** - Provides a description of the CIS Benchmark to include CIS version number, status, style, etc.  
 
-2. **Profiles** - this is the list of Profiles for the selected benchmark. Select the header section bars to reveal additional information such as profile description or recommendations.
+2. **Profiles** - The list of Profiles for the selected benchmark. Select the header section bars to reveal additional information such as profile description or recommendations.
 ![](https://i.imgur.com/CEujUUT.png)
 
-3. **Recommendation** - this view gives access to the 3 following tabs:
+3. **Recommendation** - Select to view Results/CIS Controls/Exceptions. 
 ![](https://i.imgur.com/Z33gVPG.png)
-<br/><br/>**Results View** - the results view shows the list of recommendations organized into the groups. Each group is expandable to display any sub-groups or recommendations contained within:
+<br/><br/>**Results View** - The list of recommendations organized into the groups. Each group is expandable to display additional sub-groups. All Benchmark information displayed is imported at the time the first configuration assessment test result for a particular benchmark is imported. The content displayed is the content imported and cannot be modified in CIS-CAT Pro Dashboard.
 ![](https://i.imgur.com/9Z0dP1r.png)
-<br/><br/>Note the description, rationale, remediation, impact statements, any references, and any mapped CIS Controls are also displayed to the user. Also note that the benchmark content remains in a read-only state. CIS-CAT Pro Dashboard is merely a repository for already assessed information. Benchmark tailoring is beyond the scope of CIS-CAT Pro Dashboard.
-
-**CIS Controls View** - recommendations presented by CIS Controls. Where possible, recommendations are mapped to a CIS Controls Safeguard using mapping metadata from the recommendations in the benchmark. It is not possible for all recommendations to relate directly to a CIS Control Safeguard (formerly known as Sub-Controls). 
+<br/><br/>**CIS Controls View** - The list of recommendations presented by CIS Controls. Where possible, recommendations are mapped to a CIS Controls Safeguard using metadata from the imported benchmark content. It is not possible for all recommendations to relate directly to a CIS Control Safeguard (formerly known as Sub-Controls). 
 <br/><br/>Change the CIS Controls version displayed by selecting a different version in the "CIS Controls Version" dropdown on the General tab.<br/> Below is an example of the CIS Controls View screen:
 
 ![](https://i.imgur.com/6rtb18r.png)
 
 <br/><br/>The number in the bracket, for example `[6]` for `CIS Control 2`, indicates the count of Recommendations mapped to a specific CIS Controls version (V7.0 here). Absence of a number in the brackets means that no recommendations have been mapped to this CIS Control for this CIS Benchmark. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls (V7.0 here). You can verify from the CIS website which benchmark is mapped to which CIS Controls version(s). 
 
-**Exceptions List** - all active exceptions applicable to this benchmark. Exceptions can be applied to a single test result, via a tag assigned to the target system, or global for all systems for that CIS Benchmark version.  
+**Exceptions List** - All active exceptions applicable to this benchmark. Exceptions can be applied to a single test result, via a tag assigned to the target system, or global for all systems for that CIS Benchmark version.  
 
-![](img\BenchmarkExceptionList.png)
-
-4. **Results** - this is the list of Security Configuration Assessment Results for the selected benchmark.
+![](img\BenchmarkExceptionList.png)<br/><br/>
+4. **Results** - The list of Security Configuration Assessment Results for the selected benchmark.
 ![](https://i.imgur.com/nUn0WLQ.png)
 
  
@@ -865,7 +855,7 @@ The CIS Controls reflect the combined knowledge of experts from every part of th
 
 ![](img\Controls8.png)
 
-Controls V7 is the default CIS Controls shown when viewing a Configuration Assessment Result in the Controls View. Please note that CIS Controls V7.0 is the same as V7.1. In this view, it is possible to toggle to CIS Controls V8. [CIS Controls V8 was released](https://www.cisecurity.org/controls/v8/) in May 2021. CIS Controls V8 has reduced the list of 20 CIS Controls to 18. "Safeguards" were previously known as "Sub-Controls" prior to Version 8 of the CIS Controls.
+CIS Controls V7 is the default CIS Controls shown when viewing a Configuration Assessment Result in the Controls View. Note that CIS Controls V7.0 is the same as V7.1. In this view, it is possible to toggle to CIS Controls V8. [CIS Controls V8 was released](https://www.cisecurity.org/controls/v8/) in May 2021. CIS Controls V8 has reduced the list of 20 CIS Controls to 18. "Safeguards" were previously known as "Sub-Controls" prior to Version 8 of the CIS Controls.
 
 
 Select a CIS Controls version to view additional information for each Control:
@@ -884,23 +874,21 @@ Select a CIS Control Safeguard to learn more details. Safeguards fall into CIS C
 
 **NVD Vulnerability Data**
 
-In order to support the CIS-CAT Assessor vulnerabilty reports, CIS-CAT Pro Dashboard requires CVE and CVSS data from the National Vulnerability Database (NVD).  In order to insert/update/or view the NVD data you need to go to the "Vulnerability List" menu option in the Supporting Data menu:
+In order to support the CIS-CAT Assessor vulnerabilty reports, CIS-CAT Pro Dashboard requires CVE and CVSS data from the National Vulnerability Database (NVD).  In order to insert/update/or view the NVD data you need to go to the "Vulnerability List" menu option in the Supporting Data menu. The vulnerability list will display the current vulnerability data by year and month:
 
-![](https://i.imgur.com/Pgp2FwP.png)
+![](img\vulnerabilityList.png)
 
-The vulnerability list will display your current vulnerability data by year and month:
 
-![](http://i.imgur.com/kI2ZC8t.png)
 
 Selecting any individual month will navigate to the Monthly CVE View.  This page will list all the CVE's published that specific month and year:
 
-![](http://i.imgur.com/TbNcXT0.png)
+![](img\PublishedVulnerability.png)
 
 Clicking any of the entries will bring up all the data about that specific CVE in the CVE Dialog.  This dialog also contains an NVD link which will navigate directly to the CVE entry on the NVD website:
 
-![](http://i.imgur.com/qvKNeKm.png)
+![](img\singlecve.png)
 
-From the top of the Vulnerabilities List, you can navigate to the search, where you can search for a specific CVE by ID or keywords from the CVE Summary:
+From the top of the Vulnerabilities List, navigate to the search to learn more about a specific CVE by ID or keywords from the CVE Summary:
 
 ![](http://i.imgur.com/5EpUSXA.png)
 
