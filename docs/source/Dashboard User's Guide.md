@@ -632,10 +632,10 @@ Report scores will match report scores as shown on CIS-CAT Pro Assessor v4 HTML 
 	- Apply exceptions to a recommendations from this view<br/><br/>
   
 2. **CIS Controls View**<br/>Not all Benchmarks will be mapped to a CIS Control. Only the latest CIS Benchmark versions will be mapped to the latest version of CIS Controls.<br/>
-	- Test results presented in CIS Controls structure where mappings are present to CIS Controls and Safeguards(previously known as Sub-Controls)
+	- Test results presented in CIS Controls structure where mappings are present to CIS Controls and Sub-Controls(most recently known as Safeguards)
 	- View is useful when identifying which recommendations represent or support a CIS Control
-	- Counts in brackets indicate the count of recommendations mapped to a CIS Safeguard
-	- Empty brackets indicate that there are no recommendations are mapped to a CIS Safeguard for the selected CIS Controls
+	- Counts in brackets indicate the count of recommendations mapped to a CIS Sub-Control
+	- Empty brackets indicate that there are no recommendations are mapped to a CIS CIS Sub-Control for the selected CIS Controls
 	- Toggle CIS Controls version displayed using the "CIS Controls Version" dropdown in the header section.<br/> <br/>
 ![](https://i.imgur.com/6rtb18r.png)
 <br/><br/>  
@@ -841,7 +841,7 @@ Once selected, the additional details of a CIS Benchmark are available. Review t
 ![](https://i.imgur.com/Z33gVPG.png)
 <br/><br/>**Results View** - The list of recommendations organized into the groups. Each group is expandable to display additional sub-groups. All Benchmark information displayed is imported at the time the first configuration assessment test result for a particular benchmark is imported. The content displayed is the content imported and cannot be modified in CIS-CAT Pro Dashboard.
 ![](https://i.imgur.com/9Z0dP1r.png)
-<br/><br/>**CIS Controls View** - The list of recommendations presented by CIS Controls. Where possible, recommendations are mapped to a CIS Controls Safeguard using metadata from the imported benchmark content. It is not possible for all recommendations to relate directly to a CIS Control Safeguard (formerly known as Sub-Controls). 
+<br/><br/>**CIS Controls View** - The list of recommendations presented by CIS Controls. Where possible, recommendations are mapped to a CIS Controls CIS Sub-Control using metadata from the imported benchmark content. It is not possible for all recommendations to relate directly to a CIS Sub-Control (also known as Safeguards). 
 <br/><br/>Change the CIS Controls version displayed by selecting a different version in the "CIS Controls Version" dropdown on the General tab.<br/> Below is an example of the CIS Controls View screen:
 
 ![](https://i.imgur.com/6rtb18r.png)
@@ -862,7 +862,7 @@ The CIS Controls reflect the combined knowledge of experts from every part of th
 
 ![](img\Controls8.png)
 
-CIS Controls V7 is the default CIS Controls shown when viewing a Configuration Assessment Result in the Controls View. Note that CIS Controls V7.0 is the same as V7.1. In this view, it is possible to toggle to CIS Controls V8. [CIS Controls V8 was released](https://www.cisecurity.org/controls/v8/) in May 2021. CIS Controls V8 has reduced the list of 20 CIS Controls to 18. "Safeguards" were previously known as "Sub-Controls" prior to Version 8 of the CIS Controls.
+CIS Controls V7 is the default CIS Controls shown when viewing a Configuration Assessment Result in the Controls View. Note that CIS Controls V7.0 is the same as V7.1. In this view, it is possible to toggle to CIS Controls V8. [CIS Controls V8 was released](https://www.cisecurity.org/controls/v8/) in May 2021. CIS Controls V8 has reduced the list of 20 CIS Controls to 18. Please note that Safeguard is the newer term in CIS Controls v8, while Sub-Control was the term used previously in CIS Controls v7.0/v7.1.
 
 
 Select a CIS Controls version to view additional information for each Control:
@@ -871,11 +871,11 @@ Select a CIS Controls version to view additional information for each Control:
 
 **View**
 
-Select a CIS Control from the CIS Controls V8 to list the supporting Safeguards.
+Select a CIS Control from the CIS Controls V8 to list the supporting SubControl.
 
-![](img\CISSafeguardList.png)
+![](img\CISSubcontrolList.png)
 
-Select a CIS Control Safeguard to learn more details. Safeguards fall into CIS Controls Implementation Groups (IGs). Implementation Groups are recommended guidance to prioritize implementation. Implementation Group 1 is definded as "basic cyber hygiene," the foundational set of cyber defense Safeguards that every enterprise should apply to guard against the most common attacks. Each IG builds upon the previous one: IG2 includes IG1, and IG3 includes all CIS Safeguards in IG1 and IG2.
+Select a CIS Sub-Control to learn more details. Sub-Controls fall into CIS Controls Implementation Groups (IGs). Implementation Groups are recommended guidance to prioritize implementation. Implementation Group 1 is definded as "basic cyber hygiene," the foundational set of cyber defense Sub-Controls that every enterprise should apply to guard against the most common attacks. Each IG builds upon the previous one: IG2 includes IG1, and IG3 includes all CIS Sub-Controls in IG1 and IG2.
 
 ![](img\Safeguard.png)
 
