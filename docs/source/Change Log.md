@@ -11,14 +11,13 @@ June 29,2021
 
 -  NEW report: **Configuration Assessment Result Summary**
 	-  Summary list of failing recommendations by benchmark profile and version and system count for each fail result
-	-  System count will be populated with most recent imported configuration results
-	-  Excludes excepted fail results
-	-  Export  target details for selected report results to csv format
+	-  System count results for most recent result data
+	-  Excludes excepted results
+	-  Export target details for selected report results to csv format
 -  CIS Controls V8 Support
 	-  Views no longer display CIS Controls V6 as V6 has reached end of life
-	-  Configuration assessment views include Controls V8 reference when present on CIS Benchmarks. All CIS Benchmarks published after May 18, 2021 will include Controls V8 reference. Watch the [CIS-CAT Pro Assessor v4 Change Log](https://ccpa-docs.readthedocs.io/en/latest/Change%20Log/#change-log) for new Benchmark versions.
+	-  Configuration assessment views include Controls V8 reference when present on CIS Benchmarks. All CIS Benchmarks published after May 18, 2021 will include Controls V8 reference. Follow the [CIS-CAT Pro Assessor v4 Change Log](https://ccpa-docs.readthedocs.io/en/latest/Change%20Log/#change-log) for new Benchmark versions.
 -  Dashboard Installer updated to generate configuration file consistent with Oracle database 12c, 18c, 19c support (10c dialect removed and replaced with 12c)
--  Dashboard Installer updated to generate configuration file consistent with supported Oracle databases 12c, 18c, 19c support (10c dialect removed and replaced with 12c).
 -  Resolved error for Assessment result import for supported Oracle databases
 -  The configuration assessment import process now correctly stores complex results enabling full display of result evidence when viewing a configuration assessment. Effective on new imports with Dashboard v2.2.0+.
 
@@ -29,10 +28,7 @@ June 29,2021
 	 - Windows and Linux Deployment guide indicates load balanced configurations are not currently supported.
 	 - Oracle database supported versions as a database component for Dashboard include 12c, 18c, and 19c.
 - Updated Windows Deployment Guide to indicate supported OS includes Windows 2019
-
-
-
-
+- Updated Linux Deployment Guide to indicate supported OS includes Ubuntu 18.04
 
 
 
