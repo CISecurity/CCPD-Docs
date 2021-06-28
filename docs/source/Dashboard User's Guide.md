@@ -684,8 +684,8 @@ The details of the systems and assessment results supporting the summary counts 
 
 For CIS Benchmarks mapped to CIS Controls V8, sort by Implementation Group 1 for most important recommendations to remdiate first.
 
+![](img/ConfigurationSummaryCSVv2.png)
 
-![](img/ConfigurationSummaryCSV.png)
 
 ###Vulnerability Report###
 
