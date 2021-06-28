@@ -646,9 +646,46 @@ Report scores will match report scores as shown on CIS-CAT Pro Assessor v4 HTML 
 
 ###Configuration Assessment Result Summary###
 
-The Configuration Assessment Result Summary report shows all recommendations for the selected Benchmark that failed during the most recent assessment, as well as, how many target systems failed each recommendation. It is designed to help operators identify recommendations that are failing for multiple target systems. Active exceptions are filtered out of the results. Use the Tag boxes to include or exclude target systems from the results.
+The Configuration Assessment Result Summary report shows all recommendations for the selected Benchmark that failed during the most recent assessment. The details behind the summary counts can be exported in *.csv format.
+
+The total counts of target systems:
+
+- Are based on last scan for each system as stored in Dashboard's database
+- Exclude active exceptions applied against each system's most recent scan
+- Are sorted by recommendations with highest count of "Fail" results
+
+The report is designed to support actions for remediation. It provides a current system count of deviations from a benchmark's best practices.
+
+- Focus on gaps (deviations from CIS or your organization's tailored best practices/security policies)
+- Utilize the information to communicate to leadership and discussions on policies to adapt
+- Export the system details and capture information for direct or perform remediation
 
 
+![](img/ConfigAssessResultSummary.png)
+
+**Export Target System Details**
+
+The details of the systems and assessment results supporting the summary counts can be exported using the `Export` button. The format will be in CSV (Comman delimited) and can easily be converted to Microsoft Excel format. The following columns of information will be present in the export.
+
+
+
+- benchmark_title
+- benchmark_version
+- profile
+- assessment_date
+- target_system
+- target_system_tags
+- database_name
+- rule_title
+- rule_result
+- mapped_controls_v7
+- mapped_controls_v8
+- implementation_groups_v8
+
+For CIS Benchmarks mapped to CIS Controls V8, sort by Implementation Group 1 for most important recommendations to remdiate first.
+
+
+![](img/ConfigurationSummaryCSV.png)
 
 ###Vulnerability Report###
 
