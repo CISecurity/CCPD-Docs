@@ -654,18 +654,18 @@ The total counts of target systems:
 - Exclude active exceptions applied against each system's most recent scan
 - Are sorted by recommendations with highest count of "Fail" results
 
-The report is designed to support actions for remediation. It provides a current system count of deviations from a benchmark's best practices.
+The report is designed to support actions for remediation. It provides a current system count of deviations from a Benchmark's best practices.
 
 - Focus on gaps (deviations from CIS or your organization's tailored best practices/security policies)
 - Utilize the information to communicate to leadership and discussions on policies to adapt
-- Export the system details and capture information for direct or perform remediation
+- Export the system details and capture information to perform remediation
 
 
 ![](img/ConfigAssessResultSummary.png)
 
 **Export Target System Details**
 
-The details of the systems and assessment results supporting the summary counts can be exported using the `Export` button. The format will be in CSV (Comman delimited) and can easily be converted to Microsoft Excel format. The following columns of information will be present in the export.
+The details of the systems and assessment results supporting the summary counts can be exported using the `Export` button. The format will be in CSV (Comma delimited) and can easily be converted to Microsoft Excel format. The following columns of information will be present in the export.
 
 
 
