@@ -17,9 +17,11 @@ June 29,2021
 -  CIS Controls V8 Support
 	-  Views no longer display CIS Controls V6 as V6 has reached end of life
 	-  Configuration assessment views include Controls V8 reference when present on CIS Benchmarks. All CIS Benchmarks published after May 18, 2021 will include Controls V8 reference. Follow the [CIS-CAT Pro Assessor v4 Change Log](https://ccpa-docs.readthedocs.io/en/latest/Change%20Log/#change-log) for new Benchmark versions.
+	-  Previously imported CIS official Benchmarks released in CIS-CAT Pro Assessor v4.7.0 will now show Controls 8 cross references to recommendations in the Controls View of a single assessment result.
 -  Dashboard Installer updated to generate configuration file consistent with Oracle database 12c, 18c, 19c support (10c dialect removed and replaced with 12c)
 -  Resolved error for Assessment result import for supported Oracle databases
 -  The configuration assessment import process now correctly stores complex results enabling full display of result evidence when viewing a configuration assessment. Effective on new imports with Dashboard v2.2.0+.
+-  Additional verification added to ensure each user can only change their own password in the user profile.
 
 
 ### Documentation Updates ###
