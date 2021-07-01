@@ -4,7 +4,7 @@
 
 ----------
 ## CIS-CAT Pro Dashboard v2.2.0 ##
-June 29,2021
+July 1, 2021
 
 ### CIS-CAT Pro Updates ###
 
