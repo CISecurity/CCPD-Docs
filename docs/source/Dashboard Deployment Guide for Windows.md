@@ -811,7 +811,7 @@ If there are any additional upgrading steps specific to a release version, infor
 ##LDAP/Active Directory Integration (Optional)##
 With this integration, LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. 
 
-Users will use their LDAP/AD credentials to log into the application. LDAP/AD roles and user properties such firstname, lastname and email will be imported. If the user doesn't exist in CCPD, he will be created when he logs in, and granted with basic user roles (ROLE_BASIC\_USER and ROLE\_USER) by default, plus additional LDAP Roles.
+Users will use their LDAP/AD credentials to log into the application. LDAP/AD roles and user properties such firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE\_USER) by default along with LDAP Roles.
 
 ###LDAP Configuration###
 Here is an example of LDAP structure in OpenLDAP:

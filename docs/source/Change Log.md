@@ -3,6 +3,30 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.2.1 ##
+September 21, 2021
+
+### Application ###
+
+
+-  Resolved an issue causing some assessment reports to fail to import when several reports were automatically imported via the API.
+-  Configuration assessment scores correctly updated on exception approval.
+-  Dashboard users with expired password are now able to reset the password from the application.
+-  Malformed files imported to the Dashboard via API will now properly move to error folder instead of stopping additional file imports.
+-  Modified the "Create New User" screen with enforcement of the required data entry.
+-  Rule level details in the Configuration Assessment Difference Report can now be expanded.
+-  The Dashboard installer will now continue to work with supported, stable versions of Java (JRE, JDK, openJDK) of 8 and 11. 
+-  Corrected an issue where a configuration result would fail to import when no system information was collected for a particular check.
+
+### Security ###
+
+-  Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related knowledge base article for more information.
+
+### Documentation ###
+
+-   None
+
+
 ## CIS-CAT Pro Dashboard v2.2.0 ##
 July 1, 2021
 
