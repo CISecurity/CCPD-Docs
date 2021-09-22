@@ -4,7 +4,7 @@
 
 ----------
 ## CIS-CAT Pro Dashboard v2.2.1 ##
-September 21, 2021
+September 23, 2021
 
 ### Application ###
 
@@ -24,7 +24,7 @@ September 21, 2021
 
 ### Documentation ###
 
--   None
+-   Preferred component section of the Configuration Guide specifies that if selecting components other than preferred components, OS compatibility with required components should be verified. 
 
 
 ## CIS-CAT Pro Dashboard v2.2.0 ##

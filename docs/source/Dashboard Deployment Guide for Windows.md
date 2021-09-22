@@ -13,7 +13,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
  - Oracle (versions 12c, 18c, 19c)
 
 **CIS Preferred Component Installation**<br/>
-*The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
+The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file). The supported version of Database may be limited by the database OS version.
 
  - 2 Windows Server 2016 or 2019 servers* 
  - **Server 1:** Microsoft SQL Server 2017 or 2019
@@ -118,14 +118,13 @@ Then click right on "Databases" folder on the left panel (I.E. Object Explorer) 
 
 Because CIS-CAT Pro Dashboard is a java-based application, a compatible java runtime environment (JRE) is required. OpenJDK versions are also supported. 
 
-Java versions 8 through 11 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
+Stable versions of JRE, JDK, or openJDK versions 8 and 11 are officially supported by CIS-CAT Pro Dashboard. **Versions of Dashboard prior to v2.0.0 only work with Java 8.250 and below.**
 
 Verify the version of Java installed using the command below at Command Prompt:
 
 	# Ensure the Java installed is version 8 is installed
 	java -version
-
-**NOTE: JRE versions 8.251+ are not supported if using Dashboard versions prior to v2.0.0** 
+ 
 
 ### Application Server###
 
@@ -197,7 +196,7 @@ and add the maxPostSize attribute:
 
 This will increase the max allowable file size for upload.  Many CIS-CAT Pro Assessor ARF reports will be larger than the default size.
 
-**Note:** During an import, if you receive an exception related to the maxPostSize limitation, make sure that you use CIS-CAT Pro Dashboard 1.1.9+ and CIS-CAT Pro Assessor V4 4.0.12+ with the property set to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
+**Note:** Report import exceptions related to the maxPostSize limitation can be resolved by setting CIS-CAT Pro Assessor's property to compress result XML reports. For more details, please refer to the options that are set in the ```config\assessor-cli.properties```. 
 
 
 #### Remove Default Applications ####
@@ -220,9 +219,9 @@ The CIS-CAT Pro Dashboard officially supports **Google Chrome** web browser. Oth
 <b>This section describes how to configure and deploy the Dashboard using the Installer.  For instructions on how to configure and deploy the Dashboard manually, see [Configuration and Deployment - Manual](#confAndDeploymentManual).</b>
 
 ### CIS-CAT Pro Dashboard Runtime Configuration File###
-Locate the latest version of CIS-CAT Pro Dashboard, pinned at the top of the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/). Download the CIS-CAT Pro Dashboard bundle that corresponds to your Java installation (32-bit or 64-bit) from [CIS WorkBench](https://workbench.cisecurity.org/). Place and extract the bundle on your tomcat instance. 
+Locate the latest version of CIS-CAT Pro Dashboard by navigating to [CIS WorkBench](https://workbench.cisecurity.org/files). Select the tag of `CIS-CAT Dashboard` and download the CIS-CAT Pro Dashboard bundle that corresponds to your Java installation (32-bit or 64-bit). Place and extract the bundle on your tomcat instance. 
  
-After the CIS-CAT Pro Dashboard bundle has been extracted, please confirm that its contents look similar to the following image (64-bit Java version example shown):
+The extracted contents will look similar to the following image (64-bit Java version example shown):
 
 ![](https://i.imgur.com/xthTnYn.png)
 

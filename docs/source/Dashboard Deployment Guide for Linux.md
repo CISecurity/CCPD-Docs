@@ -13,7 +13,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
  - Oracle (versions 12c, 18c, 19c)
 
 **CIS Preferred Component Installation**<br/>
-*The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file).*
+The preferred component installation instructions are included in this documentation. Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file). The supported version of Database may be limited by the database OS version.
 
  2 Ubuntu 18.04 servers* 
 	
@@ -28,7 +28,7 @@ CIS-CAT Pro Dashboard is a web application built using the Grails Framework. The
 *Separate servers are recommended to contain the identified components above for security and performance purposes.
 
 ## System Recommendations ##
- Most operating systems will be suitable to host Dashboard provided Tomcat can be installed. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoint result data will be stored.
+ Any operating system can host the application server provided the platform can utilize software capable of hosting a Java web application archive (.war file). The supported version of Database may be limited by the database OS version. Disk space will be minimal on the application server, but will require more space on your database server depending upon the size of your organization and the amount of endpoint result data will be stored.
 
 Load balanced configurations are not currently supported.
 
@@ -81,7 +81,8 @@ For more details, refer to [this article](https://support.rackspace.com/how-to/m
 ### Java Runtime Environment (JRE) ###
 Because CIS-CAT Pro Dashboard is a java-based application, a compatible java runtime environment (JRE) is required. OpenJDK versions are also supported. 
 
-Java versions 8 through 11 are officially supported by CIS-CAT Pro Dashboard v2.0.0+. For prior versions of Dashboard, only Java 8.250 and below is supported.
+Stable versions of JRE, JDK, or openJDK versions 8 and 11 are officially supported by CIS-CAT Pro Dashboard. **Versions of Dashboard prior to v2.0.0 only work with Java 8.250 and below.**
+
 
 1. Verify presence of a Java Runtime Environment (see [Component Installation](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/Dashboard%20Deployment%20Guide%20for%20Linux/#introduction))
 	
@@ -93,13 +94,14 @@ Java versions 8 through 11 are officially supported by CIS-CAT Pro Dashboard v2.
 	`sudo apt-get install openjdk-11-jre`
 
 
-CIS currently tests with JRE versions 8 and 11. However, the Dashboard may run successfully with later versions of JRE. Below is a example command to uninstall a specific version of JRE:
+Below is a example command to uninstall a specific version of JRE:
 	
 	`sudo apt-get autoremove openjdk-14-jre` 
  
 Replace `14` above with the desired version to uninstall.	
 
 <a name="applicationServerInstallation"></a>
+
 ### Application Server ###
 
 It is recommended to [utilize Apache Tomcat 9](https://tomcat.apache.org/download-90.cgi) with CIS-CAT Pro Dashboard v2.0.0+. We have found [this site](https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804) useful to guide installation. The below instructions will assume installation of Apache Tomcat 9.
