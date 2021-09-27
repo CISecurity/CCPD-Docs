@@ -20,7 +20,7 @@ September 23, 2021
 
 ### Security ###
 
--  Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related knowledge base article for more information.
+-  Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/HvCmoNP4) for more information.
 
 ### Documentation ###
 
