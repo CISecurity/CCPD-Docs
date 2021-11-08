@@ -18,7 +18,7 @@ November 9, 2021
 	-  Adding/deleting their own favorites (ie: favorite Benchmark on the Benchmark View graph)
 -  Resolved a security vulnerabilities present in one embedded, third party dependencies. 
 
-Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/HvCmoNP4) for more information regarding the security updates.
+Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/7UBQbXCP) for more information regarding the security updates.
 
 ### Documentation ###
 
