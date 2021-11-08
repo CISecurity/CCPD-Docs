@@ -8,7 +8,7 @@ November 9, 2021
 
 ### Application ###
 
--  
+-  None
 
 ### Security ###
 
@@ -22,7 +22,7 @@ Please see the related [knowledge base article](https://cisecurity.atlassian.net
 
 ### Documentation ###
 
--   P
+-   None
 
 ## CIS-CAT Pro Dashboard v2.2.1 ##
 September 23, 2021
