@@ -3,6 +3,27 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.2.2 ##
+November 9, 2021
+
+### Application ###
+
+-  
+
+### Security ###
+
+-  Dashboard users are now limited to:
+	-  Modifying only their own Alert Opt In/Opt Out settings
+	-  Deleting their own Alert messages
+	-  Adding/deleting their own favorites (ie: favorite Benchmark on the Benchmark View graph)
+-  Resolved a security vulnerabilities present in one embedded, third party dependencies. 
+
+Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/HvCmoNP4) for more information regarding the security updates.
+
+### Documentation ###
+
+-   P
+
 ## CIS-CAT Pro Dashboard v2.2.1 ##
 September 23, 2021
 
