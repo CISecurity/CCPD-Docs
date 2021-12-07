@@ -3,6 +3,27 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.2.3 ##
+December 7, 2021
+
+### Application ###
+
+-  None
+
+### Security ###
+
+-  Resolved security vulnerabilities present in framework dependencies:
+	-  Bootstrap
+	-  Jquery
+	-  Jquery UI
+
+Please see the related [knowledge base article](https://cisecurity.atlassian.net/servicedesk/customer/portal/15/article/2416148561) for more information regarding the security updates.
+
+### Documentation ###
+
+-   Update Windows and Linux Deployment Guide to remove Assessor v3 integration instructions.
+
+
 ## CIS-CAT Pro Dashboard v2.2.2 ##
 November 9, 2021
 
