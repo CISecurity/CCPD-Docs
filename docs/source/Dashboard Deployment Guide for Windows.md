@@ -705,7 +705,7 @@ In order to integrate with and establish [authentication with CIS WorkBench](htt
 The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port `80`.  This presents a risk as data, including user credentials, will be transmitted in clear text. It is recommended that traffic be secured using HTTPS.  
 
 #### Creating a Self-Signed Certificate using Windows Powershell ####
-The following steps describe how to create a Self Signed Certificate. To request and use a certificate signed by a trusted third-party, please follow [this article.](https://www.digicert.com/csr-creation-ssl-installation-iis-10.htm)
+The following steps describe how to create a Self Signed Certificate. To request and use a certificate signed by a trusted third-party, please follow [this article.]https://www.digicert.com/kb/csr-creation-ssl-installation-iis-10.htm)
 
 **Note :** The Self-Signed certificate can be created from IIS but it doesn't allow to set the domain (common name), so a warning message will show up on the web browser when you access the website using https (i.e. "NET::ERR\_CERT\_COMMON\_NAME\_INVALID" error in Chrome).
 
@@ -725,7 +725,7 @@ Open Windows Powershell program (start menu/Windows Powershell) then execute the
 	#If your serverURL is https://www.example.com/CCPD, then the DnsName (common name) must be www.example.com  
 	New-SelfSignedCertificate -DnsName "<Common name of the web server>"  -CertStoreLocation "cert:\LocalMachine\My" -FriendlyName "ccpd cert" -Signer $rootcert -KeyUsage KeyEncipherment,DigitalSignature 
 
-For more details regarding `New-SelfSignedCertificate` Powershell commands, here is [the official website.](https://docs.microsoft.com/en-us/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps)
+For more details regarding `New-SelfSignedCertificate` Powershell commands, here is [the official website.](https://docs.microsoft.com/en-us/powershell/module/pki/new-selfsignedcertificate?view=win10-ps)
 
 #### Binding website certificate to IIS site####
 Open IIS manager, click on CCPD site on the left panel then click on "Bindings..." on the right panel.
