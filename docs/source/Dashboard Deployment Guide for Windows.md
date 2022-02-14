@@ -705,7 +705,7 @@ In order to integrate with and establish [authentication with CIS WorkBench](htt
 The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port `80`.  This presents a risk as data, including user credentials, will be transmitted in clear text. It is recommended that traffic be secured using HTTPS.  
 
 #### Creating a Self-Signed Certificate using Windows Powershell ####
-The following steps describe how to create a Self Signed Certificate. To request and use a certificate signed by a trusted third-party, please follow [this article.]https://www.digicert.com/kb/csr-creation-ssl-installation-iis-10.htm)
+The following steps describe how to create a Self Signed Certificate. To request and use a certificate signed by a trusted third-party, please follow [this article.](https://www.digicert.com/kb/csr-creation-ssl-installation-iis-10.htm)
 
 **Note :** The Self-Signed certificate can be created from IIS but it doesn't allow to set the domain (common name), so a warning message will show up on the web browser when you access the website using https (i.e. "NET::ERR\_CERT\_COMMON\_NAME\_INVALID" error in Chrome).
 
