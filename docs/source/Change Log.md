@@ -3,6 +3,26 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.2.4 ##
+February 17, 2022
+
+### Application ###
+
+- Resolved an issue of where importing assessment reports took an excessive amount of time. The import process speed has been improved.
+- An export error corrected for configuration report XML format.
+
+### Security ###
+
+-   Resolved security vulnerability present in embedded, third party dependencies. 
+
+
+Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/yNXeaPPw) for more information regarding the security updates.
+
+### Documentation ###
+
+-   The Dashboard Windows Configuration Guide has been updated with working links in the "Creating a Self-Signed Certificate using Windows Powershell"
+
+----------
 ## CIS-CAT Pro Dashboard v2.2.3 ##
 December 7, 2021
 
