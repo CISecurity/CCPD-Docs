@@ -3,6 +3,27 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.2.5 ##
+March 22, 2022
+
+### Application ###
+
+- Increased performance of assessment report import duration issue when low score alerts are utilized.
+- CVE and CVSS data from the National Vulnerability Database (NVD) for 2022 are now available to support the CIS-CAT Assessor vulnerability reports. Ensure to update the NVD data from the Dashboard menu.
+
+### Security ###
+
+- The README.txt file now contains information about third party dependent libraries that may appear on vulnerability reports.
+- Resolved security vulnerability present in embedded, third party dependencies. 
+
+
+Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/yNXeaPPw) for more information regarding the security updates.
+
+### Documentation ###
+
+-   None
+
+----------
 ## CIS-CAT Pro Dashboard v2.2.4 ##
 February 17, 2022
 
