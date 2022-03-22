@@ -17,7 +17,7 @@ March 22, 2022
 - Resolved security vulnerability present in embedded, third party dependencies. 
 
 
-Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/yNXeaPPw) for more information regarding the security updates.
+Please see the related [knowledge base article](https://cisecurity.atlassian.net/servicedesk/customer/portal/15/article/2531131414) for more information regarding the security updates.
 
 ### Documentation ###
 
