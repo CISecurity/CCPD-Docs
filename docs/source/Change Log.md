@@ -14,10 +14,6 @@ March 22, 2022
 ### Security ###
 
 - The README.txt file now contains information about third party dependent libraries that may appear on vulnerability reports.
-- Resolved security vulnerability present in embedded, third party dependencies. 
-
-
-Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/PPJh8XX8) for more information regarding the security updates.
 
 ### Documentation ###
 
