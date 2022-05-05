@@ -10,7 +10,7 @@ CIS-CAT Pro Dashboard supports creation of exceptions to CIS Benchmark recommend
 The application also offers a Remediation Report, for an operator only concerned with "failure" results of a given assessment and a Complete Results Report, to provide auditors with the complete assessment results of a given endpoint, or group of end points.  Users can also view CIS-CAT assessment results through the lens of the CIS Controls with the Controls View of assessment Results.  CIS-CAT Pro Dashboard provides users with the capability to Tag target systems (endpoints) in order to group them together for aggregation onto these new dashboards and reports.  
 
 ## Deployment ##
-CIS-CAT Pro Dashboard is a companion application to CIS-CAT Pro Assessor.  CIS-CAT collects and evaluates system characteristics as described by the CIS Benchmark content.  CIS-CAT traditionally provided assessment results in various report formats, including HTML, XML, CSV, and plain text.  CIS-CAT can now upload its assessment results to the web-based Pro Dashboard application using a REST API.  CIS-CAT Pro Dashboard will import these XML document-based results into its application database.  This section describes how to configure the web application in your environment, as well as how to configure CIS-CAT to send assessment results to the Pro Dashboard application.
+CIS-CAT Pro Dashboard is a companion application to CIS-CAT Pro Assessor.  CIS-CAT collects and evaluates system characteristics as described by the CIS Benchmark content.  CIS-CAT can upload assessor assessment results to the web-based Pro Dashboard application using a REST API.  CIS-CAT Pro Dashboard supports import the XML formatted results. This section describes how to configure the web application in your environment, as well as how to configure CIS-CAT to send assessment results to the Pro Dashboard application.
 
 ### CIS-CAT Pro Dashboard Deployment ###
 See here for Linux:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment%20Guide%20for%20Linux/)
@@ -338,13 +338,6 @@ Importing Asset Report Format (ARF) results from CIS-CAT assumes that the CIS-CA
 
 Once generated, that authentication token must be added to the CIS-CAT properties file in order for automated upload to function.
 
-**CIS-CAT Pro Assessor v3**
-
-ciscat.properties:
-
-	# Allow for an authentication token to be generated in "CIS-CAT Pro Dashboard", allowing upload of
-	# generated ARF reports to the new database application.
-	ciscat.post.parameter.ccpd.token=m9i0o2lrqno60dlq49qlln6gqrj2l7kt
 
 **CIS-CAT Pro Assessor v4**
 
@@ -356,16 +349,6 @@ assessor-cli.properties:
 
 Save the property file and execute CIS-CAT.
 
-
-**Graphical User Interface (GUI) for Assessor v3**
-
-When executing the CIS-CAT GUI, users will select a benchmark and profile, and subsequently be navigated to the "Report Output Options" screen.  To upload reports to CIS-CAT Pro Dashboard, a user may select EITHER the XML results or the Asset Report Format to be generated.  At the bottom of the "Report Output Options" screen, click the button to "POST Reports to URL".  When clicked, a dialog box will open allowing users to select the URL to which the generated report is uploaded.  
-
-![](http://i.imgur.com/aVN5Y6m.png)
-
-**NOTE: The CIS-CAT Pro Dashboard API is "resource-based" and, as such, only a specific URL pattern can be entered.** This pattern will always end with "/api/reports/upload".  For example, if the context URL for a member's CIS-CAT Pro Dashboard deployment is http://myapp.example.com/CCPD, the URL for reports upload will always be http://myapp.example.com/CCPD/api/reports/upload.  
-
-![](http://i.imgur.com/21WzjyZ.png)
 
 **Graphical User Interface (GUI) for Assessor v4**
 
@@ -705,13 +688,11 @@ The top of the report contains some information about the target system assessed
 
 ![](http://i.imgur.com/NyWD3cV.png)
 
-From the individual vulnerability you can add exceptions.  This functions exactly like the exceptions on a configuration assessment report.  A user can create an exception, it is then approved/rejected by an administrator and goes into effect.  At which point it can be end dated by an administrator.  Please read the Exceptions section for more details.
-
 Vulnerabilities can also issue an age warning.  By default if a vulnerability on a system is over 90 days old, the vulnerability will appear differently in the report:
 
 ![](http://i.imgur.com/7o0zpdN.png)
 
-You see now that the color is different and it has the Oldest Failure Date showing in the title.
+Note the color difference and the Oldest Failure Date present in the title.
 
 To configure the vulnerability age warning threshold, navigate to the System Settings menu in the administration menu.  From there choose the vulnerabilityWarningAge setting:
 
@@ -739,7 +720,7 @@ The Complete Report lists the Target System, Benchmark,  Rule Number and Title, 
 
 
 ## Delete Multiple Configuration Reports ##
-Getting started with CIS Benchmark adoption often involves an analysis period. During the analysis phase, reports may be imported to Dashboard, but users may not desire to store results for a long period of time. Multiple reports can now be selected and removed from the CIS-CAT Pro Dashboard's database. This, in turn, will remove report scores from overall averages displayed in the graphical dashboard views.
+Getting started with CIS Benchmark adoption often involves an analysis period. During the analysis phase, reports may be imported to Dashboard, but users may not desire to store results for a long period of time. Multiple reports can be selected and removed from the CIS-CAT Pro Dashboard's database. Deletion will remove report scores from overall averages displayed in the graphical dashboard views.
 
 The report delete process begins by selecting desired reports in the "Assessment Results Search" screen. On confirmation, the selected reports are flagged for deletion. Once flagged, the flagged reports are removed from all averages in the Dashboard and can no longer be searched. The final purge will occur during the hours specified in system settings. The delete button and system settings are available to users with ROLE_ADMIN.
 
@@ -768,39 +749,102 @@ Navigate to "Systems Settings" and locate the `delete.assessment.start.time` and
 ![](https://i.imgur.com/eHc76W2.png)
 
 ## Exceptions ##
-The recommendations in CIS Benchmarks are just that,  recommendations.  Every recommendation does not necessarily apply to every organization or every target system within an organization.  CIS-CAT Pro Dashboard provides functionality to create "exceptions" to specific rules or groups of rules on a per machine,  global, or by tag basis.  This allows CIS-CAT to continue to assess the target system against the rules, but when viewing the Test Results Report within CIS-CAT Pro Dashboard, the rule will not negatively impact the targets compliance scoring.  When creating the exception, you can also provide a rationale for why the rule is being excepted.  This provides information to an auditor as to why the rule is not being scored.
+Most organizations do not adopt every CIS Benchmark recommendation. Organizations often choose to accept some risk for the benefit of a functioning business environment. It is also possible that an organization may be solving a recommendation in other ways that CIS-CAT is not able to detect. CIS-CAT Pro Dashboard provides functionality to create an `exception` to specific rules or groups of rules on a per target system,  global (all targets for a specific benchmark), or by targets associated with user-defined tags. When an exception is applied and approved within the Dashboard exception approval process, existing configuration or vulnerability reports falling within the criteria will be rescored. Additionally, newly imported reports also falling within the criteria of the exception conditions will exclude the excepted result when scoring. 
 
-  * **Creation**
-	  * **Rule Exception** -  To create a rule exception simply navigate to the rule you would like to except in the Test Results Report.  Within the rule is the Exceptions section.  If there are no existing exceptions, you will simply see an "Add Exception" button.  If exceptions already exist for the rule, they will be displayed in a table, along with the "Add Exception" button.  
+Exceptions are applied from within an Assessment Test Results Report for a configuration or vulnerability assessment. The `Reports` menu can assist in navigating to configuration test results. Vulnerability test results can only be shown from within a Target System record on the `Vulnerability Assessments` tab.
+
+Exceptions are applied to a specific CIS Benchmark publish version. 
+
+###Setup Exception Workflow###
+It is an important first step to establish an exception workflow process before exceptions are applied. The exception workflow requires that a created exception is approved by a valid user before report scores are recalculated. Approval submissions cannot be recreated or resent if the workflow is not initially setup.
+
+- Login to Dashboard as a user with `ROLE_ADMIN`
+- Select the Settings icon and select `Alerts`
+- Select `Approve or Reject Exception Request`
+- Ensure `ROLE_ADMIN` is present in `Receiving Users` and `Receiving Roles`
+
+###Create an Exception###
+
+If an exception already exists on a rule or group, the corresponding `Add Exception`/`Add Group Exception` buttons will not be present. Although it is possible to edit the `End Date` for an approved exception from a Results screen, CIS-CAT recommends following the procedure for editing an exception below. On creation, an exception will enter pending status, a task will be created for all users with ROLE_ADMIN. The task will be present in each qualifying user's Dashboard Inbox in the Task section.
+
+Exceptions where the start date = end date have no effect on the configuration score.
+
+**Rule** 
+
+- Navigate to the rule to except within a Test Results Report
+- Select `Add Exception`  
   ![](http://i.imgur.com/WqLpJzm.png)
-  Click this button, and the exception creation dialog will be displayed:
   ![](http://i.imgur.com/W1TPu5g.png)
+- Enter the desired criteria
+	- Start and End Date can apply to any date range. 
+	- Rationale is required
+	- To apply to all target systems for this CIS Benchmark version, select the `Global` checkbox. Otherwise, the exception will apply to only this target system.
+	- Enter `Tags` to apply this exception to all targets associated with entered tag. If `Global` is checked on, entries in `Tags` will be ignored as this exception will be applied to all targets for this CIS Benchmark version
+- Select `Add Exception`
 
-		By default the start date is set to the end time of the assessment report that you are currently viewing,  this would make an exception you create apply to this specific report, as well as any assessments that post date this report.  You can modify the date to apply to any time period you like.  Also required on this dialog is a rationale,  you must enter the reason you are creating an exception for this rule.  By default, any exception created will apply only to the target system that you are currently reviewing results for.  You can also check the global checkbox to make the exception apply to all target systems in your environment.  You can also enter any number of tags into the tag checkbox,  the exception will then apply to any target system that has any of the entered tags.  These are different ways to scope the exception.
-
-	* **Group Exception** - To create a group exception, navigate to the group you would like to except in the Test Results Report and click on "Add Group Exception" button.
-	
-		![](https://i.imgur.com/I5CUmF6.png)
 
 
-	* **Vulnerability Exception** - To create a vulnerability exception, navigate to the individual vulnerability you would like to except in the Vulnerability Report and click on "Add Exception" button. For more details please read the Vulnerability Report section.
-	![](https://i.imgur.com/3CfIvHC.png)
-	
+**Group** 
 
-  *	**Approval** - Once an exception is created it must be approved by a user with ROLE_ADMIN.  On creation, an exception will enter pending status, and, by default, a task will be created for all users with ROLE_ADMIN and sent to their user Inbox.  This task will allow the administrators to review the exception request and accept or reject the exception.
+- Navigate to the group to except within a Test Results Report
+- Select `Add Group Exception`
+- Enter the desired criteria
+	- Start and End Date can apply to any date range. 
+	- Rationale is required
+	- To apply to all target systems for this CIS Benchmark version, select the `Global` checkbox. Otherwise, the exception will apply to only this target system.
+	- Enter `Tags` to apply this exception to all targets associated with entered tag. If `Global` is checked on, entries in `Tags` will be ignored as this exception will be applied to all targets for this CIS Benchmark version
+- Select `Add Exception`	
+![](https://i.imgur.com/I5CUmF6.png)
+
+
+###Approve or Reject an Exception
+
+Ensure the exception workflow setup has been followed. Exceptions that are rejected will not apply to a score recalculation. Rejected exceptions must be recreated. Approved exceptions will rescore reports falling within the criteria of the exception. 
+
+- Login to Dashboard as a user with `ROLE_ADMIN`
+- Navigate to Inbox
+- Select `My Tasks`
+- Review alert in Inbox
+- Select `Approve` or `Reject`
+
   ![](http://i.imgur.com/AOyj8Mw.png)
-	If the exception is approved, it will take effect for the time period and targets specified.  If it is rejected, it will be ignore.  Either way,  the user who requested the exception will be notified of the result via an alert sent to their user inbox.
+	
+**View Configuration Exceptions**
 
-  * **End Date** - Exceptions are not meant to be permanant.  As such, CIS-CAT Pro Dashboard provides the ability to end date an exception when it is no longer needed.  To end date an exception, you simply need to click on it in the exception table for the rule.  this will bring up the end date dialog.  you can enter any end date you would like, then click save.  The Exception will now be end dated and on
-  * **Viewing Configuration Assessment Exceptions (Rule and Group Exceptions)** -  there are several ways to view rule or group exceptions in the application:
-	  * **Exception List on Test Results** - described above, there is a tab on each test result showing all the exceptions that apply to that system
-	  * **Target System Configuration Assessment Exceptions List** - on each target systems view page in Configuration Assessments tab, there is a list of exceptions that apply to that target.
-	  * **Configuration Assessment Exception Search** - in the report menu there is a Configuration Assessment Exception Search option which allows users to search for exceptions by: Primary ID, benchmark, date range, type, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
-	  ![](https://i.imgur.com/VW9T5w2.png)
-  * **Viewing Vulnerability Exceptions** -  there are several ways to view vulnerability exceptions in the application:
-	  * **Target System Vulnerability Exceptions List** - on each target systems view page in Vulnerability Assessments tab, there is a list of exceptions that apply to that target.
-	  * **Vulnerability Exception Search** - in the report menu there is a Vulnerability Exception Search option which allows users to search for exceptions by: Primary ID, date range, or tag.  Searching by hostname will return all exceptions associated with that target system, even if they are associated by tag or by being global.
-	  ![](https://i.imgur.com/vuIMDAa.png)
+Exceptions can be viewed in the following ways: 
+
+
+- **Exception List on Test Results** - within a test result, navigate to the exception tab
+- **Target System Configuration Assessment Exceptions List** - on each target systems view page in Configuration Assessments tab, note list of exceptions applicable to selected target.
+- **Configuration Assessment Exception Search** - Navigate to `Reports` menu
+	 
+
+**View Vulnerability Exceptions**
+
+Exceptions can be viewed in the following ways:
+
+- **Target System Vulnerability Exceptions List** - on each target systems view page in Vulnerability Assessments tab, there is a list of exceptions that apply to that target.
+- **Vulnerability Exception Search** - Navigate to `Reports` menu
+	  
+
+###Modify a Configuration Exception
+
+Exceptions in a status of `Approved` may be edited by a user with `ROLE_ADMIN`. The exception edit does not require use of the Exception Workflow process for Approval or Rejection. Upon submission, the rescore event for reports falling within the exception's criteria are scheduled for immediate rescore. Depending on how much data is in your system, this can take some time. It is required for the exception to be associated with a Target that has a Target Primary ID.
+
+- Navigate to `Reports` menu
+- Select `Configuration Exception Search`
+- Select desired criteria and press `Search`
+- Select the `Edit` icon for the exception to modify
+
+![](img/SearchException.png)
+
+![](img/EditExeption.png)
+
+- Correct the desired criteria and press `Submit`
+- If no changes are needed, press `Cancel`
+
+Upon submit, the reports falling within the criteria of the exception will be rescored. Exceptions where the start date = end date have no effect on the configuration score.
+
 
 ## Dashboard ##
 The CIS-CAT Pro Dashboard application's dashboard views provide a high level overview of organizational compliance with CIS Benchmarks.  There are several views, which comprise different aggregation levels which produce a graph that represents compliance over time.  The default views show all of the compliance results for the aggregation group selected, i.e.  "Overview" is all of your target systems for all benchmarks,  The "Benchmark View" is by benchmark,  the "Tag View" is all systems with a specific tag or set of tags.  Each point on the graph is an average score for the month.  Each of the points can be clicked to "drill-down" into the Monthly view.  This view has a point for each day in the selected month that has results.  Each of these points can be clicked on to drill down to that specific day,  which will display points for each time you have an assessment result.  The points on the daily view will take you straight to the individual assessment result that produced the score.  This way you can navigate from a very high level view of your compliance data, all the way to the details,  the individual assessment reports that comprise the high level graphical information.

@@ -3,6 +3,43 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.3.0 ##
+May 3, 2022
+
+### Application ###
+
+- Configuration exceptions in `Approved` status where a Target Primary ID is present can now be edited by a user assigned ROLE_ADMIN from the `Configuration Exception Search` page under the `Reports` Menu. Upon submission, configuration report scores will be recalculated. Edits do not require exception workflow approval and will be effective immediately. 
+
+
+### Security ###
+
+- Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/w3C5QBPi) for more information.
+	- Upgrade Grails Framework from v4.0.11 to v5.1.7, which facilitated upgrade to vulnerable Spring Framework libraries
+
+
+### Documentation ###
+
+- Updated User Guide to include information on how to edit an exception.
+
+
+## CIS-CAT Pro Dashboard v2.2.6 ##
+April 5, 2022
+
+### Application ###
+
+- None
+
+### Security ###
+
+-   Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/w3C5QBPi) for more information.
+
+
+### Documentation ###
+
+-   None
+
+
+----------
 ## CIS-CAT Pro Dashboard v2.2.5 ##
 March 22, 2022
 
