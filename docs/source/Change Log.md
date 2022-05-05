@@ -13,7 +13,7 @@ May 3, 2022
 
 ### Security ###
 
-- Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/w3C5QBPi) for more information.
+- Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/PPB351PN) for more information.
 	- Upgrade Grails Framework from v4.0.11 to v5.1.7, which facilitated upgrade to vulnerable Spring Framework libraries
 
 
