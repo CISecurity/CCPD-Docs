@@ -3,6 +3,28 @@
 # Change Log #
 
 ----------
+## CIS-CAT Pro Dashboard v2.3.1 - FINAL version 2 series.##
+September 21, 2022
+
+Version 2.3.1 will be the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions in early Q4 2022, but will not be backwards compatible. A clean install of Dashboard version 3.0.0 will be required as there will be no upgrade or data migration options available from any previous 2.x version.
+
+**[Read our knowledgebase article to learn more.](https://cisecurity.atlassian.net/l/cp/mF6o97vs)**
+
+### Application ###
+
+- Palo Alto configuration assessment reports now import successfully.
+
+
+### Security ###
+
+- Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/cp/SwQhuzoA) for more information.
+
+
+### Documentation ###
+
+- Updated Deployment and User Guides to include End of Life information.
+
+
 ## CIS-CAT Pro Dashboard v2.3.0 ##
 May 3, 2022
 
