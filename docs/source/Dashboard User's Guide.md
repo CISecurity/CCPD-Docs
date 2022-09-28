@@ -377,7 +377,7 @@ To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro D
 	-ui  : This optional argument allows users to ignore any certificate warnings/errors when connecting to the CIS-CAT Pro Dashboard URL
 	 
 	For example, assessing and uploading the Windows 7 Benchmark would look like:
-	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_7_Benchmark_v3.0.0-xccdf.xml -arf -n -u http://myapp.example.org/CCPD/api/report/upload -ui
+	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_7_Benchmark_v3.0.0-xccdf.xml -arf -n -u http://myapp.example.org/CCPD/api/reports/upload -ui
  
 
 **Legacy Data Import**
