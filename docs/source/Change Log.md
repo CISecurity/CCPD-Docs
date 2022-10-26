@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-# Change Log #
+# Change Log # 
 
 ----------
 ## CIS-CAT Pro Dashboard v2.3.1 - FINAL version 2 series.##
