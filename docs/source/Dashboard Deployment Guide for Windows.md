@@ -1,11 +1,11 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-# Installation Guide - Microsoft Windows #
-
-End of Life and Final Release Dashboard version 2.x - Replaced with Dashboard v3.0.0
+## End of Life and Final Release Dashboard v 2.x
 ------------------
 
-Version 2.3.1 is the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 has replaced the 2.x versions, but is not backwards compatible. A clean install of Dashboard version 3.0.0 is required as there are no upgrade or data migration options available from any previous 2.x version. Please read our [knowledge base article](https://cisecurity.atlassian.net/l/cp/mF6o97vs) to learn more. 
+** Version 2 of CIS-CAT Pro Dashboard has reached End of Life and its Final Release occurred in September 2022. It will be replaced with Dashboard v3.0.0 planned for a December 2022 release.**
+
+Version 2.3.1 is the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions, but the latest version will not be backwards compatible with version 2.x. A clean install of Dashboard version 3.0.0 is required as there are no upgrade or data migration options available from any previous 2.x version. Please read our [knowledge base article](https://cisecurity.atlassian.net/l/cp/mF6o97vs) to learn more. 
 
 Version 2.3.1 will be available on CIS WorkBench for download through December 2022.
 
