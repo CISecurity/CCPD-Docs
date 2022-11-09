@@ -1,12 +1,10 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-# How to Obtain Your SecureSuite License #
-
 ----------
 
 A SecureSuite License is required for CIS-CAT Pro Dashboard v3.0.0+ (due to release in December 2022). If a valid license is not present, some Dashboard features like remote assessment will not be available.
 
-##Obtain License Files ##
+**Steps to Download Your SecureSuite License**
 
 1. Login to [CIS WorkBench](https://workbench.cisecurity.org/dashboard)
 2. In the top right, click on your login name
