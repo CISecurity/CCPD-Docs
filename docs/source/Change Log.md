@@ -442,6 +442,7 @@ SYSTEM ENHANCEMENTS
 BUGS
 
  - automated database changes required when updating from a version prior to v1.1.2.
+
 -------------------------
 ** CIS-CAT Pro Dashboard v1.1.2 **
 
