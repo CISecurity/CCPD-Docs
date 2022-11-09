@@ -6,8 +6,8 @@ nav:
         - 1. Change Log: source/Change Log.md
         - 2. About: source/About Dashboard.md
         - 3. SecureSuite License: source/SecureSuite License.md
-        - 4. Installation Guide - Windows: source/Dashboard Deployment Guide for Windows.md
-        - 5. Installation Guide - Linux: source/Dashboard Deployment Guide for Linux.md
+        - 4. Installation - Windows: source/Dashboard Deployment Guide for Windows.md
+        - 5. Installation - Linux: source/Dashboard Deployment Guide for Linux.md
         - 6. Guide: source/Dashboard User's Guide.md
         
 theme:

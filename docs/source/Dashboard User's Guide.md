@@ -2,7 +2,7 @@
 
 **CIS-CAT Pro Dashboard Guide**
 
-## User Administration ##
+# User Administration #
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
 
 ## Users ##
@@ -55,49 +55,7 @@ Roles in CIS-CAT Pro Dashboard are assigned to users and allow access to functio
 
 ![](img\APIUser.png)
 
-
-
 Clicking the button will open a dialog box where the user is required to enter the "ROLE_API" user's credentials.  Once that user has been re-authenticated, the token is generated and displayed on the page.  To support automatic imported results into Dashboard from an assessment, the token must be placed into the properties file of CIS-CAT Pro Assessor. See deployment guide for Dashboard for Windows or Linux and learn about where to place this token for Assessor v4 or Assessor v4 Service Integration.
-
-
-
-## System Settings ##
-The `System Settings` menu is only available to users with `ROLE_ADMIN`.  Various default system configurations can be set. System administrators can navigate to this screen by selecting the gear icon in the upper, right area of the application.
-
-![](img/SystemSettings.png)
-
-
-
-![](https://i.imgur.com/UENaR6x.png)
-
-Below are explanations of each of the different possible configurations.
-
-
-|Setting Name|Description|Values|
-|---|---| ---|
-|legacy.sourceDir|path to a directory that the dashboard uses in file processing after uploads|a valid path on the application server|
-|legacy.processedDir|path to a directory that the dashboard stores successfully imported xml files in|a valid path on the application server|
-|legacy.errorDir|path to a directory where the dashboard stores xml files that failed to import correctly|a valid path on the application server|
-|legacy.processedRetentionNumber|The amount of files that will be retained in the legacy.processedDir folder.  The directory will be purged down to this number after each new upload.|any integer greater than 0|
-|primarySystemIdentifierType|the type of identifier that will be used for target systems every where targets are listed in the Dashboard Application.  See the Primary Identifier Type section of this document for more details.|System Identifier Types|
-|vulnerabilityFailuresOnly|When importing vulnerability reports, if this is true, the system will only import failures, which will improve performance and save space.|true or false|
-|vulnerabilityWarningAge|The number of days old a vulnerability has to be before the warning is displayed on the vulnerability report.  See the Vulnerability Report section of this document for more details.|Integer number of days|
-|vulnerabilityHighThreshold|The CVSS score that will categorize vulnerabilities as High on the report and in the dashboard. Scores above this value will be considered High Impact The default value is 7|number between 0-10|
-|vulnerabilityLowThreshold|The CVSS score that will categorize vulnerabilities as Low on the report and in the dashboard. Scores below this value will be considered Low Impact.  The default value is 4|number between 0-10|
-|displayDBNameInPrimary|Display the Database Name target system identifier in the target system Primary ID.  For target systems with Database Benchmark results.|true or false|
-|alert.lowScoreThreshold|Threshold for producing the "Low Score Alert" when test results are imported. Default is 80.|number between 0-100|
-|admin.password.expirationDays|The number of days before a users password will expire|number of days|
-|admin.maximumFailedLogonAttempts|The number of failed login attempts before an account is locked.|number|
-|dashboard.height|The number of pixels in the height of the dashboard graphs.|number|
-|dashboard.width|The number of pixels in the width of the dashboard graphs.|number|
-|testResult.score.high|The percentage score for a group of recommendations that will have the group appear in green on the assessment results, indicating high compliance|number between 0-100|
-|testResult.score.medium|The percentage score for a group of recommendations that will have the group appear in yellow on the assessment results, indicating moderate compliance|number between 0-100|
-|testResult.score.low|The percentage score for a group of recommendations that will have the group appear in orange on the assessment results, indicating poor compliance.  Scores below this will appear in red, indicating very poor compliance.|number between 0-100|
-|alert.diffScoreThreshold|Threshold for producing the &quot;Test Result Diff Alert&quot; when test results are imported and when the score goes down compared to the previous score (same machine/benchmark/profile). The value is the score difference between the 2 test results. Default is 0.|A percentage between 0-100|
-|controls.version.default|Set your preferred CIS Controls default view.|CIS Controls version|
-|delete.assessment.start.time| Sets the start time that a job will begin processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.| A whole integer from 0 to 23
-|delete.assessment.end.time| Sets the end time that a job will stop processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.|A whole integer from 0 to 23
-
 
 ## Logging In/User Profile ##
 When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
@@ -151,6 +109,59 @@ In this page, you can add/delete favorite benchmarks as well as favorite target 
 In Benchmark view (Dashboards), you can select benchmarks from your list of favorite benchmarks that you would like to see results for.
 This is the same for Target System view. 
 
+# System Settings #
+The `System Settings` menu is only available to users with `ROLE_ADMIN`.  Various default system configurations can be set. System administrators can navigate to this screen by selecting the gear icon in the upper, right area of the application.
+
+![](img/SystemSettings.png)
+
+
+![](https://i.imgur.com/UENaR6x.png)
+
+Below are explanations of each of the different possible configurations.
+
+
+|Setting Name|Description|Values|
+|---|---| ---|
+|legacy.sourceDir|path to a directory that the dashboard uses in file processing after uploads|a valid path on the application server|
+|legacy.processedDir|path to a directory that the dashboard stores successfully imported xml files in|a valid path on the application server|
+|legacy.errorDir|path to a directory where the dashboard stores xml files that failed to import correctly|a valid path on the application server|
+|legacy.processedRetentionNumber|The amount of files that will be retained in the legacy.processedDir folder.  The directory will be purged down to this number after each new upload.|any integer greater than 0|
+|primarySystemIdentifierType|the type of identifier that will be used for target systems every where targets are listed in the Dashboard Application.  See the Primary Identifier Type section of this document for more details.|System Identifier Types|
+|vulnerabilityFailuresOnly|When importing vulnerability reports, if this is true, the system will only import failures, which will improve performance and save space.|true or false|
+|vulnerabilityWarningAge|The number of days old a vulnerability has to be before the warning is displayed on the vulnerability report.  See the Vulnerability Report section of this document for more details.|Integer number of days|
+|vulnerabilityHighThreshold|The CVSS score that will categorize vulnerabilities as High on the report and in the dashboard. Scores above this value will be considered High Impact The default value is 7|number between 0-10|
+|vulnerabilityLowThreshold|The CVSS score that will categorize vulnerabilities as Low on the report and in the dashboard. Scores below this value will be considered Low Impact.  The default value is 4|number between 0-10|
+|displayDBNameInPrimary|Display the Database Name target system identifier in the target system Primary ID.  For target systems with Database Benchmark results.|true or false|
+|alert.lowScoreThreshold|Threshold for producing the "Low Score Alert" when test results are imported. Default is 80.|number between 0-100|
+|admin.password.expirationDays|The number of days before a users password will expire|number of days|
+|admin.maximumFailedLogonAttempts|The number of failed login attempts before an account is locked.|number|
+|dashboard.height|The number of pixels in the height of the dashboard graphs.|number|
+|dashboard.width|The number of pixels in the width of the dashboard graphs.|number|
+|testResult.score.high|The percentage score for a group of recommendations that will have the group appear in green on the assessment results, indicating high compliance|number between 0-100|
+|testResult.score.medium|The percentage score for a group of recommendations that will have the group appear in yellow on the assessment results, indicating moderate compliance|number between 0-100|
+|testResult.score.low|The percentage score for a group of recommendations that will have the group appear in orange on the assessment results, indicating poor compliance.  Scores below this will appear in red, indicating very poor compliance.|number between 0-100|
+|alert.diffScoreThreshold|Threshold for producing the &quot;Test Result Diff Alert&quot; when test results are imported and when the score goes down compared to the previous score (same machine/benchmark/profile). The value is the score difference between the 2 test results. Default is 0.|A percentage between 0-100|
+|controls.version.default|Set your preferred CIS Controls default view.|CIS Controls version|
+|delete.assessment.start.time| Sets the start time that a job will begin processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.| A whole integer from 0 to 23
+|delete.assessment.end.time| Sets the end time that a job will stop processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.|A whole integer from 0 to 23
+
+ 
+#Alert Management#
+
+In the Administration menu there is an option for Alerts.
+
+![](http://i.imgur.com/E7sGpvV.png)
+
+This will navigate to the alert list, where you can select an alert to bring up the show Alert page where alerts can be managed.
+
+![](http://i.imgur.com/7zqyySg.png)
+
+The important feature of this page is the configurable recipient list.  This shows all the users that are configured to receive the alert, why they are, either directly, by a role they have assigned, or by a tag they have assigned.  Users can then use the Receiving Users, Receiving Roles, and Receiving Tags list to manage who will receive an alert.
+
+The Recipient list also shows which users have opted out of the alert type.
+
+**NOTE:** A user will only receive one instance of an alert,  even if they are included in the recipient list by multiple criteria.  i.e.  if they have a tag and a role that include them in the recipient list, they will still only recieve one alert.
+
 ##User Inbox##
 
 The User Inbox contains all of the alerts/tasks assigned to the user.  Simply click on the Inbox item on the menu bar to navigate to the inbox:
@@ -187,24 +198,8 @@ When complete click "Send" and your message will go to the inbox's of the select
  - **Alert** - An alert informs you of a system event directly related to you,  such as the completion of an upload you initiated. 
  - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
  - **Manual** - A manual message was sent directly to you by another user.
- 
-##Alert Management##
 
-In the Administration menu there is an option for Alerts.
-
-![](http://i.imgur.com/E7sGpvV.png)
-
-This will navigate to the alert list, where you can select an alert to bring up the show Alert page where alerts can be managed.
-
-![](http://i.imgur.com/7zqyySg.png)
-
-The important feature of this page is the configurable recipient list.  This shows all the users that are configured to receive the alert, why they are, either directly, by a role they have assigned, or by a tag they have assigned.  Users can then use the Receiving Users, Receiving Roles, and Receiving Tags list to manage who will receive an alert.
-
-The Recipient list also shows which users have opted out of the alert type.
-
-**NOTE:** A user will only receive one instance of an alert,  even if they are included in the recipient list by multiple criteria.  i.e.  if they have a tag and a role that include them in the recipient list, they will still only recieve one alert.
-
-##Primary Identifier Type##
+#Primary Identifier Type#
 
 When assessment results are imported,  CIS-CAT Pro Dashboard creates a new target system to represent the assessed endpoint.  Subsequent imports for the target will be associated with the same target system.  The assessment results has several different identifier types that are imported.  By default, target systems within CIS-CAT Pro Dashboard are primarily identified by hostname.  This means, where ever you see a target system in a list, or a search result,  the identifier you see is the hostname.  The primary identifier however can be configured, either at the CIS-CAT Pro Dashboard application level or on each individual target system.
 
@@ -269,7 +264,7 @@ Add an additional indicator to set the property:
 
 		PRIMARY_IDENTIFIER=$ENV_VAR_IDENTIFIER
 
-## System Integrations ##
+# System Integrations #
 
 **CIS-CAT Pro Release alerts**
 
@@ -295,7 +290,7 @@ See below examples of potential alerts you might receive:
 2. CIS WorkBench Api client cannot be found:
 ![](https://i.imgur.com/kzA1tq1.png)
 
-## Importing CIS-CAT Assessor Results ##
+# Import CIS-CAT Assessor Results #
 **In-Application Import**
 
 Importing CIS-CAT Assessor results using the CIS-CAT Pro Dashboard user interface assumes that a user has executed a CIS-CAT assessment and produced the Asset Reporting Format (ARF) results.  Once an ARF has been generated in CIS-CAT and saved to the designated reports location, open a web browser and log into the Dashboard application.  From the main navigation bar, select Reports -> Assessment Results List.  
@@ -352,16 +347,6 @@ To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro D
 	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_7_Benchmark_v3.0.0-xccdf.xml -arf -n -u http://myapp.example.org/CCPD/api/reports/upload -ui
  
 
-**Legacy Data Import**
-
-To help facilitate organizations migrating from static CIS-CAT dashboards and reporting to storing assessment results in CIS-CAT Pro Dashboard, a legacy data import process has been developed.  This process is configured as a recurring job running in the background of a CIS-CAT Pro Dashboard installation.  Users are required to configure 3 folder locations:
-
-1. **The "Legacy" Folder:**  This folder will be the location for all CIS-CAT XML results to be placed, as the staging area for results waiting to be imported into CIS-CAT Pro Dashboard
-2. **The "Legacy Processed" Folder:**  This folder will be the location for all CIS-CAT XML results which have been successfully imported into CIS-CAT Pro Dashboard from the staging area.
-3. **The "Legacy Error" Folder:** This folder will be the location for any CIS-CAT XML results which were not successfully imported into CIS-CAT Pro Dashboard.
-
-These folder locations are set in the application's System Settings using the following properties: `legacy.sourceDir`, `legacy.processedDir`, and `legacy.errorDir`.
-
 ## Target Systems ##
 **Creation**
 Target Systems represent endpoints in your environment that have assesment data within CIS-CAT Pro Dashboard.  There are several ways to create target systems within the application:
@@ -379,19 +364,6 @@ Once there, you can select the "New Target System" button, which will open the c
 
 Simply enter the Hostname and click Add Target,  this will create a new target system.
 
-**v1.1.3 Data Conversion**
-
-v1.1.3 of the CIS-CAT Pro Dashboard introduced a new data model for storing configuration and vulnerability assessment results.  The new model significantly reduces the number of records stored in the database on import and offers performance improvements to many aspects of assessment processing: import, export, and delete.  Assessments that existed in CCPD implementations prior to the release of v1.1.3 will not be converted automatically.  The conversion process can be long and intrusive if the implementation has many reports.  Existing reports can be left as is, but will continue to have the same performance characteristics as they previously had.  In order to take advantage of the new data model, these reports must be converted.  This can be achieved on a one off basis from the Target Systems Configuration Assessment or Vulnerability Assessment Tab:
-
-
-![](https://i.imgur.com/Tl9w1vL.png)
-
-
-Pre-v1.1.3 reports will have their Converted Column set to "No".  In order to convert them, select the Convert Action from the Actions column.  The report will convert asynchronously and be available in a few minutes.
-
-For a more system wide approach to conversion you can use the new system settings `auto.convert.start.time` and `auto.convert.end.time`.  By default, these will both be -1,  but if you set the to an hour between 0-23 (0 being midnight) the system will automatically convert as many reports as it can in the time frame specified.  For example,  if you set the start time to 22 and the end time to 6, the system would convert assessments between the hours of 10pm and 6am each night, until all of the existing assessments were converted.
-
-All assessments imported after the implementation of v1.1.3 will come into the system utilizing the new data model,  they will be shown as converted throughout the application.
 
 **Difference report**
 
@@ -427,7 +399,7 @@ For more details about how to manage Alerts, please refer to Alert Management se
 
 **Assessment Deletion**
 
-Both Configuration and Vulnerability Assessments can be deleted from their respective tabs on the Target System.  Each row in the Assessment Lists now has a Delete Action in the Actions column.  When clicked, you will be prompted to confirm you would like to delete, then on confirmation the individual result will be deleted:
+Configuration assessment results can be deleted from their respective tabs on the Target System.  Each row in the Assessment Lists now has a Delete Action in the Actions column.  When clicked, you will be prompted to confirm you would like to delete, then on confirmation the individual result will be deleted:
 
 ![](https://i.imgur.com/mdeEqMI.png)
   
@@ -490,18 +462,7 @@ Once tagged, use individual tags, or logical combinations of tags to search for 
 - **Exclude Tags** - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the "Server" tag into the Include Tags box and "PCI" into the Exclude Tags box.
 
 ## Assess a Target System ##
-To assess a target system from within CIS-CAT Pro Dashboard, ensure that [CIS-CAT Pro Assessor v4 Service Integration](./Dashboard%20Deployment%20Guide%20for%20Windows/#cis-cat-pro-assessor-v4-service-integration) procedures have been executed. The assessment features currently only support a remote assessment.
-
-Pre-Requisites:
-
-- Installation of CIS-CAT Pro v4 Service
-- CIS-CAT Pro Dashboard v1.1.11+
-- CIS-CAT Pro v4 Service has been configured and started
-- CIS-CAT Pro Assessor v4 Service Integration steps have been followed
-- CIS-CAT Pro Dashboard is able to communicate with CIS-CAT Pro Assessor v4 Service system
-	- Verify that benchmark data is returned by entering `<assessor-service url>/benchmarks` in the Dashboard’s system’s browser
-- Assessed target system is configured for remote assessment (WinRM setup, SSH enabled, etc.)
-- Assessed target system is able to communicate with CIS-CAT Pro Assessor v4 Service host system
+The assessment features currently only support a remote assessment.
 
 Steps:
 
@@ -529,13 +490,9 @@ None of the below information will be stored in the supporting database. It is h
 - **Benchmark:** Supported benchmarks for dashboard orchestration. See Assessor Service guide for more information on supported benchmarks.
 - **Profile:** List of profiles related to the selected benchmark.
 
-Once the Start Assessment button has been selected, the below message confirms that the assessment request was sent to CIS-CAT Pro Assessor v4 Service. Status can be tracked in the Job Status screen.
+Once the Start Assessment button has been selected, the below message confirms that the assessment request was sent. Status can be tracked in the Job Status screen.
 
 ![](https://i.imgur.com/9WmNQS5.png)
-
-The below error message may be received if communication to CIS-CAT Pro Assessor v4 Service is interrupted. To troubleshoot, navigate to the CIS-CAT Pro Assessor v4 Service host and verify the status of the service.
-
-![](https://i.imgur.com/LTbrcYq.png)
 
 
 **Job Status Screen**
@@ -568,12 +525,9 @@ The screen can be manually refreshed by selecting the Job Status menu item or by
 |---|---| ---|
 |An unknown error occurred.|- Username was incorrect<br/>- Password was incorrect<br/>- User does not have admin or sudo permissions<br/>- Wrong IP or domain name of system<br/>- Unsupported Benchmark selected| - Verify username and password and privilege to run scan on target system<br/>- Verify CIS-CAT log for more detail on error<br/>- Only use the unchanged Benchmarks delivered with the application|
 |An XML file was parsed, but contained an invalid signature.|- The signature in the benchmark file is not valid.  To invalidate the signature, simply modify the XCCDF in some way (e.g., open it and add some extra text to the title of the benchmark).|- Only use the unchanged Benchmarks delivered with the application|
-|Could not find requested assessment content|- The selected Benchmark was removed from the Benchmark directory in Assessor v4 Service just before assessment ran|- Do not remove the Benchmarks from the Benchmark directory once an assessment has been requested|
-|CIS-CAT Pro Assessor encountered invalid assessment content.|- The Assessor parsed the assessment file requested to be run, but could not determine what type of assessment it is for (e.g., benchmark or vulnerability assessment). <br/>- For Benchmark assessments, the root of the benchmark file should be <Benchmark> or <data-stream-collection>.<br/>- For OVAL Definitions or Vulnerability assessments, the root of the file should be <oval_definitions>.|- Only use the unchanged Benchmarks delivered with the application|
+|CIS-CAT Pro Assessor encountered invalid assessment content.|- The Assessor parsed the assessment file requested to be run, but could not determine what type of assessment it is for (e.g., benchmark assessment). <br/>- For Benchmark assessments, the root of the benchmark file should be <Benchmark> or <data-stream-collection>.<br/>- For OVAL Definitions or Vulnerability assessments, the root of the file should be <oval_definitions>.|- Only use the unchanged Benchmarks delivered with the application|
 |An XML file was parsed but XML Schema validation errors.|An XML file has schema validation errors.  This exit code is used when validating the schema for the Benchmark file requested to be run.|- Only use the unchanged Benchmarks delivered with the application|
 |Could not parse an XML file required for assessment.|- The assessment content (e.g., benchmark file) contains XML formatting errors.  For example, an end tag for an element does not match the start tag.|- Only use the unchanged Benchmarks delivered with the application|
-
-
 
 
 
@@ -654,41 +608,6 @@ For CIS Benchmarks mapped to CIS Controls V8, sort by Implementation Group 1 for
 
 ![](img/ConfigurationSummaryCSVv2.png)
 
-
-###Vulnerability Report###
-
-Vulnerability results in XML format can be imported into Dashboard using the API, manually placing in the Legacy folder, or by manually importing.  To import a result manually from the Dashboard, navigate to the target system you have a vulnerability result for.  From the Results History List, open the Vulnerability Reports accordion and click the import button:
-
-![](http://i.imgur.com/YObutFW.png)
-
-This is an asynchronous process and you will be notified when the import is complete.  Once complete you will see the result in the Vulnerability Reports accordion of the Results History List:
-
-![](http://i.imgur.com/rac3Khe.png)
-
-Clicking on a row in the list will bring you to the Vulnerability Report:
-
-![](http://i.imgur.com/6ThKVvs.png)
-
-The top of the report contains some information about the target system assessed and the vulnerability definitions that were assessed.  Opening the High, Medium, or Low accordions below will show you details about the vulnerabilities found:
-
-![](http://i.imgur.com/NyWD3cV.png)
-
-Vulnerabilities can also issue an age warning.  By default if a vulnerability on a system is over 90 days old, the vulnerability will appear differently in the report:
-
-![](http://i.imgur.com/7o0zpdN.png)
-
-Note the color difference and the Oldest Failure Date present in the title.
-
-To configure the vulnerability age warning threshold, navigate to the System Settings menu in the administration menu.  From there choose the vulnerabilityWarningAge setting:
-
-![](http://i.imgur.com/AFeRM8x.png) 
-
-You can then enter the amount of days old you would like vulnerabilities to be before the warning appears on the report:
-
-![](http://i.imgur.com/OMIuunl.png)
-
-You can also configure the High/Medium/Low thresholds in the system settings.  These categories are based on CVSS Scores.  By default, the low threshold is 4.0, and the high threshold is 7.0.  This means any found vulnerability with a CVE that has a CVSS base score of 7.0 or more, will be categorized as High on the report and in the Vulnerability Reports list.  To configure these thresholds you can change the vulnerablityHighThreshold and/or the vulnerabilityLowThreshold in the System Settings.
-
 ###Remediation Report###
 
 The Remediation Report provides a list of recommendations with a `Failed` status. Remediation steps are included. It is useful to utilize this report as a focused effort on remediation of system states departing from the benchmark recommendations.  If a recommendation has been excepted in the Dashboard and it has a result of `Fail`, it will still be shown on this report. Generate this report by selecting `Remediation Report` from the CIS-CAT Pro Dashboard Reports Menu.  Select the desired Target System and the latest results for a benchmark.
@@ -733,14 +652,14 @@ Navigate to "Systems Settings" and locate the `delete.assessment.start.time` and
 
 ![](https://i.imgur.com/eHc76W2.png)
 
-## Exceptions ##
+# Exceptions #
 Most organizations do not adopt every CIS Benchmark recommendation. Organizations often choose to accept some risk for the benefit of a functioning business environment. It is also possible that an organization may be solving a recommendation in other ways that CIS-CAT is not able to detect. CIS-CAT Pro Dashboard provides functionality to create an exception to specific rules or groups of rules on a per target system,  global (all targets for a specific benchmark), or by targets associated with user-defined tags. When an exception is applied and approved within the Dashboard exception approval process, existing configuration or vulnerability reports falling within the criteria will be rescored. Additionally, newly imported reports also falling within the criteria of the exception conditions will exclude the excepted result when scoring. 
 
 Exceptions are applied from within an Assessment Test Results Report for a configuration or vulnerability assessment. The `Reports` menu can assist in navigating to configuration test results. Vulnerability test results can only be shown from within a Target System record on the `Vulnerability Assessments` tab.
 
 Exceptions are applied to a specific CIS Benchmark published version. New exceptions must be created for each separate CIS Benchmark version.
 
-###Setup Exception Workflow###
+##Setup Exception Workflow##
 It is an important first step to establish an exception workflow process before exceptions are applied. The exception workflow requires that a created exception is approved by a valid user before report scores are recalculated. Approval submissions cannot be recreated or resent if the workflow is not initially setup.
 
 - Login to Dashboard as a user with `ROLE_ADMIN`
@@ -748,7 +667,7 @@ It is an important first step to establish an exception workflow process before 
 - Select `Approve or Reject Exception Request`
 - Ensure `ROLE_ADMIN` is present in `Receiving Users` and `Receiving Roles`
 
-###Create an Exception###
+##Create an Exception##
 
 If an exception already exists on a rule or group, the corresponding `Add Exception`/`Add Group Exception` buttons will not be present. Although it is possible to edit the `End Date` for an approved exception from a Results screen, CIS-CAT recommends following the procedure for editing an exception below. On creation, an exception will enter pending status, a task will be created for all users with ROLE_ADMIN. The task will be present in each qualifying user's Dashboard Inbox in the Task section.
 
@@ -782,7 +701,7 @@ Exceptions where the start date = end date have no effect on the configuration s
 ![](https://i.imgur.com/I5CUmF6.png)
 
 
-###Approve or Reject an Exception
+##Approve or Reject an Exception
 
 Ensure the exception workflow setup has been followed. Exceptions that are rejected will not apply to a score recalculation. Rejected exceptions must be recreated. Approved exceptions will rescore reports falling within the criteria of the exception. 
 
@@ -812,7 +731,7 @@ Exceptions can be viewed in the following ways:
 - **Vulnerability Exception Search** - Navigate to `Reports` menu
 	  
 
-###Modify a Configuration Exception
+##Modify a Configuration Exception
 
 Exceptions in a status of `Approved` may be edited by a user with `ROLE_ADMIN`. The exception edit does not require use of the Exception Workflow process for Approval or Rejection. Upon submission, the rescore event for reports falling within the exception's criteria are scheduled for immediate rescore. Depending on how much data is in your system, this can take some time. It is required for the exception to be associated with a Target that has a Target Primary ID.
 
@@ -945,37 +864,7 @@ Select a CIS Sub-Control to learn more details. Sub-Controls fall into CIS Contr
 
 ![](img\Safeguard.png)
 
-**NVD Vulnerability Data**
-
-In order to support the CIS-CAT Assessor vulnerabilty reports, CIS-CAT Pro Dashboard requires CVE and CVSS data from the National Vulnerability Database (NVD).  In order to insert/update/or view the NVD data you need to go to the "Vulnerability List" menu option in the Supporting Data menu. The vulnerability list will display the current vulnerability data by year and month:
-
-![](img\vulnerabilityList.png)
-
-
-
-Selecting any individual month will navigate to the Monthly CVE View.  This page will list all the CVE's published that specific month and year:
-
-![](img\PublishedVulnerability.png)
-
-Clicking any of the entries will bring up all the data about that specific CVE in the CVE Dialog.  This dialog also contains an NVD link which will navigate directly to the CVE entry on the NVD website:
-
-![](img\singlecve.png)
-
-From the top of the Vulnerabilities List, navigate to the search to learn more about a specific CVE by ID or keywords from the CVE Summary:
-
-![](http://i.imgur.com/5EpUSXA.png)
-
-Again, clicking on the CVE ID will bring up the CVE Dialog.
-
-There are several ways to import the NVD data into your dashboard instance:
-
- - **Update NVD Data via Direct NIST Connectivity** -  Direct internet connectivity required, a proxy will not work. Use the Update CVEs button from the Vulnerability list page. On button selection, a direct connection to NIST NVD is made and the latest JSON NVD version will update the database storage with the current CVE definitions. The update is completed with an asyncronous process. Depending on environment factors, the process could take some time to import the thousands of CVE definitions. One Dashboard Inbox alert will be present upon completion.
- - **Update NVD Data via Import** - Internet connectivity not required. Manually download most recent JSON vulnerability feed from NVD. Move the files to the Legacy folder on the supporting Dashboard machine or use the Import Vulnerability Feed button from the Vulnerability list page to manually select the files. The import is completed with an asyncronous process. A Dashboard Inbox alert will be present for each completely imported file.
-
-**Note:** Import of NVD feeds in **XML format is no longer supported**. Please use the JSON format. 
-
-## Trouble Shooting and Support ##
-
+# Trouble Shooting and Support #
 For CIS support, enter a support request at our [online support portal](https://www.cisecurity.org/support/).
 
 Start a discussion on the [CIS-CAT Discussion Group](https://workbench.cisecurity.org/communities/30), (login required). These discussions are a great way for members to use their experience to support each other.
