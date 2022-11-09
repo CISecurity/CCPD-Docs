@@ -1,49 +1,8 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-## End of Life and Final Release Dashboard v 2.x
-------------------
-
-** Version 2 of CIS-CAT Pro Dashboard has reached End of Life and its Final Release occurred in September 2022. It will be replaced with Dashboard v3.0.0 planned for a December 2022 release.**
-
-Version 2.3.1 is the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions, but the latest version will not be backwards compatible with version 2.x. A clean install of Dashboard version 3.0.0 is required as there are no upgrade or data migration options available from any previous 2.x version. Please read our [knowledge base article](https://cisecurity.atlassian.net/l/cp/mF6o97vs) to learn more. 
-
-Version 2.3.1 will be available on CIS WorkBench for download through December 2022.
-
-Vulnerability assessment features are deprecated.
-
-Previous versions of 2.x will no longer be distributed.
-
-Final installation and configuration and installation guides are packaged with Dashboard v2.3.1.  Dashboard version 3.0.0 documentation will be available online upon release.
-
-------------------
-
-## Introduction ##
-CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard serves as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. Its main purpose is the view configuration assessment report averages over the short term. Graphical representations of automated configuration assessment scores for a time span less than 2 years (18 months recommended) provides security teams a quick view on current cyber configuration health. The Dashboard is intended to support organizational focus and action on the current cyber configuration posture of systems supporting  business operations. 
-
-CIS-CAT Pro Dashboard best fits a single, small to medium size enterprise with a moderate amount of configuration result data. Defining “moderate” data amount depends on how many endpoints an organization has and how often those results are imported into the Dashboard. Dashboard is not designed for “big data” where organizations wish to import reports from, for example, 10,000 endpoints. We recommend seeking other data viewing tools specializing in big data handling should your organization need to view consolidated data for 1,000’s of endpoints. Members importing less than 1,000 reports monthly may have a better performance experience.
-
-------------------------
-
-## Technology ##
-
-CIS-CAT Pro Dashboard is a web application supported by a Grails Framework. All necessary components required to operate CIS-CAT Pro Dashboard are embedded. The installation, modification and upgrade process will be executed by utilizing the installer.
-
-Embedded components alleviates the challenges of requiring expertise in various applications. CIS-CAT will complete the base configuration for you. To ease support and maintenance, CIS-CAT will only officially support the delivered components.
-
-**Embedded components include:**
-
-- Database - MariaDB 10.6.8
-- Web application - Apache Tomcat 9
-- Java - openJDK version 11
 
 ------------------------------
-## Compatibility CIS-CAT Pro Dashboard v2.x Versions ##
-CIS-CAT Pro Dashboard version 3 is a major version release that is not backwards compatible with the [previously deprecated CIS-CAT Pro Dashboard v2.x versions.](https://cisecurity.atlassian.net/l/cp/mF6o97vs) Read our [CIS-CAT Pro Dashboard v3.x FAQ]() to learn more.
-
-CIS-CAT Pro Dashboard version 3.x requires a new installation. It is not possible to migrate data imported into the previous version 2.x to version 3.x.
-
-------------------------------
-## Environment Requirements ##
+# Environment Requirements #
 
 The following environment characteristics are required.
 
@@ -73,10 +32,12 @@ Other browsers maybe produce unexpected behavior.
 **Other**
 - No other applications present requiring system-installed Java runtime environment (JRE)
 	- Including CIS-CAT Pro Assessor
+- The main operating system drive must be selected for installation
 
 ------------------
-## About the Installation ##
+# About the Installation #
 The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
+
 - MariaDB
 - CCPD Windows
 	
@@ -94,7 +55,7 @@ The installer establishes Java environment variables specifically for use with C
 
 ------------------
 
-## Installation Instructions ##
+# Installation Instructions #
 
 For an initial CIS-CAT Pro Dashboard installation, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
 
@@ -111,23 +72,23 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 7. Select `Yes` if prompted for permission to proceed with installation
 8. Review installer screens below for additional information, if necessary
 
-### Welcome ###
+## Welcome ##
 The initial screen on a first time installation.
 
 ![](img/scr2_CISCATProDashboardInstallerWelcomeCustom.png)
 
-### License ###
+## License ##
 A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. The license is primarily used for the remote assessment functionality.
 
 [TODO-jenna says will change - new img will be needed]: #
 ![](img/scr3_SelectLicenseFile.png)
 
-### Installation Destination ###
-Select a custom location or use the default `C:\Program Files\CCPD`.
+## Installation Destination ##
+Select the main operating system drive for installation. For most Microsoft Windows environments, this will be `C:\Program Files\CCPD`.
 
 ![](img/scr4_SelectDestinationDirectory.png)
 
-### Email (Custom Option) ###
+## Email (Custom Option) ##
 
 The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgto password" requests.
 
@@ -146,7 +107,7 @@ scr5_EmailConfigurationGmailAdvanced.png
 
 ![](img/scr5_EmailConfigurationOutlookAdvanced.png)
 
-### Active Directory - LDAP/S (Custom Option) ###
+## Active Directory - LDAP/S (Custom Option) ##
 
 LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only use the active directory users. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
 
@@ -183,7 +144,7 @@ Once LDAP/AD authentication is integrated to CCPD, the database authentication w
 | Password Attribute Name | Example: userPassword|
 
 
-### Communication Protocol - HTTP(S) Setup ###
+## Communication Protocol - HTTP(S) Setup ##
 CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. Select the communication protocol that supports your organization policy. It is possible to select a self-signed certificate or HTTP while in the initial stages of testing or proving the concept of utilizing the Dashboard. A different protocol can be selected by executing the installer and selecting the option to modify existing functionality.
 
 HTTPS
@@ -197,7 +158,7 @@ This communication protocol transmits data in clear text.
 ![](img/scr7_HttpHttpsConfigurationNoCert.png)
 
 
-### Set Database Password ###
+## Set Database Password ##
 The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
 
 - Minimum 8 characters
@@ -206,7 +167,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 
 ![](img/scr9_SetupDatabaseAdmin.png)
 
-### Final Installation Process ###
+## Final Installation Process ##
 
 The duration of the final steps of the installation can be 2 to 5 minutes. The initial services to support CIS-CAT Pro Dashboard take some time to start. The services installed are:
 
@@ -226,7 +187,7 @@ Depending on the communication protocol selection during installation, the CIS-C
 - HTTP: http://localhost:8080/CCPD/
 - HTTPS: https://localhost:8080/CCPD/
 
-### Login to Dashboard ###
+## Login to Dashboard ##
 
     username: admin 
     password: @admin123
@@ -235,7 +196,7 @@ You'll be prompted to change your password upon first login.
 
 ---------------------------
 
-## Upgrade ##
+# Upgrade Process #
 Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades are applied utilizing the latest installer included in the downloaded CIS-CAT Pro Dashboard.
 
 The installer will detect a previous installation and prompt to update only the application or update/modify configuration changes. If no changes are required, updating only the application is the most efficient. Follow the basic steps below. 
@@ -252,7 +213,7 @@ The installer will detect a previous installation and prompt to update only the 
 6. Select `Yes` if prompted for permission to proceed with installation
 
 ------------------
-### Installation Error ###
+# Installation Error #
 
 Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an error.
 
@@ -262,7 +223,7 @@ Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an e
 If you are unsuccessful, collect logs that have been generated for you and open a support ticket. See further information below.
 
 
-#### Obtaining Installer Logs ####
+# Obtaining Installer Logs #
 During the installation, the Installer will create logs. 
 
 The installer logs will be created in a directory within the temporary directory of the operating system. 
@@ -278,15 +239,13 @@ If you need assistance, please provide the above log files on a [support ticket]
 ------------------
 
 
-## CIS-CAT Pro Assessor Integration ##
-
-### Introduction ###
+# CIS-CAT Pro Assessor Integration #
 
 CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard can serve as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. The Dashboard can also be an way to validate different machines in an easy-to-view way. CIS-CAT Pro Dashboard is designed to import configuration results generated from CIS-CAT Pro Assessor either manually or via an API. Manually imported results must be in XML Asset Reporting Format (ARF) while automated imports do not require a physical file and are imported via a REST API. Consult the [CIS-CAT Pro Assessor configuration guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#cis-cat-pro-dashboard-integration) to learn how to automatically configure reports to load into the Dashboard.
 
 Authentication must be established with CIS-CAT Pro Assessor to enable automatic imports via API.
 
-### Establish Authentication with Assessor ###
+## Establish Authentication with Assessor ##
 Authentication is established with a generated Authentication Token from CIS-CAT Pro Dashboard. By default, Dashboard establishes a user named apiuser which has ROLE_API.  The default password for this user is @apiuser123. Other users may be configured with the ROLE_API. Only a user with this role can generate the token.
 
 ![](http://i.imgur.com/l2HSbC1.png)
@@ -301,7 +260,7 @@ Place the generated token in the assessor-cli.properties file for the Assessor t
 
 ## Dashboard API ##
 
-#### Upload Report API ####
+### Upload Report API ###
 CIS-CAT Pro Dashboard utilizes an API to upload assessment reports (ARF,XML) generated by CIS-CAT Pro Assessor v4. The API utilizes a POST_URL feature. The API can also be called from a script (python, powershell etc...). The API definition can assist organizations, where necessary, in building their own, organization-approved scripts to upload reports into the Dashboard.
 
 **Description**
@@ -351,9 +310,8 @@ Assuming ```Hostname_CIS_Microsoft_Windows_10_Enterprise_Release_1803_Benchmark-
 
 ------------------
 
-## CIS WorkBench Integration ##
+# CIS WorkBench Integration #
 
-### Introduction ###
 This feature is an optional service provided to members to receive automatic notifications on new CIS-CAT Pro releases. 
 
 **Setting up the connection is an admin only ability. Additionally, the application requires a direct internet connection, a proxy will not work.**
@@ -370,7 +328,7 @@ Each connection or integration is unique per Dashboard installation, which allow
 
 CIS-CAT Pro Dashboard will check CIS WorkBench daily for the availability of a new release of CIS-CAT Pro. Establishing this connection will not allow CIS to collect any assessment results from your organization.
 
-### Establish a connection with CIS WorkBench ###
+## Establish a connection with CIS WorkBench ##
 Under the settings menu, an option called Systems Integrations is available to users with the admin role.
 
 Select System Integrations menu item:
@@ -400,7 +358,7 @@ The connection is successfully made:
 ![](https://i.imgur.com/vIyIvw1.png)
 
 
-### Test connection between CIS-CAT Pro Dashboard and CIS WorkBench ###
+## Test connection between CIS-CAT Pro Dashboard and CIS WorkBench ##
 Test button is available to verify the connection between CIS-CAT Pro Dashboard and CIS WorkBench.
 
 When a connection is active, test the connection by pressing **Test** button:
@@ -411,7 +369,7 @@ If successful, a message will show on the screen.
 
 If not, instructions will be provided in an error message.
 
-### Disconnect from CIS WorkBench ###
+## Disconnect from CIS WorkBench ##
 Select Disconnect:
 
 ![](https://i.imgur.com/11eJySi.png)

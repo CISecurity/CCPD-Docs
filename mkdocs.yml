@@ -3,11 +3,12 @@ site_name: CIS-CAT Pro Dashboard Document Library
 nav:
     - Home: index.md
     - Source:      
+        - About: source/About Dashboard.md
+        - SecureSuite License: source/SecureSuite License.md
         - Change Log: source/Change Log.md
         - Dashboard Deployment Guide for Linux: source/Dashboard Deployment Guide for Linux.md
         - Installation Guide - Windows: source/Dashboard Deployment Guide for Windows.md
         - Dashboard User's Guide: source/Dashboard User's Guide.md
-        - SecureSuite License: source/SecureSuite License.md
-
+        
 theme:
   name: readthedocs
