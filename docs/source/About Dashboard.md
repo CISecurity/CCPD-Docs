@@ -22,6 +22,18 @@ CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard
 
 CIS-CAT Pro Dashboard best fits a single, small to medium size enterprise with a moderate amount of configuration result data. Defining “moderate” data amount depends on how many endpoints an organization has and how often those results are imported into the Dashboard. Dashboard is not designed for “big data” where organizations wish to import reports from, for example, 10,000 endpoints. We recommend seeking other data viewing tools specializing in big data handling should your organization need to view consolidated data for 1,000’s of endpoints. Members importing less than 1,000 reports monthly may have a better performance experience.
 
+## Main Features ##
+
+- View average configuration assessment score in graphical format by:
+	- Overall systems
+	- CIS Benchmark
+	- Tagged systems
+- Drill down to individual configuration assessment results
+- View assessments results by CIS Critical Security Controls Navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to individual assessment results that produce a compliance score
+- Perform on-demand, remote configuration assessment against a single, remote target system
+- Create exceptions to failed results and rescore overall averages
+- Custom tag systems for easier exception application or overall compliance average grouping
+
 ------------------------
 
 ## Technology ##

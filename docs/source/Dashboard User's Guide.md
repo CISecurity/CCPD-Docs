@@ -1,34 +1,6 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-# CIS-CAT Pro Dashboard User's Guide #
-
-End of Life and Final Release Dashboard version 2.x - Replaced with Dashboard v3.0.0
-------------------
-
-Version 2.3.1 will be the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions in early Q4 2022, but will not be backwards compatible. A clean install of Dashboard version 3.0.0 will be required as there will be no upgrade or data migration options available from any previous 2.x version. Please read our [knowledge base article](https://cisecurity.atlassian.net/l/cp/mF6o97vs) to learn more. 
-
-Version 2.3.1 will be available on the CIS WorkBench for download through December 2022.
-
-Vulnerability assessment features will be deprecated.
-
-Previous versions of this tool will no longer be distributed.
-
-Final installation and configuration and installation guides will be packaged with Dashboard v2.3.1.  Dashboard version 3.0.0 documentation will be available online upon release.
-
-## Introduction ##
-CIS-CAT Pro Dashboard is a companion application for CIS-CAT Pro Assessor.  Using CIS-CAT Pro Dashboard is a great way to visualize assessment results. Dashboards show configuration assessment results over time with the ability to drill down to individual results. Navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to individual assessment results that produce a compliance score.
-
-CIS-CAT Pro Dashboard supports creation of exceptions to CIS Benchmark recommendations where organizations can indicate why a particular recommendation is resolved other ways or risk is accepted.  When exceptions are approved, compliance scoring can be improved where the exception is active.  
-
-The application also offers a Remediation Report, for an operator only concerned with "failure" results of a given assessment and a Complete Results Report, to provide auditors with the complete assessment results of a given endpoint, or group of end points.  Users can also view CIS-CAT assessment results through the lens of the CIS Controls with the Controls View of assessment Results.  CIS-CAT Pro Dashboard provides users with the capability to Tag target systems (endpoints) in order to group them together for aggregation onto these new dashboards and reports.  
-
-## Deployment ##
-CIS-CAT Pro Dashboard is a companion application to CIS-CAT Pro Assessor.  CIS-CAT collects and evaluates system characteristics as described by the CIS Benchmark content.  CIS-CAT can upload assessor assessment results to the web-based Pro Dashboard application using a REST API.  CIS-CAT Pro Dashboard supports import the XML formatted results. This section describes how to configure the web application in your environment, as well as how to configure CIS-CAT to send assessment results to the Pro Dashboard application.
-
-### CIS-CAT Pro Dashboard Deployment ###
-See here for Linux:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment%20Guide%20for%20Linux/)
-
-See here for Windows:  [CIS-CAT Pro Dashboard Deployment](./Dashboard%20Deployment%20Guide%20for%20Windows/)
+**CIS-CAT Pro Dashboard Guide**
 
 ## User Administration ##
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
