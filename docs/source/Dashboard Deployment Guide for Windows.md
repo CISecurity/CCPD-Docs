@@ -53,6 +53,8 @@ By default the installation will be placed C:\Program Files\CCPD. It is not reco
 
 The installer establishes Java environment variables specifically for use with CIS-CAT Pro Dashboard. Therefore, it is recommended that no other application requiring a java runtime environment (jre) exists on the CIS-CAT Pro Dashboard host server.
 
+The `conf` folder contains the ccpd-config.yml file that contains information to support the CIS-CAT Pro Dashboard operation. The installation process limits read/write privileges to only users whose credentials are validated by Microsoft Windows OS security mechanisms, typically System and Administrators. Users not a member of the authenticated group to not have privileges to view or write to the file. 
+
 ------------------
 
 # Installation Instructions #
@@ -109,20 +111,15 @@ scr5_EmailConfigurationGmailAdvanced.png
 
 ## Active Directory - LDAP/S (Custom Option) ##
 
-LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only use the active directory users. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
+LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
 
 LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE\_USER) by default along with LDAP Roles.
 
 **Requirements:**
 - LDAP/AD email address is required to contain a valid value
 - LDAP/AD group name must be uppercase
-
-If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").
-
-The api user needs to be created in LDAP/AD in order to generate an authentication token to import Asset Report Format (ARF) results from CIS-CAT Assessor.
-
-Once LDAP/AD authentication is integrated to CCPD, the database authentication will be automatically disabled.
-
+- LDAP/AD must contain a user called api user to support token generation
+- LDAPS configuration must add the certificate to Dashboard's utilized java truststore
 
 ![](img/scr6_LDAPConfiguration1.png)
 ![](img/scr6_LDAPConfiguration2.png)

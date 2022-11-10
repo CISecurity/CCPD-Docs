@@ -9,7 +9,7 @@ CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard
 
 Authentication must be established with CIS-CAT Pro Assessor to enable automatic imports via API.
 
-## Establish Authentication with Assessor ##
+### Establish Authentication with Assessor ###
 Authentication is established with a generated Authentication Token from CIS-CAT Pro Dashboard. By default, Dashboard establishes a user named apiuser which has ROLE_API.  The default password for this user is @apiuser123. Other users may be configured with the ROLE_API. Only a user with this role can generate the token.
 
 ![](http://i.imgur.com/l2HSbC1.png)
