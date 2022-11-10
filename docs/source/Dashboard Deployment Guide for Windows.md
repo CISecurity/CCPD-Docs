@@ -14,7 +14,7 @@ The following environment characteristics are required.
 	- 2 vCPUs, 4 cores each
 - Server does NOT currently host CIS-CAT Pro Dashboard v2.x 
 
-The application is lightweight on processor and memory use. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
+The application does not heavily utilize processor and memory. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
 
 Load balanced configurations are not supported.
 
@@ -78,23 +78,20 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 7. Select `Yes` if prompted for permission to proceed with installation
 8. Review installer screens below for additional information, if necessary
 
-## Welcome ##
-The initial screen on a first time installation.
 
-![](img/scr2_CISCATProDashboardInstallerWelcomeCustom.png)
+![](img/Installer_Welcome_Initial.png)
 
-## License ##
-A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. The license is primarily used for the remote assessment functionality.
+** License **
+A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. The license is primarily used for the remote assessment functionality. Offline validation is performed utilizing only the license.xml file provided by the CIS WorkBench.
 
-[TODO-jenna says will change - new img will be needed]: #
-![](img/scr3_SelectLicenseFile.png)
+![](img/Installer_License.png)
 
-## Installation Destination ##
-Select the main operating system drive for installation. For most Microsoft Windows environments, this will be `C:\Program Files\CCPD`.
+** Installation Destination **
+Select the main operating system drive for installation. For most Microsoft Windows environments, this will be `C:\Program Files\CCPD`. Ensure to allocate the system recommended space for this drive.
 
-![](img/scr4_SelectDestinationDirectory.png)
+![](img/Installer_destination.png)
 
-## Email (Custom Option) ##
+** Email (Custom Option) **
 
 The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgto password" requests.
 
@@ -113,7 +110,7 @@ scr5_EmailConfigurationGmailAdvanced.png
 
 ![](img/scr5_EmailConfigurationOutlookAdvanced.png)
 
-## Active Directory - LDAP/S (Custom Option) ##
+** Active Directory - LDAP/S (Custom Option) **
 
 LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
 
@@ -145,7 +142,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 | Password Attribute Name | Example: userPassword|
 
 
-## Communication Protocol - HTTP(S) Setup ##
+** Communication Protocol - HTTP(S) Setup **
 CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. Select the communication protocol that supports your organization policy. It is possible to select a self-signed certificate or HTTP while in the initial stages of testing or proving the concept of utilizing the Dashboard. A different protocol can be selected by executing the installer and selecting the option to modify existing functionality.
 
 HTTPS
@@ -159,7 +156,7 @@ This communication protocol transmits data in clear text.
 ![](img/scr7_HttpHttpsConfigurationNoCert.png)
 
 
-## Set Database Password ##
+** Set Database Password **
 The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
 
 - Minimum 8 characters
@@ -168,7 +165,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 
 ![](img/scr9_SetupDatabaseAdmin.png)
 
-## Final Installation Process ##
+** Final Installation Process **
 
 The duration of the final steps of the installation can be 2 to 5 minutes. The initial services to support CIS-CAT Pro Dashboard take some time to start. The services installed are:
 
@@ -188,7 +185,7 @@ Depending on the communication protocol selection during installation, the CIS-C
 - HTTP: http://localhost:8080/CCPD/
 - HTTPS: https://localhost:8080/CCPD/
 
-## Login to Dashboard ##
+## Initial Dashboard Login ##
 
     username: admin 
     password: @admin123
@@ -214,7 +211,7 @@ The installer will detect a previous installation and prompt to update only the 
 6. Select `Yes` if prompted for permission to proceed with installation
 
 ------------------
-# Installation Error #
+# Installation Errors #
 
 Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an error.
 
@@ -224,12 +221,10 @@ Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an e
 If you are unsuccessful, collect logs that have been generated for you and open a support ticket. See further information below.
 
 
-## Obtaining Installer Logs ##
-During the installation, the Installer will create logs. 
+** Obtaining Installer Logs **
 
-The installer logs will be created in a directory within the temporary directory of the operating system. 
-Each installation attempt will create an individual log with a timestamp. 
-You can access these logs at any time throughout the installation process by clicking the **Installer Logs** button or by navigating directly to the logs location at: `C:\Users\loggedinUser\AppData\Local\Temp`.
+During the installation, the Installer will create logs. The logs will be removed when the installation is complete. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location.
+ 
 
 ![](img/scrAll_InstalllerLogs.png)
 
