@@ -1,22 +1,17 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-** CIS-CAT Pro Dashboard Configuration Options**
-------------------
 
 # CIS-CAT Pro Assessor Integration #
 
 CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard can serve as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. The Dashboard can also be an way to validate different machines in an easy-to-view way. CIS-CAT Pro Dashboard is designed to import configuration results generated from CIS-CAT Pro Assessor either manually or via an API. Manually imported results must be in XML Asset Reporting Format (ARF) while automated imports do not require a physical file and are imported via a REST API. Consult the [CIS-CAT Pro Assessor configuration guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#cis-cat-pro-dashboard-integration) to learn how to automatically configure reports to load into the Dashboard.
 
-Authentication must be established with CIS-CAT Pro Assessor to enable automatic imports via API.
-
-**Establish Authentication with Assessor**
-Authentication is established with a generated Authentication Token from CIS-CAT Pro Dashboard. By default, Dashboard establishes a user named apiuser which has ROLE_API.  The default password for this user is @apiuser123. Other users may be configured with the ROLE_API. Only a user with this role can generate the token.
+Authentication must be established with CIS-CAT Pro Assessor to enable automatic imports via API. Authentication is established with a generated Authentication Token from CIS-CAT Pro Dashboard. By default, Dashboard establishes a user named apiuser which has ROLE_API.  The default password for this user is @apiuser123. Other users may be configured with the ROLE_API. Only a user with this role can generate the token.
 
 ![](http://i.imgur.com/l2HSbC1.png)
 
 To generate the token, login as an administrator, navigate to setting > user management and select api user. Select `Generate CIS-CAT Authentication` button. 
 
-Place the generated token in the assessor-cli.properties file for the Assessor that will post to the Dashboard. This file is typically located in the config folder of the Assessor v4. See the [Assessor Configuration Guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#cis-cat-pro-dashboard-integration) for more information.
+Place the generated token in the assessor-cli.properties file for the Assessor that will post to the Dashboard. This file is located in the config folder of the CIS-CAT Pro Assessor. See the [Assessor Configuration Guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#cis-cat-pro-dashboard-integration) for more information.
   
 
 ## API for Assessor Result Import ##
@@ -72,11 +67,7 @@ Assuming ```Hostname_CIS_Microsoft_Windows_10_Enterprise_Release_1803_Benchmark-
 
 # CIS WorkBench Integration #
 
-This feature is an optional service provided to members to receive automatic notifications on new CIS-CAT Pro releases. 
-
-**Setting up the connection is an admin only ability. Additionally, the application requires a direct internet connection, a proxy will not work.**
-
-When the connection is active, inbox alerts will appear within CIS-CAT Pro Dashboard when a new CIS-CAT Pro release is available.
+This feature is an optional service provided to members to receive automatic notifications in the CIS-CAT Pro Dashboard Inbox on new CIS-CAT Pro releases. This option requires a direct internet connection. A connection through a proxy is not supported. Only admin users of Dashboard can configure this connection.
 
 Retrieve the new release using links in the alert message from within CIS-CAT Pro Dashboard without logging directly into CIS WorkBench.
 
@@ -88,7 +79,8 @@ Each connection or integration is unique per Dashboard installation, which allow
 
 CIS-CAT Pro Dashboard will check CIS WorkBench daily for the availability of a new release of CIS-CAT Pro. Establishing this connection does not permit CIS to collect any assessment results from your organization.
 
-## Establish a connection with CIS WorkBench ##
+**Establish a connection with CIS WorkBench**
+
 Under the settings menu, an option called Systems Integrations is available to users with the admin role.
 
 Select System Integrations menu item:
@@ -118,6 +110,7 @@ The connection is successfully made:
 
 
 ** Test connection between CIS-CAT Pro Dashboard and CIS WorkBench **
+
 Test button is available to verify the connection between CIS-CAT Pro Dashboard and CIS WorkBench.
 
 When a connection is active, test the connection by pressing **Test** button:
@@ -129,6 +122,7 @@ If successful, a message will show on the screen.
 If not, instructions will be provided in an error message.
 
 ** Disconnect from CIS WorkBench **
+
 Select Disconnect:
 
 ![](https://i.imgur.com/11eJySi.png)
