@@ -79,14 +79,16 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 8. Review installer screens below for additional information, if necessary
 
 
-![](img/Installer_Welcome_Initial.png)
+![](docs/img/Installer_Welcome_Initial.png)
 
 ** License **
+
 A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. The license is primarily used for the remote assessment functionality. Offline validation is performed utilizing only the license.xml file provided by the CIS WorkBench.
 
 ![](img/Installer_License.png)
 
 ** Installation Destination **
+
 Select the main operating system drive for installation. For most Microsoft Windows environments, this will be `C:\Program Files\CCPD`. Ensure to allocate the system recommended space for this drive.
 
 ![](img/Installer_destination.png)
@@ -117,6 +119,7 @@ LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will 
 LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE\_USER) by default along with LDAP Roles.
 
 **Requirements:**
+
 - LDAP/AD email address is required to contain a valid value
 - LDAP/AD group name must be uppercase
 - LDAP/AD must contain a user called api user to support token generation
@@ -143,6 +146,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 
 
 ** Communication Protocol - HTTP(S) Setup **
+
 CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. Select the communication protocol that supports your organization policy. It is possible to select a self-signed certificate or HTTP while in the initial stages of testing or proving the concept of utilizing the Dashboard. A different protocol can be selected by executing the installer and selecting the option to modify existing functionality.
 
 HTTPS
@@ -157,6 +161,7 @@ This communication protocol transmits data in clear text.
 
 
 ** Set Database Password **
+
 The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
 
 - Minimum 8 characters
