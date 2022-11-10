@@ -135,7 +135,6 @@ The disconnection is successfully made:
 
 ![](https://i.imgur.com/vF4arRf.png)
 
-Now CIS-CAT Pro Dashboard and CIS WorkBench are disconnected.
 
 Although your connection is no longer active between CIS-CAT Pro Dashboard and CIS WorkBench, **an active API client exists on your organization’s profile on the CIS WorkBench**. We keep this API client to allow you to reconnect easily.
  

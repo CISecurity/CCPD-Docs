@@ -7,6 +7,7 @@
 The following environment characteristics are required.
 
 **Server**
+
 - A single Microsoft Windows Server 2016 or 2019
 	- 8GB RAM
 	- 10 GB disk space allocated to the main OS drive (usually the c:\ drive)
@@ -20,16 +21,19 @@ Load balanced configurations are not supported.
 CIS utilizes a Microsoft Windows Server 2019 testing environment in AWS t2.large instance (designed for burst processing).
 
 **Browser**
+
 - Google Chrome
 
 Other browsers maybe produce unexpected behavior.
 
 **Traffic**
+
 - Traffic allowed on port 8080 and 1433
 	- As needed, add an inbound rule in Windows firewall
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
 
-**Other**
+**Other**<br>
+
 - No other applications present requiring system-installed Java runtime environment (JRE)
 	- Including CIS-CAT Pro Assessor
 - The main operating system drive must be selected for installation
