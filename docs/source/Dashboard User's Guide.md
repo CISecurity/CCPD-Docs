@@ -4,11 +4,7 @@
 
 User Management
 ---------------------------
-CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
-
-## Users ##
-
-Only a user with the role of administrator can create create and manage users.
+CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, only an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
 
 By default the administrator username is `admin` with the password `@admin123`.  Navigate to the Settings menu (gear icon) and select `User Management` to access the user list.
 
@@ -41,16 +37,14 @@ New users will be asked to change their password on initial login.
 5. Modify the desired information and select `Update`
 
     
-## Roles ##
-Roles in CIS-CAT Pro Dashboard are assigned to users and allow access to functionality.  The application deploys with the following supported roles. 
+**Roles**
+Roles in CIS-CAT Pro Dashboard are assigned to users and allow access to functionality. See below for a description of each of the supported roles. Custom roles are not supported.
 
 |Role|System Access|
 |---|---|
 |ROLE_ADMIN|Can perform all functions and access all available areas in the application. Cannot generate the API token.|
 |ROLE_USER|No access to `System` menu. Prevented from assigning or removing system tags, deleting target systems or assessment reports, and exception approval. Cannot generate the API token.|
 |ROLE_API|Utilized to create the authentication token for CIS-CAT Pro Assessor. At least one user must be assigned this role in order to generate the `CIS-CAT Authentication Token`. The token is required to be placed in the `assessor-cli.properties` file associated with CIS-CAT Pro Assessor when assessment reports will be uploaded to Dashboard.|
-
-**NOTE:** As of CIS-CAT Pro Dashboard v2.1.0, new user-named roles can no longer be added. Prior versions of Dashboard supported role addition.  
 
 **The API User Role**
 
@@ -94,8 +88,9 @@ From this list users can choose to opt out of any of the alert types that they a
 
 **NOTE:** If LDAP is integrated with CCPD, "change password" and "edit profile" buttons are no longer available as well as some user account properties. Password and profile attributes (firstname, lastname, email) are managed and retrieved from LDAP.   
 
-## User Favorites ##
-Clicking on the username, a menu will appear, showing the user options for controlling their user account, such as editing their user profile, user favorites or logging out of the application:
+**User Favorites**
+
+Access the favorites selection by selecting the username. 
 
 ![](http://i.imgur.com/Nkg41eh.png)
 
@@ -148,7 +143,8 @@ Below are explanations of each of the different possible configurations.
 |delete.assessment.start.time| Sets the start time that a job will begin processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.| A whole integer from 0 to 23
 |delete.assessment.end.time| Sets the end time that a job will stop processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.|A whole integer from 0 to 23
 
-#Primary Identifier Type#
+Primary Identifier Type
+------------------------------------------
 
 When assessment results are imported,  CIS-CAT Pro Dashboard creates a new target system to represent the assessed endpoint.  Subsequent imports for the target will be associated with the same target system.  The assessment results has several different identifier types that are imported.  By default, target systems within CIS-CAT Pro Dashboard are primarily identified by hostname.  This means, where ever you see a target system in a list, or a search result,  the identifier you see is the hostname.  The primary identifier however can be configured, either at the CIS-CAT Pro Dashboard application level or on each individual target system.
 
@@ -268,7 +264,9 @@ When complete click "Send" and your message will go to the inbox's of the select
  - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
  - **Manual** - A manual message was sent directly to you by another user.
 
-# System Integrations # 
+System Integrations
+
+--------------------------------------------
 
 **CIS-CAT Pro Release alerts**
 
