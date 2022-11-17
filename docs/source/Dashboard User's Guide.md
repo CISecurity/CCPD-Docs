@@ -2,7 +2,8 @@
 
 **CIS-CAT Pro Dashboard Guide**
 
-# User Administration #
+User Management
+---------------------------
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
 
 ## Users ##
@@ -109,7 +110,9 @@ In this page, you can add/delete favorite benchmarks as well as favorite target 
 In Benchmark view (Dashboards), you can select benchmarks from your list of favorite benchmarks that you would like to see results for.
 This is the same for Target System view. 
 
-# System Settings #
+System Settings
+----------------------
+
 The `System Settings` menu is only available to users with `ROLE_ADMIN`.  Various default system configurations can be set. System administrators can navigate to this screen by selecting the gear icon in the upper, right area of the application.
 
 ![](img/SystemSettings.png)
@@ -144,60 +147,6 @@ Below are explanations of each of the different possible configurations.
 |controls.version.default|Set your preferred CIS Controls default view.|CIS Controls version|
 |delete.assessment.start.time| Sets the start time that a job will begin processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.| A whole integer from 0 to 23
 |delete.assessment.end.time| Sets the end time that a job will stop processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.|A whole integer from 0 to 23
-
- 
-#Alert Management#
-
-In the Administration menu there is an option for Alerts.
-
-![](http://i.imgur.com/E7sGpvV.png)
-
-This will navigate to the alert list, where you can select an alert to bring up the show Alert page where alerts can be managed.
-
-![](http://i.imgur.com/7zqyySg.png)
-
-The important feature of this page is the configurable recipient list.  This shows all the users that are configured to receive the alert, why they are, either directly, by a role they have assigned, or by a tag they have assigned.  Users can then use the Receiving Users, Receiving Roles, and Receiving Tags list to manage who will receive an alert.
-
-The Recipient list also shows which users have opted out of the alert type.
-
-**NOTE:** A user will only receive one instance of an alert,  even if they are included in the recipient list by multiple criteria.  i.e.  if they have a tag and a role that include them in the recipient list, they will still only recieve one alert.
-
-##User Inbox##
-
-The User Inbox contains all of the alerts/tasks assigned to the user.  Simply click on the Inbox item on the menu bar to navigate to the inbox:
-
-![](http://i.imgur.com/qMJo1jH.png)
-
-The bubble next to the Inbox will indicate how many unread messages you have.
-
-![](http://i.imgur.com/DJmCaD7.png)
-
-The inbox features serveral views, which can be navigated to using the tabs on the left hand side:
-
- - **Inbox** - has all new alerts and tasks that have not been deleted or completed.  Unread messages will appear in white with bold text.  You can also toggle between all inbox messages, or just the unread messages.  This contains all alert types, except Tasks
- - **My Tasks** - contains tasks. You can toggle between open and closed tasks.  Closed tasks already have had their action(s) completed and no longer require work by the user.
- - **Trash** - contains deleted messages
- 
-Clicking on the messages in any of the lists will pop up a dialog displaying the message.  Clicking on the delete button in the list will move the message to the trash folder.
-
-**Sending Manual Alerts**
-
-You can send a custom alert to any user or group of users in the system by clicking the Send button:
-
-![](http://i.imgur.com/SNb9450.png)
-
-This will open the manual alert dialog,  from here you can select the recipients you want and add a title and message to the alert:
-
-![](http://i.imgur.com/o0lm3XK.png)
-
-When complete click "Send" and your message will go to the inbox's of the selected recipients.
-
-**Alert Types** - There are several different types of messages that you can receive in your inbox:
-
- - **Task** - A task has an action that you need to perform in order to close it.  When you open a Task, there will always be one or more Actions you can take to close the task.  These will appear in the "My Tasks" tab.
- - **Alert** - An alert informs you of a system event directly related to you,  such as the completion of an upload you initiated. 
- - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
- - **Manual** - A manual message was sent directly to you by another user.
 
 #Primary Identifier Type#
 
@@ -264,7 +213,62 @@ Add an additional indicator to set the property:
 
 		PRIMARY_IDENTIFIER=$ENV_VAR_IDENTIFIER
 
-# System Integrations #
+
+Alert Management
+----------------------------------
+
+In the Administration menu there is an option for Alerts.
+
+![](http://i.imgur.com/E7sGpvV.png)
+
+This will navigate to the alert list, where you can select an alert to bring up the show Alert page where alerts can be managed.
+
+![](http://i.imgur.com/7zqyySg.png)
+
+The important feature of this page is the configurable recipient list.  This shows all the users that are configured to receive the alert, why they are, either directly, by a role they have assigned, or by a tag they have assigned.  Users can then use the Receiving Users, Receiving Roles, and Receiving Tags list to manage who will receive an alert.
+
+The Recipient list also shows which users have opted out of the alert type.
+
+**NOTE:** A user will only receive one instance of an alert,  even if they are included in the recipient list by multiple criteria.  i.e.  if they have a tag and a role that include them in the recipient list, they will still only recieve one alert.
+
+**Inbox**
+
+The User Inbox contains all of the alerts/tasks assigned to the user.  Simply click on the Inbox item on the menu bar to navigate to the inbox:
+
+![](http://i.imgur.com/qMJo1jH.png)
+
+The bubble next to the Inbox will indicate how many unread messages you have.
+
+![](http://i.imgur.com/DJmCaD7.png)
+
+The inbox features serveral views, which can be navigated to using the tabs on the left hand side:
+
+ - **Inbox** - has all new alerts and tasks that have not been deleted or completed.  Unread messages will appear in white with bold text.  You can also toggle between all inbox messages, or just the unread messages.  This contains all alert types, except Tasks
+ - **My Tasks** - contains tasks. You can toggle between open and closed tasks.  Closed tasks already have had their action(s) completed and no longer require work by the user.
+ - **Trash** - contains deleted messages
+ 
+Clicking on the messages in any of the lists will pop up a dialog displaying the message.  Clicking on the delete button in the list will move the message to the trash folder.
+
+**Sending Manual Alerts**
+
+You can send a custom alert to any user or group of users in the system by clicking the Send button:
+
+![](http://i.imgur.com/SNb9450.png)
+
+This will open the manual alert dialog,  from here you can select the recipients you want and add a title and message to the alert:
+
+![](http://i.imgur.com/o0lm3XK.png)
+
+When complete click "Send" and your message will go to the inbox's of the selected recipients.
+
+**Alert Types** - There are several different types of messages that you can receive in your inbox:
+
+ - **Task** - A task has an action that you need to perform in order to close it.  When you open a Task, there will always be one or more Actions you can take to close the task.  These will appear in the "My Tasks" tab.
+ - **Alert** - An alert informs you of a system event directly related to you,  such as the completion of an upload you initiated. 
+ - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
+ - **Manual** - A manual message was sent directly to you by another user.
+
+# System Integrations # 
 
 **CIS-CAT Pro Release alerts**
 
@@ -290,24 +294,23 @@ See below examples of potential alerts you might receive:
 2. CIS WorkBench Api client cannot be found:
 ![](https://i.imgur.com/kzA1tq1.png)
 
-# Import CIS-CAT Assessor Results #
+# Import Assessment Results #
 **In-Application Import**
 
-Importing CIS-CAT Assessor results using the CIS-CAT Pro Dashboard user interface assumes that a user has executed a CIS-CAT assessment and produced the Asset Reporting Format (ARF) results.  Once an ARF has been generated in CIS-CAT and saved to the designated reports location, open a web browser and log into the Dashboard application.  From the main navigation bar, select Reports -> Assessment Results List.  
+Dashboard immports configuration assessment results in Asset Reporting Format (ARF) in XML only. This reporting format can be generated by CIS-CAT Pro Assessor.  To manually import a generated report, navigate to Reports -> Assessment Results List and select "Import Assessment Results".  
 
 ![](http://i.imgur.com/m6lhmEm.png)
 
 
-The "Assessment Results List" page will be displayed.  Click the "Import Assessment Results" button.  A file selection dialog will open, allowing the user to browse to the saved reports location and select the CIS-CAT-generated ARF or XML report.  
+Browse to the saved reports location and select the CIS-CAT-generated ARF XML report.  
 
 ![](http://i.imgur.com/4nM6Ti0.png)
 
-Click "Upload" to start the import process.  Note that the import processes asynchronously, so the user will see a message indicating that the report upload has begun.  This process can take up to a few minutes to complete.
+Click "Upload" to start the import process.  Note that the import processes asynchronously, so the user will see a message indicating that the report upload has begun.  This process can take up to a  minute to complete.
 
-This process is asynchronous, so after you start the import you can navigate away from the Assessment Results list.  When the import process is complete you will receive one or two of the following alerts:
+This process is asynchronous, so after you start the import you can navigate away from the Assessment Results list.  When the import process is complete you may receive one or two of the following alerts:
 
- - Successful Import - when the import is finished, the user who requested the upload will receive an alert that their report was successfully uploaded.  If the upload was initiated via the CIS-CAT Assessor API upload, or the Legacy method, this alert will not be generated
- - Failed Import - similar to the successful import alert,  the requesting user will receive this alert if the import process fails.
+ - Failed Import - file did not upload to Dashboard.
  - Low Score Alert - if the score of a report imported by any method is below the system wide threshold,  the users on the recipient list for the low score alert will receive an alert.  By default, the low score threshold is 80%.  This theshold can be configured by `lowScoreThreshold` System Setting.
 
 **CIS-CAT Import**
@@ -347,7 +350,9 @@ To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro D
 	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_7_Benchmark_v3.0.0-xccdf.xml -arf -n -u http://myapp.example.org/CCPD/api/reports/upload -ui
  
 
-## Target Systems ##
+Target Systems
+-------------------------------
+
 **Creation**
 Target Systems represent endpoints in your environment that have assesment data within CIS-CAT Pro Dashboard.  There are several ways to create target systems within the application:
 

@@ -79,7 +79,7 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 8. Review installer screens below for additional information, if necessary
 
 
-![](docs/img/Installer_Welcome_Initial.png)
+![](img/Installer_Welcome_Initial.png)
 
 ** License **
 

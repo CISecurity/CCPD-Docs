@@ -6,13 +6,37 @@
 
 ** Application **
 
-- tbd
+- The configuration assessment import process has significantly been improved. On average, configuration reports will import in less than 30 seconds.
 
 ** Documentation **
 
 # Archive - Version 2.x #
 
-CIS-CAT Pro Dashboard v2.3.1 - FINAL version 2 series.**
+CIS-CAT Pro Dashboard v2.3.2 - FINAL version 2 series.**
+November 15, 2022
+
+Due to critical security vulnerabilities in the end of life CIS-CAT Pro Dashboard version 2 and the availability of version 3 (planned December 2022), CIS has released one last version of Dashboard version 2 series. CIS understands that some organizations will need time to adopt version 3 of Dashboard when it becomes available in December 2022.
+There have been no changes to the Deployment or User Guides.
+
+Version 2.3.2 will be the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions in early Q4 2022, but will not be backwards compatible. A clean install of Dashboard version 3.0.0 will be required as there will be no upgrade or data migration options available from any previous 2.x version.
+
+**[Read our knowledgebase article to learn more.](https://cisecurity.atlassian.net/l/cp/mF6o97vs)**
+
+** Application **
+
+- N/A
+
+** Security **
+
+- Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/cp/F18Ag1af) for more information.
+
+
+** Documentation **
+
+- N/A
+
+
+**CIS-CAT Pro Dashboard v2.3.1**
 September 21, 2022
 
 Version 2.3.1 will be the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions in early Q4 2022, but will not be backwards compatible. A clean install of Dashboard version 3.0.0 will be required as there will be no upgrade or data migration options available from any previous 2.x version.
