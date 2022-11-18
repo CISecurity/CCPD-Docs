@@ -22,6 +22,8 @@ CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard
 
 CIS-CAT Pro Dashboard best fits a single, small to medium size enterprise with a moderate amount of configuration result data. Defining “moderate” data amount depends on how many endpoints an organization has and how often those results are imported into the Dashboard. Dashboard is not designed for “big data” where organizations wish to import reports from, for example, 10,000 endpoints. We recommend seeking other data viewing tools specializing in big data handling should your organization need to view consolidated data for 1,000’s of endpoints. Members importing less than 1,000 reports monthly to a single Dashboard instance may have a better performance experience. For example, when an organization has 10,000 reports already stored in the database, additional imports will be slower. Members are encouraged to consider how Dashboard can best be utilized to support configuration state viewing and remediation efforts.
 
+------------------------
+
 ## Main Features ##
 
 - View average configuration assessment score in graphical format by:
@@ -47,6 +49,14 @@ Embedded components alleviates the challenges of requiring expertise in various 
 - Database - MariaDB 10.6.8
 - Web application - Apache Tomcat 9
 - Java - openJDK version 11
+
+------------------------------
+## Obtain Dashboard ##
+CIS-CAT Pro Dashboard is available to CIS SecureSuite Members. To learn more about becoming a CIS SecureSuite Member, visit our [website](https://www.cisecurity.org/). As a Member, organizations may navigate to [CIS WorkBench](https://workbench.cisecurity.org/dashboard) to obtain the CIS-CAT tools. 
+
+Once logged into to CIS WorkBench, navigate to `Downloads` and enter the tag of `CIS-CAT Dashboard`. The previous version of Dashboard version 2 will be available until January 2023, but is NOT recommended for new Members. CIS has deprecated this version. 
+
+For CIS-CAT Pro Dashboard v3.0.0, select your preferred installation of [Microsoft Windows](https://workbench.cisecurity.org/files/2176) or [Linux](https://workbench.cisecurity.org/files/2174).
 
 ------------------------------
 ## Compatibility CIS-CAT Pro Dashboard v2.x Versions ##

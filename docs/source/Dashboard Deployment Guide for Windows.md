@@ -9,8 +9,9 @@ The following environment characteristics are required.
 **Server**
 
 - A single Microsoft Windows Server 2016 or 2019
+	- 64 bit
 	- 8GB RAM
-	- 10 GB disk space allocated to the main OS drive (usually the c:\ drive)
+	- At least 10 GB free disk space allocated to the main OS drive (usually the c:\ drive)
 	- 2 vCPUs, 4 cores each
 - Server does NOT currently host CIS-CAT Pro Dashboard v2.x 
 
@@ -31,6 +32,7 @@ Other browsers maybe produce unexpected behavior.
 - Traffic allowed on port 8080 and 1433
 	- As needed, add an inbound rule in Windows firewall
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
+- If HTTPS communication protocol selected, traffic allowed on 443
 
 **Other**<br>
 

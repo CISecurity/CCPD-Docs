@@ -2,6 +2,46 @@
 
 **CIS-CAT Pro Dashboard Guide**
 
+
+Logging In
+-------------------------------------------
+
+When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
+
+![](img/NewUserPassword.png)
+
+Once the user configures their password, they are asked to re-login using those new credentials.  Once logged in with updated credentials, the user is taken to the "Overview" Dashboard view.  In the top right-hand corner of the application now resides the display of the logged-in user's username:
+
+![](img/UserLoginBar.png)
+
+Clicking on the username, a menu will appear, showing the user options for controlling their user account, such as editing their user profile, or logging out of the application:
+
+![](http://i.imgur.com/oGURHUy.png)
+
+Click on the Profile link to navigate to the user's profile:
+
+![](img/UserProfile.png)
+
+The User's profile screen shows account and role information, as assigned by an administrator.  Clicking the Change Password button opens a dialog box allowing the user to enter and confirm new credentials to be used when logging in to CIS-CAT Pro Dashboard:
+
+![](http://i.imgur.com/iUreF3M.png)
+
+Validations exist when users change their credentials.  The passwords entered must match, the new password must be between 8 and 64 characters in length, and must include at least one uppercase letter, one lowercase letter, a numeric character, and at least one special character, such as "!@#$%^&"
+Clicking the Edit Profile button from the user's profile opens a dialog allowing the user to make changes to their information.  This information is limited because many user changes should only be performed by an administrator, such as editing user roles or activating/deactivating a user's account.
+
+![](http://i.imgur.com/uxSQfmO.png)
+
+Making changes to this dialog and clicking Save will update the user's information.
+
+The user profile screen also features a list of Alerts that the user is currently subscribed to, as a well as why they are subscribed to that alert type:
+
+![](img/UserProfileAlert.png)
+
+From this list users can choose to opt out of any of the alert types that they are receiving.
+
+**NOTE:** If LDAP is integrated with CCPD, "change password" and "edit profile" buttons are no longer available as well as some user account properties. Password and profile attributes (firstname, lastname, email) are managed and retrieved from LDAP.   
+
+
 User Management
 ---------------------------
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, only an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
@@ -52,41 +92,7 @@ Roles in CIS-CAT Pro Dashboard are assigned to users and allow access to functio
 
 Clicking the button will open a dialog box where the user is required to enter the "ROLE_API" user's credentials.  Once that user has been re-authenticated, the token is generated and displayed on the page.  To support automatic imported results into Dashboard from an assessment, the token must be placed into the properties file of CIS-CAT Pro Assessor. See deployment guide for Dashboard for Windows or Linux and learn about where to place this token for Assessor v4 or Assessor v4 Service Integration.
 
-## Logging In/User Profile ##
-When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
 
-![](img/NewUserPassword.png)
-
-Once the user configures their password, they are asked to re-login using those new credentials.  Once logged in with updated credentials, the user is taken to the "Overview" Dashboard view.  In the top right-hand corner of the application now resides the display of the logged-in user's username:
-
-![](img/UserLoginBar.png)
-
-Clicking on the username, a menu will appear, showing the user options for controlling their user account, such as editing their user profile, or logging out of the application:
-
-![](http://i.imgur.com/oGURHUy.png)
-
-Click on the Profile link to navigate to the user's profile:
-
-![](img/UserProfile.png)
-
-The User's profile screen shows account and role information, as assigned by an administrator.  Clicking the Change Password button opens a dialog box allowing the user to enter and confirm new credentials to be used when logging in to CIS-CAT Pro Dashboard:
-
-![](http://i.imgur.com/iUreF3M.png)
-
-Validations exist when users change their credentials.  The passwords entered must match, the new password must be between 8 and 64 characters in length, and must include at least one uppercase letter, one lowercase letter, a numeric character, and at least one special character, such as "!@#$%^&"
-Clicking the Edit Profile button from the user's profile opens a dialog allowing the user to make changes to their information.  This information is limited because many user changes should only be performed by an administrator, such as editing user roles or activating/deactivating a user's account.
-
-![](http://i.imgur.com/uxSQfmO.png)
-
-Making changes to this dialog and clicking Save will update the user's information.
-
-The user profile screen also features a list of Alerts that the user is currently subscribed to, as a well as why they are subscribed to that alert type:
-
-![](img/UserProfileAlert.png)
-
-From this list users can choose to opt out of any of the alert types that they are receiving.
-
-**NOTE:** If LDAP is integrated with CCPD, "change password" and "edit profile" buttons are no longer available as well as some user account properties. Password and profile attributes (firstname, lastname, email) are managed and retrieved from LDAP.   
 
 **User Favorites**
 
