@@ -104,22 +104,14 @@ Select the main operating system drive for installation. For most Microsoft Wind
 
 ** Email (Custom Option) **
 
-The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgto password" requests.
+The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests.
 
 CIS-CAT Pro Dashboard supports SMTP servers. By default, an unsecured mail server is assumed and configured to at `localhost` on port `25`. 
 
 **Gmail Example**
 
-![](img/scr5_EmailConfigurationGmailStandard.png)
+![](img/Installer_EmailConfig.png)
 
-scr5_EmailConfigurationGmailAdvanced.png
-
-**Outlook Example**
-
-![](img/scr5_EmailConfigurationOutlookStandard.png)
-
-
-![](img/scr5_EmailConfigurationOutlookAdvanced.png)
 
 ** Active Directory - LDAP/S (Custom Option) **
 
@@ -134,8 +126,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 - LDAP/AD must contain a user called api user to support token generation
 - LDAPS configuration must add the certificate to Dashboard's utilized java truststore
 
-![](img/scr6_LDAPConfiguration1.png)
-![](img/scr6_LDAPConfiguration2.png)
+![](img/Installer_LDAP.png)
 
 **Example Active Directory Configuration**
 
@@ -156,17 +147,28 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 
 ** Communication Protocol - HTTP(S) Setup **
 
-CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. Select the communication protocol that supports your organization policy. It is possible to select a self-signed certificate or HTTP while in the initial stages of testing or proving the concept of utilizing the Dashboard. A different protocol can be selected by executing the installer and selecting the option to modify existing functionality.
+CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. 
 
-HTTPS
+Select the communication protocol that supports your organization policy. It is possible to select a self-signed certificate or HTTP while in the initial stages of testing or proving the concept of utilizing the Dashboard. A different protocol can be selected by executing the installer and selecting the option to modify existing functionality.
+
+**HTTPS**
+
+HTTPS communication protocol requires port 443 to be available. If the installer detects that it is not, an alert will appear.
+
+![](img/Installer_HTTPS_port.png)
+
 	- CIS-CAT generated self-signed certificate 
-		![](img/scr7_HttpHttpsConfiguration.png)
+	
+		![](img/Installer_HTTPS_SelfSign.png)
+		
 	- Existing organization certificate
-		![](img/scr7_HttpHttpsConfigurationExisting.png)
-HTTP
+	
+		![](img/Installer_HTTPS_OrgCert.png)
+		
+**HTTP**
 This communication protocol transmits data in clear text.
 
-![](img/scr7_HttpHttpsConfigurationNoCert.png)
+![](img/Installer_HTTP.png)
 
 
 ** Set Database Password **
@@ -186,11 +188,11 @@ The duration of the final steps of the installation can be 2 to 5 minutes. The i
 - CCPD Windows
 - MariaDB
 
-![](img/scr10_InstalllingStartingServices.png)
+![](img/Installer_ServicesStarting.png)
 
 Once the installation detects that CIS-CAT Pro Dashboard is ready for use, the `Installation Complete` screen will be presented.
 
-![](img/scr11_Complete.png)
+![](img/Installer_Success.png)
 
 Select `Open CIS-CAT Pro Dashboard` or `Finish & Open Dashboard` to login to CIS-CAT Pro Dashboard.
 
@@ -237,13 +239,13 @@ If you are unsuccessful, collect logs that have been generated for you and open 
 
 ** Obtaining Installer Logs **
 
-During the installation, the Installer will create logs. The logs will be removed when the installation is complete. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location.
+During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket.
  
 
-![](img/scrAll_InstalllerLogs.png)
+![](img/InstalllerLog.png)
 
-Additionally, support may require any logs generated at this location: `C:\Program Files\CCPD\logs\ccpdlogs`. 
+Additionally, CIS Technical Support may require any logs generated at this location: `C:\Program Files\CCPD\logs\ccpdlogs`. 
 
-If you need assistance, please provide the above log files on a [support ticket](https://www.cisecurity.org/support/).
+Attach log files to your [Technical Support ticket](https://www.cisecurity.org/support/).
 
 # Uninstall#
