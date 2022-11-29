@@ -259,4 +259,6 @@ Attach log files to your [Technical Support ticket](https://www.cisecurity.org/s
 
 The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
 
-![](img/InstallerUninstall_App.png)
+![](Installer_Uninstall.png)
+
+![](img/IInstaller_Uninstall_App.png)
