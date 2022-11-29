@@ -2,7 +2,7 @@
 
 ----------
 
-A SecureSuite License is required for CIS-CAT Pro Dashboard v3.0.0+ (due to release in December 2022). If a valid license is not present, some Dashboard features like remote assessment will not be available.
+A SecureSuite License is required for CIS-CAT Pro Dashboard v3.0.0+ (due to release in December 2022). If a valid license is not present, some Dashboard features such as remote configuration assessment will not properly function.
 
 **Steps to Download Your SecureSuite License**
 
@@ -16,7 +16,7 @@ A SecureSuite License is required for CIS-CAT Pro Dashboard v3.0.0+ (due to rele
 7. Open the folder where the extracted files were stored, and copy the file `license.xml` to the host of CIS-CAT Pro Dashboard
 	- During the installation process, you'll be prompted to select the license file
 
-Your CIS SecureSuite license only changes if the terms of your Membership have recently changed. There is no need to input a new license on each install unless you are certain your terms have changed. The license currently only enables the remote assessment features, which are now embedded. Our SLTT Members should only need to input the license once on initial installation.
+Your CIS SecureSuite license only changes if the terms of your Membership have recently changed. There is no need to input a new license on each install unless you are certain your terms have changed. The license enables the remote assessment features, default functionality as of Dashboard v3.0.0. Our SLTT Members should only need to input the license once on initial installation.
 
 
 

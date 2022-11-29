@@ -27,12 +27,15 @@ CIS utilizes a Microsoft Windows Server 2019 testing environment in AWS t2.large
 
 Other browsers maybe produce unexpected behavior.
 
-**Traffic**
+**Traffic and Ports**
 
+- Port 3306 is available for Maria database installation
 - Traffic allowed on port 8080 and 1433
 	- As needed, add an inbound rule in Windows firewall
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
 - If HTTPS communication protocol selected, traffic allowed on 443
+
+The installation process will verify that certain ports are open and available. If you receive a message regarding port availability, please verify the availability of the notified ports.
 
 **Other**<br>
 
@@ -70,22 +73,26 @@ For an initial CIS-CAT Pro Dashboard installation, follow the basic steps below.
 CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the installation process, download your organization's [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/).
 
 1. Place your [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/) on the CIS-CAT Pro Dashboard server
-2. Download the latest CIS-CAT Pro Dashboard from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
-3. Place the application on a host server that **has not** previously had CIS-CAT Pro Dashboard or CIS-CAT Pro Assessor installed
-4. Verify downloaded file is unblocked by right-clicking on file and selecting `properties` 
-5. Launch the downloaded executable from any hard drive location as an administrator
-6. Select Standard or Custom Installation
+2. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
+3. Place the zipped file on a host server that **has not** previously had CIS-CAT Pro Dashboard or CIS-CAT Pro Assessor installed
+4. Unzip the files
+5. Verify the installer file is unblocked by right-clicking on file and selecting `properties` and click the box `unblock`
+
+	![](img/UnblockFile.png)
+
+6. Launch the installer executable from any hard drive location as an administrator
+7. Select Standard or Custom Installation
 	- **Standard:** Navigates through only required options for most streamlined installation. 
 	- **Custom:** Navigates through required and optional, advanced settings. During navigation, selected optional settings can be skipped.
-7. Select `Yes` if prompted for permission to proceed with installation
-8. Review installer screens below for additional information, if necessary
+8. Select `Yes` if prompted for permission to proceed with installation
+9. Review installer screens below for additional information, if necessary
 
 
 ![](img/Installer_Welcome_Initial.png)
 
 ** License **
 
-A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. The license is primarily used for the remote assessment functionality. Offline validation is performed utilizing only the license.xml file provided by the CIS WorkBench.
+A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. Offline license validation is performed utilizing only the license.xml file obtained from the CIS WorkBench.
 
 ![](img/Installer_License.png)
 
