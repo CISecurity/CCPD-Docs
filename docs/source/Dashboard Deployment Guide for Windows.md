@@ -180,9 +180,10 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 
 - Minimum 8 characters
 - Contains at least one character in `!#$%^`
+- Contain a number
 - Does NOT contain any special characters other than `!#$%^`
 
-![](img/scr9_SetupDatabaseAdmin.png)
+![](img/Installer_DBPass.png)
 
 ** Final Installation Process **
 
@@ -248,7 +249,7 @@ If you are unsuccessful, collect logs that have been generated for you and open 
 During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket.
  
 
-![](img/InstallerLog.png)
+![](img/Installer_Log.png)
 
 Additionally, CIS Technical Support may require any logs generated at this location: `C:\Program Files\CCPD\logs\ccpdlogs`. 
 
