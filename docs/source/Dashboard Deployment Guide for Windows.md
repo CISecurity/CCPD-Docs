@@ -35,6 +35,8 @@ Other browsers maybe produce unexpected behavior.
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
 - If HTTPS communication protocol selected, traffic allowed on 443
 
+If utilizing LDAP/LDAPS/AD, refer to the installation steps in this section for additional ports that may be required.
+
 The installation process will verify that certain ports are open and available. If you receive a message regarding port availability, please verify the availability of the notified ports.
 
 **Other**<br>
@@ -125,6 +127,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 - LDAP/AD group name must be uppercase
 - LDAP/AD must contain a user called api user to support token generation
 - LDAPS configuration must add the certificate to Dashboard's utilized java truststore
+- LDAPS requires port 636 availability
 
 ![](img/Installer_LDAP.png)
 
@@ -217,14 +220,17 @@ The installer will detect a previous installation and prompt to update only the 
 
 **NOTE:** There is no upgrade or migration path from CIS-CAT Pro Dashboard version 2.x to version 3.x. Please read our FAQ and our [blog](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it) to learn more about CIS-CAT Pro changes.
 
-1. Download the latest CIS-CAT Pro Dashboard from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
-2. Place the application on a host server that **has** previously had CIS-CAT Pro Dashboard v3.x installed
-3. Verify downloaded file is unblocked by right-clicking on file and selecting `properties` 
-4. Launch the downloaded executable from any hard drive location as an administrator
+1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
+2. Place the zipped file on the CIS-CAT Dashboard host server where CIS-CAT Pro Dashboard v3.x is installed
+3. Unzip the files
+4. Verify downloaded file is unblocked by right-clicking on file and selecting `properties` and select the box `unblock`
+4. Launch the installer executable from any hard drive location as an administrator
 5. Select Standard or Custom Installation
 	- **Update application only:** applies existing configuration, updates CIS-CAT application. No options to modify existing configurations.
 	- **Update application and/or configuration settings:** applies existing configuration with options to modify some settings, updates CIS-CAT application. Select **optional** Email or LDAP configuration to modify or initiate these functions.
 6. Select `Yes` if prompted for permission to proceed with installation
+
+**NOTE:** Version 3 of CIS-CAT Pro Dashboard does NOT upgrade version 2. Version 3 requires a new installation.
 
 ------------------
 # Installation Errors #
@@ -242,10 +248,14 @@ If you are unsuccessful, collect logs that have been generated for you and open 
 During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket.
  
 
-![](img/InstalllerLog.png)
+![](img/InstallerLog.png)
 
 Additionally, CIS Technical Support may require any logs generated at this location: `C:\Program Files\CCPD\logs\ccpdlogs`. 
 
 Attach log files to your [Technical Support ticket](https://www.cisecurity.org/support/).
 
 # Uninstall#
+
+The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
+
+![](img/InstallerUninstall_App.png)
