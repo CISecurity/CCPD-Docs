@@ -1,7 +1,24 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-**CIS-CAT Pro Dashboard Installation Guide for Linux**
+------------------------------
 # Environment Requirements #
+
+The following environment characteristics are required.
+
+**Server**
+
+- A single Microsoft Windows Server 2016 or 2019
+	- 64 bit
+	- 8GB RAM
+	- At least 10 GB free disk space allocated to the main OS drive (usually the c:\ drive)
+	- 2 vCPUs, 4 cores each
+- Server does NOT currently host CIS-CAT Pro Dashboard v2.x 
+
+The application does not heavily utilize processor and memory. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
+
+Load balanced configurations are not supported.
+
+CIS utilizes a Microsoft Windows Server 2019 testing environment in AWS t2.large instance (designed for burst processing).
 
 The following environment characteristics are required.
 

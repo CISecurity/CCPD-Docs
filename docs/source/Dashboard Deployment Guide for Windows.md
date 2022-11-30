@@ -108,7 +108,7 @@ Select the main operating system drive for installation. For most Microsoft Wind
 
 The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests.
 
-CIS-CAT Pro Dashboard supports SMTP servers. By default, an unsecured mail server is assumed and configured to at `localhost` on port `25`. 
+CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. By default, an unsecured mail server is assumed and configured to at `localhost` on port `25`. This can be modified by expanding the advanced properties for email setup.
 
 **Gmail Example**
 
@@ -194,6 +194,8 @@ The duration of the final steps of the installation can be 2 to 5 minutes. The i
 
 ![](img/Installer_ServicesStarting.png)
 
+![](img/Installer_Schema.png)
+
 Once the installation detects that CIS-CAT Pro Dashboard is ready for use, the `Installation Complete` screen will be presented.
 
 ![](img/Installer_Success.png)
@@ -259,6 +261,6 @@ Attach log files to your [Technical Support ticket](https://www.cisecurity.org/s
 
 The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
 
-![](Installer_Uninstall.png)
+![](img/Installer_Uninstall.png)
 
-![](img/IInstaller_Uninstall_App.png)
+![](img/Installer_Uninstall_App.png)
