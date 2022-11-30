@@ -11,7 +11,7 @@ The following environment characteristics are required.
 - A single Microsoft Windows Server 2016 or 2019
 	- 64 bit
 	- 8GB RAM
-	- At least 10 GB free disk space allocated to the main OS drive (usually the c:\ drive)
+	- Minimum 10 GB free disk space allocated to the main OS drive (usually the c:\ drive)
 	- 2 vCPUs, 4 cores each
 - Server does NOT currently host CIS-CAT Pro Dashboard v2.x 
 
@@ -46,31 +46,10 @@ The installation process will verify that certain ports are open and available. 
 - The main operating system drive must be selected for installation
 
 ------------------
-# About the Installation #
-The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
-
-- MariaDB
-- CCPD Windows
-	
-By default the installation will be placed C:\Program Files\CCPD. It is not recommended practice to manually modify contents within the structure. See below for additional notes on some of the structure. 
-
-| Folder         |    Description |
-| -----------------------| ------------- |
-| ccpd_imports | Contains configuration assessment results only in ARF XML format produced by CIS-CAT Pro Assessor. Reports failing to import will move to the `error` folder, while successfully imported reports will move to the `processed`folder. It is possible to manually place reports in the `input` folder for CIS-CAT Pro Dashboard import.|
-| certificates | By default, contains only self-signed certificates user-selected/created to support HTTPS during installation. You may optionally store an organizational certificate here, but it is not required. If, during upgrades, Members modify communication protocols, folder contents will not be cleared.|
-| conf | Contains the configuration file that supports Dashboard functionality. Modifications to this file are recommended only throught the installation application. If manual changes occur, the services must be restarted and formatting errors may cause functionality in the Dashboard to not function properly. Users other than system or administrator are prevented from viewing this file. |
-| content | Contains the supported CIS Benchmark content for CIS-CAT Pro Dashboard. The CIS Benchmarks provided within the build will be the latest supported content at the time of the Dashboard release. The content will be updated and overwritten with the latest on a Dashboard upgrade. CIS-CAT Pro Dashboard officially supports CIS Benchmark automated assessment content delivered with the application in datastream format. |
-| logs | The log folder contains assessor and ciscatpro (dashboard) logs. For the purpose of troubleshooting issues, CIS Product Support may ask for these files. |
-
-The installer establishes Java environment variables specifically for use with CIS-CAT Pro Dashboard. Therefore, it is recommended that no other application requiring a java runtime environment (jre) exists on the CIS-CAT Pro Dashboard host server.
-
-The `conf` folder contains the ccpd-config.yml file that contains information to support the CIS-CAT Pro Dashboard operation. The installation process limits read/write privileges to only users whose credentials are validated by Microsoft Windows OS security mechanisms, typically System and Administrators. Users not a member of the authenticated group to not have privileges to view or write to the file. 
-
-------------------
 
 # Installation Instructions #
 
-For an initial CIS-CAT Pro Dashboard installation, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
+For an initial CIS-CAT Pro Dashboard installation on Microsoft Windows, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
 
 CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the installation process, download your organization's [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/).
 
@@ -160,15 +139,17 @@ HTTPS communication protocol requires port 443 to be available. If the installer
 
 ![](img/Installer_HTTPS_port.png)
 
-	- CIS-CAT generated self-signed certificate 
+- CIS-CAT generated self-signed certificate 
 	
-		![](img/Installer_HTTPS_SelfSign.png)
+![](img/Installer_HTTPS_SelfSign.png)
 		
-	- Existing organization certificate
+- Existing organization certificate
 	
-		![](img/Installer_HTTPS_OrgCert.png)
+![](img/Installer_HTTPS_OrgCert.png)
 		
+
 **HTTP**
+
 This communication protocol transmits data in clear text.
 
 ![](img/Installer_HTTP.png)
@@ -183,7 +164,9 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 - Contain a number
 - Does NOT contain any special characters other than `!#$%^`
 
+
 ![](img/Installer_DBPass.png)
+
 
 ** Final Installation Process **
 

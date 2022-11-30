@@ -43,6 +43,15 @@ Some Members have found that multiple Dashboard installations representing each 
 - Create exceptions to failed results and rescore overall averages
 - Custom tag systems for easier exception application or overall compliance average grouping in graphical format
 
+
+------------------------------
+## Obtain Dashboard ##
+CIS-CAT Pro Dashboard is available to CIS SecureSuite Members. To learn more about becoming a CIS SecureSuite Member, visit our [website](https://www.cisecurity.org/). As a Member, organizations may navigate to [CIS WorkBench](https://workbench.cisecurity.org/dashboard) to obtain the CIS-CAT tools. 
+
+Once logged into to CIS WorkBench, navigate to `Downloads` and enter the tag of `CIS-CAT Dashboard`. The previous version of Dashboard version 2 will be available until January 2023, but is NOT recommended for new Members. CIS has deprecated this version. 
+
+For CIS-CAT Pro Dashboard v3.0.0, select your preferred installation of [Microsoft Windows](https://workbench.cisecurity.org/files/2176) or [Linux](https://workbench.cisecurity.org/files/2174).
+
 ------------------------
 
 ## Technology ##
@@ -57,13 +66,28 @@ Embedded components alleviates the challenges of requiring expertise in various 
 - Web application - Apache Tomcat 9
 - Java - openJDK version 11
 
-------------------------------
-## Obtain Dashboard ##
-CIS-CAT Pro Dashboard is available to CIS SecureSuite Members. To learn more about becoming a CIS SecureSuite Member, visit our [website](https://www.cisecurity.org/). As a Member, organizations may navigate to [CIS WorkBench](https://workbench.cisecurity.org/dashboard) to obtain the CIS-CAT tools. 
+------------------------
 
-Once logged into to CIS WorkBench, navigate to `Downloads` and enter the tag of `CIS-CAT Dashboard`. The previous version of Dashboard version 2 will be available until January 2023, but is NOT recommended for new Members. CIS has deprecated this version. 
+## Installation Overview ##
 
-For CIS-CAT Pro Dashboard v3.0.0, select your preferred installation of [Microsoft Windows](https://workbench.cisecurity.org/files/2176) or [Linux](https://workbench.cisecurity.org/files/2174).
+The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
+
+- MariaDB
+- CCPD Windows
+	
+By default the installation will be placed C:\Program Files\CCPD (Microsoft Windows) or /usr/local/CCPD (Ubuntu Linux). CIS recommends modifying contents and structure using only the installer as the upgrade or install process may fail. See below for additional notes on notable sections of the installation. 
+
+| Folder         |    Description |
+| -----------------------| ------------- |
+| ccpd_imports | Contains configuration assessment results only in ARF XML format produced by CIS-CAT Pro Assessor. Reports failing to import will move to the `error` folder, while successfully imported reports will move to the `processed`folder. It is possible to manually place reports in the `input` folder for CIS-CAT Pro Dashboard import.|
+| certificates | By default, contains only self-signed certificates user-selected/created to support HTTPS during installation. You may optionally store an organizational certificate here, but it is not required. If, during upgrades, Members modify communication protocols, folder contents will not be cleared.|
+| conf | Contains the configuration file that supports Dashboard functionality. Modifications to this file are recommended only throught the installation application. If manual changes occur, the services must be restarted and formatting errors may cause functionality in the Dashboard to not function properly. Users other than system or administrator are prevented from viewing this file. |
+| content | Contains the supported CIS Benchmark content for CIS-CAT Pro Dashboard. The CIS Benchmarks provided within the build will be the latest supported content at the time of the Dashboard release. The content will be updated and overwritten with the latest on a Dashboard upgrade. CIS-CAT Pro Dashboard officially supports CIS Benchmark automated assessment content delivered with the application in datastream format. |
+| logs | The log folder contains assessor and ciscatpro (dashboard) logs. For the purpose of troubleshooting issues, CIS Product Support may ask for these files. |
+
+The installer establishes Java environment variables specifically for use with CIS-CAT Pro Dashboard. Therefore, it is recommended that no other application requiring a java runtime environment (jre) exists on the CIS-CAT Pro Dashboard host server.
+
+The `conf` folder contains the ccpd-config.yml file that contains information to support the CIS-CAT Pro Dashboard operation. The installation process limits read/write privileges to only users whose credentials are validated by Microsoft Windows OS security mechanisms, typically System and Administrators. Users not a member of the authenticated group to not have privileges to view or write to the file. For Linux installations, the ccpd-config.yml will be granted ccpd-config.yml file has 660 privileges (-rw-rw----).
 
 ------------------------------
 ## Compatibility CIS-CAT Pro Dashboard v2.x Versions ##

@@ -7,29 +7,14 @@ The following environment characteristics are required.
 
 **Server**
 
-- A single Microsoft Windows Server 2016 or 2019
-	- 64 bit
+- A single Ubuntu 20.04 server
 	- 8GB RAM
-	- At least 10 GB free disk space allocated to the main OS drive (usually the c:\ drive)
+	- Minimum 10 GB disk space allocated to the main OS location
 	- 2 vCPUs, 4 cores each
 - Server does NOT currently host CIS-CAT Pro Dashboard v2.x 
 
 The application does not heavily utilize processor and memory. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
 
-Load balanced configurations are not supported.
-
-CIS utilizes a Microsoft Windows Server 2019 testing environment in AWS t2.large instance (designed for burst processing).
-
-The following environment characteristics are required.
-
-**Server**
-- A single Ubuntu 20.04 server
-	- 8GB RAM
-	- 10 GB disk space allocated to the main OS location
-	- 2 vCPUs, 4 cores each
-- Server does NOT currently host CIS-CAT Pro Dashboard v2.x 
-
-The application is lightweight on processor and memory use. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
 
 Load balanced configurations are not supported.
 
@@ -38,78 +23,51 @@ Load balanced configurations are not supported.
 
 Other browsers maybe produce unexpected behavior.
 
-**Traffic**
-- Traffic allowed
+**Traffic and Ports**
 
+- Internet available on the server during installation
+- Port 3306 is available for Maria database installation
+- Traffic allowed on port 8080 and 443
+	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
 **Other**
+
 - No other applications present requiring system-installed Java runtime environment (JRE)
 	- Including CIS-CAT Pro Assessor
 - The main operating system drive must be selected for installation
 
+# Installation Instructions #
 
->
-##Configuration and Deployment - Installer##
-<b>This section describes how to configure and deploy the Dashboard using the Installer.  For instructions on how to configure and deploy the Dashboard manually, see [Configuration and Deployment - Manual](#confAndDeploymentManual).</b>
+For an initial CIS-CAT Pro Dashboard installation on Ubuntu Linux, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
 
-The permissions on the configuration file (ccpd-config.yml) and the logs directory for CIS-CAT Pro Dashboard need to allow the tomcat user to read and/or write.
+CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the installation process, download your organization's [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/).
 
-- Locate latest version of CIS-CAT Pro Dashboard in the Downloads section, from [CIS WorkBench](https://workbench.cisecurity.org/)
-- Download the CIS-CAT Pro Dashboard Unix bundle from [CIS WorkBench](https://workbench.cisecurity.org/)
-- Extract the bundle on your tomcat instance and move contents of the extracted bundle to be placed under `/opt/tomcat/` as opposed to `/opt/tomcat/CIS-CAT Pro Dashboard...`.
-- Confirm contents of the bundle look similar to the following image:
+1. Place your [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/) on the CIS-CAT Pro Dashboard server
+2. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
+3. Place the zipped file on a host server that **has not** previously had CIS-CAT Pro Dashboard or CIS-CAT Pro Assessor installed
+4. Unzip the files
+5. Launch the installer shell script from any hard drive location as `root`
+		sudo ./CIS-CAT_Pro_Dashboard_Installer.sh
+6. Select Standard or Custom Installation
+	- **Standard:** Navigates through only required options for most streamlined installation. 
+	- **Custom:** Navigates through required and optional, advanced settings. During navigation, selected optional settings can be skipped.
 
-![](https://i.imgur.com/h8sedNq.png)				
-
-- Execute CIS-CAT Pro Dashboard Installer (`CIS-CAT_Pro_Dashboard_Installer.sh` in this example) as root or user that has root privileges (use "sudo" or "su" to elevate your privileges)
-	- `run: sudo chmod 755 CIS-CAT_Pro_Dashboard_Installer.sh`
-	- `run: sudo ./CIS-CAT_Pro_Dashboard_Installer.sh`
-
-####Welcome (First-time user)####
-First-time users of the CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. On this screen you can also see the location of the temporary installation log.
-
-![](img/welcome.png)
-
-####Welcome (From previous installation)####
-Users with previous successful use of CIS-CAT Pro Dashboard Installer tool will be presented with the below screen. The screens will navigate only to the information required to be collected for the installation actions selected.
-
-![](img/update-welcome.png)
+![](img/Linux_Installer_Welcome.png)
 
 
-####Existing Dashboard Installation and Express Installation ####
-If there are no expected changes to the existing installation, this is the best option to select to simply update the *.war file with the latest. 
+** License **
 
-####Preload configuration file####
+A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. Offline license validation is performed utilizing only the license.xml file obtained from the CIS WorkBench.
 
-The Installer might be able to detect an existing CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`). If one is found you will be given the choice of using that one or manually entering the location of one, in order to pre-populate some of the Installer screens. The screens will navigate only to the information required to be collected for the installation actions selected.
+![](img/Linux_Installer_License.png)
 
-![](https://i.imgur.com/cBSRjH1.png)
 
-![](https://i.imgur.com/APv8rx1.png)
+** Installation Destination **
 
-####Configuration File Location####
-If this is a new installation, the Configuration File Location screen will be presented. This is the location where CIS-CAT Pro Dashboard configuration file (`ccpd-config.yml`) will be created.
+Select the main operating system drive for installation. For most Ubuntu environments, this will be `/usr/local/CCPD`. Ensure to allocate the system recommended space for this location.
 
-![](img/configure-file-location.png)
+![](img/Linux_Installer_Destination.png)
 
-####Application Server Location####
-For users performing a new installation, or modifying existing configuration information, use the below screen to specify the application server home directory. The default value appearing in the field is the recommended location for the application server. However, each environment may vary. For example, if the Tomcat home directory is `/opt/tomcat`, then the CCPD.war will be created under `/opt/tomcat/webapps/CCPD.war`.
 
-![](https://i.imgur.com/iBxuUXQ.png)
-
-####Import Directory####
-It is required to setup processing folders that the Dashboard will use while importing files.Example report folder structure is shown within the CIS-CAT Pro Dashboard Installer.
-
-![](https://i.imgur.com/YtqoBnL.png)
-
-####Environment Variables####
-Specify the environment variables needed by the CIS-CAT Pro Dashboard. CCPD_CONFIG_FILE points to CIS-CAT Pro Dashboard runtime configuration file (`ccpd-config.yml`). CCPD_LOG_DIR is the logs directory for CIS-CAT Pro Dashboard.
-
-![](https://i.imgur.com/7vH7u1j.jpg)
-
-####Application Server URL
-Specifies the application URL of the CIS-CAT Pro Dashboard application. Example formats are shown within the CIS-CAT Pro Dashboard Installer.
-
-![](https://i.imgur.com/2bUnL1f.png)
 
 ####Email Configuration####
 The email configuration information is optional and is intended for users that want to send email messages such as password reset requests. CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send email messages. CIS-CAT Pro Dashboard utilizes the Grails mail plugin for email communication.
@@ -119,31 +77,8 @@ Along with the default sender email address, CIS-CAT Pro Dashboard's mailing con
 
 ![](https://i.imgur.com/PwLvG3Z.png)
 
-####Database Configuration####
-The primary purpose of this screen is to assist in establishing a connection to the database for the CIS-CAT Pro Dashboard. Three types of databases are currently supported: MySQL, SQL Server and Oracle. Optional function available in this screen:
 
- - **Test Database Connection:** Enter correct Hostname/IP, Port, Username, Password, and Schema name and select the “Test Database Connection” button. A message will indicate if the connection was successful.
 
-![](https://i.imgur.com/Hvs91zN.png)
-
-![](https://i.imgur.com/l2mYhy8.png)
-
-####Summary####
-The Summary screen is intended for a final review of all information provided in previous screens. If any information is incorrect, you can cancel and navigate to the appropriate screen and make a correction.
-
-![](https://i.imgur.com/9k1UT1I.png)
-
-![](https://i.imgur.com/ytHeFkf.png)
-
-####Installation####
-The system may ask for permission to create a backup of the current configuration file (`ccpd-config.yml`) and/or a backup of the current CCPD.war file. This is a recommended procedure.
-
-The installer does not preserve or setup LDAP configuration. This is done manually using the backup file to merge any existing LDAP settings to the latest ccpd-config.yml
-
-![](https://i.imgur.com/kOuO5kl.jpg)
-
-####Complete####
-If the installer process was successful, the Complete screen will be presented. On this screen you can also see the location of the final installation log, which is created with a unique date and timestamp added to its name. The tomcat application server can now be started if it was previously stopped.
 
 ![](https://i.imgur.com/PiIB6RR.jpg)
 
@@ -168,12 +103,6 @@ Configuration of the mail plugin will be member-specific, and those configuratio
 #### Default Sender Email Address ####
 CIS-CAT Pro Dashboard can be configured with a default "sender" email address, indicating that the application has sent a "forgot password" message, allowing users to enter new logon credentials.  Add the following section indented under the `grails` like in the below examples. In the `/opt/tomcat/ccpd-config.yml` file (noted above), add the following section:
 
-    ---
-	    plugin:
-	    	springsecurity:
-	    		ui:
-	    			forgotPassword:
-	    				emailFrom: "your-email@member-organization.com"
 
 #### SMTP Configuration ####
 Coupled with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server, in order to correctly distribute the "forgot password" messages.  Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange.  CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information is correct in the configuration file (the `/opt/tomcat/ccpd-config.yml` noted above).
@@ -194,69 +123,10 @@ For example here is how you would configure the default sender to send with a Gm
 			    mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
 			    mail.smtp.socketFactory.fallback: "false"
 
-And the configuration for sending via a Hotmail/Live account:
-#### *Mail Configuration - Hotmail/Live* ####
-    ---
-	    mail:
-		    host: "smtp.live.com"
-		    port: 587
-		    username: "youracount@live.com"
-		    password: "yourpassword"
-		    props:
-			    mail.smtp.starttls.enable: "true"
-			    mail.smtp.port: "587"
 
-And the configuration for sending via a Outlook account:
-#### *Mail Configuration - Outlook* ####
-    ---
-	    mail:
-		    host: "smtp-mail.outlook.com"
-		    port: 587
-		    username: "youracount@outlook.com"
-		    password: "yourpassword"
-		    props:
-			    mail.smtp.starttls.enable: "true"
-			    mail.smtp.port: "587"
 
-And the configuration for sending via a Yahoo account:
-#### *Mail Configuration - Yahoo* ####
-    ---
-	    mail:
-		    host: "smtp.correo.yahoo.es"
-		    port: 465
-		    username: "myuser"
-		    password: "mypassword"
-		    props:
-			    mail.smtp.auth: "true"
-			    mail.smtp.socketFactory.port: "465"
-			    mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
-			    mail.smtp.socketFactory.fallback: "false"
 
-**Security Considerations**
 
-We want the ccpd-config.yml to be as secure as possible.  Only the tomcat user needs to be able to read and write into the file.  We recommend limiting permissions to the file by running the following commands:
-
-	> sudo chown tomcat ccpd-config.yml
-	> sudo chgrp tomcat ccpd-config.yml
-	> sudo chmod 600 ccpd-config.yml
-
-### Deploy WAR ###
-Connect to the application server and transfer the `CCPD.war` to the `/opt/tomcat/webapps` directory.  If Tomcat is running, it should automatically deploy the application.  If Tomcat is not running, starting it will deploy the application.
-
-Once Tomcat is done with its deployment you should be able to access the application by entering `http://<public url of application server>:8080/CCPD/`, into a browser.
-
-You may need to restart tomcat in order to complete the deployment,  you can do so using the following command
-
-	> sudo service tomcat restart
-
-CIS-CAT Pro Dashboard will bootstrap in a user with:
-
-    username: admin
-    password: @admin123
-
-**Notes**:
-Your network must allow traffic on 8080
-(If deployed to AWS) Your security group in AWS must allow traffic on 8080
 
 ### Web Server ###
 The final configuration is for a web server to proxy the Tomcat instance and to answer traffic on port `80/443`.
@@ -347,36 +217,6 @@ Users will use their LDAP/AD credentials to log into the application. LDAP/AD ro
 Here is an example of LDAP structure in OpenLDAP:
 ![](https://i.imgur.com/6nNTW0X.png)
 
-Based on the above structure, add the following section in the `/opt/tomcat/ccpd-config.yml` file (noted above) indented under the `grails` like below: 
-		
-	---
-		plugin:
-			springsecurity:
-				providerNames: ['ldapAuthProvider','rememberMeAuthenticationProvider','restAuthenticationProvider','anonymousAuthenticationProvider']
-				ldap:
-					active: true
-					context:
-						managerDn: 'cn=Manager,dc=cisecurity,dc=org'
-						managerPassword: 'my_manager_password'
-						server: 'ldap://127.0.0.1:389'
-					authorities:
-						retrieveDatabaseRoles: false                   
-						retrieveGroupRoles: true
-						groupSearchBase: 'ou=Groups,dc=cisecurity,dc=org'                  
-						groupSearchFilter: 'uniquemember={0}'
-						groupRoleAttribute: 'cn'        
-						clean:
-							prefix: 'CCPD_'
-					search:
-						base: 'dc=cisecurity,dc=org' 
-						filter: '(uid={0})'
-					authenticator:
-						passwordAttributeName: 'userPassword'
-					mapper:
-						passwordAttributeName: 'userPassword'               
-					useRememberMe: true  
-				rememberMe:
-					persistent: true
 
 
 ####Configuration Options####
