@@ -38,8 +38,7 @@ For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is
 - **CIS_Kubernetes V1.23 Benchmark, v1.0.1**
 - **CIS Kubernetes 1.24 v1.0.0**
 - **CIS Microsoft Edge Benchmark, v1.1.0**
-- **CIS Microsoft IIS 10 Benchmark, v1.2.0**
-- **CIS Microsoft Internet Explorer 11 Benchmark, v1.0.0**
+- **CIS Microsoft IIS 10 Benchmark, v1.1.0**
 - **CIS Microsoft Intune for Windows 10, v1.1.0**
 - **CIS Microsoft Windows 10 Enterprise, v1.12.0**
 - **CIS Microsoft Windows 10 Stand-alone Benchmark, v1.0.1**
@@ -54,7 +53,6 @@ For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is
 - **CIS Microsoft Windows Server 2019 Benchmark, v1.3.0**
 - **CIS Microsoft Windows Server 2019 STIG Benchmark, v1.1.0**
 - **CIS Microsoft Windows Server 2022 Benchmark, v1.0.0**
-- **CIS Microsoft Windows 8 Benchmark, v1.0.0**
 - **CIS Microsoft Windows 8.1 Workstation Benchmark, v2.4.0**
 - **Oracle Cloud Infrastructure Container Engine for Kubernetes(OKE) Benchmark v1.1.0**
 - **CIS Oracle Linux 6 Benchmark, v2.0.0**
