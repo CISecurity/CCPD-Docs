@@ -19,6 +19,7 @@ The application does not heavily utilize processor and memory. Assessment result
 Load balanced configurations are not supported.
 
 **Browser**
+
 - Google Chrome
 
 Other browsers maybe produce unexpected behavior.
@@ -29,6 +30,7 @@ Other browsers maybe produce unexpected behavior.
 - Port 3306 is available for Maria database installation
 - Traffic allowed on port 8080 and 443
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
+
 **Other**
 
 - No other applications present requiring system-installed Java runtime environment (JRE)
@@ -70,8 +72,9 @@ Select the main operating system drive for installation. For most Ubuntu environ
 
 
 ####Email Configuration####
+
 The email configuration information is optional and is intended for users that want to send email messages such as password reset requests. CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send email messages. CIS-CAT Pro Dashboard utilizes the Grails mail plugin for email communication.
-Along with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server in order to correctly distribute the "forgot password" messages. Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange. CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information entered below is correct. By default, the plugin assumes an unsecured mail server configured at `localhost` on `port 25`. However, this can be modified in the email configuration screen.
+Along with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server in order to correctly distribute the "forgot password" messages. CIS-CAT support email services where SMTP services exist ex: Gmail, Hotmail, Amazon SES, Microsoft Exchange. By default, the plugin assumes an unsecured mail server configured at `localhost` on `port 25`. However, this can be modified in the email configuration screen.
 
 ![](https://i.imgur.com/KFgNYhC.png)
 

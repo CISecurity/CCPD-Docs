@@ -8,8 +8,9 @@ nav:
         - 3. SecureSuite License: source/SecureSuite License.md
         - 4. Installation - Windows: source/Dashboard Deployment Guide for Windows.md
         - 5. Installation - Linux: source/Dashboard Deployment Guide for Linux.md
-        - 6. Configuration Options: source/Configuration Options.md
-        - 7. Guide: source/Dashboard User's Guide.md
+        - 6. CIS Benchmark Support: source/Benchmark Coverage.md
+        - 7. Configuration Options: source/Configuration Options.md
+        - 8. Guide: source/Dashboard User's Guide.md
         
 theme:
   name: readthedocs
