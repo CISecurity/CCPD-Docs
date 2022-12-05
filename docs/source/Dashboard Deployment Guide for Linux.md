@@ -70,7 +70,6 @@ Select the main operating system drive for installation. For most Ubuntu environ
 ![](img/Linux_Installer_Destination.png)
 
 
-
 ** Email (Custom Option) **
 
 The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests.
@@ -81,19 +80,21 @@ CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers
 
 LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
 
-LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE\_USER) by default along with LDAP Roles.
+LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE_USER) by default along with LDAP Roles.
 
-**Requirements:**
+**Requirements for LDAP/AD setup on system:**
 
-- LDAP/AD email address is required to contain a valid value
-- LDAP/AD group name must be uppercase
-- LDAP/AD must contain a user called api user to support token generation
-- LDAPS configuration must add the certificate to Dashboard's utilized java truststore
-- LDAPS requires port 636 availability
+- Email address is required to contain a valid value
+- Group name must be uppercase
+- Must contain a user called api user to support token generation
+- Users created prior to LDAP integration, must have a username matching with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name")
 
+**Additional Requirements for LDAPS**
 
-**Example Active Directory Configuration**
+- Certificate added to Dashboard's utilized java truststore
+- Port 636 availability
 
+**Configuration Parameters **
 
 | Configuration         |    Description |
 | -----------------------| ------------- |
@@ -108,19 +109,114 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 | Search Filter | Filter expression used in search. Example: OpenLDAP: (uid={0}) or AD: sAMAccountName={0} |
 | Password Attribute Name | Example: userPassword|
 
+** Communication Protocol - HTTP(S) Setup **
+
+CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. 
+
+Select the communication protocol that supports your organization policy. While in the initial stages of installing Dashboard as a proof of concept, you may want to select a self-signed certificate or HTTP. Changes to protocol can be done by executing the installer application any time after initial install.
+
+Choose from the following protocol methods:
+
+- HTTPS (requires port 443 availability - alert when not available)
+	- Self-signed certificate using the installer
+	- Existing organization certificate
+		![](img/Linux_Installer_HTTPS_SelfSign.png)
+		![](img/Linux_Installer_HTTPS_OrgCert.png)
+	
+- HTTP (transmits data in clear text)
+	![](img/Linux_Installer_HTTP.png)
+
+		
+** Set Database Password **
+
+The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
+
+- Minimum 8 characters
+- Contains at least one character in `!#$%^`
+- Contain a number
+- Does NOT contain any special characters other than `!#$%^`
+
+
+![](img/Linux_Installer_DBPass.png)
+
+
+** Final Installation Process **
+
+The duration of the final steps of the installation can be 2 to 5 minutes. The initial services to support CIS-CAT Pro Dashboard take some time to start. The services installed are:
+
+- CCPD Windows
+- MariaDB
+
+Once the installation detects that CIS-CAT Pro Dashboard is ready for use, the `Installation Complete` screen will be presented.
+
+![](img/Linux_Installer_ServicesStarting.png)
+
+Right click on the link to open CIS-CAT Pro Dashboard.
+
+Depending on the communication protocol selection during installation, the CIS-CAT Pro Dashboard URL will be:
+
+- HTTP: http://localhost:8080/CCPD/
+- HTTPS: https://localhost:8080/CCPD/
+
+## Initial Dashboard Login ##
+
+    username: admin 
+    password: @admin123
+
+You'll be prompted to change your password upon first login.
+
+---------------------------
+
+# Upgrade Process #
+
+Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades are applied utilizing the latest installer included in the downloaded CIS-CAT Pro Dashboard.
+
+The installer will detect a previous installation and prompt to update only the application or update/modify configuration changes. If no changes are required, updating only the application is the most efficient. Follow the basic steps below. 
+
+**NOTE:** There is no upgrade or migration path from CIS-CAT Pro Dashboard version 2.x to version 3.x. Please read our FAQ and our [blog](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it) to learn more about CIS-CAT Pro changes.
+
+1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
+2. Place the zipped file on the CIS-CAT Dashboard host server where CIS-CAT Pro Dashboard v3.x is installed
+3. Unzip the files
+4. Launch the installer shell script
+5. Select Standard or Custom Installation
+	- **Update application only:** applies existing configuration, updates CIS-CAT application. No options to modify existing configurations.
+	- **Update application and/or configuration settings:** applies existing configuration with options to modify some settings, updates CIS-CAT application. Select **optional** Email or LDAP configuration to modify or initiate these functions.
+
+------------------
+# Installation Errors #
+
+Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an error.
+
+- **Check Services:** Verify that `MariaDB` and `CCPD Windows` are started; start them if needed and try again after a few minutes.
+- **Retry Installer:** Close and re-launch CCPD Installer. The installer will guide you through any necessary configuration.
+
+If you are unsuccessful, collect logs that have been generated for you and open a support ticket. See further information below.
+
+
+** Obtaining Installer Logs **
+
+During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket.
+ 
+
+![](img/Installer_Log.png)
+
+Additionally, CIS Technical Support may require any logs generated at this location: `C:\Program Files\CCPD\logs\ccpdlogs`. 
+
+Attach log files to your [Technical Support ticket](https://www.cisecurity.org/support/).
+
+# Uninstall#
+
+The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
+
+![](img/Installer_Uninstall.png)
+
+![](img/Installer_Uninstall_App.png)
+
 
 **Need this?***
 
-####LDAP/AD Requirements####
-The email address is a required field, make sure that LDAP/AD user email field is set properly.
 
-The entire group name needs to be in uppercase in LDAP/AD. 
-
-If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").  
-
-The api user needs to be created in LDAP/AD in order to generate an authentication token to import Asset Report Format (ARF) results from CIS-CAT Assessor. 
-
-Once LDAP/AD authentication is integrated to CCPD, the database authentication will be automatically disabled.
 
 
 ####Installer Logs
@@ -143,13 +239,7 @@ Execute the following commands to enable the reverse proxy to Tomcat:
     sudo a2ensite ccpd.conf
     sudo service apache2 reload
 
-The Apache HTTP server should now be configured to serve requests to CIS-CAT Pro Dashboard.  The application should be available at the URL entered into your `ccpd-config.yml`: `http://<public url http server>/CCPD`
 
-### Securing Web Traffic ###
-The steps above will have the CIS-CAT Pro Dashboard application running over normal HTTP on port `80`.  This presents a risk as data, including user credentials, will be transmitted in clear text.  It is recommended that traffic be secured using HTTPS.  The following article explains how to create a self-signed certificate and apply it to a web server in Ubuntu 18.04: [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-18-04)
-
-**NOTE:** 
-After completing the steps in the article, you will have to change your connector in ccpd.conf to use port 443 instead of port 80.  Also, when you chose a common name in the certificate creation process, the name must match the DNS name portion of the serverURL in ccpd-config.yml.  i.e.  if your serverURL is https://www.example.com/CCPD, then the common name in the certificate must be www.example.com
 
 ### Ensuring Trust ###
 In the browser's URL bar, navigate to the CIS-CAT Pro Dashboard application.  Click on the HTTPS certificate chain (next to URL address). In the Google Chrome browser, if the user sees a "Not Secure" label next to the URL, the certificate is not trusted.  Click on the "Not Secure" link to display the certificate information:
@@ -185,13 +275,4 @@ To POST reports to Dashboard from Assessor using the `POST Reports to URL` optio
 		# The user will be asked for confirmation
     	Trust this certificate? [no]:
 
-- Restart application server to incorporate trust store
-
-
-
-
-
-
-
-
-
+- Restart the server to incorporate trust store

@@ -98,19 +98,22 @@ CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers
 
 LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
 
-LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE\_USER) by default along with LDAP Roles.
+LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE_USER) by default along with LDAP Roles.
 
-**Requirements:**
+**Requirements for LDAP/AD setup on system:**
 
-- LDAP/AD email address is required to contain a valid value
-- LDAP/AD group name must be uppercase
-- LDAP/AD must contain a user called api user to support token generation
-- LDAPS configuration must add the certificate to Dashboard's utilized java truststore
-- LDAPS requires port 636 availability
+- Email address is required to contain a valid value
+- Group name must be uppercase
+- Must contain a user called api user to support token generation
+
+**Additional Requirements for LDAPS**
+
+- Certificate added to Dashboard's utilized java truststore
+- Port 636 availability
 
 ![](img/Installer_LDAP.png)
 
-**Example Active Directory Configuration**
+**Configuration Parameters**
 
 
 | Configuration         |    Description |
@@ -131,28 +134,18 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 
 CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. 
 
-Select the communication protocol that supports your organization policy. It is possible to select a self-signed certificate or HTTP while in the initial stages of testing or proving the concept of utilizing the Dashboard. A different protocol can be selected by executing the installer and selecting the option to modify existing functionality.
+Select the communication protocol that supports your organization policy. While in the initial stages of installing Dashboard as a proof of concept, you may want to select a self-signed certificate or HTTP. Changes to protocol can be done by executing the installer application any time after initial install.
 
-**HTTPS**
+Choose from the following protocol methods:
 
-HTTPS communication protocol requires port 443 to be available. If the installer detects that it is not, an alert will appear.
-
-![](img/Installer_HTTPS_port.png)
-
-- CIS-CAT generated self-signed certificate 
-	
-![](img/Installer_HTTPS_SelfSign.png)
-		
-- Existing organization certificate
-	
-![](img/Installer_HTTPS_OrgCert.png)
-		
-
-**HTTP**
-
-This communication protocol transmits data in clear text.
-
-![](img/Installer_HTTP.png)
+- HTTPS (requires port 443 availability - alert when not available)
+	![](img/Installer_HTTPS_port.png)
+	- Self-signed certificate using the installer
+		![](img/Installer_HTTPS_SelfSign.png)
+	- Existing organization certificate
+		![](img/Installer_HTTPS_OrgCert.png)
+- HTTP (transmits data in clear text)
+		![](img/Installer_HTTP.png)
 
 
 ** Set Database Password **
