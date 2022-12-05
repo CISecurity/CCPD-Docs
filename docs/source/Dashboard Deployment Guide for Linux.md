@@ -71,19 +71,58 @@ Select the main operating system drive for installation. For most Ubuntu environ
 
 
 
-####Email Configuration####
+** Email (Custom Option) **
 
-The email configuration information is optional and is intended for users that want to send email messages such as password reset requests. CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send email messages. CIS-CAT Pro Dashboard utilizes the Grails mail plugin for email communication.
-Along with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server in order to correctly distribute the "forgot password" messages. CIS-CAT support email services where SMTP services exist ex: Gmail, Hotmail, Amazon SES, Microsoft Exchange. By default, the plugin assumes an unsecured mail server configured at `localhost` on `port 25`. However, this can be modified in the email configuration screen.
+The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests.
 
-![](https://i.imgur.com/KFgNYhC.png)
+CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. By default, an unsecured mail server is assumed and configured to at `localhost` on port `25`. This can be modified by expanding the advanced properties for email setup.
 
-![](https://i.imgur.com/PwLvG3Z.png)
+** Active Directory - LDAP/S (Custom Option) **
+
+LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
+
+LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE\_USER) by default along with LDAP Roles.
+
+**Requirements:**
+
+- LDAP/AD email address is required to contain a valid value
+- LDAP/AD group name must be uppercase
+- LDAP/AD must contain a user called api user to support token generation
+- LDAPS configuration must add the certificate to Dashboard's utilized java truststore
+- LDAPS requires port 636 availability
+
+![](img/Installer_LDAP.png)
+
+**Example Active Directory Configuration**
 
 
+| Configuration         |    Description |
+| -----------------------| ------------- |
+| Manager DN | Example: CN=Administrator,CN=Users,DC=corp,DC=cisecuritytest,DC=org |
+| Manager Password | Credential for the Manager DN |
+| Server | LDAP URL example: ldap://127.0.0.1:389  LDAPS URL example: ldaps://ldap.ciscat.ccp.sbp:636 |
+| Group Search Base | Base directory for group search. Example: DC=corp,DC=cisecuritytest,DC=org |
+| Group Search Filter | The pattern to be used for the user search. {0} is the user’s DN. Example: OpenLDAP: uniquemember={0} and AD: member={0} |
+| Group Search Filter | The pattern to be used for the user search. {0} is the user’s DN. Example: OpenLDAP: uniquemember={0} and AD: member={0} |
+| Group Role Attribute | The ID of the attribute which contains the role name for a group. Example: CN |
+| Search Base | Base directory for search. Example: DC=corp,DC=cisecuritytest,DC=org |
+| Search Filter | Filter expression used in search. Example: OpenLDAP: (uid={0}) or AD: sAMAccountName={0} |
+| Password Attribute Name | Example: userPassword|
 
 
-![](https://i.imgur.com/PiIB6RR.jpg)
+**Need this?***
+
+####LDAP/AD Requirements####
+The email address is a required field, make sure that LDAP/AD user email field is set properly.
+
+The entire group name needs to be in uppercase in LDAP/AD. 
+
+If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").  
+
+The api user needs to be created in LDAP/AD in order to generate an authentication token to import Asset Report Format (ARF) results from CIS-CAT Assessor. 
+
+Once LDAP/AD authentication is integrated to CCPD, the database authentication will be automatically disabled.
+
 
 ####Installer Logs
 During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file on a [support ticket created on our support portal](https://www.cisecurity.org/support/). 
@@ -98,58 +137,7 @@ At this point, it is prudent to deploy the CIS-CAT Pro Dashboard application (th
 
 
 
-### Mail Configuration ###
-CIS-CAT Pro Dashboard utilizes the Grails `mail` plugin in order to send email messages from time to time, including password reset requests.  CIS-CAT Pro Dashboard must be able to connect to and utilize a valid SMTP server in order to send these email messages.  
-
-Configuration of the mail plugin will be member-specific, and those configuration items will also be added to the `/opt/tomcat/ccpd-config.yml` file, noted above.
-
-#### Default Sender Email Address ####
-CIS-CAT Pro Dashboard can be configured with a default "sender" email address, indicating that the application has sent a "forgot password" message, allowing users to enter new logon credentials.  Add the following section indented under the `grails` like in the below examples. In the `/opt/tomcat/ccpd-config.yml` file (noted above), add the following section:
-
-
-#### SMTP Configuration ####
-Coupled with the default sender email address, CIS-CAT Pro Dashboard's mailing configuration must also include connection to a valid SMTP server, in order to correctly distribute the "forgot password" messages.  Numerous SMTP services exist, such as Gmail, Hotmail, Amazon SES, or in-house SMTP services available through corporate emailing technologies, such as Exchange.  CIS-CAT Pro Dashboard can support these SMTP servers, as long as the connection information is correct in the configuration file (the `/opt/tomcat/ccpd-config.yml` noted above).
-
-By default the plugin assumes an unsecured mail server configured at `localhost` on port `25`. However you can change this via the application configuration file (the `/opt/tomcat/ccpd-config.yml` noted above). Add the following section indented under the `grails` like in the below examples.
-
-For example here is how you would configure the default sender to send with a Gmail account:
-#### *Mail Configuration - Gmail* ####
-    ---
-	    mail:
-		    host: "smtp.gmail.com"
-		    port: 465
-		    username: "youracount@gmail.com"
-		    password: "yourpassword"
-		    props:
-			    mail.smtp.auth: "true"
-			    mail.smtp.socketFactory.port: "465"
-			    mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
-			    mail.smtp.socketFactory.fallback: "false"
-
-
-
-
-
-
-### Web Server ###
-The final configuration is for a web server to proxy the Tomcat instance and to answer traffic on port `80/443`.
-
-#### Apache HTTP Server for Ubuntu####
-Install Apache 2.4 for Ubuntu by running: 
-    sudo apt-get install apache2
-
-Create a file named `ccpd.conf` in the following directory: `/etc/apache2/sites-available` with the following lines:
-
-    <VirtualHost *:80>
-	    ServerName <public url of application server>
-	    ProxyRequests Off
-	    <Proxy *>
-		    Order deny,allow
-		    Allow from all
-	    </Proxy>
-	    ProxyPreserveHost on
-	    ProxyPass / http://localhost:8080/
-    </VirtualHost>
+**Proxy information- do we need?**
 
 The `ServerName` should be the `<public url of application server>`
 
@@ -210,47 +198,10 @@ To POST reports to Dashboard from Assessor using the `POST Reports to URL` optio
 - Restart application server to incorporate trust store
 
 
-##LDAP/Active Directory Integration (Optional)##
-With this integration, LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. 
-
-Users will use their LDAP/AD credentials to log into the application. LDAP/AD roles and user properties such firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE\_USER) by default along with LDAP Roles.
-
-
-####LDAP Configuration####
-Here is an example of LDAP structure in OpenLDAP:
-![](https://i.imgur.com/6nNTW0X.png)
 
 
 
-####Configuration Options####
-Here is a description of some configuration options used for LDAP/AD integration:
 
-- **managerDn/managerPassword:** manager credential to access to LDAP server.
 
-- **server:** URL of the LDAP server.
 
-- **groupSearchBase:** the base directory to start the group search. Note: if  we don't want to retrieve groups (roles) from LDAP, set retrieveGroupRoles to false.
-
-- **groupSearchFilter:** the pattern to be used for the user search. {0} is the user’s DN.
-
-- **groupRoleAttribute:** the ID of the attribute which contains the role name for a group.
-
-- **clean.prefix:** an optional string prefix to strip from the beginning of LDAP group names. For example, 'CCPD\_' will convert CCPD\_ADMIN to ROLE\_ADMIN
-
-- **base:** the base directory to start the search.
-
-- **filter:** the filter expression used in the user search. For LDAP, uid field is typically used as username for the filter. In Active Directory, sAMAccountName (also called "User logon name") is typically used. 
-
-- **passwordAttributeName:** the name of the password attribute to use.
-
-####LDAP/AD Requirements####
-The email address is a required field, make sure that LDAP/AD user email field is set properly.
-
-The entire group name needs to be in uppercase in LDAP/AD. 
-
-If some users were previously created in CCPD before the LDAP integration, make sure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name").  
-
-The api user needs to be created in LDAP/AD in order to generate an authentication token to import Asset Report Format (ARF) results from CIS-CAT Assessor. 
-
-Once LDAP/AD authentication is integrated to CCPD, the database authentication will be automatically disabled.
 
