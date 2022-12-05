@@ -91,7 +91,6 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 - LDAPS configuration must add the certificate to Dashboard's utilized java truststore
 - LDAPS requires port 636 availability
 
-![](img/Installer_LDAP.png)
 
 **Example Active Directory Configuration**
 
@@ -126,15 +125,6 @@ Once LDAP/AD authentication is integrated to CCPD, the database authentication w
 
 ####Installer Logs
 During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file on a [support ticket created on our support portal](https://www.cisecurity.org/support/). 
-
-The permissions on the configuration file (ccpd-config.yml) and the logs directory for CIS-CAT Pro Dashboard need to allow the tomcat user to read and/or write.
-
-<a name="confAndDeploymentManual"></a>
-##Configuration and Deployment - Manual##
-<b>This section describes how to configure and deploy the Dashboard manually.  For instructions on how to configure and deploy the Dashboard using the Installer, see [Configuration and Deployment - Installer](#confAndDeploymentInstaller).</b>
-
-At this point, it is prudent to deploy the CIS-CAT Pro Dashboard application (the "war") included in the downloadable bundle.  The initial deployment of the web application can then be tested via direct connection to the application server on port `8080`, without the web server.  This can help identify any application or application server misconfigurations prior to web server installation/configuration.
-
 
 
 **Proxy information- do we need?**
