@@ -139,12 +139,20 @@ Select the communication protocol that supports your organization policy. While 
 Choose from the following protocol methods:
 
 - HTTPS (requires port 443 availability - alert when not available)
+	
 	![](img/Installer_HTTPS_port.png)
+	
 	- Self-signed certificate using the installer
+	
 		![](img/Installer_HTTPS_SelfSign.png)
+		
 	- Existing organization certificate
+		- Certificates must be in *.p12 or *.jks format
+		
 		![](img/Installer_HTTPS_OrgCert.png)
+		
 - HTTP (transmits data in clear text)
+
 		![](img/Installer_HTTP.png)
 
 

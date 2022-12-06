@@ -203,12 +203,10 @@ If you are unsuccessful, collect logs that have been generated for you and open 
 
 ** Obtaining Installer Logs **
 
-During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket.
+During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created at `/var/tmp`. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket when issues involve installation.
  
 
-![](img/Installer_Log.png)
-
-Additionally, CIS Technical Support may require any logs generated at this location: `C:\Program Files\CCPD\logs\ccpdlogs`. 
+Additionally, CIS Technical Support may require any logs generated at this location: `/usr/local/CCPD/ccpdlogs`. 
 
 Attach log files to your [Technical Support ticket](https://www.cisecurity.org/support/).
 
@@ -216,18 +214,8 @@ Attach log files to your [Technical Support ticket](https://www.cisecurity.org/s
 
 The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
 
-![](img/Installer_Uninstall.png)
+![](img/Linux_Installer_Uninstall.png)
 
-![](img/Installer_Uninstall_App.png)
-
-
-**Need this?***
-
-
-
-
-####Installer Logs
-During the installation, the Installer will create logs. The logs will be created in a directory within the temporary directory of the operating system. Each finished installation will create an individual log with a timestamp. If you have trouble with the installation, please provide this log file on a [support ticket created on our support portal](https://www.cisecurity.org/support/). 
 
 
 **Proxy information- do we need?**
@@ -245,7 +233,6 @@ Execute the following commands to enable the reverse proxy to Tomcat:
 
     sudo a2ensite ccpd.conf
     sudo service apache2 reload
-
 
 
 ### Ensuring Trust ###
