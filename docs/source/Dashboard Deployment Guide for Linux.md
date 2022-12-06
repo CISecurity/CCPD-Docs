@@ -119,9 +119,14 @@ Choose from the following protocol methods:
 
 - HTTPS (requires port 443 availability - alert when not available)
 	- Self-signed certificate using the installer
-	- Existing organization certificate
+	
 		![](img/Linux_Installer_HTTPS_SelfSign.png)
+	
+	- Existing organization certificate
+		- Certificates must be in *.p12 or *.jks format
+		
 		![](img/Linux_Installer_HTTPS_OrgCert.png)
+	
 	
 - HTTP (transmits data in clear text)
 	![](img/Linux_Installer_HTTP.png)
