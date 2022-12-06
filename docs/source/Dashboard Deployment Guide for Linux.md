@@ -26,10 +26,12 @@ Other browsers maybe produce unexpected behavior.
 
 **Traffic and Ports**
 
-- Internet available on the server during installation
+- Internet available on the server during installation*
 - Port 3306 is available for Maria database installation
 - Traffic allowed on port 8080 and 443
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
+
+/* Ubuntu 20.04 must have certain packages installed. Internet is required at the time of initial installation so the correct packages can be confirmed. The internet connection can be disabled after installation.
 
 **Other**
 
@@ -50,8 +52,8 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 5. Launch the installer shell script from any hard drive location as `root`
 		sudo ./CIS-CAT_Pro_Dashboard_Installer.sh
 6. Select Standard or Custom Installation
-	- **Standard:** Navigates through only required options for most streamlined installation. 
-	- **Custom:** Navigates through required and optional, advanced settings. During navigation, selected optional settings can be skipped.
+	- **Standard:** Navigates required options only for most streamlined installation. 
+	- **Custom:** Navigates required and selected optional, advanced settings. During navigation, selected optional settings can still be skipped.
 
 ![](img/Linux_Installer_Welcome.png)
 

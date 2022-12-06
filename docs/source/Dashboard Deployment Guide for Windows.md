@@ -63,8 +63,8 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 
 6. Launch the installer executable from any hard drive location as an administrator
 7. Select Standard or Custom Installation
-	- **Standard:** Navigates through only required options for most streamlined installation. 
-	- **Custom:** Navigates through required and optional, advanced settings. During navigation, selected optional settings can be skipped.
+	- **Standard:** Navigates required options only for most streamlined installation. 
+	- **Custom:** Navigates required and selected optional, advanced settings. During navigation, selected optional settings can still be skipped.
 8. Select `Yes` if prompted for permission to proceed with installation
 9. Review installer screens below for additional information, if necessary
 
