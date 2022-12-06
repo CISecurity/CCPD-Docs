@@ -4,11 +4,36 @@
 
 # 3.0.0 #
 
+**Benchmarks**
+
+- See CIS Benchmark Support guide for supported CIS Benchmarks in datastream format
+
+** Security **
+
+- The ccpd-config.yml (stored in “conf” folder) supporting the CIS-CAT Pro Dashboard operation now limits read/write privileges to only privileged Microsoft Windows or Linux users.
+
 ** Application **
 
+- System requirements for installation modified to require and support only
+	- One Dashboard Host server: Ubuntu Linux 20.04 OR Microsoft Windows Server 2016/2019
+- Downloaded file changed:
+	- Microsoft Windows:  CIS-CAT-Dashboard-v3.0.0-windows.zip
+	- Ubuntu Linux:  CIS-CAT-Dashboard-v3.0.0-linux.zip
+- Installation process streamlined:
+	- All standard components embedded (Database - MariaDB, JRE - openJDK 8, Tomcat 9)
+	- Valid CIS SecureSuite license required. Alerts when license not valid (expired/null)
+	- Standard (minimum - streamlined) or Custom (advanced options) installation options
+	- Options within installer to generate self-signed certification to support HTTPS
+	- Port availability validation of required installation ports based on selected options (Ex: 8080, 443, 3306, etc.)
 - The configuration assessment import process has significantly been improved. On average, configuration reports will import in less than 30 seconds.
+- LDAPS, allowing for encryption of LDAP data such as user credentials, for Active Directory services now supported.
+- Single system remote assessment functionality now embedded as standard feature (replaces deprecated Assessor v4 Service…Assessor v4 CLI/GUI still produced) . Currently supported only for SSH and Microsoft Windows over HTTP.
+- Dashboard functions to support vulnerability assessment have been removed. CIS-CAT now exclusively performs and supports configuration assessments primarily for CIS Benchmarks with automated assessment content. Please see our [knowledge base article](https://cisecurity.atlassian.net/l/cp/CLRHc4H4) for more information.
 
 ** Documentation **
+
+- Updated all installation requirements and instructions
+- The README.txt has been updated to represent Dashboard v3.0.0 information
 
 # Archive - Version 2.x #
 

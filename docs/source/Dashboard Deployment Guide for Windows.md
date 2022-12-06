@@ -132,7 +132,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 
 ** Communication Protocol - HTTP(S) Setup **
 
-CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. 
+CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor. Any protocol supports use of the API imports. However, the optional feature to perform remote configuration assessments on a single target currently is only supported when utilizing HTTP communication protocol.
 
 Select the communication protocol that supports your organization policy. While in the initial stages of installing Dashboard as a proof of concept, you may want to select a self-signed certificate or HTTP. Changes to protocol can be done by executing the installer application any time after initial install.
 
