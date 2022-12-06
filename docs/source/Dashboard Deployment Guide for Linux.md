@@ -31,7 +31,7 @@ Other browsers maybe produce unexpected behavior.
 - Traffic allowed on port 8080 and 443
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
 
-/* Ubuntu 20.04 must have certain packages installed. Internet is required at the time of initial installation so the correct packages can be confirmed. The internet connection can be disabled after installation.
+\* Ubuntu 20.04 must have certain packages installed. Internet is required at the time of initial installation so the correct packages can be confirmed. The internet connection can be disabled after installation.
 
 **Other**
 
