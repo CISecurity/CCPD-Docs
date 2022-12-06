@@ -90,11 +90,14 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 - Group name must be uppercase
 - Must contain a user called api user to support token generation
 - Users created prior to LDAP integration, must have a username matching with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name")
+- Port 389 availability
+- SSL unchecked
 
 **Additional Requirements for LDAPS**
 
 - Certificate added to Dashboard's utilized java truststore
 - Port 636 availability
+- SSL selected
 
 **Configuration Parameters **
 
@@ -203,7 +206,7 @@ If you are unsuccessful, collect logs that have been generated for you and open 
 
 ** Obtaining Installer Logs **
 
-During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created at `/var/tmp`. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket when issues involve installation.
+During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created at `/tmp`. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket when issues involve installation.
  
 
 Additionally, CIS Technical Support may require any logs generated at this location: `/usr/local/CCPD/ccpdlogs`. 
