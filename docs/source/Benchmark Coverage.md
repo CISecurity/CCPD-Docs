@@ -38,7 +38,7 @@ For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is
 - **CIS_Kubernetes V1.23 Benchmark, v1.0.1**
 - **CIS Kubernetes 1.24 v1.0.0**
 - **CIS Microsoft Edge Benchmark, v1.1.0**
-- **CIS Microsoft IIS 10 Benchmark, v1.1.0**
+- **CIS Microsoft IIS 10 Benchmark, v1.1.1**
 - **CIS Microsoft Intune for Windows 10, v1.1.0**
 - **CIS Microsoft Windows 10 Enterprise, v1.12.0**
 - **CIS Microsoft Windows 10 Stand-alone Benchmark, v1.0.1**
