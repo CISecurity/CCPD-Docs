@@ -30,7 +30,7 @@ Other browsers maybe produce unexpected behavior.
 **Traffic and Ports**
 
 - Port 3306 is available for Maria database installation
-- Traffic allowed on port 8080 and 1433
+- Traffic allowed on port 8080 and 443
 	- As needed, add an inbound rule in Windows firewall
 	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
 - If HTTPS communication protocol selected, traffic allowed on 443

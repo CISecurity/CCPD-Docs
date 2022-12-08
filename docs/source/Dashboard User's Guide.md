@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-**CIS-CAT Pro Dashboard Guide**
+**CIS-CAT Pro Dashboard User Guide**
 
 
 Logging In

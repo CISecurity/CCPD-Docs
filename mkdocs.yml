@@ -10,7 +10,7 @@ nav:
         - 5. Installation - Linux: source/Dashboard Deployment Guide for Linux.md
         - 6. CIS Benchmark Support: source/Benchmark Coverage.md
         - 7. Configuration Options: source/Configuration Options.md
-        - 8. Guide: source/Dashboard User's Guide.md
+        - 8. User Guide: source/Dashboard User's Guide.md
         
 theme:
   name: readthedocs
