@@ -27,7 +27,7 @@
 	- Port availability validation of required installation ports based on selected options (Ex: 8080, 443, 3306, etc.)
 - The configuration assessment import process has significantly been improved. On average, configuration reports will import in less than 30 seconds.
 - LDAPS, allowing for encryption of LDAP data such as user credentials, for Active Directory services now supported.
-- Single system remote assessment functionality now embedded as standard feature (replaces deprecated Assessor v4 Service…Assessor v4 CLI/GUI still produced) . Currently supported only for SSH and Microsoft Windows over HTTP.
+- Single system remote assessment functionality now embedded as standard feature (replaces deprecated Assessor v4 Service). Currently supported only for SSH and Microsoft Windows over HTTP.
 - Dashboard functions to support vulnerability assessment have been removed. CIS-CAT now exclusively performs and supports configuration assessments primarily for CIS Benchmarks with automated assessment content. Please see our [knowledge base article](https://cisecurity.atlassian.net/l/cp/CLRHc4H4) for more information.
 
 ** Documentation **
