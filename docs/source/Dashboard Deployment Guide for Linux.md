@@ -16,8 +16,6 @@ The following environment characteristics are required.
 The application does not heavily utilize processor and memory. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
 
 
-Load balanced configurations are not supported.
-
 **Browser**
 
 - Google Chrome
@@ -26,12 +24,12 @@ Other browsers maybe produce unexpected behavior.
 
 **Traffic and Ports**
 
-- Internet available on the server during installation*
+- **Internet available on the server during installation***
 - Port 3306 is available for Maria database installation
-- Traffic allowed on port 8080 and 443
-	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
+- Traffic allowed on port 8080 (HTTP) and 443(HTTPS)
+	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080/443
 
-\* Ubuntu 20.04 must have certain packages installed. Internet is required at the time of initial installation so the correct packages can be confirmed. The internet connection can be disabled after installation.
+\* Ubuntu 20.04 must have certain packages installed. **Internet is required** at the time of initial installation so the correct packages can be confirmed. The internet connection can be disabled after installation.
 
 **Other**
 
@@ -221,23 +219,6 @@ The Uninstaller application is located in the root directory of the original ins
 
 
 
-**Proxy information- do we need?**
-
-The `ServerName` should be the `<public url of application server>`
-
-Execute the following commands to enable the proxy module:
-
-    sudo a2enmod proxy
-    sudo a2enmod proxy_ajp
-    sudo a2enmod proxy_http
-    sudo service apache2 restart
-
-Execute the following commands to enable the reverse proxy to Tomcat:
-
-    sudo a2ensite ccpd.conf
-    sudo service apache2 reload
-
-
 ### Ensuring Trust ###
 In the browser's URL bar, navigate to the CIS-CAT Pro Dashboard application.  Click on the HTTPS certificate chain (next to URL address). In the Google Chrome browser, if the user sees a "Not Secure" label next to the URL, the certificate is not trusted.  Click on the "Not Secure" link to display the certificate information:
 
@@ -255,16 +236,16 @@ Select or browse to a location to where the `.cer` file will be saved.  Clicking
 #### Importing the certificate into the java trust store ####
 To POST reports to Dashboard from Assessor using the `POST Reports to URL` option with HTTPS, a certificate must be imported to the java trust store.
 
-- Locate JRE, JDK, or openJDK used to launch Tomcat on the Tomcat/Dashboard server
+- JRE exists within /_installationDirectory_/jre/bin/
 - Note the location of the `cacerts` file prior to importing certificate to `keytool`
 	- For example, if OpenJDK is located at `usr/lib/jvm/jdk-11.0.9.101`, then `cacerts` file will be located in `usr/lib/jvm/jdk-11.0.9.101\lib\security\cacerts`
 - Use java `keytool` application to import the certificate:
 
    	 	# Navigate to the $JAVA_HOME folder's bin directory
-   		 cd /usr/lib/jvm/jdk-11.0.9.101/bin
+   		 cd /_installationDirectory_/jre/bin/
      
    	 	# Execute keytool
-    	sudo keytool -import -alias ccpd -keystore jre/lib/security/cacerts -file /home/ubuntu/ccpd_cert.cer
+    	sudo keytool -import -alias ccpd -keystore jre/lib/security/cacerts -file /_installationDirectory_/certificates/_alias_.jks
 
 - Enter keystore credentials at prompt.  By default, this credential is `changeit`.
 - Answer `yes` to import the certificate into the trust store

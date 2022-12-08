@@ -17,8 +17,6 @@ The following environment characteristics are required.
 
 The application does not heavily utilize processor and memory. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
 
-Load balanced configurations are not supported.
-
 CIS utilizes a Microsoft Windows Server 2019 testing environment in AWS t2.large instance (designed for burst processing).
 
 **Browser**
@@ -30,9 +28,9 @@ Other browsers maybe produce unexpected behavior.
 **Traffic and Ports**
 
 - Port 3306 is available for Maria database installation
-- Traffic allowed on port 8080 and 443
+- Traffic allowed on port 8080 (HTTP) and 443(HTTPS)
+	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080/443
 	- As needed, add an inbound rule in Windows firewall
-	- As needed, if installed on AWS, AWS security group must allow traffic on port 8080
 - If HTTPS communication protocol selected, traffic allowed on 443
 
 If utilizing LDAP/LDAPS/AD, refer to the installation steps in this section for additional ports that may be required.
