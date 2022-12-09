@@ -72,6 +72,7 @@ Embedded components alleviates the challenges of requiring expertise in various 
 
 ## Installation Overview ##
 
+The installation application must be used to complete all install, upgrade, and installation modifications.
 The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
 
 - MariaDB

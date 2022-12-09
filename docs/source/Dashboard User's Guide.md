@@ -467,7 +467,7 @@ Once tagged, use individual tags, or logical combinations of tags to search for 
 - **Exclude Tags** - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the "Server" tag into the Include Tags box and "PCI" into the Exclude Tags box.
 
 ## Assess a Target System ##
-The assessment features currently only support a remote assessment for Linux and MacOS over SSH and Microsoft Windows using WinRM over HTTP.
+The assessment features currently supports a remote assessments. For Linux, MacOS, and Cisco, the application communicates over SSH. For Microsoft Windows, the application currently only supports communication using WinRM over HTTP. This only means that the target to be assessment must have WinRM for HTTP enabled. See how to configure target endpoints with **[WinRM over HTTP](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#macos-sessions)**.
 
 Steps:
 
@@ -475,12 +475,15 @@ Steps:
 2.	Search for the desired target system to assess
 3.	Select the link for the desired target system in the Target Primary ID column
 4.	Select Assess<br/>
+
 ![](https://i.imgur.com/FRF8Sxp.png)
+
 5.	Enter the required information <br/>
-![](https://i.imgur.com/1AotdL2.png)
+![](img/Assess.png)
 6.	Select Start Assessment to begin an assessment or Cancel to clear and close the form
 7.	Correct missing, required information if necessary<br/>
-![](https://i.imgur.com/5xsqPLA.png)	
+
+![](img/Assess_required.png)	
 
 All values entered in the modal are the same values expected in the  CIS-CAT Pro Assessor v4 sessions.properties or assessor-config.xml files. See the [CIS-CAT Pro Assessor v4 User’s Guide](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/) for detailed information on each of the below values. The target system to be assessed must be configured to accept a remote connection and must be able to communicate with the system that hosts CIS-CAT Pro Assessor v4 Service.
 
