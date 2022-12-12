@@ -90,7 +90,7 @@ By default the installation will be placed C:\Program Files\CCPD (Microsoft Wind
 
 The installer establishes Java environment variables specifically for use with CIS-CAT Pro Dashboard. Therefore, it is recommended that no other application requiring a java runtime environment (jre) exists on the CIS-CAT Pro Dashboard host server.
 
-The `conf` folder contains the ccpd-config.yml file that contains information to support the CIS-CAT Pro Dashboard operation. The installation process limits read/write privileges to only users whose credentials are validated by Microsoft Windows OS security mechanisms, typically System and Administrators. Users not a member of the authenticated group to not have privileges to view or write to the file. For Linux installations, the ccpd-config.yml will be granted ccpd-config.yml file has 660 privileges (-rw-rw----).
+The `conf` folder contains the ccpd-config.yml file that contains information to support the CIS-CAT Pro Dashboard operation. The installation process limits read/write privileges to only users whose credentials are validated by Microsoft Windows OS security mechanisms, typically System and Administrators. Users not a member of the authenticated group do not have privileges to view or write to the file. For Linux installations, the ccpd-config.yml will be granted ccpd-config.yml file has 660 privileges (-rw-rw----).
 
 ------------------------------
 ## Compatibility CIS-CAT Pro Dashboard v2.x Versions ##

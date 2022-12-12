@@ -153,7 +153,7 @@ Choose from the following protocol methods:
 		
 - HTTP (transmits data in clear text)
 
-		![](img/Installer_HTTP.png)
+	![](img/Installer_HTTP.png)
 
 
 ** Set Database Password **
