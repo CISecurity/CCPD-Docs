@@ -272,7 +272,9 @@ System Integrations
 
 **CIS-CAT Pro Release alerts**
 
-After [establishing a connection with CIS WorkBench](./Dashboard%20Deployment%20Guide%20for%20Windows/#cis-workbench-integration), CIS-CAT Pro Dashboard will check CIS WorkBench daily at 5PM for the availability of a new release of CIS-CAT Pro.
+**Integration to CIS WorkBench has been temporarily disabled in version 3 of Dashboard. This feature will return in 2023 and coordinate with new Dashboard retrieval method in CIS WorkBench.**
+
+Once a connection is established with CIS WorkBench, CIS-CAT Pro Dashboard will check CIS WorkBench daily at 5PM for the availability of a new release of CIS-CAT Pro.
 
 If a new CIS-CAT Pro release is available, the following alert will appear in the inbox:
 
@@ -336,6 +338,8 @@ Save the property file and execute CIS-CAT.
 **Graphical User Interface (GUI) for Assessor v4**
 
 On the Assessment Options page, enter the Dashboard URL where the resulting report should upload. Utilize the help icon on this screen to understand the format to use.
+
+If utilizing a self-signed certificate, you must select the "Ignore SSL Warnings" check box while performing an assessment.
 
 **Command Line User Interface (CLI)**
 

@@ -141,11 +141,13 @@ Choose from the following protocol methods:
 	![](img/Installer_HTTPS_port.png)
 	
 	- Self-signed certificate using the installer
+		- If utilizing CIS-CAT Pro Assessor API to import reports to Dashboard, see the `Configuration Options` section of this guide to learn about ignoring SSL warnings
 	
 		![](img/Installer_HTTPS_SelfSign.png)
 		
 	- Existing organization certificate
 		- Certificates must be in *.p12 or *.jks format
+		- - Ensure the certificate is added to the java trust store so that it is not necessary to ignore SSL warnings (see `HTTPS Communication Protocol - Ensuring Trust`)
 		
 		![](img/Installer_HTTPS_OrgCert.png)
 		
@@ -246,3 +248,41 @@ The Uninstaller application is located in the root directory of the original ins
 ![](img/Installer_Uninstall.png)
 
 ![](img/Installer_Uninstall_App.png)
+
+
+# HTTPS Communication Protocol - Ensuring Trust with an Organizational Certificate #
+
+In the browser's URL bar, navigate to the CIS-CAT Pro Dashboard application.  Click on the HTTPS certificate chain (next to URL address). In the Google Chrome browser, if the user sees a "Not Secure" label next to the URL, the certificate is not trusted.  Click on the "Not Secure" link to display the certificate information:
+
+- Click the "Details" link to display the "Security Overview" information.
+- Click on the "View Certificate" button to display the certificate details.
+
+The certificate information needs to be exported, and added to the servers trust store.  On the "details" tab of the certificate information, click the "Copy to File..." button.  The "certificate export wizard" will be displayed.
+
+- Click the "Next" button to navigate to the second screen, the export type selection:
+
+Select the "DER encoded binary X.509 (.CER)" radio button.  This selection should be the default.  Click "Next" to continue.
+
+Select or browse to a location to where the `.cer` file will be saved.  Clicking "Next" and finally "Finish" to complete the wizard and save the file to the selected location/filename.  This file will need to be transferred via SCP, S/FTP to the application server hosting the CIS-CAT Pro Dashboard application.  Note the location to which the file is transferred.  
+
+**Importing the certificate into the java trust store**
+
+To POST reports to Dashboard from Assessor using the `POST Reports to URL` option with HTTPS, a certificate must be imported to the java trust store.
+
+- JRE exists within ...installationLocation\CCPD\jre
+- Note the location of the `cacerts` file prior to importing certificate to `keytool`
+- Use java `keytool` application to import the certificate:
+
+   	 	# Navigate to the $JAVA_HOME folder's bin directory
+   		 cd ...installationLocation\CCPD\jre\bin\
+     
+   	 	# Execute keytool
+    	sudo keytool -import -alias ccpd -keystore jre\lib\security\cacerts -file ...installationLocation\CCPD\certificates\_alias_.jks
+
+- Enter keystore credentials at prompt.  By default, this credential is `changeit`.
+- Answer `yes` to import the certificate into the trust store
+ 		
+		# The user will be asked for confirmation
+    	Trust this certificate? [no]:
+
+- Restart the server to incorporate trust store

@@ -29,6 +29,7 @@
 - LDAPS, allowing for encryption of LDAP data such as user credentials, for Active Directory services now supported.
 - Single system remote assessment functionality now embedded as standard feature (replaces deprecated Assessor v4 Service). Currently supported only for SSH and Microsoft Windows over HTTP. See how to configure target endpoints with **[WinRM over HTTP](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#macos-sessions)**.
 - Dashboard functions to support vulnerability assessment have been removed. CIS-CAT now exclusively performs and supports configuration assessments primarily for CIS Benchmarks with automated assessment content. Please see our [knowledge base article](https://cisecurity.atlassian.net/l/cp/CLRHc4H4) for more information.
+- Integration to CIS WorkBench has been temporarily disabled in version 3 of Dashboard. This feature will return in 2023 and coordinate with new Dashboard retrieval method in CIS WorkBench.
 
 ** Documentation **
 

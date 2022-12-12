@@ -12,6 +12,12 @@ Authentication must be established with CIS-CAT Pro Assessor to enable automatic
 To generate the token, login as an administrator, navigate to setting > user management and select api user. Select `Generate CIS-CAT Authentication` button. 
 
 Place the generated token in the assessor-cli.properties file for the Assessor that will post to the Dashboard. This file is located in the config folder of the CIS-CAT Pro Assessor. See the [Assessor Configuration Guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#cis-cat-pro-dashboard-integration) for more information.
+
+If utilizing a self-signed certificate for HTTPS configuration, SSL warnings may need to be ignored. At your discretion, you may:
+
+- From the GUI, select "Ignore SSL Warnings" check box 
+- For CLI commands, utilized `-ui`. See [reporting options](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20-%20Assessor/#command-line-interface-cli) in the CIS-CAT Pro Assessor Guide. 
+- For centralized, see [the guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#centralized-windows) for more information on utilizing the `-ui` within the script. 
   
 
 ## API for Assessor Result Import ##
@@ -66,6 +72,9 @@ Assuming ```Hostname_CIS_Microsoft_Windows_10_Enterprise_Release_1803_Benchmark-
 ------------------
 
 # CIS WorkBench Integration #
+
+**Integration to CIS WorkBench has been temporarily disabled in version 3 of Dashboard. This feature will return in 2023 and coordinate with new Dashboard retrieval method in CIS WorkBench.**
+
 
 This feature is an optional service provided to members to receive automatic notifications in the CIS-CAT Pro Dashboard Inbox on new CIS-CAT Pro releases. This option requires a direct internet connection. A connection through a proxy is not supported. Only admin users of Dashboard can configure this connection.
 
