@@ -128,7 +128,7 @@ Choose from the following protocol methods:
 	
 	- Existing organization certificate
 		- Certificates must be in *.p12 or *.jks format
-		- Ensure the certificate is added to the java trust store so that it is not necessary to ignore SSL warnings (see `HTTPS Communication Protocol - Ensuring Trust`)
+		- Ensure the certificate is added to the java trust store so that it is not necessary to ignore SSL warnings (see "HTTPS Communication Protocol - Ensuring Trust with an Organizational Certificate")
 		
 		![](img/Linux_Installer_HTTPS_OrgCert.png)
 	
