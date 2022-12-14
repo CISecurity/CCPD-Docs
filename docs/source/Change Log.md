@@ -4,6 +4,8 @@
 
 # 3.0.0 #
 
+**Read our [blog to learn more about these changes](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it).**
+
 **Benchmarks**
 
 - See CIS Benchmark Support guide for supported CIS Benchmarks in datastream format

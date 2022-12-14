@@ -69,7 +69,7 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 
 ![](img/Installer_Welcome_Initial.png)
 
-** License **
+####**License**
 
 A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. Offline license validation is performed utilizing only the license.xml file obtained from the CIS WorkBench.
 
