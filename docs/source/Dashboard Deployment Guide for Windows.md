@@ -49,7 +49,21 @@ The installation process will verify that certain ports are open and available. 
 
 For an initial CIS-CAT Pro Dashboard installation on Microsoft Windows, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
 
-CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the installation process, download your organization's [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/).
+CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the installation process, download your organization's [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/). Obtain the CIS-CAT Pro Dashboard application from the [CIS WorkBench](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/About%20Dashboard/#obtain-dashboard).
+
+- [Prepare for Installation](#PrepareInstallation)
+- [License](#License)
+- [Installation Destination](#InstallDestination)
+- [Email (Optional Custom Option)](#Email)
+- [Active Directory - LDAP/S (Optional Custom Option](#LDAP)
+- [Communication Protocol - HTTP(S) Setup](#HTTP)
+- [Set Database Password](#DBpass)
+- [Final](#Final)
+- [Login to Dashboard](#login)
+
+
+<a name="PrepareInstallation"></a>
+**Prepare for Installation**
 
 1. Place your [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/) on the CIS-CAT Pro Dashboard server
 2. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
@@ -69,18 +83,21 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 
 ![](img/Installer_Welcome_Initial.png)
 
-####**License**
+<a name="License"></a>
+**License**
 
 A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. Offline license validation is performed utilizing only the license.xml file obtained from the CIS WorkBench.
 
 ![](img/Installer_License.png)
 
+<a name="InstallDestination"></a>
 ** Installation Destination **
 
 Select the main operating system drive for installation. For most Microsoft Windows environments, this will be `C:\Program Files\CCPD`. Ensure to allocate the system recommended space for this drive.
 
 ![](img/Installer_destination.png)
 
+<a name="Email"></a>
 ** Email (Custom Option) **
 
 The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests.
@@ -91,7 +108,7 @@ CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers
 
 ![](img/Installer_EmailConfig.png)
 
-
+<a name="LDAP"></a>
 ** Active Directory - LDAP/S (Custom Option) **
 
 LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
@@ -127,7 +144,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 | Search Filter | Filter expression used in search. Example: OpenLDAP: (uid={0}) or AD: sAMAccountName={0} |
 | Password Attribute Name | Example: userPassword|
 
-
+<a name="HTTPS"></a>
 ** Communication Protocol - HTTP(S) Setup **
 
 CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor. Any protocol supports use of the API imports. However, the optional feature to perform remote configuration assessments on a single target currently is only supported when utilizing HTTP communication protocol.
@@ -155,7 +172,7 @@ Choose from the following protocol methods:
 
 	![](img/Installer_HTTP.png)
 
-
+<a name="DBpass"></a>
 ** Set Database Password **
 
 The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
@@ -168,7 +185,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 
 ![](img/Installer_DBPass.png)
 
-
+<a name="Final"></a>
 ** Final Installation Process **
 
 The duration of the final steps of the installation can be 2 to 5 minutes. The initial services to support CIS-CAT Pro Dashboard take some time to start. The services installed are:
@@ -191,6 +208,7 @@ Depending on the communication protocol selection during installation, the CIS-C
 - HTTP: http://localhost:8080/CCPD/
 - HTTPS: https://localhost:8080/CCPD/
 
+<a name="login"></a>
 ## Initial Dashboard Login ##
 
     username: admin 
