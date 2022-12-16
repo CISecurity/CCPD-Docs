@@ -49,7 +49,7 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 - [Installation Destination](#InstallDestination)
 - [Email (Optional Custom Option)](#Email)
 - [Active Directory - LDAP/S (Optional Custom Option](#LDAP)
-- [Communication Protocol - HTTP(S) Setup](#HTTP)
+- [Communication Protocol - HTTP(S) Setup](#HTTPS)
 - [Set Database Password](#DBpass)
 - [Final](#Final)
 - [Login to Dashboard](#login)
@@ -182,7 +182,7 @@ Right click on the link to open CIS-CAT Pro Dashboard.
 Depending on the communication protocol selection during installation, the CIS-CAT Pro Dashboard URL will be:
 
 - HTTP: http://localhost:8080/CCPD/
-- HTTPS: https://localhost:8080/CCPD/
+- HTTPS: https://localhost/CCPD/
 
 <a name="login"></a>
 ## Initial Dashboard Login ##
