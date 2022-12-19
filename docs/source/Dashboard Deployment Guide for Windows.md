@@ -138,7 +138,6 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 | Server | LDAP URL example: ldap://127.0.0.1:389  LDAPS URL example: ldaps://ldap.ciscat.ccp.sbp:636 |
 | Group Search Base | Base directory for group search. Example: DC=corp,DC=cisecuritytest,DC=org |
 | Group Search Filter | The pattern to be used for the user search. {0} is the user’s DN. Example: OpenLDAP: uniquemember={0} and AD: member={0} |
-| Group Search Filter | The pattern to be used for the user search. {0} is the user’s DN. Example: OpenLDAP: uniquemember={0} and AD: member={0} |
 | Group Role Attribute | The ID of the attribute which contains the role name for a group. Example: CN |
 | Search Base | Base directory for search. Example: DC=corp,DC=cisecuritytest,DC=org |
 | Search Filter | Filter expression used in search. Example: OpenLDAP: (uid={0}) or AD: sAMAccountName={0} |
