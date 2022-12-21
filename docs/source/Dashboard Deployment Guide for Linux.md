@@ -70,7 +70,7 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 <details>
   <summary>Linux Welcome (Image)</summary>
   
- ![](img/Linux_Installer_Welcome.png)
+![](img/Linux_Installer_Welcome.png)
   
 </details>
 
