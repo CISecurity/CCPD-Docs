@@ -67,7 +67,13 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 	- **Standard:** Navigates required options only for most streamlined installation. 
 	- **Custom:** Navigates required and selected optional, advanced settings. During navigation, selected optional settings can still be skipped.
 
-![](img/Linux_Installer_Welcome.png)
+<details>
+  <summary>Linux Welcome (Image)</summary>
+  
+ ![](img/Linux_Installer_Welcome.png)
+  
+</details>
+
 
 <a name="License"></a>
 ** License **

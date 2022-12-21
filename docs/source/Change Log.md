@@ -3,6 +3,7 @@
 **CIS-CAT Pro Dashboard Change Log**
 
 # 3.0.1 #
+December 21, 2022
 
 **Benchmarks**
 
@@ -33,6 +34,7 @@ The following CIS Benchmarks included in CIS-CAT Pro Dashboard have moved to end
 
 
 # 3.0.0 #
+December 12, 2022
 
 **Read our [blog to learn more about these changes](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it).**
 
