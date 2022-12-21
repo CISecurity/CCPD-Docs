@@ -2,13 +2,43 @@
 
 **CIS-CAT Pro Dashboard Change Log**
 
+# 3.0.1 #
+
+**Benchmarks**
+
+- Alma Linux 9 v1.0.0
+- Microsoft IIS 10 v1.2.0
+- Microsoft Office Enterprise v1.0.0
+- NGINX v2.0.0
+- Oracle Cloud Infrastructure Container Engine for Kubernetes(OKE) Benchmark v1.2.0
+- Oracle Linux 9 v1.0.0 
+- Red Hat OpenShift Container Platform v4 v1.3.0
+- Rocky Linux 9 v1.0.0
+
+The following CIS Benchmarks included in CIS-CAT Pro Dashboard have moved to end of life and are no longer officially supported. See the [Assessor Coverage Guide](https://ccpa-docs.readthedocs.io/en/latest/Coverage%20Guide/) for more information on CIS Benchmarks that have reached end of life.
+
+- Amazon Linux v2.0.0
+
+** Security **
+
+- Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/cp/GwThzTEn) for more information.
+
+** Application **
+
+- none
+
+** Documentation **
+
+- Updated [CIS Benchmark Support guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Benchmark%20Coverage/) with updated content
+
+
 # 3.0.0 #
 
 **Read our [blog to learn more about these changes](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it).**
 
 **Benchmarks**
 
-- See CIS Benchmark Support guide for supported CIS Benchmarks in datastream format
+- See [CIS Benchmark Support guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Benchmark%20Coverage/) for supported CIS Benchmarks in datastream format.
 
 ** Security **
 

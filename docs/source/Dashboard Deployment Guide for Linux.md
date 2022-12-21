@@ -86,9 +86,9 @@ Select the main operating system drive for installation. For most Ubuntu environ
 <a name="Email"></a>
 ** Email (Custom Option) **
 
-The email configuration information is optional and presented only if selected on the Welccome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests.
+The email configuration information is optional and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
 
-CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. By default, an unsecured mail server is assumed and configured to at `localhost` on port `25`. This can be modified by expanding the advanced properties for email setup.
+CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. Expand the advanced properties for additional email setup.
 
 <a name="LDAP"></a>
 ** Active Directory - LDAP/S (Custom Option) **
