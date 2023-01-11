@@ -471,7 +471,7 @@ Once tagged, use individual tags, or logical combinations of tags to search for 
 - **Exclude Tags** - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the "Server" tag into the Include Tags box and "PCI" into the Exclude Tags box.
 
 ## Assess a Target System ##
-The assessment features currently supports a remote assessments. For Linux, MacOS, and Cisco, the application communicates over SSH. For Microsoft Windows, the application currently only supports communication using WinRM over HTTP. This only means that the target to be assessment must have WinRM for HTTP enabled. See how to configure target endpoints with **[WinRM over HTTP](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#macos-sessions)**.
+The assessment features currently supports a remote assessments. For Linux, MacOS, and Cisco, the application communicates over SSH. For Microsoft Windows, the application currently only supports communication using WinRM over HTTP. This only means that the target to be assessment must have WinRM for HTTP enabled. See how to configure target endpoints with **[WinRM over HTTP](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#basic-endpoint-configuration-steps-for-windows-remote-assessment)**.
 
 Steps:
 
@@ -489,17 +489,17 @@ Steps:
 
 ![](img/Assess_required.png)	
 
-All values entered in the modal are the same values expected in the  CIS-CAT Pro Assessor v4 sessions.properties or assessor-config.xml files. See the [CIS-CAT Pro Assessor v4 User’s Guide](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20for%20Assessor%20Service/) for detailed information on each of the below values. The target system to be assessed must be configured to accept a remote connection and must be able to communicate with the system that hosts CIS-CAT Pro Assessor v4 Service.
+All values entered in the modal are the same values expected in the CIS-CAT Pro Assessor v4 sessions.properties or assessor-config.xml files. 
 
-None of the below information will be stored in the supporting database. It is highly recommended that CIS-CAT Pro Dashboard and CIS-CAT Pro Assessor v4 Service communicate using an HTTPS protocol due to the sensitive nature of the data transferred. 
+None of the below information will be stored in the supporting database. 
 
 - **Username:** username with elevated privileges as a root or sudo for ssh or member of Administrator's group
 - **Password:** the credentials for the above username
-- **Target System Type**: remote connection type to the target system
+- **Target System Type**: remote connection type to the target system. For Microsoft Windows, the endpoint must be configured using [WinRM for HTTP](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#basic-endpoint-configuration-steps-for-windows-remote-assessment).
 - **Port:** The port number on which the communication takes place between Assessor v4 and the target system. Auto populates with recommended remote ports.
 - **IP Address / Hostname:** Primary active IP Address or hostname that designates the location of the target system.
 - **Temporary File Path:** Optional. If specified, directory must exist on target system and above user must have read/write ability. If not specified, the default temp folder will be used.
-- **Benchmark:** Supported benchmarks for dashboard orchestration. See Assessor Service guide for more information on supported benchmarks.
+- **Benchmark:** Supported benchmarks for remote system configuration assessments. See [list of supported benchmarks](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Benchmark%20Coverage/)
 - **Profile:** List of profiles related to the selected benchmark.
 
 Once the Start Assessment button has been selected, the below message confirms that the assessment request was sent. Status can be tracked in the Job Status screen.
@@ -667,11 +667,20 @@ Navigate to "Systems Settings" and locate the `delete.assessment.start.time` and
 # Exceptions #
 Most organizations do not adopt every CIS Benchmark recommendation. Organizations often choose to accept some risk for the benefit of a functioning business environment. It is also possible that an organization may be solving a recommendation in other ways that CIS-CAT is not able to detect. CIS-CAT Pro Dashboard provides functionality to create an exception to specific rules or groups of rules on a per target system,  global (all targets for a specific benchmark), or by targets associated with user-defined tags. When an exception is applied and approved within the Dashboard exception approval process, existing configuration reports falling within the criteria will be rescored. Additionally, newly imported reports also falling within the criteria of the exception conditions will exclude the excepted result when scoring. 
 
-Exceptions are applied from within an Assessment Test Results Report for a configuration or vulnerability assessment. The `Reports` menu can assist in navigating to configuration test results. Vulnerability test results can only be shown from within a Target System record on the `Vulnerability Assessments` tab.
+Exceptions are applied from within an Assessment Test Results Report for a configuration assessment. The `Reports` menu can assist in navigating to configuration test results.
 
 Exceptions are applied to a specific CIS Benchmark published version. New exceptions must be created for each separate CIS Benchmark version.
 
-##Setup Exception Workflow##
+Navigate to the following exception topics:
+
+- [Workflow](#ExceptionWorkflow)
+- [Create](#CreateException)
+- [Approve or Reject](#ApproveRejectException)
+- [View](#ViewException)
+- [Modify](#ModifyException)
+
+<a name="ExceptionWorkflow"></a>
+**Exception Workflow**
 It is an important first step to establish an exception workflow process before exceptions are applied. The exception workflow requires that a created exception is approved by a valid user before report scores are recalculated. Approval submissions cannot be recreated or resent if the workflow is not initially setup.
 
 - Login to Dashboard as a user with `ROLE_ADMIN`
@@ -679,7 +688,8 @@ It is an important first step to establish an exception workflow process before 
 - Select `Approve or Reject Exception Request`
 - Ensure `ROLE_ADMIN` is present in `Receiving Users` and `Receiving Roles`
 
-##Create an Exception##
+<a name="CreateException"></a>
+**Create an Exception**
 
 If an exception already exists on a rule or group, the corresponding `Add Exception`/`Add Group Exception` buttons will not be present. Although it is possible to edit the `End Date` for an approved exception from a Results screen, CIS-CAT recommends following the procedure for editing an exception below. On creation, an exception will enter pending status, a task will be created for all users with ROLE_ADMIN. The task will be present in each qualifying user's Dashboard Inbox in the Task section.
 
@@ -712,8 +722,8 @@ Exceptions where the start date = end date have no effect on the configuration s
 - Select `Add Exception`	
 ![](https://i.imgur.com/I5CUmF6.png)
 
-
-##Approve or Reject an Exception
+<a name="ApproveRejectException"></a>
+**Approve or Reject an Exception**
 
 Ensure the exception workflow setup has been followed. Exceptions that are rejected will not apply to a score recalculation. Rejected exceptions must be recreated. Approved exceptions will rescore reports falling within the criteria of the exception. 
 
@@ -724,7 +734,8 @@ Ensure the exception workflow setup has been followed. Exceptions that are rejec
 - Select `Approve` or `Reject`
 
   ![](http://i.imgur.com/AOyj8Mw.png)
-	
+
+<a name="ViewException"></a>	
 **View Configuration Exceptions**
 
 Exceptions can be viewed in the following ways: 
@@ -734,8 +745,8 @@ Exceptions can be viewed in the following ways:
 - **Target System Configuration Assessment Exceptions List** - on each target systems view page in Configuration Assessments tab, note list of exceptions applicable to selected target.
 - **Configuration Assessment Exception Search** - Navigate to `Reports` menu
 	 
-
-##Modify a Configuration Exception
+<a name="ModifyException"></a>	
+**Modify Exception**
 
 Exceptions in a status of `Approved` may be edited by a user with `ROLE_ADMIN`. The exception edit does not require use of the Exception Workflow process for Approval or Rejection. Upon submission, the rescore event for reports falling within the exception's criteria are scheduled for immediate rescore. Depending on how much data is in your system, this can take some time. It is required for the exception to be associated with a Target that has a Target Primary ID.
 

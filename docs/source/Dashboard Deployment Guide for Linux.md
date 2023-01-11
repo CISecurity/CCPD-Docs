@@ -62,7 +62,8 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 3. Place the zipped file on a host server that **has not** previously had CIS-CAT Pro Dashboard or CIS-CAT Pro Assessor installed
 4. Unzip the files
 5. Launch the installer shell script from any hard drive location as `root`
-		sudo ./CIS-CAT_Pro_Dashboard_Installer.sh
+		sudo ./CCPD_unix_Installer.sh
+	- Using -c after the script name will force command line installation
 6. Select Standard or Custom Installation
 	- **Standard:** Navigates required options only for most streamlined installation. 
 	- **Custom:** Navigates required and selected optional, advanced settings. During navigation, selected optional settings can still be skipped.
