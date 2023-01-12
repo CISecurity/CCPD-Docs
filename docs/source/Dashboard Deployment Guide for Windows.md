@@ -167,23 +167,18 @@ HTTPS protocol is recommended for production use. The installation will assist i
 	- CIS-CAT Pro Assessor commands must ignore SSL warnings if importing to Dashboard via API. See [Configuration Options](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Configuration%20Options/).
 	
 - HTTPS - Organizational Certificate
+
 	- Requires port 443 availability
-	- Log in to your organization's Cert Authority and download your certificate to installationLocation\CCPD\certificates
+	- Obtain your organization's certificate from your Certificate Authority. The CIS-CAT Dashboard installation stores self-signed certificates to installationLocation\CCPD\certificates.
 	- Create certificate service request (CSR) to generate a keystore file in .jks or .p12 format
-		- Use tool of choice (Members have found this site useful](https://www.digicert.com/kb/csr-ssl-installation/tomcat-keytool.htm#create_csr_keytool) but there are many others
+		- Use tool of choice.[Some Members have found this site useful](https://www.digicert.com/kb/csr-ssl-installation/tomcat-keytool.htm#create_csr_keytool).
 		- The name of the keystore file (often referred to as common name or alias, some Members use the Fully Qualified Domain Name for this value) and `password` screen entries **must** match the CSR and what is installed into your keystore
-		- A new keystore is recommended. The CSR must come from the keystore planned for use
-	- Place generated keystore file in the Dashboard's installation certificate location
-		- In a standard installation, this will be: installationLocation\CCPD\certificates 
-	- Install certificate to keystore using the java keytool
-		- Keystore location: installationLocation\CCPD\jre\lib\security\cacerts
-		- At command prompt, navigate to keytool location: installationLocation\CCPD\jre\bin
-		- Execute:  keytool -import -alias _server_  -file installationLocation\CCPD\certificates\_organizationCert.p7b_ -keystore installationLocation\CCPD\certificates\_commonName.jks_
-			- alias = common name or the description chosen as the file name (common name ex: FQDN) utilized when generating the common name in the CSR
-			- file = the location and file name of the downloaded certificate file
-			- keystore = the location of the keystore
-	- If prompted to trust certificate, type `y` or `yes`
-	- Add certificate to java trust store. See instructions here.
+		- A new keystore is recommended. The CSR must come from the keystore planned for use.
+	- Trust the certificate utilizing the command line during/post installation or via Google Chrome post installation (see trusting the certificate)
+		- Install certificate to keystore using the java keytool
+		- Dashboard Keystore location: installationLocation\CCPD\jre\lib\security\cacerts
+		- Dashboard Keytool location: installationLocation\CCPD\jre\bin
+	- Server may need to restarted to complete incorporation
 	
 - HTTP
 	- Transmits data in clear text (typically chosen for quick startup during testing or proof of concept)
@@ -305,15 +300,4 @@ To view the details of the certificate selected to support Dashboard, select the
 ![](img/Cert_valid.png)
 
 
-To fully trust an organizational certificate issues from a certificate authority (CA) and to avoid browswer trust warnings, add the certificate to the trust store. There are a few ways to accomplish this. Below is an example:
-
-- From the `Details` tab when viewing the certificate in the browser, export the certificate in DER-encoded ASCII, single certificate format
-- At a command prompt, execute the following
-
-/ccpd/jre/bin/keytool  -import -alias ccpd -keystore /ccpd/jre/lib/security/cacerts -file SERVER.DOMAIN.com.cer
-Where :
-SERVER.DOMAIN.com.cer is your server certivicate in DER format
-/ccpd is installation folder
-
-- Restart the server to incorporate trust store
-- Enter keystore credentials at prompt.  By default, this credential is `changeit`.
+To fully trust an organizational certificate issues from a certificate authority (CA) and to avoid browswer trust warnings, add the certificate to the trust store. Ensure server is restarted to complete incorporation.
