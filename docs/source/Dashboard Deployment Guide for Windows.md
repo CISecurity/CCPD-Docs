@@ -174,7 +174,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 		- Use tool of choice. [Some Members have found this site useful](https://www.digicert.com/kb/csr-ssl-installation/tomcat-keytool.htm#create_csr_keytool).
 		- The name of the keystore file (often referred to as common name or alias, some Members use the Fully Qualified Domain Name for this value) and `password` screen entries **must** match the CSR and what is installed into your keystore
 		- A new keystore is recommended. The CSR must come from the keystore planned for use.
-	- Trust the certificate utilizing the command line during/post installation or via Google Chrome post installation (see trusting the certificate)
+	- Trust the certificate utilizing the command line during/post installation or via Google Chrome post installation. Review [Certificate Trust]( https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#https-certificate-trust).
 		- Install certificate to keystore using the java keytool
 		- Dashboard Keystore location: installationLocation\CCPD\jre\lib\security\cacerts
 		- Dashboard Keytool location: installationLocation\CCPD\jre\bin

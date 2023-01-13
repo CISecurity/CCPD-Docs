@@ -133,27 +133,43 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 <a name="HTTPS"></a>
 ** Communication Protocol - HTTP(S) Setup **
 
-CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor and optionally connect to select targets for a single, ad-hoc configuration assessment using the remote assessment features. 
+CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor. Any protocol supports use of the API imports. 
 
-Select the communication protocol that supports your organization policy. While in the initial stages of installing Dashboard as a proof of concept, you may want to select a self-signed certificate or HTTP. Changes to protocol can be done by executing the installer application any time after initial install.
+Select the communication protocol that supports your organization policy. While in a testing phase, some Members have found it useful to start quickly with HTTP. Changes to protocol can be done by executing the installer application any time after initial install.
 
-Choose from the following protocol methods:
+HTTPS protocol is recommended for production use. The installation will assist in creating a self-signed organizational certificate. It is also possible for organizations to utilize an organizational certificate. HTTPS requires port 443 to be available. The installation validates the availability of this port and will provide an alert if its unavailability is detected.
 
-- HTTPS (requires port 443 availability - alert when not available)
-	- Self-signed certificate using the installer
-		- If utilizing CIS-CAT Pro Assessor API to import reports to Dashboard, see the `Configuration Options` section of this guide to learn about ignoring SSL warnings
+**Supported protocols:**
+
+- HTTPS - Self-Signed
+	- Requires port 443 availability
+	- Certificate created using the installer
+	- Certificate stored in `certificates` folder of root installation
+	- Valid for 90 days from creation
+		- Alias (can be any description of the certificate), could place expiry date as part of description
+		- Chrome browser warns of expiration
+		- Update self-signed cert by executing installer and selecting `Update application and/or configuration settings`
+	- CIS-CAT Pro Assessor commands must ignore SSL warnings if importing to Dashboard via API. See [Configuration Options](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Configuration%20Options/).
 	
-		![](img/Linux_Installer_HTTPS_SelfSign.png)
-	
-	- Existing organization certificate
-		- Certificates must be in *.p12 or *.jks format
-		- Ensure the certificate is added to the java trust store so that it is not necessary to ignore SSL warnings (see "HTTPS Communication Protocol - Ensuring Trust with an Organizational Certificate")
-		
-		![](img/Linux_Installer_HTTPS_OrgCert.png)
-	
-	
-- HTTP (transmits data in clear text)
-	![](img/Linux_Installer_HTTP.png)
+- HTTPS - Organizational Certificate
+
+	- Requires port 443 availability
+	- Obtain your organization's certificate from your Certificate Authority. The CIS-CAT Dashboard installation stores self-signed certificates to installationLocation\CCPD\certificates.
+	- Create certificate service request (CSR) to generate a keystore file in .jks or .p12 format
+		- Use tool of choice. [Some Members have found this site useful](https://www.digicert.com/kb/csr-ssl-installation/tomcat-keytool.htm#create_csr_keytool).
+		- The name of the keystore file (often referred to as common name or alias, some Members use the Fully Qualified Domain Name for this value) and `password` screen entries **must** match the CSR and what is installed into your keystore
+		- A new keystore is recommended. The CSR must come from the keystore planned for use.
+	- Trust the certificate utilizing the command line during/post installation or via Google Chrome post installation (see trusting the certificate)
+	- Server may need to restarted to complete incorporation
+
+- HTTP
+	- Transmits data in clear text (typically chosen for quick startup during testing or proof of concept)
+	- No certificate needed
+	- CIS-CAT Pro Assessor commands must ignore SSL warnings if importing to Dashboard via API. See [Configuration Options](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Configuration%20Options/).	
+
+![](img/Linux_Installer_HTTPS_SelfSign.png)
+![](img/Linux_Installer_HTTPS_OrgCert.png)
+![](img/Linux_Installer_HTTP.png)
 
 <a name="DBpass"></a>		
 ** Set Database Password **
@@ -241,39 +257,15 @@ The Uninstaller application is located in the root directory of the original ins
 
 
 
-# HTTPS Communication Protocol - Ensuring Trust with an Organizational Certificate #
+# HTTPS Certificate Trust #
 
-In the browser's URL bar, navigate to the CIS-CAT Pro Dashboard application.  Click on the HTTPS certificate chain (next to URL address). In the Google Chrome browser, if the user sees a "Not Secure" label next to the URL, the certificate is not trusted.  Click on the "Not Secure" link to display the certificate information:
+CIS-CAT Pro Dashboard is currently only supported using Google Chrome. Other browsers may produce unexpected behaviors. Self-signed certificates will produce warnings within the browser as they are not fully trusted. Organizational certificates will receive the below warning if they have not been added to the Java trust store.
 
-- Click the "Details" link to display the "Security Overview" information.
-- Click on the "View Certificate" button to display the certificate details.
+To view the details of the certificate selected to support Dashboard, select the `Not secure` text to the left of the URL. Select 'Certificte is not valid' to review the certificate details. View the `Details` tab to view the information on the validity dates of the certificate. For self-signed certificates, the warning can be ignored by selecting `Advanced` and `Proceed to localost`. Per some organization's security policies, self-signed certificates are not permitted. 
 
-The certificate information needs to be exported, and added to the servers trust store.  On the "details" tab of the certificate information, click the "Copy to File..." button.  The "certificate export wizard" will be displayed.
+![](img/Cert_notSecure.png)
 
-- Click the "Next" button to navigate to the second screen, the export type selection:
+![](img/Cert_valid.png)
 
-Select the "DER encoded binary X.509 (.CER)" radio button.  This selection should be the default.  Click "Next" to continue.
 
-Select or browse to a location to where the `.cer` file will be saved.  Clicking "Next" and finally "Finish" to complete the wizard and save the file to the selected location/filename.  This file will need to be transferred via SCP, S/FTP to the application server hosting the CIS-CAT Pro Dashboard application.  Note the location to which the file is transferred.  
-
-**Importing the certificate into the java trust store**
-
-To POST reports to Dashboard from Assessor using the `POST Reports to URL` option with HTTPS, a certificate must be imported to the java trust store.
-
-- JRE exists within /_installationDirectory_/jre/bin/
-- Note the location of the `cacerts` file prior to importing certificate to `keytool`
-- Use java `keytool` application to import the certificate:
-
-   	 	# Navigate to the $JAVA_HOME folder's bin directory
-   		 cd /_installationDirectory_/jre/bin/
-     
-   	 	# Execute keytool
-    	sudo keytool -import -alias ccpd -keystore jre/lib/security/cacerts -file /_installationDirectory_/CCPD/certificates/_alias_.jks
-
-- Enter keystore credentials at prompt.  By default, this credential is `changeit`.
-- Answer `yes` to import the certificate into the trust store
- 		
-		# The user will be asked for confirmation
-    	Trust this certificate? [no]:
-
-- Restart the server to incorporate trust store
+To fully trust an organizational certificate issues from a certificate authority (CA) and to avoid browswer trust warnings, add the certificate to the trust store. Ensure server is restarted to complete incorporation.
