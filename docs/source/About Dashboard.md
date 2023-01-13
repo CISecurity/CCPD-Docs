@@ -102,54 +102,83 @@ CIS-CAT Pro Dashboard version 3.x requires a new installation. It is not possibl
 ------------------------------
 ## Version 3 FAQ ##
 
+- [Why use CIS-CAT Pro Dashboard?](#whyuse)
+- [Can I use my existing Dashboard v2 server for an installation of Dashboard v3?](#existing)
+- [Will CIS-CAT Pro Dashboard v2 continue to be supported?](#existing)
+- [How do I move my history to the new version?](#migratedata)
+- [Is version 3 easier to install?](#ease)
+- [How will version 3 protect my database?](#protect)
+- [Do I need a license?](#license)
+- [What components are embedded? Are substitutions allowed?](#embed)
+- [Is Active Directory supported?](#ad)
+- [Has the interface changed?](#interface)
+- [Can I store all my data in Dashboard v3?](#datamount)
+- [Are vulnerability assessments supported?](#vuln)
+- [Does the installation support IIS?](#iis)
+
+
+
+<a name="whyuse"></a>
 **Why should I use CIS-CAT Pro Dashboard?**
 
 CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard serves as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. Its main purpose is the view configuration assessment report averages over the short term. Graphical representations of automated configuration assessment scores for a time span less than 2 years (18 months recommended) provides security teams a quick view on current cyber configuration health. The Dashboard is intended to support organizational focus and action on the current cyber configuration posture of systems supporting  business operations. Export HTML formatted reports to share with security teams as they make decisions and plan remediation or exception on CIS Benchmark recommendations. Apply exceptions where risk is accepted or resolved in other ways and improve configuration assessment scores. Receive alerts on newly imported result scores that deviate beyond a user-defined threshold from previous results.
 
+<a name="existing"></a>
 **Can I install Dashboard v3.0.0 on my existing Dashboard server?**
 
 No. We do not recommend this. Some services and port may conflict. We recommend a new server that has not had CIS-CAT Pro Dashboard previously installed on it.
 
+<a name="support"></a>
 **Will CIS continue to support CIS-CAT Pro Dashboard 2.x?**
 
-No. CIS has deprecated CIS-CAT Pro Dashboard 2.x series. 
+No. CIS has deprecated CIS-CAT Pro Dashboard 2.x series. See our [knowledge base article](https://cisecurity.atlassian.net/l/cp/tL0N17rA).
 
+<a name="migratedata"></a>
 **I’m using CIS-CAT Pro Dashboard 2.x version series. How do I move my historical assessment data to CIS-CAT Pro Dashboard 3.x version?**
 
 The latest Dashboard is not backwards compatible. It is not possible for Assessor to authenticate with more than one Dashboard. Organizations may start fresh with Dashboard v3.0.0. It may be possible to operate two instances of an Assessor authenticated with each Dashboard version, the old (2.x) and new (3.0), until your organization is ready to migrate to the latest version 3.0.0. The latest Dashboard’s best use case is as a current or recent past view of assessment data vs. a several year history. We have changed the structure of the stored data and will not be able to migrate data from the prior versions of Dashboard. It may be possible to import configuration assessment XML ARF format reports if you have them by dropping them into the “…CCPD\ccpd_imports\input“ folder manually.
 
+<a name="ease"></a>
 **In my opinion, CIS-CAT Pro Dashboard 2.x was difficult to install, will this version be easier to install and upgrade? **
 
 YES! CIS-CAT Pro Dashboard 3.x includes an enhanced installer application and will install or update all necessary components of CIS-CAT Pro Dashboard. Optional components are not supported. The latest dashboard application embeds all necessary components including Apache Tomcat, MariaDB, and openJDK. You don’t need to be an expert at multiple applications to run CIS-CAT Pro Dashboard. To ease your onboarding and upgrading challenges, we’ll manage the base configuration for you! 
 
+<a name="protect"></a>
 **Will CIS-CAT Pro Dashboard 3.x protect my database?**
 
 Yes. The CIS-CAT Pro Dashboard 3.x will update the configuration information during the installation and upgrade. As part of the installation, supporting configuration information such as database passwords will have more strict permissions. For example, on a Microsoft Windows machine, general “User” Groups will be prohibited from accessing the configuration file. Additionally, it is possible to configure the communication protocol of HTTPS.
 
+<a name="license"></a>
 **Do I need a license key to operate CIS-CAT Pro Dashboard 3.x?**
 
 Yes. CIS-CAT Pro Dashboard 3.x now includes embedded configuration assessment functions along with current, select supported CIS Benchmark automated content. Update your organization’s license as part of the installation or upgrade process. This is the same license utilized for all CIS SecureSuite products and is available from the CIS WorkBench under your organization’s profile. 
 
+<a name="embed"></a>
 **What major components will be embedded and how will CIS keep them up to date? Can I substitute different components such as a different database?**
 
 CIS-CAT will embed the latest version of openJDK 11, MariaDB 10.6.8, and Apache Tomcat 9. CIS-CAT will upgrade these versions as needed as part of Dashboard releases. CIS-CAT will not support substitutions for these embedded components. 
 
+<a name="ad"></a>
 **Will Dashboard 3.x support Active Directory and LDAP and LDAPS?**
 
 Yes. The latest version of Dashboard supports AD for LDAP and LDAPS.
 
+<a name="interface"></a>
 **Has the user interface changed with Dashboard v3.0.0?**
 
 No. The user interface is the same with the exception of removal of vulnerability features and functions. CIS-CAT Pro Dashboard as well as CIS-CAT Pro Assessor will drop support for vulnerability assessments, as this feature isn't widely used among Members.
 
+<a name="datamount"></a>
 **Can I use Dashboard to store all my historical assessment data?**
 
 Members should not view Dashboard as an application that stores many years of data. CIS recommends storing less than 2 years of data. CIS recommends using Dashboard to view current and most recent configuration states. 
 
+<a name="vuln"></a>
 **Will Vulnerability Assessments be supported in CIS-CAT Pro Dashboard 3.x?**
 
 No. CIS will deprecate the CIS-CAT Pro Dashboard and CIS-CAT Pro Assessor functionality that supports importing and viewing vulnerability assessment data. CIS-CAT will focus on configuration assessment data analysis.
 
+<a name="iis"></a>
 **Will Dashboard 3.x support IIS?**
 
 No. At this time, CIS will not support installations with Microsoft IIS.

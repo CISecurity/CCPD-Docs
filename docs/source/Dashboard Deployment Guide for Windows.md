@@ -171,7 +171,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 	- Requires port 443 availability
 	- Obtain your organization's certificate from your Certificate Authority. The CIS-CAT Dashboard installation stores self-signed certificates to installationLocation\CCPD\certificates.
 	- Create certificate service request (CSR) to generate a keystore file in .jks or .p12 format
-		- Use tool of choice.[Some Members have found this site useful](https://www.digicert.com/kb/csr-ssl-installation/tomcat-keytool.htm#create_csr_keytool).
+		- Use tool of choice. [Some Members have found this site useful](https://www.digicert.com/kb/csr-ssl-installation/tomcat-keytool.htm#create_csr_keytool).
 		- The name of the keystore file (often referred to as common name or alias, some Members use the Fully Qualified Domain Name for this value) and `password` screen entries **must** match the CSR and what is installed into your keystore
 		- A new keystore is recommended. The CSR must come from the keystore planned for use.
 	- Trust the certificate utilizing the command line during/post installation or via Google Chrome post installation (see trusting the certificate)
@@ -291,7 +291,7 @@ The Uninstaller application is located in the root directory of the original ins
 
 # HTTPS Certificate Trust #
 
-CIS-CAT Pro Dashboard is currently only supported using Google Chrome. Other browsers may produce unexpected behaviors. Self-signed certificates will produce warnings within the browser as they are not fully trusted. Organizational certificates will receive this warning if they have not been added to the Java trust store.
+CIS-CAT Pro Dashboard is currently only supported using Google Chrome. Other browsers may produce unexpected behaviors. Self-signed certificates will produce warnings within the browser as they are not fully trusted. Organizational certificates will receive the below warning if they have not been added to the Java trust store.
 
 To view the details of the certificate selected to support Dashboard, select the `Not secure` text to the left of the URL. Select 'Certificte is not valid' to review the certificate details. View the `Details` tab to view the information on the validity dates of the certificate. For self-signed certificates, the warning can be ignored by selecting `Advanced` and `Proceed to localost`. Per some organization's security policies, self-signed certificates are not permitted. 
 
