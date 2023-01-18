@@ -300,4 +300,4 @@ To view the details of the certificate selected to support Dashboard, select the
 ![](img/Cert_valid.png)
 
 
-To fully trust an organizational certificate issues from a certificate authority (CA) and to avoid browswer trust warnings, add the certificate to the trust store. Ensure server is restarted to complete incorporation.
+To fully trust an organizational certificate issues from a certificate authority (CA) and to avoid browser trust warnings, add the certificate to the trust store. Ensure server is restarted to complete incorporation.

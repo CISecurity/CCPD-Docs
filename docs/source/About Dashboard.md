@@ -75,8 +75,8 @@ Embedded components alleviates the challenges of requiring expertise in various 
 The installation application must be used to complete all install, upgrade, and installation modifications.
 The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
 
-- MariaDB
-- CCPD Windows
+- MariaDB (Linux: mariadbd.service in systemctl)
+- CCPD Windows (Linux: CIS-CAT_Pro_Dashboard.service in systemctl)
 	
 By default the installation will be placed C:\Program Files\CCPD (Microsoft Windows) or /usr/local/CCPD (Ubuntu Linux). CIS recommends modifying contents and structure using only the installer as the upgrade or install process may fail. See below for additional notes on notable sections of the installation. 
 
