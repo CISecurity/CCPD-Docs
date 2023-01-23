@@ -160,6 +160,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 		- The name of the keystore file (often referred to as common name or alias, some Members use the Fully Qualified Domain Name for this value) and `password` screen entries **must** match the CSR and what is installed into your keystore
 		- A new keystore is recommended. The CSR must come from the keystore planned for use.
 	- Trust the certificate utilizing the command line during/post installation or via Google Chrome post installation (see trusting the certificate)
+	- Ensure to specify a list of names covered by the SSL certificate in the Subject Alternative Name (SAN) in Google Chrome
 	- Server may need to restarted to complete incorporation
 
 - HTTP

@@ -199,6 +199,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 		- Install certificate to keystore using the java keytool
 		- Dashboard Keystore location: installationLocation\CCPD\jre\lib\security\cacerts
 		- Dashboard Keytool location: installationLocation\CCPD\jre\bin
+	- Ensure to specify a list of names covered by the SSL certificate in the Subject Alternative Name (SAN) in Google Chrome
 	- Server may need to restarted to complete incorporation
 	
 - HTTP
