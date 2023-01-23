@@ -118,9 +118,10 @@ LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will 
 LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE_USER) by default along with LDAP Roles.
 
 **Setup LDAP Structure**
-- Create all **mandatory** and **uppercase** user group names (CCPD_API needed for token generation for Assessor integration)
-	_deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin_
 
+Deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin.
+
+- Create all **mandatory** and **uppercase** user group names (CCPD_API needed for token generation for Assessor integration)
 	- `CCPD_ADMIN`
 	- `CCPD_API
 	- `CCPD_USER`
