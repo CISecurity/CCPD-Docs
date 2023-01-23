@@ -123,7 +123,7 @@ Deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin.
 
 - Create all **mandatory** and **uppercase** user group names (CCPD_API needed for token generation for Assessor integration)
 	- `CCPD_ADMIN`
-	- `CCPD_API
+	- `CCPD_API`
 	- `CCPD_USER`
 - Create the following **mandatory** users
 	- `apiuser`
