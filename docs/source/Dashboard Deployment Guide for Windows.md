@@ -100,7 +100,7 @@ Select the main operating system drive for installation. For most Microsoft Wind
 <a name="Email"></a>
 ** Email (Custom Option) **
 
-The email configuration information is optional and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
+The email configuration information is optional (NOT REQUIRED) and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is required for self-service "forgot password" requests. Self-service password reset is not a required functionality as password resets can be managed by a system administrator. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
 
 CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. Expand the advanced properties for additional email setup.
 
@@ -111,15 +111,35 @@ CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers
 <a name="LDAP"></a>
 ** Active Directory - LDAP/S (Custom Option) **
 
-LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
+LDAP server structure setup is **REQUIRED** before configuring LDAP in the Dashboard.
+
+LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. Once LDAP/AD is integrated, the database authentication will be disabled and the "Reset password" button will not be present. 
 
 LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE_USER) by default along with LDAP Roles.
 
-**Requirements for LDAP/AD setup on system:**
+**Setup LDAP Structure**
+- Create all **mandatory** and **uppercase** user group names (CCPD_API needed for token generation for Assessor integration)
+	_deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin_
 
-- Email address is required to contain a valid value
-- Group name must be uppercase
-- Must contain a user called api user to support token generation
+	- `CCPD_ADMIN`
+	- `CCPD_API
+	- `CCPD_USER`
+- Create the following **mandatory** users
+	- `apiuser`
+	- `admin`
+- Verify user information
+	- User name must include: firstname (given or firstname), lastname (sn or surname) and email
+	- Email is required and must be a valid value for an email-based AD
+	- Ensure "User must change password on next logon" is NOT selected
+	- Where users were previously created in the CCPD program before the LDAP integration, ensure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name")
+- Assign created users to groups created above
+	- `apiuser` assigned to CCPD_API group
+	- `admin` assigned to `CCPD_ADMIN` and `CCPD_USER` group
+	- See [Roles](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20User's%20Guide/#user-management) in the CIS-CAT Pro Dashboard User Guide to determine which group users should be assigned to
+		- All users will have at least `Read` access to the majority of functions of Dashboard
+		- Admin users will be able to access settings and have ability to delete or update select information
+
+![](img/ActiveDirectory.png)
 
 **Additional Requirements for LDAPS**
 
