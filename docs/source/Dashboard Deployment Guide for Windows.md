@@ -6,6 +6,12 @@
 
 The following environment characteristics are required.
 
+- [Server](#server)
+- [Browser](#browser)
+- [Traffic and Ports](#traffic)
+- [Other considerations](#other)
+
+<a name="server"></a>
 **Server**
 
 - A single Microsoft Windows Server 2016 or 2019
@@ -19,12 +25,14 @@ The application does not heavily utilize processor and memory. Assessment result
 
 CIS utilizes a Microsoft Windows Server 2019 testing environment in AWS t2.large instance (designed for burst processing).
 
+<a name="browser"></a>
 **Browser**
 
 - Google Chrome
 
 Other browsers maybe produce unexpected behavior.
 
+<a name="traffic"></a>
 **Traffic and Ports**
 
 - Port 3306 is available for Maria database installation
@@ -37,11 +45,18 @@ If utilizing LDAP/LDAPS/AD, refer to the installation steps in this section for 
 
 The installation process will verify that certain ports are open and available. If you receive a message regarding port availability, please verify the availability of the notified ports.
 
-**Other**<br>
+<a name="other"></a>
+**Other Considerations**<br>
 
-- No other applications present requiring system-installed Java runtime environment (JRE)
-	- Including CIS-CAT Pro Assessor
-- The main operating system drive must be selected for installation
+_No other applications present requiring system-installed Java runtime environment (JRE)._
+
+CIS-CAT Pro Dashboard v3 deploys with embedded openJDK and sets the Java Home variable on the host system. If other applications require a system installed Java (like CIS-CAT Assessor), the additional application may not function. CIS-CAT Pro Assessor will offer embedded Java for all operating systems in Q1 2023. If you are utilizing a version of CIS-CAT that contains the embedded Java then this will not cause a Java conflict. 
+
+_Additional host system memory and processing resources may be needed when Dashboard host also hosts CIS-CAT Assessor._
+
+If you have determined that there is no Java conflict, the host system's resources must also be considered if the system will host CIS-CAT Pro Assessor and Dashboard. CIS-CAT Pro Dashboard includes an embedded Apache Tomcat and Maria Database. Recommended server resources are 2 vCPUs (4 cores each), 10 GB of free disk space, and 8GB of RAM. Should this host server also host CIS-CAT Assessor or other applications, additional power and memory may be needed. Additionally, it is best practice for a host server containing a web application to only host the application it supports.
+
+ 
 
 ------------------
 

@@ -3,8 +3,15 @@
 ------------------------------
 # Environment Requirements #
 
+- [Server](#server)
+- [Browser](#browser)
+- [Traffic and Ports](#traffic)
+- [Other considerations](#other)
+
+
 The following environment characteristics are required.
 
+<a name="server"></a>
 **Server**
 
 - A single Ubuntu 20.04 server
@@ -16,13 +23,14 @@ The following environment characteristics are required.
 
 The application does not heavily utilize processor and memory. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
 
-
+<a name="browser"></a>
 **Browser**
 
 - Google Chrome
 
 Other browsers maybe produce unexpected behavior.
 
+<a name="traffic"></a>
 **Traffic and Ports**
 
 - **Internet available on the server during installation***
@@ -32,11 +40,16 @@ Other browsers maybe produce unexpected behavior.
 
 \* Ubuntu 20.04 must have certain packages installed. **Internet is required** at the time of initial installation so the correct packages can be confirmed. The internet connection can be disabled after installation.
 
-**Other**
+<a name="other"></a>
+**Other Considerations**<br>
 
-- No other applications present requiring system-installed Java runtime environment (JRE)
-	- Including CIS-CAT Pro Assessor
-- The main operating system drive must be selected for installation
+_No other applications present requiring system-installed Java runtime environment (JRE)._
+
+CIS-CAT Pro Dashboard v3 deploys with embedded openJDK and sets the Java Home variable on the host system. If other applications require a system installed Java (like CIS-CAT Assessor), the additional application may not function. CIS-CAT Pro Assessor will offer embedded Java for all operating systems in Q1 2023. If you are utilizing a version of CIS-CAT that contains the embedded Java then this will not cause a Java conflict. 
+
+_Additional host system memory and processing resources may be needed when Dashboard host also hosts CIS-CAT Assessor._
+
+If you have determined that there is no Java conflict, the host system's resources must also be considered if the system will host CIS-CAT Pro Assessor and Dashboard. CIS-CAT Pro Dashboard includes an embedded Apache Tomcat and Maria Database. Recommended server resources are 2 vCPUs (4 cores each), 10 GB of free disk space, and 8GB of RAM. Should this host server also host CIS-CAT Assessor or other applications, additional power and memory may be needed. Additionally, it is best practice for a host server containing a web application to only host the application it supports.
 
 # Installation Instructions #
 
@@ -61,7 +74,7 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 2. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
 3. Place the zipped file on a host server that **has not** previously had CIS-CAT Pro Dashboard or CIS-CAT Pro Assessor installed
 4. Unzip the files
-5. Launch the installer shell script from any hard drive location as `root`
+5. Launch the installer shell script from any hard drive location as a user with `sudo` privileges
 		sudo ./CCPD_unix_Installer.sh
 	- Using -c after the script name will force command line installation
 6. Select Standard or Custom Installation
