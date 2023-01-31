@@ -158,6 +158,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 	- Requires port 443 availability
 	- Certificate created using the installer
 	- Certificate stored in `certificates` folder of root installation
+	- Certificate password does NOT contain an @ or $ character
 	- Valid for 90 days from creation
 		- Alias (can be any description of the certificate), could place expiry date as part of description
 		- Chrome browser warns of expiration

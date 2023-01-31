@@ -3,7 +3,7 @@
 
 CIS Benchmark Coverage
 ----------------------
-CIS-CAT Pro supports remote configuration assessment for a single system. The CIS-CAT Pro Dashboard is packaged with CIS Benchmark automated assessment content. CIS-CAT Pro Dashboard supports automated assessment content in datastream format only. Some CIS Benchmarks currently are not offered in this format. See below for the list of CIS Benchmark automated assessment content supported in the latest version of CIS-CAT Pro Dashboard. 
+CIS-CAT Pro supports remote configuration assessment for a single system. The CIS-CAT Pro Dashboard is packaged with CIS Benchmark automated assessment content. CIS-CAT Pro Dashboard supports automated assessment content in **datastream format** only. Some CIS Benchmarks currently are not offered in this format. See below for the list of CIS Benchmark automated assessment content supported in the latest version of CIS-CAT Pro Dashboard. 
 
 For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is required to be current with service pack updates in order for the assessment to process without error.
 
@@ -79,5 +79,8 @@ For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is
 - **Ubuntu Linux 22.04 LTS v1.0.0**
 
 
+##Data Stream Format
 
+CIS-CAT Pro Dashboard is designed to assess with CIS Benchmark automated assessment content that is in conformance with the Security Content Automation Protocol (SCAP). The Dashboard  supports tailored and CIS official content. All automated assessment files exist in the content directory of the CIS-CAT installation location. Dashboard only accepts datastream collection files (files that end in the -collection.xml). This is an all-in-one OVAL file format that combines all of the file types (including sce scripts) into a single file. The datastream format can be obtained from the DATASTREAM folder of an exported forked benchmark. See an example CIS Benchmark below. Non-datastream files will appear as blank rows in the assess popup window.
 
+![](img/datastream.png)
