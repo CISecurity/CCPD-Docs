@@ -3,15 +3,15 @@ site_name: CIS-CAT Pro Dashboard Document Library
 nav:
     - Home: index.md
     - Source:      
-        - 1. Change Log: source/Change Log.md
-        - 2. About: source/About Dashboard.md
-        - 3. SecureSuite License: source/SecureSuite License.md
-        - 4. Installation - Windows: source/Dashboard Deployment Guide for Windows.md
-        - 5. Installation - Linux: source/Dashboard Deployment Guide for Linux.md
-        - 6. CIS Benchmark Support: source/Benchmark Coverage.md
+        - 1. About: source/About Dashboard.md
+        - 2. User Guide: source/Dashboard User's Guide.md
+        - 3. Quick Start: source/Quick Start.md
+        - 4. SecureSuite License: source/SecureSuite License.md
+        - 5. Installation - Windows: source/Dashboard Deployment Guide for Windows.md
+        - 6. Installation - Linux: source/Dashboard Deployment Guide for Linux.md
         - 7. Configuration Options: source/Configuration Options.md
-        - 8. User Guide: source/Dashboard User's Guide.md
-        - 9. Quick Start: source/Quick Start.md
+        - 8. CIS Benchmark Support: source/Benchmark Coverage.md
+        - 9. Change Log: source/Change Log.md
         - 10. Archive V2 Linux Install: source/DeploymentGuideLinux.md
         - 11. Archive V2 Windows Install: source/DeploymentGuideWindows.md
         - 12. Archive V2 User Guide: source/DashUserGuideOld.md

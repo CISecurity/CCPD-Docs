@@ -306,6 +306,17 @@ Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an e
 
 If you are unsuccessful, collect logs that have been generated for you and open a support ticket. See further information below.
 
+**Below are some error messages that may be received:**
+
+- An error occurred starting up the CCPD Windows and/or MariaDB services. CCPD Windows is not working as intended.
+	- CCPD Windows service isn't running after 10 minutes of waiting.
+- An error occurred starting up the CCPD Windows and/or MariaDB services. MariaDB is not working as intended.
+	- MariaDB service isn't running after 10 minutes of waiting.
+- An error occurred starting up the CCPD Windows and/or MariaDB services. CCPD Windows is not working as intended. MariaDB is not working as intended.
+	- CCPD Windows service and MariaDB service aren't running after 10 minutes of waiting.
+
+![](img/Installer_Error.png)
+
 
 ** Obtaining Installer Logs **
 

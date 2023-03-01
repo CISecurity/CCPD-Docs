@@ -70,6 +70,20 @@ Embedded components alleviates the challenges of requiring expertise in various 
 
 ------------------------
 
+## Security ##
+
+CIS-CAT team utilizes best efforts to ensure that the CIS-CAT product are free from material vulnerabilities resulting from integrated third-party libraries with continuous use of  monitoring tools as part of the software build process. 
+The Center for Internet Security performs annual penetration testing on eligible software products, which includes CIS-CAT. CIS-CAT mitigates risks with recommended solutions associated with penetration test findings assessed at and above a Medium.
+
+The Center for Internet Security product engineering practices are SOC 2 certified.
+SOC 2 is a voluntary compliance standard for service organizations, developed by the American Institute of CPAs (AICPA), which specifies how organizations should manage customer data. The standard is based on the following Trust Services Criteria: security, availability, processing integrity, confidentiality, privacy.
+
+CIS-CAT's engineering team is populated with individuals educated and certified in cyber security best practices.
+The Center for Internet for Security develops cyber security best practices with our global community of cybersecurity experts. We implement these best practices within the organization. 
+
+
+------------------------
+
 ## Installation Overview ##
 
 The installation application must be used to complete all install, upgrade, and installation modifications.

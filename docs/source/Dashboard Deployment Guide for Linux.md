@@ -74,6 +74,9 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 2. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
 3. Place the zipped file on a host server that **has not** previously had CIS-CAT Pro Dashboard or CIS-CAT Pro Assessor installed
 4. Unzip the files
+5. Navigate to the directory where the installer is located.
+6. Apply execute permission for the script as a user with `sudo` privileges
+		sudo chmod +x CCPD_unix_Installer.sh 
 5. Launch the installer shell script from any hard drive location as a user with `sudo` privileges
 		sudo ./CCPD_unix_Installer.sh
 	- Using -c after the script name will force command line installation
@@ -249,11 +252,19 @@ The installer will detect a previous installation and prompt to update only the 
 
 Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an error.
 
-- **Check Services:** Verify that `MariaDB` and `CCPD Windows` are started; start them if needed and try again after a few minutes.
+- **Check Services:** Verify that `MariaDB` and `CIS-CAT Pro Dashboard` are started; start them if needed and try again after a few minutes.
 - **Retry Installer:** Close and re-launch CCPD Installer. The installer will guide you through any necessary configuration.
 
 If you are unsuccessful, collect logs that have been generated for you and open a support ticket. See further information below.
 
+**Below are some error messages that may be received:**
+
+- An error occurred starting up the CIS-CAT Pro Dashboard and/or MariaDB services. CIS-CAT Pro Dashboard is not working as intended.
+	- CIS-CAT Pro Dashboard service isn't running after 10 minutes of waiting.
+- An error occurred starting up the CIS-CAT Pro Dashboard and/or MariaDB services. MariaDB is not working as intended.
+	- MariaDB service isn't running after 10 minutes of waiting.
+- An error occurred starting up the CIS-CAT Pro Dashboard and/or MariaDB services. CIS-CAT Pro Dashboard is not working as intended. MariaDB is not working as intended.
+	- CIS-CAT Pro Dashboard service and MariaDB service aren't running after 10 minutes of waiting.
 
 ** Obtaining Installer Logs **
 

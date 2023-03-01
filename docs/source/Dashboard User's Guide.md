@@ -345,13 +345,12 @@ If utilizing a self-signed certificate, you must select the "Ignore SSL Warnings
 
 To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro Dashboard the following options are used:
 
-	-arf : This option indicates that CIS-CAT will generate the Asset Reporting Format (ARF) results
-	-n   : This option indicates that CIS-CAT should NOT generate the HTML report
+	-nrf : This option indicates that CIS-CAT shoud not generatean Asset Reporting Format (ARF) results
 	-u   : This option allows users to specify the URL to which ARF reports will be uploaded.  This is the CIS-CAT Pro Dashboard URL
 	-ui  : This optional argument allows users to ignore any certificate warnings/errors when connecting to the CIS-CAT Pro Dashboard URL
 	 
-	For example, assessing and uploading the Windows 7 Benchmark would look like:
-	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_7_Benchmark_v3.0.0-xccdf.xml -arf -n -u http://myapp.example.org/CCPD/api/reports/upload -ui
+	For example, assessing and uploading the Microsoft Windows 10 Benchmark would look like:
+	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_10_Enterprise_Benchmark_v1.12.0-xccdf.xml -nrf -u http://myapp.example.org/CCPD/api/reports/upload -ui
  
 
 Target Systems
