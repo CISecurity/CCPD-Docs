@@ -238,6 +238,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 
 - Minimum 8 characters
 - Contains at least one character in `!#$%^`
+- Does not start with a character
 - Contain a number
 - Does NOT contain any special characters other than `!#$%^`
 

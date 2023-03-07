@@ -2,9 +2,6 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
 
-# Quick Start Guides
-------------
-
 CIS Product Support has created Quick Start Guides for frequent support topics regarding CIS-CAT Pro Dashboard v3.
 
 # Assessments
