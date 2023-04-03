@@ -18,12 +18,13 @@ For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is
 - **Apple macOS 12.0 Monterey v2.0.0**
 - **Apple macOS 13.0 Ventura v1.0.0**
 - **Azure Compute Microsoft Windows Server 2019 v1.0.0**
+- **Azure Compute Microsoft Windows Server 2022 v1.0.0**
 - **Azure Kubernetes Service (AKS) v1.2.0**
 - **CentOS Linux 6 v3.0.0**
 - **CentOS Linux 7 v3.1.2**
 - **Cisco IOS 15 v4.1.1**
-- **Cisco IOS 16 v1.1.2**
-- **Cisco IOS 17 v1.0.0**
+- **Cisco IOS 16 v2.0.0**
+- **Cisco IOS 17 v2.0.0**
 - **Debian Family Linux v1.0.0**
 - **Debian Linux 9 v1.0.1**
 - **Debian Linux 10 v1.0.0**
@@ -35,14 +36,15 @@ For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is
 - **Google Kubernetes Engine (GKE) v1.3.0**
 - **Kubernetes V1.20 Benchmark v1.0.1**
 - **Kubernetes V1.23 Benchmark v1.0.1**
-- **Kubernetes 1.24 v1.0.0**
+- **Kubernetes v1.7.0**
 - **Microsoft Edge Benchmark v1.1.0**
 - **Microsoft IIS 10 Benchmark v1.2.0**
 - **Microsoft Office Enterprise v1.0.0**
 - **Microsoft Intune for Windows 10 v1.1.0**
-- **Microsoft Windows 10 Enterprise v1.12.0**
+- **Microsoft Intune for Windows 11 v1.0.0**
+- **Microsoft Windows 10 Enterprise v2.0.0**
 - **Microsoft Windows 10 Stand-alone v1.0.1**
-- **Microsoft Windows 11 Enterprise v1.0.0**
+- **Microsoft Windows 11 Enterprise v2.0.0**
 - **Microsoft Windows 11 Stand-alone v1.0.0**
 - **Microsoft Windows Server 2008 (non-R2) v3.1.0**
 - **Microsoft Windows Server 2008 R2 v3.3.0**

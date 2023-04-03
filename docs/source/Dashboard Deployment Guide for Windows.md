@@ -119,7 +119,7 @@ The email configuration information is optional (NOT REQUIRED) and presented onl
 
 CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. Expand the advanced properties for additional email setup.
 
-**Gmail Example**
+**Example**
 
 ![](img/Installer_EmailConfig.png)
 
@@ -341,13 +341,39 @@ The Uninstaller application is located in the root directory of the original ins
 
 # HTTPS Certificate Trust #
 
-CIS-CAT Pro Dashboard is currently only supported using Google Chrome. Other browsers may produce unexpected behaviors. Self-signed certificates will produce warnings within the browser as they are not fully trusted. Organizational certificates will receive the below warning if they have not been added to the Java trust store.
+CIS-CAT Pro Dashboard is currently only supported using Google Chrome. Other browsers may produce unexpected behaviors. 
 
-To view the details of the certificate selected to support Dashboard, select the `Not secure` text to the left of the URL. Select 'Certificte is not valid' to review the certificate details. View the `Details` tab to view the information on the validity dates of the certificate. For self-signed certificates, the warning can be ignored by selecting `Advanced` and `Proceed to localost`. Per some organization's security policies, self-signed certificates are not permitted. 
+**About Certificates for Dashboard**
+
+Self-signed certificates will produce a trust warning within the browser. The warning can be ignored by selecting `Advanced` and `Proceed to localost` from within the browser. Per some organization's security policies, self-signed certificates are not permitted and an organization must utilize a certificate trusted by a public or private certificate authority. While both a self-signed and organizational certificate do assist in protecting incoming assessment data, it will be up to your organization on whether the browser warnings are acceptable or not.
+
+By default, the Dashboard URL will publish as localhost. Utilizing a public or private organizational certificate is an optional way of allowing others within your organization to access the URL. See below more information on validated certificates.
+
+**Certificates Validated by Certificate Authority**
+
+To enable others to access the application outside of the localhost, a certificate issued by a public or private Certificate Authority (CA) would be the best approach. With this, you would be able to associate a different FQDN of your choosing that would be accessible to others. Organizations can also choose not to purchase a publicly validated certificate and setup a private certificate authority.
+
+Organizations should publish a DNS record that matches the subject alternative name (common name attribute is deprecated), which will be the FQDN. The DNS name is selected by the organization. It’s possible to use an IP address to the subject alternative name, however, if the IP changes, a new certificate would need to be generated.
+
+It is possible to utilize the IP of the host server, but utilizing an organizational certificate is a good approach to avoid exposing the IP of the host server. Using a certificate is best practice as it ensures you are accessing the correct page and avoids “man in the middle” and cache poisoning attempts.
+
+It is an organization’s preference whether to purchase a certificate from a public Certificate Authority (CA) such as Digicert. Most organization’s have access to a public CA when they have a website. Certificates allow the organization’s website to be automatically trusted by various browsers.
+
+Organization’s may also choose to maintain a private certificate authority. This certificate will be validated over a corporate/VPN internal network. This is a good approach for an internal application that an organization wants to trust. If this approach is pursued, the certificate still must be added to the trust store/keychain.
+
+When testing access to a webserver, it’s helpful to use the FQDN from the host to ensure it is working. Try pinging the site and flushing the DNS after any changes.
+
+For example, a server can have the hostname web on the domain acme.org and there's an A record for web.acme.org with the IP address 1.2.3.4. You can create a CNAME DNS record that uses web.acme.org and set an alias to something else like website.acme.com and the cert is valid as long as it matches up with website.acme.com.
+
+**View the Certificate Details**
+
+- Select the `Not secure` text to the left of the URL
+- Select 'Certificte is not valid' 
+- View the `Details` tab to view the information on the validity dates of the certificate. 
 
 ![](img/Cert_notSecure.png)
 
 ![](img/Cert_valid.png)
 
 
-To fully trust an organizational certificate issues from a certificate authority (CA) and to avoid browser trust warnings, add the certificate to the trust store. Ensure server is restarted to complete incorporation.
+To fully trust and avoid browser warnings, an organizational certificate issued from a private or public certificate authority (CA) should be added to the trust store. 

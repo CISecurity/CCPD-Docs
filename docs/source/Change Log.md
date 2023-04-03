@@ -2,6 +2,42 @@
 
 **CIS-CAT Pro Dashboard Change Log**
 
+# 3.1.0 #
+March 30, 2023
+
+**Benchmarks**
+
+- Azure Compute Microsoft Windows Server 2022 v1.0.0
+- Cisco iOS 16 v2.0.0
+- Cisco iOS 17 v2.0.0
+- Kubernetes v1.7.0
+- Microsoft Windows 10 Enterprise v2.0.0
+- Microsoft Windows 11 Enterprise v2.0.0
+- Microsoft Windows 11 for Intune v1.0.0
+
+**Security**
+
+- Resolved security vulnerabilities present in embedded, third party dependency, tomcat-embed-core and tomcat-embed-websocket. This library has moved to version 9.0.73.
+- Resolved security vulnerabilities present in the Commons-fileupload embedded, third party library.
+
+
+**Application**
+
+- Duplicate configuration assessment result files (ARF.xml) manually placed in the “input” folder for import will no longer stall the import process and be moved to the error folder.
+- On upgrade, an installation utilizing HTTPS communication protocol will no longer receive a warning that port 443 is not available
+- Installation has been enhanced to include more verbose logs and more informative on screen messaging when an installation may not complete as expected
+- On initial installation, the database password validation has been enhanced to ensure the created password matches the required format.
+- The CIS SecureSuite license process has been modified to remove the dependency on Data Exchange Layer (DXL) communication fabric
+- Increased verbosity of logging surrounding some actions
+
+**Documentation**
+
+- Updated User Guide and Benchmark Coverage Guide to review additional details on assessing from Dashboard with tailored benchmark content. See the **[User Guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20User's%20Guide/#assess-a-target-system)** and **[CIS Benchmark Support Guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Benchmark%20Coverage/)** for information on how to assess with tailored content.
+- CIS-CAT now delivers with a Software Bill of Materials (SBOM) located in the documentation directory
+- The documentation directory now contains the licenses for third party libraries utilized by CIS-CAT
+- The README.txt file updated to record suppressed third party dependent library vulnerabilities.
+
+
 # 3.0.1 #
 December 21, 2022
 

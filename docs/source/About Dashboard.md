@@ -19,7 +19,7 @@ Final installation and configuration and installation guides are packaged with D
 
 ## Introduction ##
 
-CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard serves as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. Its main purpose is the view configuration assessment report averages over the short term. Graphical representations of automated configuration assessment scores for a time span less than 2 years (18 months recommended) provides security teams a quick view on current cyber configuration health. The Dashboard is intended to support organizational focus and action on the current cyber configuration posture of systems supporting  business operations. 
+CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard serves as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. Its main purpose is to view configuration assessment report averages over the short term. Graphical representations of automated configuration assessment scores for a time span less than 2 years (18 months recommended) provides security teams a quick view on current cyber configuration health. The Dashboard is intended to support organizational focus and action on the current cyber configuration posture of systems supporting  business operations. 
 
 ------------------------
 
@@ -104,7 +104,7 @@ By default the installation will be placed C:\Program Files\CCPD (Microsoft Wind
 
 The installer establishes Java environment variables specifically for use with CIS-CAT Pro Dashboard. Therefore, it is recommended that no other application requiring a java runtime environment (jre) exists on the CIS-CAT Pro Dashboard host server.
 
-The `conf` folder contains the ccpd-config.yml file that contains information to support the CIS-CAT Pro Dashboard operation. The installation process limits read/write privileges to only users whose credentials are validated by Microsoft Windows OS security mechanisms, typically System and Administrators. Users not a member of the authenticated group do not have privileges to view or write to the file. For Linux installations, the ccpd-config.yml will be granted ccpd-config.yml file has 660 privileges (-rw-rw----).
+The `conf` folder contains the ccpd-config.yml file that contains information to support the CIS-CAT Pro Dashboard operation. The installation process limits read/write privileges to only users whose credentials are validated by Microsoft Windows OS security mechanisms, typically System and Administrators. Users who are not a member of the authenticated group do not have privileges to view or write to the file. For Linux installations, the ccpd-config.yml has 660 privileges (-rw-rw----).
 
 ------------------------------
 ## Compatibility CIS-CAT Pro Dashboard v2.x Versions ##
