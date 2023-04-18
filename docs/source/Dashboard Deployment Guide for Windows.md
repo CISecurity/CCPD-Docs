@@ -236,11 +236,12 @@ HTTPS protocol is recommended for production use. The installation will assist i
 
 The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
 
-- Minimum 8 characters
-- Contains at least one character in `!#$%^`
+- Minimum 14 characters
 - Does not start with a character
-- Contain a number
-- Does NOT contain any special characters other than `!#$%^`
+- At least 1 lowercase letter
+- At least 1 uppercase letter
+- At least 1 number
+- At least 1 of these special characters: `!#$%^` with no other special characters allowed
 
 
 ![](img/Installer_DBPass.png)

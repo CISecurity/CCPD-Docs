@@ -3,7 +3,7 @@
 **CIS-CAT Pro Dashboard Change Log**
 
 # 3.1.0 #
-March 30, 2023
+April 19, 2023
 
 **Benchmarks**
 
@@ -19,6 +19,7 @@ March 30, 2023
 
 - Resolved security vulnerabilities present in embedded, third party dependency, tomcat-embed-core and tomcat-embed-websocket. This library has moved to version 9.0.73.
 - Resolved security vulnerabilities present in the Commons-fileupload embedded, third party library.
+- Resolved security vulnerabilities present in embedded, third party dependency of Spring Security. This dependency has moved to v5.3.26.
 
 
 **Application**
@@ -29,6 +30,7 @@ March 30, 2023
 - On initial installation, the database password validation has been enhanced to ensure the created password matches the required format.
 - The CIS SecureSuite license process has been modified to remove the dependency on Data Exchange Layer (DXL) communication fabric
 - Increased verbosity of logging surrounding some actions
+- The base Grails framework was moved to version 5.2.4, which also upgraded dependencies such as Spring Framework.
 
 **Documentation**
 
@@ -36,6 +38,7 @@ March 30, 2023
 - CIS-CAT now delivers with a Software Bill of Materials (SBOM) located in the documentation directory
 - The documentation directory now contains the licenses for third party libraries utilized by CIS-CAT
 - The README.txt file updated to record suppressed third party dependent library vulnerabilities.
+- HTTPS Certificate Trust [information](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#https-certificate-trust) has been modified to include more information
 
 
 # 3.0.1 #
