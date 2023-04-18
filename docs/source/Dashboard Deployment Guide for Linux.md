@@ -202,7 +202,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 - At least 1 of these special characters: `!#$%^` with no other special characters allowed
 
 
-![](img/Linux_Installer_DBPass.png)
+![](img/Linux_Installer_DBPass_new.png)
 
 <a name="Final"></a>
 ** Final Installation Process **
