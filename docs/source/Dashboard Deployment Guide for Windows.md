@@ -251,7 +251,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 
 The duration of the final steps of the installation can be 2 to 5 minutes. The initial services to support CIS-CAT Pro Dashboard take some time to start. The services installed are:
 
-- CCPD Windows
+- CCPD_Windows
 - MariaDB
 
 ![](img/Installer_ServicesStarting.png)
@@ -303,7 +303,7 @@ The installer will detect a previous installation and prompt to update only the 
 
 Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an error.
 
-- **Check Services:** Navigate to Windows Services manager. You will find `MariaDB` and `CCPD Windows` listed; start them if needed and try again after a few minutes.
+- **Check Services:** Navigate to Windows Services manager. You will find `MariaDB` and `CCPD_Windows` listed; start them if needed and try again after a few minutes.
 - **Retry Installer:** Close and re-launch CCPD Installer. The installer will guide you through any necessary configuration.
 
 If you are unsuccessful, collect logs that have been generated for you and open a support ticket. See further information below.

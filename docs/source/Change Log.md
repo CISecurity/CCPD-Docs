@@ -3,7 +3,7 @@
 **CIS-CAT Pro Dashboard Change Log**
 
 # 3.1.0 #
-April 19, 2023
+April 24, 2023
 
 **Benchmarks**
 
@@ -31,6 +31,7 @@ April 19, 2023
 - The CIS SecureSuite license process has been modified to remove the dependency on Data Exchange Layer (DXL) communication fabric
 - Increased verbosity of logging surrounding some actions
 - The base Grails framework was moved to version 5.2.4, which also upgraded dependencies such as Spring Framework.
+- The Dashboard’s service name has been modified to include an underscore, CCPD_Windows
 
 **Documentation**
 

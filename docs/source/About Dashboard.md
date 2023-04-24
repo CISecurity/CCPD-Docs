@@ -4,16 +4,16 @@
 
 ## Introduction ##
 
-CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. **Dashboard is NOT required to run an assessment.** Members just starting with CIS-CAT should start assessing a baseline image with **[CIS-CAT Assessor](https://workbench.cisecurity.org/download/cis-cat/pro)** that supports assessments using CLI running Assessor-CLI.bat, Assessor-CLI.sh or GUI standalone. 
+CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. **Dashboard is NOT required to run an assessment.** Members just starting with CIS-CAT should start assessing a baseline image with **[CIS-CAT Assessor](https://workbench.cisecurity.org/download/cis-cat/pro)** that supports assessments using CLI running Assessor-CLI.bat, Assessor-CLI.sh or GUI standalone. Review CIS-CAT Pro Assessor [documentation](https://ccpa-docs.readthedocs.io/en/latest/) to learn more.
 
 
-The Dashboard serves as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. Its main purpose is to view configuration assessment report averages over the short term. Graphical representations of automated configuration assessment scores for a time span less than 2 years (18 months recommended) provides security teams a quick view on current cyber configuration health. The Dashboard is intended to support organizational focus and action on the current cyber configuration posture of systems supporting  business operations. 
+The Dashboard can optionally serve as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. Its main purpose is to view configuration assessment report averages over the short term. Graphical representations of automated configuration assessment scores for a time span less than 2 years (18 months recommended) provides security teams a quick view on current cyber configuration health. The Dashboard is intended to support organizational focus and action on the current cyber configuration posture of systems supporting  business operations. 
 
 ------------------------
 
 ## Dashboard Use Case ##
 
-CIS-CAT Pro Dashboard best fits a single, small to medium size enterprise with a moderate amount of configuration result data. Defining “moderate” data amount depends on how many endpoints an organization has and how often those results are imported into the Dashboard. Dashboard is not designed for “big data” where organizations wish to import reports from, for example, 10,000 endpoints. We recommend seeking other data viewing tools specializing in big data handling should your organization need to view consolidated data for 1,000’s of endpoints. Members importing less than 1,000 reports monthly to a single Dashboard instance may have a better performance experience. For example, when an organization has 10,000 reports already stored in the database, additional imports may be slower. Members are encouraged to consider how Dashboard can best be utilized to support configuration state viewing and remediation efforts.
+CIS-CAT Pro Dashboard best fits a single, small to medium size enterprise with a moderate amount of configuration result data. The size or your organization does not specifically matter if imported data will be moderate. Defining “moderate” data amount depends on how many endpoints an organization has and/or how often those results are imported into the Dashboard. Dashboard is not designed for “big data” where organizations wish to import reports from, for example, 10,000 endpoints. We recommend seeking other data viewing tools specializing in big data handling should your organization need to view consolidated data for 1,000’s of endpoints. Members importing less than 1,000 reports monthly to a single Dashboard instance may have a better performance experience. For example, when an organization has 10,000 reports already stored in the database, additional imports may be slower. Members are encouraged to consider how Dashboard can best be utilized to support configuration state viewing and remediation efforts.
 
 Some Members have found that multiple Dashboard installations representing each domain within their organization works well. There is no license limit to installing instances of Dashboard. However, CIS tests the Dashboard with the single enterprise with moderate data usage. 
 
@@ -80,7 +80,7 @@ The installation application must be used to complete all install, upgrade, and 
 The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
 
 - MariaDB (Linux: mariadbd.service in systemctl)
-- CCPD Windows (Linux: CIS-CAT_Pro_Dashboard.service in systemctl)
+- CCPD_Windows (Linux: CIS-CAT_Pro_Dashboard.service in systemctl)
 	
 By default the installation will be placed C:\Program Files\CCPD (Microsoft Windows) or /usr/local/CCPD (Ubuntu Linux). CIS recommends modifying contents and structure using only the installer as the upgrade or install process may fail. See below for additional notes on notable sections of the installation. 
 
@@ -119,6 +119,8 @@ The `conf` folder contains the ccpd-config.yml file that contains information to
 
 <a name="whyuse"></a>
 **Why should I use CIS-CAT Pro Dashboard?**
+
+**Dashboard is NOT required to run an assessment.** Members just starting with CIS-CAT should start assessing a baseline image with **[CIS-CAT Assessor](https://workbench.cisecurity.org/download/cis-cat/pro)** that supports assessments using CLI running Assessor-CLI.bat, Assessor-CLI.sh or GUI standalone. Review CIS-CAT Pro Assessor [documentation](https://ccpa-docs.readthedocs.io/en/latest/) to learn more.
 
 CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard serves as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. Its main purpose is the view configuration assessment report averages over the short term. Graphical representations of automated configuration assessment scores for a time span less than 2 years (18 months recommended) provides security teams a quick view on current cyber configuration health. The Dashboard is intended to support organizational focus and action on the current cyber configuration posture of systems supporting  business operations. Export HTML formatted reports to share with security teams as they make decisions and plan remediation or exception on CIS Benchmark recommendations. Apply exceptions where risk is accepted or resolved in other ways and improve configuration assessment scores. Receive alerts on newly imported result scores that deviate beyond a user-defined threshold from previous results.
 
