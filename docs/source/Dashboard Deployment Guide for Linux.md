@@ -106,7 +106,7 @@ Select the main operating system drive for installation. For most Ubuntu environ
 <a name="Email"></a>
 ** Email (Custom Option) **
 
-The email configuration information is optional (NOT REQUIRED) and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is **required** for self-service "forgot password" requests. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
+The email configuration information is optional (NOT REQUIRED) and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is **required** for self-service "forgot password" requests. Email is the only way to reset a user's password when active directory is not setup. Organization's may contact support for assistance if it is not possible to configure email. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
 
 CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. Expand the advanced properties for additional email setup.
 
