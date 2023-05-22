@@ -126,13 +126,19 @@ CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers
 <a name="LDAP"></a>
 ** Active Directory - LDAP/S (Custom Option) **
 
-LDAP server structure setup is **REQUIRED** before configuring LDAP in the Dashboard.
+LDAP server structure specifically for CIS-CAT Pro Dashboard is REQUIRED before configuring LDAP in the Dashboard.
 
-LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. Once LDAP/AD is integrated, the database authentication will be disabled and the "Reset password" button will not be present. 
+LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD. Once LDAP/AD is integrated, the database authentication will be disabled and the "Reset password" button will not be present. Customization of the naming or user utilized is not supported.
 
 LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE_USER) by default along with LDAP Roles.
 
+- [Setup LDAP Server Structure](#structure)
+- [Configure LDAP in CIS-CAT Dashboard installation](configure)
+
+<a name="structure"></a>
 **Setup LDAP Structure**
+
+The LDAP Server Structure must be in place before configuring LDAP during the CIS-CAT Pro Dashboard installation.
 
 Deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin.
 
@@ -148,21 +154,27 @@ Deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin.
 	- Email is required and must be a valid value for an email-based AD
 	- Ensure "User must change password on next logon" is NOT selected
 	- Where users were previously created in the CCPD program before the LDAP integration, ensure the username matches with the one in LDAP (uid) or AD (sAMAccountName, also called "User logon name")
-- Assign created users to groups created above
+- Assign existing and created users to created Dashboard groups (CCPD_USER, CCPD_ADMIN, CCPD_API)
 	- `apiuser` assigned to CCPD_API group
 	- `admin` assigned to `CCPD_ADMIN` and `CCPD_USER` group
-	- See [Roles](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20User's%20Guide/#user-management) in the CIS-CAT Pro Dashboard User Guide to determine which group users should be assigned to
-		- All users will have at least `Read` access to the majority of functions of Dashboard
-		- Admin users will be able to access settings and have ability to delete or update select information
+	- Other users to desired roles ([Roles](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20User's%20Guide/#user-management))
 
 ![](img/ActiveDirectory.png)
+
+<a name="configure"></a>
+**Configure LDAP in CIS-CAT Dashboard Installation**
+
+Execute the CIS-CAT Pro Dashboard installer and choose to configure LDAP. If wishing to allow a subset of users access to Dashboard, apply a Search filter. The below example is one way to limit user access to just users who are a member of the newly created CCPD groups. 
+
+Ensure that the desired users have been added as a member of the CCPD_USER or CCPD_ADMIN or CCPD_API groups. 
+
+![](img/Installer_LDAP.png)
 
 **Additional Requirements for LDAPS**
 
 - Certificate added to Dashboard's utilized java truststore
 - Port 636 availability
 
-![](img/Installer_LDAP.png)
 
 **Configuration Parameters**
 
