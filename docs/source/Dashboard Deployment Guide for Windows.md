@@ -188,7 +188,7 @@ Ensure that the desired users have been added as a member of the CCPD_USER or CC
 | Group Search Filter | The pattern to be used for the user search. {0} is the user’s DN. Example: OpenLDAP: uniquemember={0} and AD: member={0} |
 | Group Role Attribute | The ID of the attribute which contains the role name for a group. Example: CN |
 | Search Base | Base directory for search. Example: DC=corp,DC=cisecuritytest,DC=org |
-| Search Filter | Filter expression used in search. Example: OpenLDAP: (uid={0}) or AD: sAMAccountName={0}<br> OR apply access restrictions using advanced filter<br>(&(sAMAccountName={0})(|(memberof=CN=CCPD_ADMIN,OU=CCPD,DC=cisecurity,DC=org)(memberof=CN=CCPD_API,OU=CCPD,DC=cisecurity,DC=org)(memberof=CN=CCPD_USER,OU=CCPD,DC=cisecurity,DC=org))) |
+| Search Filter | Filter expression used in search. Example: OpenLDAP: (uid={0}) or AD: sAMAccountName={0}<br> OR apply access restrictions using advanced filter<br><pre>(&(sAMAccountName={0})(|(memberof=CN=CCPD_ADMIN,OU=CCPD,DC=cisecurity,DC=org)(memberof=CN=CCPD_API,OU=CCPD,DC=cisecurity,DC=org)(memberof=CN=CCPD_USER,OU=CCPD,DC=cisecurity,DC=org)))</pre>|
 | Password Attribute Name | Example: userPassword|
 
 <a name="HTTPS"></a>
