@@ -168,7 +168,7 @@ Execute the CIS-CAT Pro Dashboard installer and choose to configure LDAP. If wis
 
 Ensure that the desired users have been added as a member of the CCPD_USER or CCPD_ADMIN or CCPD_API groups. 
 
-![](img/Installer_LDAP.png)
+![](img/Installer_LDAP2.png)
 
 **Additional Requirements for LDAPS**
 
