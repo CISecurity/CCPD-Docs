@@ -133,7 +133,7 @@ LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will 
 LDAP/AD roles and user properties such as firstname, lastname and email will be imported. If the user doesn't exist in CCPD, the username will be created on login and granted with a basic user role (ROLE_USER) by default along with LDAP Roles.
 
 - [Setup LDAP Server Structure](#structure)
-- [Configure LDAP in CIS-CAT Dashboard installation](configure)
+- [Configure LDAP in CIS-CAT Dashboard installation](#configure)
 
 <a name="structure"></a>
 **Setup LDAP Structure**
