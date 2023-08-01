@@ -41,8 +41,6 @@ August 1, 2023
 	- org.codehaus.janino: commons-compiler 3.1.6 to 3.1.10
 	- org.codehaus.janio: janio 3.1.6 to 3.1.10
 
-- The database password stored in the configuration file that supports Dashboard is now obfuscated
-
 **Application**
 
 - An issue has been resolved with latency on all screen loads upon initial installation and server restart.
