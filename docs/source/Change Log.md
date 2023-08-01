@@ -2,6 +2,60 @@
 
 **CIS-CAT Pro Dashboard Change Log**
 
+# 3.2.0 #
+August 1, 2023
+
+**Benchmarks**
+
+- AKS-Optimized Azure Linux 2 v1.0.0
+- Amazon Linux 2023 v1.0.0
+- Amazon Elastic Kubernetes Service (EKS) v1.3.0
+- Azure Compute Microsoft Windows Server 2019 v1.0.1
+- Azure Kubernetes Service (AKS) v1.3.0
+- Debian Linux 10 v2.0.0
+- Docker v1.6.0
+- Google Kubernetes Engine (GKE) v1.4.0
+- Kubernetes Benchmark v1.7.1
+- Microsoft Windows 10 Standalone v2.0.0
+- Microsoft Windows 11 Standalone v2.0.0
+- Microsoft Windows Server 2016 v2.0.0
+- Microsoft Windows Server 2019 v2.0.0
+- Microsoft Windows Server 2022 v2.0.0
+- Oracle Cloud Infrastructure Container Engine for Kubernetes(OKE) v1.3.0
+- NGINX Benchmark v2.0.1
+- RedHat OpenShift Container Platform v4 v1.4.0
+- Ubuntu Linux 20.04 LTS v2.0.1
+
+**Security**
+
+- Resolved security vulnerabilities present in embedded, third party dependencies:
+	- Spring Security Framework updates (spring-security-core, spring-security-ldap, spring-security-web, spring-security-crypto, etc.) v5.3.26/5.7.5 to 5.3.27/5.7.8
+	- Spring Boot dependencies from 2.6.4 to 2.7.12.
+	- jetty-client, jetty-http, jetty-io, jetty-util v9.4.49 to v9.4.51
+	- websocket-client, websocket-common v 9.4.49 to v9.4.51
+	- tomcat-embed.core and websockt from 9.0.73 to 9.0.75
+	- htmlunit libraries from 2.61.1 to 2.70.0
+	- guava (now 32.0.1) and tomcat-embed.x (now at 9.0.76)
+	- com.h2database: h2 2.1.210 to 2.2.220
+	- xalan: xalan 2.7.2 to 2.73
+	- org.codehaus.janino: commons-compiler 3.1.6 to 3.1.10
+	- org.codehaus.janio: janio 3.1.6 to 3.1.10
+
+- The database password stored in the configuration file that supports Dashboard is now obfuscated
+
+**Application**
+
+- An issue has been resolved with latency on all screen loads upon initial installation and server restart.
+- Screen and HTML reports updated to represent CIS Benchmark recommendations intentionally not mapped to a CIS Critical Control as “Explicitly Not Mapped”
+- The Linux installation and upgrade final steps have been improved
+
+**Documentation**
+
+- Revised **[LDAP instructions in the Windows Installation Guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#LDAP)** to include an example on options to add a search filter to restrict Dashboard access to only selected users
+- Software Bill of Materials files have been renamed to SBOM_CIS_CAT_Pro_Dashboard
+- CIS-CAT Pro Dashboard’s **[software bill of materials (SBOM)](https://workbench.cisecurity.org/files/4550)** is now available for download on CIS WorkBench separately in addition to within the release bundle. 
+- The README.txt file updated to record suppressed third party dependent library vulnerabilities.
+
 # 3.1.0 #
 April 24, 2023
 

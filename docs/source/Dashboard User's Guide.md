@@ -619,7 +619,7 @@ The details of the systems and assessment results supporting the summary counts 
 - mapped_controls_v8
 - implementation_groups_v8
 
-For CIS Benchmarks mapped to CIS Controls V8, sort by Implementation Group 1 for most important recommendations to remdiate first.
+For CIS Benchmarks mapped to CIS Controls V8, sort by Implementation Group 1 for most important recommendations to remediate first.
 
 ![](img/ConfigurationSummaryCSVv2.png)
 
