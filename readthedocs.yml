@@ -12,6 +12,9 @@ build:
 
 mkdocs:
   configuration: mkdocs.yml
+  
+theme:
+    name: readthedocs
 
 # Optionally declare the Python requirements required to build your docs
 # python:
