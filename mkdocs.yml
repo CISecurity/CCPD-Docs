@@ -15,4 +15,5 @@ nav:
         - 10. Archive V2 Linux Install: source/DeploymentGuideLinux.md
         - 11. Archive V2 Windows Install: source/DeploymentGuideWindows.md
         - 12. Archive V2 User Guide: source/DashUserGuideOld.md
-        
+theme:
+  name: readthedocs  
