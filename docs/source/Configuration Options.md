@@ -19,8 +19,8 @@ If utilizing a self-signed certificate for HTTPS configuration, SSL warnings may
 - For CLI commands, utilized `-ui`. See [reporting options](https://ccpa-docs.readthedocs.io/en/latest/User%20Guide%20-%20Assessor/#command-line-interface-cli) in the CIS-CAT Pro Assessor Guide. 
 - For centralized, see [the guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#centralized-windows) for more information on utilizing the `-ui` within the script. 
 - Contingent on communication protocol selection during installation, the CIS-CAT Pro Dashboard URL for upload purposes will be:
-	- HTTP: http://localhost:8080/CCPD/CCPD/api/reports/upload
-	- HTTPS: https://localhost/CCPD/CCPD/api/reports/upload
+	- HTTP: http://localhost:8080/CCPD/api/reports/upload
+	- HTTPS: https://localhost/CCPD/api/reports/upload
   
 
 ## API for Assessor Result Import ##
