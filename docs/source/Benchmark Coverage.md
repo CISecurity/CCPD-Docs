@@ -2,7 +2,9 @@
 
 
 CIS Benchmark Coverage
+
 ----------------------
+
 CIS-CAT Pro supports remote configuration assessment for a single system. The CIS-CAT Pro Dashboard is packaged with CIS Benchmark automated assessment content. CIS-CAT Pro Dashboard supports automated assessment content in **datastream format** only. Some CIS Benchmarks currently are not offered in this format. See below for the list of CIS Benchmark automated assessment content supported in the latest version of CIS-CAT Pro Dashboard. 
 
 For some older Windows platforms such as Microsoft Windows Server 2008 R2, it is required to be current with service pack updates in order for the assessment to process without error.

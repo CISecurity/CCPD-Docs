@@ -3,6 +3,7 @@
 # CIS-CAT Pro Dashboard User's Guide #
 
 End of Life and Final Release Dashboard version 2.x - Replaced with Dashboard v3.0.0
+
 ------------------
 
 Version 2.3.1 will be the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions in early Q4 2022, but will not be backwards compatible. A clean install of Dashboard version 3.0.0 will be required as there will be no upgrade or data migration options available from any previous 2.x version. Please read our [knowledge base article](https://cisecurity.atlassian.net/l/cp/mF6o97vs) to learn more. 

@@ -22,4 +22,3 @@ CIS Product Support has created Quick Start Guides for frequent support topics r
 - [Null error during installation](https://cisecurity.atlassian.net/servicedesk/customer/portal/15/article/2852356540)
 
 
-
