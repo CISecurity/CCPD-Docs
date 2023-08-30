@@ -1,10 +1,9 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-**CIS-CAT Pro Dashboard User Guide**
+# CIS-CAT Pro Dashboard User Guide #
 
 
-Logging In
--------------------------------------------
+## Logging In ##
 
 When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
 
@@ -42,8 +41,8 @@ From this list users can choose to opt out of any of the alert types that they a
 **NOTE:** If LDAP is integrated with CCPD, "change password" and "edit profile" buttons are no longer available as well as some user account properties. Password and profile attributes (firstname, lastname, email) are managed and retrieved from LDAP.   
 
 
-User Management
----------------------------
+## User Management ##
+
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, only an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
 
 By default the administrator username is `admin` with the password `@admin123`.  Navigate to the Settings menu (gear icon) and select `User Management` to access the user list.
@@ -145,8 +144,7 @@ Below are explanations of each of the different possible configurations.
 |delete.assessment.start.time| Sets the start time that a job will begin processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.| A whole integer from 0 to 23
 |delete.assessment.end.time| Sets the end time that a job will stop processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.|A whole integer from 0 to 23
 
-Primary Identifier Type
-------------------------------------------
+## Primary Identifier Type ##
 
 When assessment results are imported,  CIS-CAT Pro Dashboard creates a new target system to represent the assessed endpoint.  Subsequent imports for the target will be associated with the same target system.  The assessment results has several different identifier types that are imported.  By default, target systems within CIS-CAT Pro Dashboard are primarily identified by hostname.  This means, where ever you see a target system in a list, or a search result,  the identifier you see is the hostname.  The primary identifier however can be configured, either at the CIS-CAT Pro Dashboard application level or on each individual target system.
 
@@ -212,8 +210,7 @@ Add an additional indicator to set the property:
 		PRIMARY_IDENTIFIER=$ENV_VAR_IDENTIFIER
 
 
-Alert Management
-----------------------------------
+## Alert Management ##
 
 In the Administration menu there is an option for Alerts.
 
@@ -266,9 +263,8 @@ When complete click "Send" and your message will go to the inbox's of the select
  - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
  - **Manual** - A manual message was sent directly to you by another user.
 
-System Integrations
+## System Integrations ##
 
---------------------------------------------
 
 **CIS-CAT Pro Release alerts**
 
@@ -353,8 +349,7 @@ To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro D
 	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_10_Enterprise_Benchmark_v1.12.0-xccdf.xml -nrf -u http://myapp.example.org/CCPD/api/reports/upload -ui
  
 
-Target Systems
--------------------------------
+## Target Systems ##
 
 **Creation**
 Target Systems represent endpoints in your environment that have assesment data within CIS-CAT Pro Dashboard.  There are several ways to create target systems within the application:
@@ -581,7 +576,7 @@ Report scores will match report scores as shown on CIS-CAT Pro Assessor v4 HTML 
 	- List of active exceptions associated with the selected configuration result   
  
 
-###Configuration Assessment Result Summary###
+## Configuration Assessment Result Summary ##
 
 The Configuration Assessment Result Summary report shows all recommendations for the selected Benchmark that failed during the most recent assessment. The details behind the summary counts can be exported in *.csv format.
 
@@ -623,11 +618,11 @@ For CIS Benchmarks mapped to CIS Controls V8, sort by Implementation Group 1 for
 
 ![](img/ConfigurationSummaryCSVv2.png)
 
-###Remediation Report###
+## Remediation Report ##
 
 The Remediation Report provides a list of recommendations with a `Failed` status. Remediation steps are included. It is useful to utilize this report as a focused effort on remediation of system states departing from the benchmark recommendations.  If a recommendation has been excepted in the Dashboard and it has a result of `Fail`, it will still be shown on this report. Generate this report by selecting `Remediation Report` from the CIS-CAT Pro Dashboard Reports Menu.  Select the desired Target System and the latest results for a benchmark.
 
-###Complete Results Report###
+## Complete Results Report ##
 
 The Complete Results Report provides all detailed results of a target system or group of target systems compliance across multiple CIS benchmarks.  To generate the Complete Results Report, select the menu option under reports, search and select desired for target systems, then click on the `Complete Results Report` listed at the bottom of the results. 
 
@@ -645,7 +640,7 @@ The report delete process begins by selecting desired reports in the "Assessment
 
 It is highly recommended that a routine database backup process is in place, as the deletion process is permanent.
 
-### Select Reports for Deletion ###
+## Select Reports for Deletion ##
 
 Navigate to “Assessment Results Search” in the “Reports” menu.
 
@@ -659,7 +654,7 @@ Select the reports desired for removal from the database using the checkbox to t
 
 ![](https://i.imgur.com/NrXLZ9u.png)
 
-### Configure Final Report Delete Run Time ###
+## Configure Final Report Delete Run Time ##
 
 Navigate to "Systems Settings" and locate the `delete.assessment.start.time` and `delete.assessment.end.time`. Only whole integers ranging from 0 to 23 will enable to final purge job to run successfully. For example, if the process should run between the hours of 5 p.m. and 11 p.m., then enter 17 as the `delete.assessment.start.time` and 23 as the `delete.assessment.end.time`. For jobs that should run between 11 p.m. and 5 a.m. the next morning, configure the `delete.assessment.start.time` to 23 and the `delete.assessment.end.time` to 5. A setting of any other value in either setting such as -1, will disable the job.
 
