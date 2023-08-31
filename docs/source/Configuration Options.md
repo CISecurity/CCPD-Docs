@@ -2,6 +2,8 @@
 
 # Configuration Options
 
+------------------
+
 ## CIS-CAT Pro Assessor Integration
 
 CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. The Dashboard can serve as a central repository for configuration assessment results generated from CIS-CAT Pro Assessor. The Dashboard can also be an way to validate different machines in an easy-to-view way. CIS-CAT Pro Dashboard is designed to import configuration results generated from CIS-CAT Pro Assessor either manually or via an API. Manually imported results must be in XML Asset Reporting Format (ARF) while automated imports do not require a physical file and are imported via a REST API. Consult the [CIS-CAT Pro Assessor configuration guide](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#cis-cat-pro-dashboard-integration) to learn how to automatically configure reports to load into the Dashboard.
@@ -23,6 +25,7 @@ If utilizing a self-signed certificate for HTTPS configuration, SSL warnings may
 	- HTTP: http://localhost:8080/CCPD/api/reports/upload
 	- HTTPS: https://localhost/CCPD/api/reports/upload
   
+------------------
 
 ## API for Assessor Result Import 
 
@@ -73,7 +76,6 @@ Assuming ```Hostname_CIS_Microsoft_Windows_10_Enterprise_Release_1803_Benchmark-
 
 **NOTE:** In order to troubleshoot authorization/upload issues, SSL certificate verification can be ignored using ```requests.post(...,verify=False)```
 
-
 ------------------
 
 ## CIS WorkBench Integration 
@@ -123,7 +125,7 @@ The connection is successfully made:
 ![](https://i.imgur.com/vIyIvw1.png)
 
 
-** Test connection between CIS-CAT Pro Dashboard and CIS WorkBench **
+**Test connection between CIS-CAT Pro Dashboard and CIS WorkBench**
 
 Test button is available to verify the connection between CIS-CAT Pro Dashboard and CIS WorkBench.
 
@@ -135,7 +137,7 @@ If successful, a message will show on the screen.
 
 If not, instructions will be provided in an error message.
 
-** Disconnect from CIS WorkBench **
+**Disconnect from CIS WorkBench**
 
 Select Disconnect:
 
