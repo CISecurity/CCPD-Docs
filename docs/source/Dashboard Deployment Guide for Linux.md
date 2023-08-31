@@ -1,8 +1,10 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
+# CIS-CAT Pro Dashboard Installation for Windows
+
 ------------------------------
 
-# Environment Requirements #
+## Environment Requirements 
 
 - [Server](#server)
 - [Browser](#browser)
@@ -13,7 +15,7 @@
 The following environment characteristics are required.
 
 <a name="server"></a>
-**Server**
+### Server
 
 - A single Ubuntu 20.04 server
 	- 8GB RAM
@@ -25,14 +27,14 @@ The following environment characteristics are required.
 The application does not heavily utilize processor and memory. Assessment result import process will increase the memory and processing usage. CIS-CAT recommends conducting assessment result imports via the API during low peak business hours to avoid disrupting other business activities.
 
 <a name="browser"></a>
-**Browser**
+### Browser
 
 - Google Chrome
 
 Other browsers maybe produce unexpected behavior.
 
 <a name="traffic"></a>
-**Traffic and Ports**
+### Traffic and Ports
 
 - **Internet available on the server during installation***
 - Port 3306 is available for Maria database installation
@@ -42,7 +44,7 @@ Other browsers maybe produce unexpected behavior.
 \* Ubuntu 20.04 must have certain packages installed. **Internet is required** at the time of initial installation so the correct packages can be confirmed. The internet connection can be disabled after installation.
 
 <a name="other"></a>
-**Other Considerations**<br>
+### Other Considerations
 
 _No other applications present requiring system-installed Java runtime environment (JRE)._
 
@@ -52,7 +54,9 @@ _Additional host system memory and processing resources may be needed when Dashb
 
 If you have determined that there is no Java conflict, the host system's resources must also be considered if the system will host CIS-CAT Pro Assessor and Dashboard. CIS-CAT Pro Dashboard includes an embedded Apache Tomcat and Maria Database. Recommended server resources are 2 vCPUs (4 cores each), 10 GB of free disk space, and 8GB of RAM. Should this host server also host CIS-CAT Assessor or other applications, additional power and memory may be needed. Additionally, it is best practice for a host server containing a web application to only host the application it supports.
 
-# Installation Instructions #
+------------------------------
+
+## Installation Instructions 
 
 For an initial CIS-CAT Pro Dashboard installation on Ubuntu Linux, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
 
@@ -65,11 +69,11 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 - [Active Directory - LDAP/S (Optional Custom Option](#LDAP)
 - [Communication Protocol - HTTP(S) Setup](#HTTPS)
 - [Set Database Password](#DBpass)
-- [Final](#Final)
-- [Login to Dashboard](#login)
+- [Final Installation Process](#Final)
+- [Initial Dashboard Login](#login)
 
 <a name="PrepareInstallation"></a>
-**Prepare for Installation**
+### Prepare for Installation
 
 1. Place your [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/) on the CIS-CAT Pro Dashboard server
 2. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
@@ -91,28 +95,28 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 
 
 <a name="License"></a>
-** License **
+### License 
 
 A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. Offline license validation is performed utilizing only the license.xml file obtained from the CIS WorkBench.
 
 ![](img/Linux_Installer_License.png)
 
 <a name="InstallDestination"></a>
-** Installation Destination **
+### Installation Destination 
 
 Select the main operating system drive for installation. For most Ubuntu environments, this will be `/usr/local/CCPD`. Ensure to allocate the system recommended space for this location.
 
 ![](img/Linux_Installer_Destination.png)
 
 <a name="Email"></a>
-** Email (Custom Option) **
+### Email (Optional Custom Option) 
 
 The email configuration information is optional (NOT REQUIRED) and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is **required** for self-service "forgot password" requests. Email is the only way to reset a user's password when active directory is not setup. Organization's may contact support for assistance if it is not possible to configure email. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
 
 CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. Expand the advanced properties for additional email setup.
 
 <a name="LDAP"></a>
-** Active Directory - LDAP/S (Custom Option) **
+### Active Directory - LDAP/S (Optional Custom Option) 
 
 LDAP(S) is an optional configuration. If configured, CIS-CAT Pro Dashboard will only authenticate with the active directory users and default CIS-CAT Dashboard users will be disabled. LDAP/Active Directory will be used to manage user authentication and permissions within CCPD.
 
@@ -148,7 +152,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 | Password Attribute Name | Example: userPassword|
 
 <a name="HTTPS"></a>
-** Communication Protocol - HTTP(S) Setup **
+### Communication Protocol - HTTP(S) Setup 
 
 CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor. Any protocol supports use of the API imports. 
 
@@ -191,7 +195,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 ![](img/Linux_Installer_HTTP.png)
 
 <a name="DBpass"></a>		
-** Set Database Password **
+### Set Database Password 
 
 The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
 
@@ -206,7 +210,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 ![](img/Linux_Installer_DBPass_new.png)
 
 <a name="Final"></a>
-** Final Installation Process **
+### Final Installation Process 
 
 The duration of the final steps of the installation can be 2 to 5 minutes. The initial services to support CIS-CAT Pro Dashboard take some time to start. The services installed are:
 
@@ -225,7 +229,7 @@ Depending on the communication protocol selection during installation, the CIS-C
 - HTTPS: https://localhost/CCPD/
 
 <a name="login"></a>
-## Initial Dashboard Login ##
+### Initial Dashboard Login 
 
     username: admin 
     password: @admin123
@@ -234,7 +238,7 @@ You'll be prompted to change your password upon first login.
 
 ---------------------------
 
-# Upgrade Process #
+## Upgrade Process 
 
 Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades are applied utilizing the latest installer included in the downloaded CIS-CAT Pro Dashboard. On upgrade, the application will verify that the version installing is newer than the installed version and fail if this scenario is detected.
 
@@ -251,7 +255,8 @@ The installer will detect a previous installation and prompt to update only the 
 	- **Update application and/or configuration settings:** applies existing configuration with options to modify some settings, updates CIS-CAT application. Select **optional** Email or LDAP configuration to modify or initiate these functions.
 
 ------------------
-# Installation Errors #
+
+## Installation Errors 
 
 Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an error.
 
@@ -269,7 +274,7 @@ If you are unsuccessful, collect logs that have been generated for you and open 
 - An error occurred starting up the CIS-CAT Pro Dashboard and/or MariaDB services. CIS-CAT Pro Dashboard is not working as intended. MariaDB is not working as intended.
 	- CIS-CAT Pro Dashboard service and MariaDB service aren't running after 10 minutes of waiting.
 
-** Obtaining Installer Logs **
+**Obtaining Installer Logs**
 
 During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created at `/tmp`. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket when issues involve installation.
  
@@ -278,15 +283,17 @@ Additionally, CIS Technical Support may require any logs generated at this locat
 
 Attach log files to your [Technical Support ticket](https://www.cisecurity.org/support/).
 
-# Uninstall#
+------------------
+
+## Uninstall
 
 The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
 
 ![](img/Linux_Installer_Uninstall.png)
 
+------------------
 
-
-# HTTPS Certificate Trust #
+## HTTPS Certificate Trust 
 
 CIS-CAT Pro Dashboard is currently only supported using Google Chrome. Other browsers may produce unexpected behaviors. Self-signed certificates will produce warnings within the browser as they are not fully trusted. Organizational certificates will receive the below warning if they have not been added to the Java trust store.
 
@@ -295,6 +302,5 @@ To view the details of the certificate selected to support Dashboard, select the
 ![](img/Cert_notSecure.png)
 
 ![](img/Cert_valid.png)
-
 
 To fully trust an organizational certificate issues from a certificate authority (CA) and to avoid browser trust warnings, add the certificate to the trust store. Ensure server is restarted to complete incorporation.
