@@ -1,9 +1,10 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
+# CIS-CAT Pro Dashboard Installation for Windows
 
 ------------------------------
 
-# Environment Requirements #
+## Environment Requirements 
 
 The following environment characteristics are required.
 
@@ -13,7 +14,7 @@ The following environment characteristics are required.
 - [Other considerations](#other)
 
 <a name="server"></a>
-**Server**
+### Server
 
 - A single Microsoft Windows Server 2016 or 2019
 	- 64 bit
@@ -27,14 +28,14 @@ The application does not heavily utilize processor and memory. Assessment result
 CIS utilizes a Microsoft Windows Server 2019 testing environment in AWS t2.large instance (designed for burst processing).
 
 <a name="browser"></a>
-**Browser**
+### Browser
 
 - Google Chrome
 
 Other browsers maybe produce unexpected behavior.
 
 <a name="traffic"></a>
-**Traffic and Ports**
+### Traffic and Ports
 
 - Port 3306 is available for Maria database installation
 - Traffic allowed on port 8080 (HTTP) and 443(HTTPS)
@@ -47,7 +48,7 @@ If utilizing LDAP/LDAPS/AD, refer to the installation steps in this section for 
 The installation process will verify that certain ports are open and available. If you receive a message regarding port availability, please verify the availability of the notified ports.
 
 <a name="other"></a>
-**Other Considerations**<br>
+### Other Considerations
 
 _No other applications present requiring system-installed Java runtime environment (JRE)._
 
@@ -61,7 +62,7 @@ If you have determined that there is no Java conflict, the host system's resourc
 
 ------------------
 
-# Installation Instructions #
+## Installation Instructions 
 
 For an initial CIS-CAT Pro Dashboard installation on Microsoft Windows, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
 
@@ -79,7 +80,7 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 
 
 <a name="PrepareInstallation"></a>
-**Prepare for Installation**
+### Prepare for Installation
 
 1. Place your [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/) on the CIS-CAT Pro Dashboard server
 2. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard` 
@@ -100,32 +101,32 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 ![](img/Installer_Welcome_Initial.png)
 
 <a name="License"></a>
-**License**
+### License
 
 A valid CIS issued SecureSuite license is required. The application may fail to load or some functions may not work as expected without a valid file. Offline license validation is performed utilizing only the license.xml file obtained from the CIS WorkBench.
 
 ![](img/Installer_License.png)
 
 <a name="InstallDestination"></a>
-** Installation Destination **
+### Installation Destination 
 
 Select the main operating system drive for installation. For most Microsoft Windows environments, this will be `C:\Program Files\CCPD`. Ensure to allocate the system recommended space for this drive.
 
 ![](img/Installer_destination.png)
 
 <a name="Email"></a>
-** Email (Custom Option) **
+### Email (Custom Option) 
 
 The email configuration information is optional (NOT REQUIRED) and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is **required** for self-service "forgot password" requests. Email is the only way to reset a user's password when active directory is not setup. Organization's may contact support for assistance if it is not possible to configure email. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
 
 CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. Expand the advanced properties for additional email setup.
 
-**Example**
+#### Example
 
 ![](img/Installer_EmailConfig.png)
 
 <a name="LDAP"></a>
-** Active Directory - LDAP/S (Custom Option) **
+### Active Directory - LDAP/S (Custom Option) 
 
 LDAP server structure specifically for CIS-CAT Pro Dashboard is REQUIRED before configuring LDAP in the Dashboard.
 
@@ -137,7 +138,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 - [Configure LDAP in CIS-CAT Dashboard installation](#configure)
 
 <a name="structure"></a>
-**Setup LDAP Structure**
+### Setup LDAP Structure
 
 The LDAP Server Structure must be in place before configuring LDAP during the CIS-CAT Pro Dashboard installation.
 
@@ -163,7 +164,7 @@ Deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin.
 ![](img/ActiveDirectory.png)
 
 <a name="configure"></a>
-**Configure LDAP in CIS-CAT Dashboard Installation**
+### Configure LDAP in CIS-CAT Dashboard Installation
 
 Execute the CIS-CAT Pro Dashboard installer and choose to configure LDAP. If wishing to allow a subset of users access to Dashboard, apply a Search filter. The below example is one way to limit user access to just users who are a member of the newly created CCPD groups. 
 
@@ -171,13 +172,13 @@ Ensure that the desired users have been added as a member of the CCPD_USER or CC
 
 ![](img/Installer_LDAP2.png)
 
-**Additional Requirements for LDAPS**
+#### Additional Requirements for LDAPS
 
 - Certificate added to Dashboard's utilized java truststore
 - Port 636 availability
 
 
-**Configuration Parameters**
+#### Configuration Parameters
 
 
 | Configuration         |    Description |
@@ -193,7 +194,7 @@ Ensure that the desired users have been added as a member of the CCPD_USER or CC
 | Password Attribute Name | Example: userPassword|
 
 <a name="HTTPS"></a>
-** Communication Protocol - HTTP(S) Setup **
+### Communication Protocol - HTTP(S) Setup 
 
 CIS-CAT Pro Dashboard will receive inbound configuration assessment result data from CIS-CAT Pro Assessor. Any protocol supports use of the API imports. 
 
@@ -203,7 +204,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 
 ![](img/Installer_HTTPS_port.png)
 
-**Supported protocols:**
+#### Supported protocols:
 
 - HTTPS - Self-Signed
 	- Requires port 443 availability
@@ -236,7 +237,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 	- No certificate needed
 	- CIS-CAT Pro Assessor commands must ignore SSL warnings if importing to Dashboard via API. See [Configuration Options](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Configuration%20Options/).
 
-**Example Screens**
+#### Example Screens
 	
 ![](img/Installer_HTTPS_SelfSign.png)
 		
@@ -245,7 +246,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 ![](img/Installer_HTTP.png)
 
 <a name="DBpass"></a>
-** Set Database Password **
+### Set Database Password 
 
 The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the username `root`. Set a strong password with the following requirements:
 
@@ -260,7 +261,7 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 ![](img/Installer_DBPass_new.png)
 
 <a name="Final"></a>
-** Final Installation Process **
+### Final Installation Process 
 
 The duration of the final steps of the installation can be 2 to 5 minutes. The initial services to support CIS-CAT Pro Dashboard take some time to start. The services installed are:
 
@@ -292,7 +293,7 @@ You'll be prompted to change your password upon first login.
 
 ---------------------------
 
-# Upgrade Process #
+## Upgrade Process 
 Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades are applied utilizing the latest installer included in the downloaded CIS-CAT Pro Dashboard. On upgrade, the application will verify that the version installing is newer than the installed version and fail if this scenario is detected.
 
 The installer will detect a previous installation and prompt to update only the application or update/modify configuration changes. If no changes are required, updating only the application is the most efficient. Follow the basic steps below. 
@@ -312,7 +313,8 @@ The installer will detect a previous installation and prompt to update only the 
 **NOTE:** Version 3 of CIS-CAT Pro Dashboard does NOT upgrade version 2. Version 3 requires a new installation.
 
 ------------------
-# Installation Errors #
+
+## Installation Errors 
 
 Occasionally, a CIS-CAT Pro Dashboard installation or upgrade may result in an error.
 
@@ -344,7 +346,7 @@ Additionally, CIS Technical Support may require any logs generated at this locat
 
 Attach log files to your [Technical Support ticket](https://www.cisecurity.org/support/).
 
-# Uninstall#
+## Uninstall
 
 The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
 
@@ -353,7 +355,7 @@ The Uninstaller application is located in the root directory of the original ins
 ![](img/Installer_Uninstall_App.png)
 
 
-# HTTPS Certificate Trust #
+## HTTPS Certificate Trust 
 
 CIS-CAT Pro Dashboard is currently only supported using Google Chrome. Other browsers may produce unexpected behaviors. 
 
