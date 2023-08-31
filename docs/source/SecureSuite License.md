@@ -18,8 +18,8 @@ Your CIS SecureSuite license only changes if the terms of your Membership have r
 2. Navigate to the [Downloads](https://workbench.cisecurity.org/files) menu item
 3. Select `Download License` button
 ![](img/DownloadLicense.png)
-4. From the “Licenses” tab, select the `Download` button next to your key
-- NOTE: Ensue that JavaScript is unblocked on your browser if you do not see that the file has downloaded.
+4. From the `Licenses` tab, select the `Download` button next to your key
+	- NOTE: Ensue that JavaScript is unblocked on your browser if you do not see that the file has downloaded.
 5. Navigate to the downloaded files and extract/unzip the contents
 6. Open the folder where the extracted files were stored, and copy the file `license.xml` to the host of CIS-CAT Pro Dashboard
-- During the installation process, you'll be prompted to select the license file
+	- During the installation process, you'll be prompted to select the license file
