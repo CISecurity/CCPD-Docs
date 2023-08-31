@@ -1,12 +1,14 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
+# SecureSuite License
+
 ----------
 
 A SecureSuite License is required for CIS-CAT Pro Dashboard v3.0.0. If a valid license is not present, some Dashboard features such as remote configuration assessment will not properly function. 
 
 Your CIS SecureSuite license only changes if the terms of your Membership have recently changed. There is no need to input a new license on each install unless you are certain your terms have changed. The license is required and primarily enables the remote assessment features, which is now default functionality. 
 
-**Steps to Download Your SecureSuite License**
+## Steps to Download Your SecureSuite License
 
 1. Login to [CIS WorkBench](https://workbench.cisecurity.org/dashboard)
 2. Navigate to the [Downloads](https://workbench.cisecurity.org/files) menu item
