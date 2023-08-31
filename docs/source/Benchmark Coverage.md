@@ -1,6 +1,6 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-#CIS Benchmark Support
+# CIS Benchmark Support
 
 ----------------------
 
