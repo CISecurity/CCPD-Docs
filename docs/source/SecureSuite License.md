@@ -4,7 +4,7 @@
 
 ----------
 
-## About License 
+## About SecureSuite License 
 
 A SecureSuite License is required for CIS-CAT Pro Dashboard v3.0.0. If a valid license is not present, some Dashboard features such as remote configuration assessment will not properly function. 
 
