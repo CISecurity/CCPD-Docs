@@ -1,8 +1,10 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-# CIS-CAT Pro Dashboard User Guide #
+# CIS-CAT Pro Dashboard User Guide 
 
-## Logging In ##
+----------------------
+
+## Logging In 
 
 When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
 
@@ -39,13 +41,15 @@ From this list users can choose to opt out of any of the alert types that they a
 
 **NOTE:** If LDAP is integrated with CCPD, "change password" and "edit profile" buttons are no longer available as well as some user account properties. Password and profile attributes (firstname, lastname, email) are managed and retrieved from LDAP.   
 
-## User Management ##
+----------------------
+
+## User Management 
 
 CIS-CAT Pro Dashboard leverages spring security to manage authentication and access rights for application users. Within the application, only an administrator can create new users and assign user roles. Access to particular features and functions is defined by the Dashboard and covers basic user functions and administrative functions only. The access for the delivered roles cannot be customized.
 
 By default the administrator username is `admin` with the password `@admin123`.  Navigate to the Settings menu (gear icon) and select `User Management` to access the user list.
 
-**Create a New User**
+### Create a New User
 
 Creating a new user is possible if LDAP is not integrated. When a user is authenticated against LDAP from the Dashboard, roles and user properties such firstname, lastname and email will be imported from LDAP. 
 If the user doesn't exist in the Dashboard (based on username), a user account will be created, and granted with a non-admin user role (`ROLE_USER`) by default, plus additional LDAP Roles. With LDAP integration, when you edit a user, only enable/disable account is accessible. Password and user properties are managed from LDAP.
@@ -62,10 +66,10 @@ By default, newly created users will be granted the security access role or `ROL
 New users will be asked to change their password on initial login.
 
 
-![](img\UserList.png)
+![](img/UserList.png)
 
 
-**Modify or View a User**
+### Modify or View a User
  
 1. Login as an Admin
 2. Select the Settings --> User Management 
@@ -83,15 +87,15 @@ Roles in CIS-CAT Pro Dashboard are assigned to users and allow access to functio
 |ROLE_USER|No access to `System` menu. Prevented from assigning or removing system tags, deleting target systems or assessment reports, and exception approval. Cannot generate the API token.|
 |ROLE_API|Utilized to create the authentication token for CIS-CAT Pro Assessor. At least one user must be assigned this role in order to generate the `CIS-CAT Authentication Token`. The token is required to be placed in the `assessor-cli.properties` file associated with CIS-CAT Pro Assessor when assessment reports will be uploaded to Dashboard.|
 
-**The API User Role**
+### The API User Role
 
-![](img\APIUser.png)
+![](img/APIUser.png)
 
 Clicking the button will open a dialog box where the user is required to enter the "ROLE_API" user's credentials.  Once that user has been re-authenticated, the token is generated and displayed on the page.  To support automatic imported results into Dashboard from an assessment, the token must be placed into the properties file of CIS-CAT Pro Assessor. See deployment guide for Dashboard for Windows or Linux and learn about where to place this token for Assessor v4 or Assessor v4 Service Integration.
 
 
 
-**User Favorites**
+### User Favorites
 
 Access the favorites selection by selecting the username. 
 
@@ -108,8 +112,9 @@ In this page, you can add/delete favorite benchmarks as well as favorite target 
 In Benchmark view (Dashboards), you can select benchmarks from your list of favorite benchmarks that you would like to see results for.
 This is the same for Target System view. 
 
-System Settings
 ----------------------
+
+## System Settings
 
 The `System Settings` menu is only available to users with `ROLE_ADMIN`.  Various default system configurations can be set. System administrators can navigate to this screen by selecting the gear icon in the upper, right area of the application.
 
@@ -142,7 +147,9 @@ Below are explanations of each of the different possible configurations.
 |delete.assessment.start.time| Sets the start time that a job will begin processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.| A whole integer from 0 to 23
 |delete.assessment.end.time| Sets the end time that a job will stop processing a permanent delete of flagged report(s). A routine database backup process is recommended. Both the start and end time must be set with whole integers ranging from 0 to 23. A setting of any other value, such as -1, will disable the job.|A whole integer from 0 to 23
 
-## Primary Identifier Type ##
+----------------------
+
+## Primary Identifier Type 
 
 When assessment results are imported,  CIS-CAT Pro Dashboard creates a new target system to represent the assessed endpoint.  Subsequent imports for the target will be associated with the same target system.  The assessment results has several different identifier types that are imported.  By default, target systems within CIS-CAT Pro Dashboard are primarily identified by hostname.  This means, where ever you see a target system in a list, or a search result,  the identifier you see is the hostname.  The primary identifier however can be configured, either at the CIS-CAT Pro Dashboard application level or on each individual target system.
 
@@ -207,8 +214,9 @@ Add an additional indicator to set the property:
 
 		PRIMARY_IDENTIFIER=$ENV_VAR_IDENTIFIER
 
+----------------------
 
-## Alert Management ##
+## Alert Management 
 
 In the Administration menu there is an option for Alerts.
 
@@ -261,8 +269,9 @@ When complete click "Send" and your message will go to the inbox's of the select
  - **Event** - An event informs you of an occurrence in the system that you need to be informed of.
  - **Manual** - A manual message was sent directly to you by another user.
 
-## System Integrations ##
+----------------------
 
+## System Integrations 
 
 **CIS-CAT Pro Release alerts**
 
@@ -290,8 +299,11 @@ See below examples of potential alerts you might receive:
 2. CIS WorkBench Api client cannot be found:
 ![](https://i.imgur.com/kzA1tq1.png)
 
-# Import Assessment Results #
-**In-Application Import**
+----------------------
+
+## Import Assessment Results 
+
+### In-Application Import
 
 Dashboard imports configuration assessment results in Asset Reporting Format (ARF) in XML only. This reporting format can be generated by CIS-CAT Pro Assessor.  To manually import a generated report, navigate to Reports -> Assessment Results List and select "Import Assessment Results".  
 
@@ -309,7 +321,7 @@ This process is asynchronous, so after you start the import you can navigate awa
  - Failed Import - file did not upload to Dashboard.
  - Low Score Alert - if the score of a report imported by any method is below the system wide threshold,  the users on the recipient list for the low score alert will receive an alert.  By default, the low score threshold is 80%.  This theshold can be configured by `lowScoreThreshold` System Setting.
 
-**CIS-CAT Import**
+### CIS-CAT Import
 
 Importing Asset Report Format (ARF) results from CIS-CAT assumes that the CIS-CAT Deployment instructions have been completed.  The end result of that configuration is that a user has been created in CIS-CAT Pro Dashboard, been assigned to the "ROLE_API" role, and an authentication token has been generated.  
 
@@ -318,7 +330,7 @@ Importing Asset Report Format (ARF) results from CIS-CAT assumes that the CIS-CA
 Once generated, that authentication token must be added to the CIS-CAT properties file in order for automated upload to function.
 
 
-**CIS-CAT Pro Assessor v4**
+### CIS-CAT Pro Assessor v4
 
 assessor-cli.properties:
 
@@ -329,13 +341,13 @@ assessor-cli.properties:
 Save the property file and execute CIS-CAT.
 
 
-**Graphical User Interface (GUI) for Assessor v4**
+### Graphical User Interface (GUI) for Assessor v4
 
 On the Assessment Options page, enter the Dashboard URL where the resulting report should upload. Utilize the help icon on this screen to understand the format to use.
 
 If utilizing a self-signed certificate, you must select the "Ignore SSL Warnings" check box while performing an assessment.
 
-**Command Line User Interface (CLI)**
+### Command Line User Interface (CLI)
 
 To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro Dashboard the following options are used:
 
@@ -346,8 +358,9 @@ To enable the CIS-CAT Command Line to import results directly into CIS-CAT Pro D
 	For example, assessing and uploading the Microsoft Windows 10 Benchmark would look like:
 	> CIS-CAT.bat -b benchmarks\CIS_Microsoft_Windows_10_Enterprise_Benchmark_v1.12.0-xccdf.xml -nrf -u http://myapp.example.org/CCPD/api/reports/upload -ui
  
+----------------------
 
-## Target Systems ##
+## Target Systems 
 
 **Creation**
 Target Systems represent endpoints in your environment that have assesment data within CIS-CAT Pro Dashboard.  There are several ways to create target systems within the application:
@@ -404,16 +417,16 @@ Configuration assessment results can be deleted from their respective tabs on th
 
 ![](https://i.imgur.com/mdeEqMI.png)
   
-         
+----------------------  
 
-##Group Target Systems with Tags##
+## Group Target Systems with Tags##
 
 CIS-CAT Pro Dashboard allows you to group target systems by assigning user-defined tag names that best fit your organization. A tag name could represent a region, a department, internal/external ownership, functional use, operating systems, etc. Once a tag name has been assigned to a target system, you have the option of creating CIS Benchmark [exceptions](./Dashboard%20User%27s%20Guide/#exceptions) or utilizing the graphical display of tagged systems in the [Dashboard - Tag View](./Dashboard%20User%27s%20Guide/#dashboard).
 
 Regularly reviewing target systems, for example, by organizational departments or geographical locations helps you focus remediation efforts in the right places.
 
 
-**Assign Tag to a Single Target System**
+### Assign Tag to a Single Target System
 
 To tag an existing target system individually, navigate to Target Systems in the menu, locate the desired system, and click on the target system's primary identifier in the "Target Primary ID" column.
 
@@ -427,7 +440,7 @@ From within the target system's individual screen, create a new tag by entering 
 
 The "Tags" field is available only to users with ROLE_ADMIN. Modifying tag assignment currently affects Benchmark exception application.
 
-**Assign Tags to Multiple Target Systems**
+### Assign Tags to Multiple Target Systems
 
 Navigate to Target Systems - Search screen to add or remove tags to multiple target systems based on the searched result set and the selection boxes. Enter target system criteria and press the Search button. Once search results are present, select the "Add/Remove Tags" button. Enter tags to apply or remove from the selected systems in your result set and select "Apply."
 
@@ -443,8 +456,7 @@ Tags will be applied or removed from the selected systems in the original result
 
 ![](https://i.imgur.com/gj7kIyi.png)
 
-
-**Searching**
+### Searching
 
 Once tagged, use individual tags, or logical combinations of tags to search for a specific set of end points. Utilize the include/exclude tags field that offer an "AND" or "OR" operator applicable to the tag fields only. Search directly by Primary ID or IPv4 Range.
 
@@ -462,7 +474,9 @@ Once tagged, use individual tags, or logical combinations of tags to search for 
 
 - **Exclude Tags** - type into the Exclude tags list the tags that you do not want in your search results.  This is useful if there were particular tags you would like excluded from your search.  i.e.  Say you wanted to see all of your Servers that did not deal with PCI.  You could type the "Server" tag into the Include Tags box and "PCI" into the Exclude Tags box.
 
-## Assess a Target System ##
+---------------------- 
+
+## Assess a Target System 
 The assessment features supports emote assessments. For Linux, MacOS, and Cisco, the application communicates over SSH. For Microsoft Windows, the application currently only supports communication using WinRM over HTTP. This only means that the target to be assessed must have WinRM for HTTP enabled. See how to configure target endpoints with **[WinRM over HTTP](https://ccpa-docs.readthedocs.io/en/latest/Configuration%20Guide/#basic-endpoint-configuration-steps-for-windows-remote-assessment)**.
 
 The application delivers with officially supported CIS Benchmark content for operating systems and applications that do not require interactive properties. The target system must already exist in the Dashboard. The Dashboard will automatically create a target system when one report is imported. It is also possible to manually create a target.
@@ -537,12 +551,12 @@ The screen can be manually refreshed by selecting the Job Status menu item or by
 |An XML file was parsed but XML Schema validation errors.|An XML file has schema validation errors.  This exit code is used when validating the schema for the Benchmark file requested to be run.|- Only use the unchanged Benchmarks delivered with the application|
 |Could not parse an XML file required for assessment.|- The assessment content (e.g., benchmark file) contains XML formatting errors.  For example, an end tag for an element does not match the start tag.|- Only use the unchanged Benchmarks delivered with the application|
 
+---------------------- 
 
-
-## Reports ##
+## Reports 
 CIS-CAT Pro Dashboard reports provide a few options to view CIS-CAT Assessment Results.  An individual configuration result view provides the same information as the HTML report generated from CIS-CAT Pro Assessor. The Dashboard views offer more flexibility in results presentation, including a CIS Controls-based view. The Dashboard also offers the ability to apply exceptions for benchmark recommendations.  Exceptions can be applied from the various result views. The remediation report provides a list of only the latest failed results for a target or group of targets.  The intent is for a remediator to print this report and use it to manually remediate desired configurations when they depart from a benchmark recommendation.  The complete Results Report will give an abbreviated version of the complete results for a system.  This is intended for an auditor to get a full picture of CIS compliance for a specific target or set of targets.
 
-###Assessment Results ###
+### Assessment Results 
 
 The individual test results report provides a view of a selected target system's results when compared to expected benchmark states.  The display is aligned with the order of an HTML report generated from CIS-CAT Pro Assessor.
 
@@ -573,8 +587,9 @@ Report scores will match report scores as shown on CIS-CAT Pro Assessor v4 HTML 
 3. **Exceptions List** <br/>Exceptions may be associated per target system, per tag associated with the selected target system, or per benchmark (global).<br/>
 	- List of active exceptions associated with the selected configuration result   
  
+---------------------- 
 
-## Configuration Assessment Result Summary ##
+## Configuration Assessment Result Summary 
 
 The Configuration Assessment Result Summary report shows all recommendations for the selected Benchmark that failed during the most recent assessment. The details behind the summary counts can be exported in *.csv format.
 
@@ -616,11 +631,15 @@ For CIS Benchmarks mapped to CIS Controls V8, sort by Implementation Group 1 for
 
 ![](img/ConfigurationSummaryCSVv2.png)
 
-## Remediation Report ##
+---------------------- 
+
+## Remediation Report 
 
 The Remediation Report provides a list of recommendations with a `Failed` status. Remediation steps are included. It is useful to utilize this report as a focused effort on remediation of system states departing from the benchmark recommendations.  If a recommendation has been excepted in the Dashboard and it has a result of `Fail`, it will still be shown on this report. Generate this report by selecting `Remediation Report` from the CIS-CAT Pro Dashboard Reports Menu.  Select the desired Target System and the latest results for a benchmark.
 
-## Complete Results Report ##
+---------------------- 
+
+## Complete Results Report 
 
 The Complete Results Report provides all detailed results of a target system or group of target systems compliance across multiple CIS benchmarks.  To generate the Complete Results Report, select the menu option under reports, search and select desired for target systems, then click on the `Complete Results Report` listed at the bottom of the results. 
 
@@ -630,15 +649,19 @@ The Complete Report lists the Target System, Benchmark,  Rule Number and Title, 
 
 ![](http://i.imgur.com/Q9CmiC0.png)
 
+---------------------- 
 
-## Delete Multiple Configuration Reports ##
+## Delete Multiple Configuration Reports 
+
 Getting started with CIS Benchmark adoption often involves an analysis period. During the analysis phase, reports may be imported to Dashboard, but users may not desire to store results for a long period of time. Multiple reports can be selected and removed from the CIS-CAT Pro Dashboard's database. Deletion will remove report scores from overall averages displayed in the graphical dashboard views.
 
 The report delete process begins by selecting desired reports in the "Assessment Results Search" screen. On confirmation, the selected reports are flagged for deletion. Once flagged, the flagged reports are removed from all averages in the Dashboard and can no longer be searched. The final purge will occur during the hours specified in system settings. The delete button and system settings are available to users with ROLE_ADMIN.
 
 It is highly recommended that a routine database backup process is in place, as the deletion process is permanent.
 
-## Select Reports for Deletion ##
+---------------------- 
+
+## Select Reports for Deletion 
 
 Navigate to “Assessment Results Search” in the “Reports” menu.
 
@@ -652,7 +675,9 @@ Select the reports desired for removal from the database using the checkbox to t
 
 ![](https://i.imgur.com/NrXLZ9u.png)
 
-## Configure Final Report Delete Run Time ##
+---------------------- 
+
+## Configure Final Report Delete Run Time 
 
 Navigate to "Systems Settings" and locate the `delete.assessment.start.time` and `delete.assessment.end.time`. Only whole integers ranging from 0 to 23 will enable to final purge job to run successfully. For example, if the process should run between the hours of 5 p.m. and 11 p.m., then enter 17 as the `delete.assessment.start.time` and 23 as the `delete.assessment.end.time`. For jobs that should run between 11 p.m. and 5 a.m. the next morning, configure the `delete.assessment.start.time` to 23 and the `delete.assessment.end.time` to 5. A setting of any other value in either setting such as -1, will disable the job.
 
@@ -660,7 +685,10 @@ Navigate to "Systems Settings" and locate the `delete.assessment.start.time` and
 
 ![](https://i.imgur.com/eHc76W2.png)
 
-# Exceptions #
+---------------------- 
+
+## Exceptions 
+
 Most organizations do not adopt every CIS Benchmark recommendation. Organizations often choose to accept some risk for the benefit of a functioning business environment. It is also possible that an organization may be solving a recommendation in other ways that CIS-CAT is not able to detect. CIS-CAT Pro Dashboard provides functionality to create an exception to specific rules or groups of rules on a per target system,  global (all targets for a specific benchmark), or by targets associated with user-defined tags. When an exception is applied and approved within the Dashboard exception approval process, existing configuration reports falling within the criteria will be rescored. Additionally, newly imported reports also falling within the criteria of the exception conditions will exclude the excepted result when scoring. 
 
 Exceptions are applied from within an Assessment Test Results Report for a configuration assessment. The `Reports` menu can assist in navigating to configuration test results.
@@ -669,14 +697,14 @@ Exceptions are applied to a specific CIS Benchmark published version. New except
 
 Navigate to the following exception topics:
 
-- [Workflow](#ExceptionWorkflow)
-- [Create](#CreateException)
-- [Approve or Reject](#ApproveRejectException)
-- [View](#ViewException)
-- [Modify](#ModifyException)
+- [Exception Workflow](#ExceptionWorkflow)
+- [Create an Exception](#CreateException)
+- [Approve or Reject an Exception](#ApproveRejectException)
+- [View Configuration Exceptions](#ViewException)
+- [Modify Exception](#ModifyException)
 
 <a name="ExceptionWorkflow"></a>
-**Exception Workflow**
+### Exception Workflow
 It is an important first step to establish an exception workflow process before exceptions are applied. The exception workflow requires that a created exception is approved by a valid user before report scores are recalculated. Approval submissions cannot be recreated or resent if the workflow is not initially setup.
 
 - Login to Dashboard as a user with `ROLE_ADMIN`
@@ -685,7 +713,7 @@ It is an important first step to establish an exception workflow process before 
 - Ensure `ROLE_ADMIN` is present in `Receiving Users` and `Receiving Roles`
 
 <a name="CreateException"></a>
-**Create an Exception**
+### Create an Exception
 
 If an exception already exists on a rule or group, the corresponding `Add Exception`/`Add Group Exception` buttons will not be present. Although it is possible to edit the `End Date` for an approved exception from a Results screen, CIS-CAT recommends following the procedure for editing an exception below. On creation, an exception will enter pending status, a task will be created for all users with ROLE_ADMIN. The task will be present in each qualifying user's Dashboard Inbox in the Task section.
 
@@ -704,8 +732,6 @@ Exceptions where the start date = end date have no effect on the configuration s
 	- Enter `Tags` to apply this exception to all targets associated with entered tag. If `Global` is checked on, entries in `Tags` will be ignored as this exception will be applied to all targets for this CIS Benchmark version
 - Select `Add Exception`
 
-
-
 **Group** 
 
 - Navigate to the group to except within a Test Results Report
@@ -719,7 +745,7 @@ Exceptions where the start date = end date have no effect on the configuration s
 ![](https://i.imgur.com/I5CUmF6.png)
 
 <a name="ApproveRejectException"></a>
-**Approve or Reject an Exception**
+### Approve or Reject an Exception
 
 Ensure the exception workflow setup has been followed. Exceptions that are rejected will not apply to a score recalculation. Rejected exceptions must be recreated. Approved exceptions will rescore reports falling within the criteria of the exception. 
 
@@ -732,7 +758,7 @@ Ensure the exception workflow setup has been followed. Exceptions that are rejec
   ![](http://i.imgur.com/AOyj8Mw.png)
 
 <a name="ViewException"></a>	
-**View Configuration Exceptions**
+### View Configuration Exceptions
 
 Exceptions can be viewed in the following ways: 
 
@@ -742,7 +768,7 @@ Exceptions can be viewed in the following ways:
 - **Configuration Assessment Exception Search** - Navigate to `Reports` menu
 	 
 <a name="ModifyException"></a>	
-**Modify Exception**
+### Modify Exception
 
 Exceptions in a status of `Approved` may be edited by a user with `ROLE_ADMIN`. The exception edit does not require use of the Exception Workflow process for Approval or Rejection. Upon submission, the rescore event for reports falling within the exception's criteria are scheduled for immediate rescore. Depending on how much data is in your system, this can take some time. It is required for the exception to be associated with a Target that has a Target Primary ID.
 
@@ -760,8 +786,10 @@ Exceptions in a status of `Approved` may be edited by a user with `ROLE_ADMIN`. 
 
 Upon submit, the reports falling within the criteria of the exception will be rescored. Exceptions where the start date = end date have no effect on the configuration score.
 
+---------------------- 
 
-## Dashboard ##
+## Dashboard 
+
 The CIS-CAT Pro Dashboard application's dashboard views provide a high level overview of organizational compliance with CIS Benchmarks.  There are several views, which comprise different aggregation levels which produce a graph that represents compliance over time.  The default views show all of the compliance results for the aggregation group selected, i.e.  "Overview" is all of your target systems for all benchmarks,  The "Benchmark View" is by benchmark,  the "Tag View" is all systems with a specific tag or set of tags.  Each point on the graph is an average score for the month.  Each of the points can be clicked to "drill-down" into the Monthly view.  This view has a point for each day in the selected month that has results.  Each of these points can be clicked on to drill down to that specific day,  which will display points for each time you have an assessment result.  The points on the daily view will take you straight to the individual assessment result that produced the score.  This way you can navigate from a very high level view of your compliance data, all the way to the details,  the individual assessment reports that comprise the high level graphical information.
 
 **Overview** 
@@ -802,8 +830,9 @@ The tag view allows you to aggregate compliance results for a group of target sy
 
 ![](https://i.imgur.com/j3ce5lJ.png)
 
+---------------------- 
 
-## Supporting Data ##
+## Supporting Data 
 
 **Benchmarks List**
 
@@ -849,26 +878,28 @@ Once selected, the additional details of a CIS Benchmark are available. Review t
 The CIS Controls reflect the combined knowledge of experts from every part of the ecosystem (companies, governments, individuals), with every role (threat responders and analysts, technologists, information technology (IT) operator and defenders, vulnerability-finders, tool makers, solution providers, users, policy-makers, auditors, etc.) and across many sectors (government, power, defense, finance, academia, etc.), who have banded together to create, adopt, and support the CIS Controls.
 
 
-![](img\Controls8.png)
+![](img/Controls8.png)
 
 CIS Controls V7 is the default CIS Controls shown when viewing a Configuration Assessment Result in the Controls View. Note that CIS Controls V7.0 is the same as V7.1. In this view, it is possible to toggle to CIS Controls V8. [CIS Controls V8 was released](https://www.cisecurity.org/controls/v8/) in May 2021. CIS Controls V8 has reduced the list of 20 CIS Controls to 18. Please note that Safeguard is the newer term in CIS Controls v8, while Sub-Control was the term used previously in CIS Controls v7.0/v7.1.
 
 
 Select a CIS Controls version to view additional information for each Control:
 
-![](img\Control8All.png)
+![](img/Control8All.png)
 
 **View**
 
 Select a CIS Control from the CIS Controls V8 to list the supporting SubControl.
 
-![](img\CISSubcontrolList.png)
+![](img/CISSubcontrolList.png)
 
 Select a CIS Sub-Control to learn more details. Sub-Controls fall into CIS Controls Implementation Groups (IGs). Implementation Groups are recommended guidance to prioritize implementation. Implementation Group 1 is definded as "basic cyber hygiene," the foundational set of cyber defense Sub-Controls that every enterprise should apply to guard against the most common attacks. Each IG builds upon the previous one: IG2 includes IG1, and IG3 includes all CIS Sub-Controls in IG1 and IG2.
 
-![](img\Safeguard.png)
+![](img/Safeguard.png)
 
-# Trouble Shooting and Support #
+---------------------- 
+
+## Trouble Shooting and Support 
 For CIS support, enter a support request at our [online support portal](https://www.cisecurity.org/support/).
 
 Start a discussion on the [CIS-CAT Discussion Group](https://workbench.cisecurity.org/communities/30), (login required). These discussions are a great way for members to use their experience to support each other.
