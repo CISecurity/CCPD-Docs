@@ -75,8 +75,8 @@ CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the 
 - [Active Directory - LDAP/S (Optional Custom Option](#LDAP)
 - [Communication Protocol - HTTP(S) Setup](#HTTPS)
 - [Set Database Password](#DBpass)
-- [Final](#Final)
-- [Login to Dashboard](#login)
+- [Final Installation Process](#Final)
+- [Initial Dashboard Login](#login)
 
 
 <a name="PrepareInstallation"></a>
@@ -115,18 +115,18 @@ Select the main operating system drive for installation. For most Microsoft Wind
 ![](img/Installer_destination.png)
 
 <a name="Email"></a>
-### Email (Custom Option) 
+### Email (Optional Custom Option) 
 
 The email configuration information is optional (NOT REQUIRED) and presented only if selected on the Welcome screen during the first installation or upgrade. Email configuration is **required** for self-service "forgot password" requests. Email is the only way to reset a user's password when active directory is not setup. Organization's may contact support for assistance if it is not possible to configure email. No other functionality or alerts utilize the email setup. All alerts will be sent to the Dashboard "Inbox".
 
 CIS-CAT Pro Dashboard utilizes the Grails mail plugin that supports SMTP servers. Expand the advanced properties for additional email setup.
 
-#### Example
+**Example**
 
 ![](img/Installer_EmailConfig.png)
 
 <a name="LDAP"></a>
-### Active Directory - LDAP/S (Custom Option) 
+### Active Directory - LDAP/S (Optional Custom Option) 
 
 LDAP server structure specifically for CIS-CAT Pro Dashboard is REQUIRED before configuring LDAP in the Dashboard.
 
@@ -138,7 +138,7 @@ LDAP/AD roles and user properties such as firstname, lastname and email will be 
 - [Configure LDAP in CIS-CAT Dashboard installation](#configure)
 
 <a name="structure"></a>
-### Setup LDAP Structure
+#### Setup LDAP Structure
 
 The LDAP Server Structure must be in place before configuring LDAP during the CIS-CAT Pro Dashboard installation.
 
@@ -164,7 +164,7 @@ Deeply nested groups may be incompatible with Dashboard's SpringSecurity plugin.
 ![](img/ActiveDirectory.png)
 
 <a name="configure"></a>
-### Configure LDAP in CIS-CAT Dashboard Installation
+#### Configure LDAP in CIS-CAT Dashboard Installation
 
 Execute the CIS-CAT Pro Dashboard installer and choose to configure LDAP. If wishing to allow a subset of users access to Dashboard, apply a Search filter. The below example is one way to limit user access to just users who are a member of the newly created CCPD groups. 
 
@@ -204,7 +204,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 
 ![](img/Installer_HTTPS_port.png)
 
-#### Supported protocols:
+**Supported protocols:**
 
 - HTTPS - Self-Signed
 	- Requires port 443 availability
@@ -237,7 +237,7 @@ HTTPS protocol is recommended for production use. The installation will assist i
 	- No certificate needed
 	- CIS-CAT Pro Assessor commands must ignore SSL warnings if importing to Dashboard via API. See [Configuration Options](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Configuration%20Options/).
 
-#### Example Screens
+**Example Screens**
 	
 ![](img/Installer_HTTPS_SelfSign.png)
 		
@@ -284,7 +284,7 @@ Depending on the communication protocol selection during installation, the CIS-C
 - HTTPS: https://localhost/CCPD/
 
 <a name="login"></a>
-## Initial Dashboard Login ##
+### Initial Dashboard Login 
 
     username: admin 
     password: @admin123
@@ -335,7 +335,7 @@ If you are unsuccessful, collect logs that have been generated for you and open 
 ![](img/Installer_Error.png)
 
 
-** Obtaining Installer Logs **
+**Obtaining Installer Logs**
 
 During the installation, the Installer will create logs. The logs will be removed when the installation application is closed. If you receive an error during installation, please capture the Installer log before closing the application. Installation logs are created in the operating system's temporary directory, which is `C:\Users\loggedinUser\AppData\Local\Temp`. Select the `Installer Logs` button to navigate to the log location. View this log for information regarding the installation or submit this file with your CIS Technical Support ticket.
  
@@ -346,6 +346,8 @@ Additionally, CIS Technical Support may require any logs generated at this locat
 
 Attach log files to your [Technical Support ticket](https://www.cisecurity.org/support/).
 
+------------------
+
 ## Uninstall
 
 The Uninstaller application is located in the root directory of the original installation location. The uninstallation will remove all data and services supporting CIS-CAT Pro Dashboard. A restart is required to complete the uninstallation.
@@ -354,6 +356,7 @@ The Uninstaller application is located in the root directory of the original ins
 
 ![](img/Installer_Uninstall_App.png)
 
+------------------
 
 ## HTTPS Certificate Trust 
 
