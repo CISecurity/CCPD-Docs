@@ -2,7 +2,7 @@
 
 ------------------
 
-## Introduction ##
+## Introduction 
 
 CIS-CAT Pro Dashboard is a companion tool to CIS-CAT Pro Assessor. **Dashboard is NOT required to run an assessment.** Members just starting with CIS-CAT should start assessing a baseline image with **[CIS-CAT Assessor](https://workbench.cisecurity.org/download/cis-cat/pro)** that supports assessments using CLI running Assessor-CLI.bat, Assessor-CLI.sh or GUI standalone. Review CIS-CAT Pro Assessor [documentation](https://ccpa-docs.readthedocs.io/en/latest/) to learn more.
 
@@ -11,7 +11,7 @@ The Dashboard can optionally serve as a central repository for configuration ass
 
 ------------------------
 
-## Dashboard Use Case ##
+## Dashboard Use Case 
 
 CIS-CAT Pro Dashboard best fits a single, small to medium size enterprise with a moderate amount of configuration result data. The size or your organization does not specifically matter if imported data will be moderate. Defining “moderate” data amount depends on how many endpoints an organization has and/or how often those results are imported into the Dashboard. Dashboard is not designed for “big data” where organizations wish to import reports from, for example, 10,000 endpoints. We recommend seeking other data viewing tools specializing in big data handling should your organization need to view consolidated data for 1,000’s of endpoints. Members importing less than 1,000 reports monthly to a single Dashboard instance may have a better performance experience. For example, when an organization has 10,000 reports already stored in the database, additional imports may be slower. Members are encouraged to consider how Dashboard can best be utilized to support configuration state viewing and remediation efforts.
 
@@ -19,7 +19,7 @@ Some Members have found that multiple Dashboard installations representing each 
 
 ------------------------
 
-## Main Features ##
+## Main Features 
 
 Use of Dashboard is optional. Routine assessment are best performed with CIS-CAT Pro Assessor. Dashboard offers the following features:
 
@@ -37,7 +37,7 @@ Use of Dashboard is optional. Routine assessment are best performed with CIS-CAT
 
 ------------------------------
 
-## Obtain Dashboard ##
+## Obtain Dashboard 
 
 CIS-CAT Pro Dashboard is available to CIS SecureSuite Members. To learn more about becoming a CIS SecureSuite Member, visit our [website](https://www.cisecurity.org/). As a Member, organizations may navigate to [CIS WorkBench](https://workbench.cisecurity.org/dashboard) to obtain the CIS-CAT tools. 
 
@@ -47,7 +47,7 @@ For CIS-CAT Pro Dashboard v3.0.0, select your preferred installation of [Microso
 
 ------------------------
 
-## Technology ##
+## Technology 
 
 CIS-CAT Pro Dashboard is a web application supported by a Grails Framework. All necessary components required to operate CIS-CAT Pro Dashboard are embedded. The installation, modification and upgrade process will be executed by utilizing the installer.
 
@@ -61,7 +61,7 @@ Embedded components alleviates the challenges of requiring expertise in various 
 
 ------------------------
 
-## Security ##
+## Security 
 
 CIS-CAT team utilizes best efforts to ensure that the CIS-CAT product are free from material vulnerabilities resulting from integrated third-party libraries with continuous use of  monitoring tools as part of the software build process. 
 The Center for Internet Security performs annual penetration testing on eligible software products, which includes CIS-CAT. CIS-CAT mitigates risks with recommended solutions associated with penetration test findings assessed at and above a Medium.
@@ -79,7 +79,7 @@ The term “Software Bill of Materials” or “SBOM” means a formal record co
 
 ------------------------
 
-## Installation Overview ##
+## Installation Overview 
 
 The installation application must be used to complete all install, upgrade, and installation modifications.
 The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
@@ -105,7 +105,7 @@ The `conf` folder contains the ccpd-config.yml file that contains information to
 
 ------------------------------
 
-## Version 3 FAQ ##
+## Version 3 FAQ 
 
 - [Why use CIS-CAT Pro Dashboard?](#whyuse)
 - [Can I use my existing Dashboard v2 server for an installation of Dashboard v3?](#existing)
@@ -191,13 +191,15 @@ No. CIS will deprecate the CIS-CAT Pro Dashboard and CIS-CAT Pro Assessor functi
 No. At this time, CIS will not support installations with Microsoft IIS.
 
 ------------------------------
-## Compatibility CIS-CAT Pro Dashboard v2.x Versions ##
+
+## Compatibility CIS-CAT Pro Dashboard v2.x Versions 
 
 CIS-CAT Pro Dashboard version 3 is a major version release that is not backwards compatible with the [previously deprecated CIS-CAT Pro Dashboard v2.x versions.](https://cisecurity.atlassian.net/l/cp/mF6o97vs) Read our [CIS-CAT Pro Dashboard v3.x FAQ]() to learn more.
 
 CIS-CAT Pro Dashboard version 3.x requires a new installation. It is not possible to migrate data imported into the previous version 2.x to version 3.x.
 
 ## End of Life and Final Release Dashboard v 2.x
+
 ------------------
 
 ** Version 2 of CIS-CAT Pro Dashboard has reached End of Life and its Final Release occurred in September 2022. It has been replaced with Dashboard v3.0.0 released in December 2022.**
