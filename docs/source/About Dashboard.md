@@ -36,6 +36,7 @@ Use of Dashboard is optional. Routine assessment are best performed with CIS-CAT
 
 
 ------------------------------
+
 ## Obtain Dashboard ##
 
 CIS-CAT Pro Dashboard is available to CIS SecureSuite Members. To learn more about becoming a CIS SecureSuite Member, visit our [website](https://www.cisecurity.org/). As a Member, organizations may navigate to [CIS WorkBench](https://workbench.cisecurity.org/dashboard) to obtain the CIS-CAT tools. 
@@ -103,6 +104,7 @@ The `conf` folder contains the ccpd-config.yml file that contains information to
 
 
 ------------------------------
+
 ## Version 3 FAQ ##
 
 - [Why use CIS-CAT Pro Dashboard?](#whyuse)

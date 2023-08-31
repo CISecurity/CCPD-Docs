@@ -2,7 +2,6 @@
 
 # CIS-CAT Pro Dashboard User Guide #
 
-
 ## Logging In ##
 
 When a user first navigates to CIS-CAT Pro Dashboard, they are asked to log into the system.  If a user account has been created for that user, they will initially be asked to reset their password following a successful login.
@@ -39,7 +38,6 @@ The user profile screen also features a list of Alerts that the user is currentl
 From this list users can choose to opt out of any of the alert types that they are receiving.
 
 **NOTE:** If LDAP is integrated with CCPD, "change password" and "edit profile" buttons are no longer available as well as some user account properties. Password and profile attributes (firstname, lastname, email) are managed and retrieved from LDAP.   
-
 
 ## User Management ##
 
