@@ -1,11 +1,13 @@
 ![](http://i.imgur.com/5yZfZi5.jpg)
 
-**CIS-CAT Pro Dashboard Change Log**
+# CIS-CAT Pro Dashboard Change Log
 
-# 3.2.0 #
+----------------------
+
+## 3.2.0 
 August 1, 2023
 
-**Benchmarks**
+### Benchmarks
 
 - AKS-Optimized Azure Linux 2 v1.0.0
 - Amazon Linux 2023 v1.0.0
@@ -26,7 +28,7 @@ August 1, 2023
 - RedHat OpenShift Container Platform v4 v1.4.0
 - Ubuntu Linux 20.04 LTS v2.0.1
 
-**Security**
+### Security
 
 - Resolved security vulnerabilities present in embedded, third party dependencies:
 	- Spring Security Framework updates (spring-security-core, spring-security-ldap, spring-security-web, spring-security-crypto, etc.) v5.3.26/5.7.5 to 5.3.27/5.7.8
@@ -41,23 +43,25 @@ August 1, 2023
 	- org.codehaus.janino: commons-compiler 3.1.6 to 3.1.10
 	- org.codehaus.janio: janio 3.1.6 to 3.1.10
 
-**Application**
+### Application
 
 - An issue has been resolved with latency on all screen loads upon initial installation and server restart.
 - Screen and HTML reports updated to represent CIS Benchmark recommendations intentionally not mapped to a CIS Critical Control as “Explicitly Not Mapped”
 - The Linux installation and upgrade final steps have been improved
 
-**Documentation**
+### Documentation
 
 - Revised **[LDAP instructions in the Windows Installation Guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#LDAP)** to include an example on options to add a search filter to restrict Dashboard access to only selected users
 - Software Bill of Materials files have been renamed to SBOM_CIS_CAT_Pro_Dashboard
 - CIS-CAT Pro Dashboard’s **[software bill of materials (SBOM)](https://workbench.cisecurity.org/files/4550)** is now available for download on CIS WorkBench separately in addition to within the release bundle. 
 - The README.txt file updated to record suppressed third party dependent library vulnerabilities.
 
-# 3.1.0 #
+----------------------
+
+## 3.1.0 
 April 24, 2023
 
-**Benchmarks**
+### Benchmarks
 
 - Azure Compute Microsoft Windows Server 2022 v1.0.0
 - Cisco iOS 16 v2.0.0
@@ -67,14 +71,14 @@ April 24, 2023
 - Microsoft Windows 11 Enterprise v2.0.0
 - Microsoft Windows 11 for Intune v1.0.0
 
-**Security**
+### Security
 
 - Resolved security vulnerabilities present in embedded, third party dependency, tomcat-embed-core and tomcat-embed-websocket. This library has moved to version 9.0.73.
 - Resolved security vulnerabilities present in the Commons-fileupload embedded, third party library.
 - Resolved security vulnerabilities present in embedded, third party dependency of Spring Security. This dependency has moved to v5.3.26.
 
 
-**Application**
+### Application
 
 - Duplicate configuration assessment result files (ARF.xml) manually placed in the “input” folder for import will no longer stall the import process and be moved to the error folder.
 - On upgrade, an installation utilizing HTTPS communication protocol will no longer receive a warning that port 443 is not available
@@ -85,7 +89,7 @@ April 24, 2023
 - The base Grails framework was moved to version 5.2.4, which also upgraded dependencies such as Spring Framework.
 - The Dashboard’s service name has been modified to include an underscore, CCPD_Windows
 
-**Documentation**
+### Documentation
 
 - Updated User Guide and Benchmark Coverage Guide to review additional details on assessing from Dashboard with tailored benchmark content. See the **[User Guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20User's%20Guide/#assess-a-target-system)** and **[CIS Benchmark Support Guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Benchmark%20Coverage/)** for information on how to assess with tailored content.
 - CIS-CAT now delivers with a Software Bill of Materials (SBOM) located in the documentation directory
@@ -93,11 +97,12 @@ April 24, 2023
 - The README.txt file updated to record suppressed third party dependent library vulnerabilities.
 - HTTPS Certificate Trust [information](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Dashboard%20Deployment%20Guide%20for%20Windows/#https-certificate-trust) has been modified to include more information
 
+----------------------
 
-# 3.0.1 #
+## 3.0.1 
 December 21, 2022
 
-**Benchmarks**
+### Benchmarks
 
 - Alma Linux 9 v1.0.0
 - Microsoft IIS 10 v1.2.0
@@ -112,33 +117,34 @@ The following CIS Benchmarks included in CIS-CAT Pro Dashboard have moved to end
 
 - Amazon Linux v2.0.0
 
-** Security **
+### Security 
 
 - Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/cp/GwThzTEn) for more information.
 
-** Application **
+### Application 
 
 - none
 
-** Documentation **
+### Documentation 
 
 - Updated [CIS Benchmark Support guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Benchmark%20Coverage/) with updated content
 
+----------------------
 
-# 3.0.0 #
+## 3.0.0 
 December 12, 2022
 
 **Read our [blog to learn more about these changes](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it).**
 
-**Benchmarks**
+### Benchmarks
 
 - See [CIS Benchmark Support guide](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/Benchmark%20Coverage/) for supported CIS Benchmarks in datastream format.
 
-** Security **
+### Security 
 
 - The ccpd-config.yml (stored in “conf” folder) supporting the CIS-CAT Pro Dashboard operation now limits read/write privileges to only privileged Microsoft Windows or Linux users.
 
-** Application **
+### Application 
 
 - System requirements for installation modified to require and support only
 	- One Dashboard Host server: Ubuntu Linux 20.04 OR Microsoft Windows Server 2016/2019
@@ -157,14 +163,18 @@ December 12, 2022
 - Dashboard functions to support vulnerability assessment have been removed. CIS-CAT now exclusively performs and supports configuration assessments primarily for CIS Benchmarks with automated assessment content. Please see our [knowledge base article](https://cisecurity.atlassian.net/l/cp/CLRHc4H4) for more information.
 - Integration to CIS WorkBench has been temporarily disabled in version 3 of Dashboard. This feature will return in 2023 and coordinate with new Dashboard retrieval method in CIS WorkBench.
 
-** Documentation **
+### Documentation 
 
 - Updated all installation requirements and instructions
 - The README.txt has been updated to represent Dashboard v3.0.0 information
 
-# Archive - Version 2.x #
+----------------------
 
-CIS-CAT Pro Dashboard v2.3.2 - FINAL version 2 series.**
+## Archive - Version 2.x 
+
+----------------------
+
+### CIS-CAT Pro Dashboard v2.3.2 - FINAL version 2 series.
 November 15, 2022
 
 Due to critical security vulnerabilities in the end of life CIS-CAT Pro Dashboard version 2 and the availability of version 3 (planned December 2022), CIS has released one last version of Dashboard version 2 series. CIS understands that some organizations will need time to adopt version 3 of Dashboard when it becomes available in December 2022.
@@ -174,124 +184,128 @@ Version 2.3.2 will be the final release of CIS-CAT Pro Dashboard version 2 serie
 
 **[Read our knowledgebase article to learn more.](https://cisecurity.atlassian.net/l/cp/mF6o97vs)**
 
-** Application **
+#### Application 
 
 - N/A
 
-** Security **
+#### Security 
 
 - Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/cp/F18Ag1af) for more information.
 
 
-** Documentation **
+#### Documentation 
 
 - N/A
 
+----------------------
 
-**CIS-CAT Pro Dashboard v2.3.1**
+### CIS-CAT Pro Dashboard v2.3.1
 September 21, 2022
 
 Version 2.3.1 will be the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions in early Q4 2022, but will not be backwards compatible. A clean install of Dashboard version 3.0.0 will be required as there will be no upgrade or data migration options available from any previous 2.x version.
 
 **[Read our knowledgebase article to learn more.](https://cisecurity.atlassian.net/l/cp/mF6o97vs)**
 
-** Application **
+#### Application 
 
 - Palo Alto configuration assessment reports now import successfully.
 
 
-** Security **
+#### Security 
 
 - Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/cp/SwQhuzoA) for more information.
 
 
-** Documentation **
+#### Documentation 
 
 - Updated Deployment and User Guides to include End of Life information.
 
+----------------------
 
-** CIS-CAT Pro Dashboard v2.3.0 **
+### CIS-CAT Pro Dashboard v2.3.0 
 May 3, 2022
 
-** Application **
+#### Application 
 
 - Configuration exceptions in `Approved` status where a Target Primary ID is present can now be edited by a user assigned ROLE_ADMIN from the `Configuration Exception Search` page under the `Reports` Menu. Upon submission, configuration report scores will be recalculated. Edits do not require exception workflow approval and will be effective immediately. 
 
 
-** Security **
+#### Security 
 
 - Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/PPB351PN) for more information.
 	- Upgrade Grails Framework from v4.0.11 to v5.1.7, which facilitated upgrade to vulnerable Spring Framework libraries
 
 
-** Documentation **
+#### Documentation 
 
 - Updated User Guide to include information on how to edit an exception.
 
---------------------
-** CIS-CAT Pro Dashboard v2.2.6 **
+----------------------
+
+### CIS-CAT Pro Dashboard v2.2.6 
 April 5, 2022
 
-** Application **
+#### Application 
 
 - None
 
-** Security **
+#### Security 
 
 -   Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/w3C5QBPi) for more information.
 
 
-** Documentation **
+#### Documentation 
 
 -   None
 
+----------------------
 
-----------
-** CIS-CAT Pro Dashboard v2.2.5 **
+### CIS-CAT Pro Dashboard v2.2.5 
 March 22, 2022
 
-** Application **
+#### Application 
 
 - Increased performance of assessment report import duration issue when low score alerts are utilized.
 - CVE and CVSS data from the National Vulnerability Database (NVD) for 2022 are now available to support the CIS-CAT Assessor vulnerability reports. Ensure to update the NVD data from the Dashboard menu.
 
-** Security **
+#### Security 
 
 - The README.txt file now contains information about third party dependent libraries that may appear on vulnerability reports.
 
-** Documentation **
+#### Documentation 
 
 -   None
 
-----------
-** CIS-CAT Pro Dashboard v2.2.4 **
+----------------------
+
+### CIS-CAT Pro Dashboard v2.2.4 
 February 17, 2022
 
-** Application **
+#### Application 
 
 - Resolved an issue of where importing assessment reports took an excessive amount of time. The import process speed has been improved.
 - An export error corrected for configuration report XML format.
 
-** Security **
+#### Security 
 
 -   Resolved security vulnerability present in embedded, third party dependencies. 
 
-
 Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/yNXeaPPw) for more information regarding the security updates.
 
-** Documentation **
+#### Documentation 
 
 -   The Dashboard Windows Configuration Guide has been updated with working links in the "Creating a Self-Signed Certificate using Windows Powershell"
 
-----------
-** CIS-CAT Pro Dashboard v2.2.3 **
+----------------------
+
+### CIS-CAT Pro Dashboard v2.2.3 
 December 7, 2021
 
-** Application **
+#### Application 
 
 -  None
 
-** Security **
+#### Security 
 
 -  Resolved security vulnerabilities present in framework dependencies:
 	-  Bootstrap
@@ -300,19 +314,20 @@ December 7, 2021
 
 Please see the related [knowledge base article](https://cisecurity.atlassian.net/servicedesk/customer/portal/15/article/2416148561) for more information regarding the security updates.
 
-** Documentation **
+#### Documentation 
 
 -   Update Windows and Linux Deployment Guide to remove Assessor v3 integration instructions.
 
-------------------
-** CIS-CAT Pro Dashboard v2.2.2 **
+----------------------
+
+### CIS-CAT Pro Dashboard v2.2.2 
 November 9, 2021
 
-** Application **
+#### Application 
 
 -  None
 
-** Security **
+#### Security 
 
 -  Dashboard users are now limited to:
 	-  Modifying only their own Alert Opt In/Opt Out settings
@@ -322,16 +337,16 @@ November 9, 2021
 
 Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/7UBQbXCP) for more information regarding the security updates.
 
-** Documentation **
+#### Documentation 
 
 -   None
 
----------------------
-** CIS-CAT Pro Dashboard v2.2.1 **
+----------------------
+
+### CIS-CAT Pro Dashboard v2.2.1 
 September 23, 2021
 
-** Application **
-
+#### Application 
 
 -  Resolved an issue causing some assessment reports to fail to import when several reports were automatically imported via the API.
 -  Configuration assessment scores correctly updated on exception approval.
@@ -342,20 +357,20 @@ September 23, 2021
 -  The Dashboard installer will now continue to work with supported, stable versions of Java (JRE, JDK, openJDK) of 8 and 11. 
 -  Corrected an issue where a configuration result would fail to import when no system information was collected for a particular check.
 
-** Security **
+#### Security 
 
 -  Resolved security vulnerabilities present in embedded, third party dependencies. Please see the related [knowledge base article](https://cisecurity.atlassian.net/l/c/HvCmoNP4) for more information.
 
-** Documentation **
+#### Documentation 
 
 -   Preferred component section of the Configuration Guide specifies that if selecting components other than preferred components, OS compatibility with required components should be verified. 
 
--------------------
-** CIS-CAT Pro Dashboard v2.2.0 **
+----------------------
+
+### CIS-CAT Pro Dashboard v2.2.0 
 July 1, 2021
 
-** CIS-CAT Pro Updates **
-
+#### CIS-CAT Pro Updates 
 
 -  NEW report: **Configuration Assessment Result Summary**
 	-  Summary list of failing recommendations by benchmark profile and version and system count for each fail result
@@ -371,8 +386,7 @@ July 1, 2021
 -  The configuration assessment import process now correctly stores complex results enabling full display of result evidence when viewing a configuration assessment. Effective on new imports with Dashboard v2.2.0+.
 -  Additional verification added to ensure each user can only change their own password in the user profile.
 
-
-** Documentation Updates **
+#### Documentation Updates 
 
 - Deployment Guide updates
 	 - Windows and Linux Deployment guide indicates load balanced configurations are not currently supported.
@@ -380,12 +394,12 @@ July 1, 2021
 - Updated Windows Deployment Guide to indicate supported OS includes Windows 2019
 - Updated Linux Deployment Guide to indicate supported OS includes Ubuntu 18.04
 
+----------------------
 
--------------------------------
-** CIS-CAT Pro Dashboard v2.1.0 **
+### CIS-CAT Pro Dashboard v2.1.0 
 April 14,2021
 
-** CIS-CAT Pro Updates **
+#### CIS-CAT Pro Updates 
 
 -  Resolved an error with Active Directory and LDAP integration when using Dashboard v2.1.0+.
 -  Improvements to HTML exported reports for an individual configuration report
@@ -401,20 +415,19 @@ April 14,2021
 -  Resolved an issue with resetting the password.
 -  Target System and Benchmark View graphs updated to allow selection of the check box when choosing data to display.
 
-
-** Documentation Updates **
+#### Documentation Updates 
 
 - User Guide updates
 	 - Updated scoring information available in guide on configuration assessment view screen. Screen shots updated to show new "unknown" and "error" columns.
 	 - Updated functionality on user roles
 - Updated Windows Deployment Guide to indicate supported database component now includes Microsoft SQL Server 2019 to support storage of Dashboard data.
 
+----------------------
 
----------------------------
-** CIS-CAT Pro Dashboard v2.0.0 **
+### CIS-CAT Pro Dashboard v2.0.0 
 January 20, 2021
 
-** CIS-CAT Pro Updates **
+#### CIS-CAT Pro Updates 
 
 - Baseline framework upgrade that includes:
 	- Grails v4.0.4 which includes upgrades to Spring and Spring Boot
@@ -427,7 +440,7 @@ January 20, 2021
 
 **NOTE:** This is a major upgrade to Dashboard. Please ensure to backup your database and deploy in a test environment. It is highly recommended to utilize the Dashboard Installer as formats of the configuration has changed due to the Grails upgrade. Please check the Windows and Linux Deployment guides for updates to `ccpd-config.yml` formatting.
 
-** Documentation Updates **
+#### Documentation Updates 
 
  - Modifications to Linux and Windows Deployment Guide
 	 - Application Server and java components contain more detail
@@ -437,38 +450,41 @@ January 20, 2021
 	 - Additional detail added to Java configuration to ensure successful report exports from the Dashboard
  - IIS configuration instructions updated to support optional authentication with CIS WorkBench for receiving in-application alerts on new CIS-CAT Pro releases.
  
---------------------------------- 
-** CIS-CAT Pro Dashboard v1.1.13 **
+----------------------
+
+### CIS-CAT Pro Dashboard v1.1.13 
 May 5, 2020
 
-** CIS-CAT Pro Updates **
+#### CIS-CAT Pro Updates 
 
 - Support added to facilitate import of configuration assessment results for CIS Benchmark VMWare ESXi 6.7.
 
-** Documentation Updates **
+#### Documentation Updates 
 
  - Updated Java requirements to indicate that Java 8.251+ is not supported.
 
----------------------------
-** CIS-CAT Pro Dashboard v1.1.12 **
+----------------------
 
-** CIS-CAT Pro Updates **
+### CIS-CAT Pro Dashboard v1.1.12 
+
+#### CIS-CAT Pro Updates 
 
 - Multi-select configuration assessment report(s) for daily delete from database.
 - In-Dashboard alerts will now occur for new versions of Assessor v4 Service.
 - Full 2020 vulnerability definitions, downloaded from NIST, are now supported.
 - Resolved error on target system delete when ad hoc assessment job records exist for deleted target.
 
-** Documentation Updates **
+#### Documentation Updates 
 
  - Documentation and Dashboard installer updated to support recommended location of import directories as residing in the Tomcat structure.
  - User guide emphasizes requirement of direct internet connectivity when integrated with CIS Workbench and downloading updated NVD Data from NIST.
  - Corrected key tool file path mentioned in Linux Deployment section in guide.
 
--------------------------------
-** CIS-CAT Pro Dashboard v1.1.11 **
+----------------------
 
-** CIS-CAT Pro Updates **
+### CIS-CAT Pro Dashboard v1.1.11 
+
+#### CIS-CAT Pro Updates 
 
 - Ability to orchestrate a remote ad-hoc assessment for an individual target system with a selected CIS Benchmark.
 
@@ -476,33 +492,36 @@ May 5, 2020
 
 **IMPORTANT**: To use the remote ad-hoc assessment capability, installation of CIS-CAT Pro Assessor v4 Service v1.0.0+ is required.
 
------------------------------------
-** CIS-CAT Pro Dashboard v1.1.10 **
+----------------------
 
-** CIS-CAT Pro Updates **
+### CIS-CAT Pro Dashboard v1.1.10 
+
+#### CIS-CAT Pro Updates 
 
  - Members now have the option to receive an in-application alert when a new CIS-CAT Pro release has been uploaded to CIS WorkBench. Requires some setup in Dashboard Setting menu to configure an integration with CIS WorkBench.
 
 **IMPORTANT**: To receive new release alerts, make sure the application has the **write privileges** to **ccpd-config.yml** file.
 
----------------------------
-** CIS-CAT Pro Dashboard v1.1.9 **
+----------------------
 
-** CIS-CAT Pro Updates **
+### CIS-CAT Pro Dashboard v1.1.9 
+
+#### CIS-CAT Pro Updates 
 
  - The result import process has been modified to decompress and import result XML reports from CIS-CAT Pro Assessor v4 when sent via the API. Compressed reports will be sent when the Assessor v4 property is set to compress result XML reports.
  - The tag field on an individual target system is read only for users without the admin role.
  
-** Documentation Updates **
+#### Documentation Updates 
 
  - More emphasis added on required UTF-8 encoding set for Tomcat configuration.
  - The supported version of Maria DB has been specified in the online documentation.
  - More emphasis on the type of MS SQL server User required for Dashboard installation.
 
-----------------------------
-** CIS-CAT Pro Dashboard v1.1.8 **
+----------------------
 
-** CIS-CAT Pro Updates **
+### CIS-CAT Pro Dashboard v1.1.8 
+
+#### CIS-CAT Pro Updates 
 
  - Support for NIST vulnerability JSON data feeds version 1.1 including the latest information. **Important: because of NIST XML Vulnerability Feed retirement, import of NVD feeds in XML format is no longer supported in the Dashboard.**
  - CIS Benchmark version number added to Configuration Exception Search, Individual Target - Configuration Tab, and Assessment Results List.
@@ -512,130 +531,135 @@ May 5, 2020
  - Dashboard Installer process now creates MySQL databases with UTF-8 character sets.
  - Help text added to Linux installer process regarding import folder permissions.
  
-** Documentation Updates **
+#### Documentation Updates 
 
  - CIS-CAT Pro Dashboard Upload Report API defined. Located in Linux and Windows Deployment section as a subsection titled "Dashboard API."
  - Manual instructions for MySQL database installation updated to include accommodation for UTF-8 character sets.
  - Tomcat installation visual material now consistent with written instruction.
  
----------------------------------
-** CIS-CAT Pro Dashboard v1.1.7 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.1.7 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - Enhanced process for adding and removing tags to target system allows for updates in bulk vs. single target system updates. Available on the Target search screen only to users with admin role. 
  - Search by IPv4 IP range has been added to the Target search screen.
  - New autocomplete function displays existing tags in the Target search screen tag field. Enter a space to show all tags.
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Target system deletion is now only available to users with admin role.
  - Target System Identifier deletion, edit, and creation is now only available to users with admin role.
  - Configuration and Vulnerability assessments deletion is now only available to users with admin role.
  - Configuration assessment and difference reports now show "no collected data" in the assessment section of a recommendation when the result is 'unknown' or 'not selected'.
  
-DOCUMENTATION UPDATES
+#### DOCUMENTATION UPDATES
 
  - Linux/Windows deployment introduction modified to clearly define CIS-Supported components required for Dashboard operation.
  - Component documentation modified to indicate official support of Google Chrome web browser for CIS-CAT Pro Dashboard.
  
--------------------------------------
+----------------------
 
-** CIS-CAT Pro Dashboard v1.1.6 **
+### CIS-CAT Pro Dashboard v1.1.6 
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Supports MacOS 10.13 CIS Benchmark.
  - Updated, more consistent schema validation process upon vulnerability report import. Per existing functionality, reports failing validation will generate a Dashboard inbox alert and will be moved to the error directory.
  - New users will be assigned ROLE_USER and ROLE_BASIC_USER on default upon creation.
 
-BUGS
+#### BUGS
 
  - Updated vulnerability validation process on import of a Windows 10 vulnerability assessment from CIS-CAT Pro Assessor v4. 
  - Resolved error on configuration assessment report display when no evidence is collected.
  - HTML reports display 4 digit Benchmark version numbers
  
-DOCUMENTATION UPDATES
+#### DOCUMENTATION UPDATES
 
  - Dashboard and Assessor documentation configuration updated for tool integration. Instructions in the online Dashboard documentation is now more clearly defined by modifying some text and moving around sections of the instructions.
  - Linux Deployment instructions enhanced. Many clients required additional information regarding legacy/import folder permissions and configuration. 
 
--------------------------------------
-** CIS-CAT Pro Dashboard v1.1.5 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.1.5 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - CIS Controls V7.0 support: For Benchmarks mapped to CIS Controls, users can view how recommendations relate to CIS Controls. See our upcoming blog to learn more. 
  - The CIS-CAT Pro Dashboard's HTML report has been modified in style to match the Assessor's HTML report for consistency purposes. 
  - For Dashboard Installer users, existing database settings will be detected and used instead of changed to CIS-CAT recommended settings.
 
-
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Oracle users upgrading from Dashboard versions prior to 1.1.3 will benefit from better database performance due to established indexing. Oracle users who have upgraded to Dashboard versions 1.1.3 or later to 1.1.5, will obtain the necessary indexes on upgrade. 
  - The Installer has been whitelisted with Symantec anti-virus. 
 
-BUGS
+#### BUGS
 
  - Resolved an issue for SQL Server users when drilling down on the Benchmark View chart. 
 
-----------------------------------------
-** CIS-CAT Pro Dashboard v1.1.4 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.1.4 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - Installation and Upgrade Tool: A step-by-step embedded tool for the install/upgrade of dashboard that steps members through each process.
  - Graphs Viewable With or Without Internet Connectivity: CIS-CAT Pro Dashboard can now display assessment results in a graphical form whether your application server is on or off-line.
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - MySQL database driver replaced by Maria DB driver (increase performance). **IMPORTANT: in ccpd-config.yml, "com.mysql.cj.jdbc.Driver" driverClassName needs to be replaced by "org.mariadb.jdbc.Driver". Can be done with the Installer or manually.**
  - Jobs run in succession (queue) to avoid simultaneous access to the database.
 
-BUGS
+#### BUGS
 
  - Fixed reset password link and password expired redirection for users using a webserver. 
  - Fixed a bug when importing duplicate oval variables.
  - Fixed a bug when importing benchmark front-matter and rear-matter xml elements.
 
------------------------------
-** CIS-CAT Pro Dashboard v1.1.3 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.1.3 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - Implemented a Difference Report for comparing an assessment result with the previous assessment result.
  - Added ability to delete individual Configuration Assessments and Vulnerability Assessments.
  - Conversion abilities to convert existing data to the new data model.
  - Added ability to attach existing vulnerability assessments to NVD data updated after the import of the assessment.
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Delete target systems Performance improvements.
  - Added "Attach CVEs to Existing Definitions" button on the Vulnerabilities List.  This will allow NVD data to be imported after vulnerability assessments.
  - New Assessment Data Model which will offer performance improvements in: Import, Export, Delete functionality.
  - Support for WebLogic appliction server
 
-BUGS
+#### BUGS
 
  - automated database changes required when updating from a version prior to v1.1.2.
 
--------------------------
-** CIS-CAT Pro Dashboard v1.1.2 **
+----------------------
 
-SYSTEM ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.1.2 
+
+#### SYSTEM ENHANCEMENTS
 
  - Import Performance improvements.
  - Implemented a new way to identify duplicate imports, to maintain a smaller and more accurate version of content, especially OVAL content.
 
-BUGS
+#### BUGS
 
  - Fixed a bug with imports sometimes misidentifing duplicate target systems
  - Fixed a bug with importing of older CIS content, such as AIX 6 results.
 
-------------------------------------- 
-** CIS-CAT Pro Dashboard v1.1.0 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.1.0 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - CCPD can now except custom target system identifiers from CIS-CAT Pro Assessor.  A custom element can be configured in CIS-CAT Pro Assessor to be passed to CCPD via the import functionality.
  - Group Exceptions - you can now add exceptions to entire groups or sub-groups of recommendations
@@ -643,21 +667,20 @@ FUNCTIONAL ENHANCEMENTS
  - Vulnerability Dashboard - you can view your vulnerability data over time using the Vulnerability Dashboard.
  - NVD Data Import - you can now import CVE and CVSS information directly from the NVD.  This data is used to support vulnerability report scoring
 
- 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Target System UI - redesigned to better present information,  including the profile level of each asseessment result.  added tabs for configuration results and vulnerability results.
  - Improved performance on Complete Report and Remediation Report exports.
 
-BUGS
+#### BUGS
 
  - fixed a bug from 1.0.5 where importing subsequent ARF files would create additional Target System records
 
+----------------------
 
----------------------------------------
-** CIS-CAT Pro Dashboard v1.0.5 **
+### CIS-CAT Pro Dashboard v1.0.5 
 
-FUNCTIONAL ENHANCEMENTS
+#### FUNCTIONAL ENHANCEMENTS
 
  - Added Title information to the alert dialog
  - User Favorites - added a user favorites section where users can mark their favorite benchmarks or target systems.  The Benchmark Dashboard and Target System Dashboard now use user favorites to display the options available for graphing
@@ -669,36 +692,36 @@ FUNCTIONAL ENHANCEMENTS
  - added security to exception end dating to only allow ROLE_ADMIN to end date exceptions
  - Exception End date alert - recipient list will be notified when an exception is end dated
  
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Target System Primary Identification customization - added ability to customize the primary identifier used for target systesms at an application level, and per target system.  By default, hostname will be the primary identifier of all target systems, but you can now change to use another identifier type, such as fqdn, mac-address, or a custom identifier.
 
-BUGS
+#### BUGS
 
  - fixed bug where CCPD would not run using SQL Server 2014
  - fixed missing "Back" button on Target Systems Dashboarad when toggling between multi/single view
  - fixed bug preventing deletion of target systems
  
----------------------------------------- 
-** CIS-CAT Pro Dashboard v1.0.4.1 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.0.4.1 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - Device View Dashboard - you can now search by device, or multiple devices, instead of having them all listed.
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
-
-BUGS
+#### BUGS
 
  - fixed bug where viewing assessment results would make the end time on the report 12:00am
  - fixed an import bug where missing oval definitions would cause an import to fail.
 
---------------------------
-** CIS-CAT Pro Dashboard v1.0.4 **
+----------------------
 
+### CIS-CAT Pro Dashboard v1.0.4 
 
-FUNCTIONAL ENHANCEMENTS
+#### FUNCTIONAL ENHANCEMENTS
 
  - Alerting functionality 
  - users will now receive configurable alerts for: Test Results imported,  Low Scoring Results imported, Errors importing Results
@@ -711,7 +734,7 @@ FUNCTIONAL ENHANCEMENTS
  - Role Tags - Roles can now be tagged, no current functionality is effected by this.
  - Added hostname to the Target System Search, Remediation Report Search, Complete Results Search
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Added support for Oracle Databases
  - Added Support for SQL Server databases
@@ -719,32 +742,34 @@ SYSTEM ENHANCEMENTS
  - CCPD software version now appears on the title bar
  - Functional Area now applicable by action - the functional areas for security use to only be able to control access at the controller level,  administrators can now control access at the action level, whichi is much more granular
 
-BUGS
+#### BUGS
 
  - fixed vulnerability where a basic user could become an administrator
 
-----------------------------------
-** CIS-CAT Pro Dashboard v1.0.3 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.0.3 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - Ability to Tag Users
  - Ability to Tag Roles
  - Ability to Search Users
  - Profile selected added to the Assessment Results List and Assessment Results Search pages.
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Performance improvements on Assessment Result Importing
 
-BUGS
+#### BUGS
 
  - Fixed concurrency issues when uploading and importing Assessment Results simultaneously
 
------------------------------
-** CIS-CAT Pro Dashboard v1.0.2 **
+----------------------
 
-FUNCTIONAL ENHANCEMENTS
+### CIS-CAT Pro Dashboard v1.0.2 
+
+#### FUNCTIONAL ENHANCEMENTS
 
  - Assessment Results Search page has been added to the Reports menu.  Users can now search for assessment results by: hostname, date range, benchmark, and tags.
  - Exceptions added in CCPD will now show in the HTML export document.
@@ -753,7 +778,7 @@ FUNCTIONAL ENHANCEMENTS
  - Added a rule to prevent duplicate assessment results imports.
  - Added links to the CCPD User Guide, and The CIS WorkBench, in the main navigation menu at the top right of the application.
 
-SYSTEM ENHANCEMENTS
+#### SYSTEM ENHANCEMENTS
 
  - Created an initialization service to process data fixes required for new releases, bypassing the need to manually run data scripts.
  - Made search criteria modular so that criteria and new searches can be added to the system easier.
@@ -761,7 +786,7 @@ SYSTEM ENHANCEMENTS
  - Assessment Result import/export processes now use the weight from the XCCDF rule-result element of the TestResult, instead of the rule element of the Benchmark.
  - Made performance improvements to the Assessment Results View page.
 
-BUGS
+#### BUGS
 
  - Users can now import assessment results from target systems with underscores in their hostname.
  - Users can no longer access user functionality when unauthenticated.
@@ -772,14 +797,16 @@ BUGS
  - Remediation Reports with no failed rules will now show a congratulatory message instead of a blank result.
  - Assessment Results can now be imported concurrently
 
------------------------------
-** CIS-CAT Pro Dashboard v1.0.1 **
+----------------------
+
+### CIS-CAT Pro Dashboard v1.0.1 
  - Converted documentation to online documents available at: http://cis-cat-pro-dashboard.readthedocs.io
  - Fixed issues with CIS-CAT Pro Dashboard running on tomcat v8.5.11 including:
 	 - user/role administration dialogs not working
 	 - dashboards not showing
  - Fixed scoring inconsistency between the Assessment Results List, individual Assessment Results View screen, and the HTML export of the assessment results.  The inconsistancy  was the result of weighting of recommendations and exceptions added to recommendations
 
---------------------------------- 
-** CIS-CAT Pro Dashboard v1.0 **
+----------------------
+
+### CIS-CAT Pro Dashboard v1.0 
 Initial Release
