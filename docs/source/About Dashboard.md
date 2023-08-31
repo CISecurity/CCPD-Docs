@@ -109,19 +109,19 @@ The `conf` folder contains the ccpd-config.yml file that contains information to
 
 ## Version 3 FAQ 
 
-- [Why use CIS-CAT Pro Dashboard?](#whyuse)
-- [Can I use my existing Dashboard v2 server for an installation of Dashboard v3?](#existing)
-- [Will CIS-CAT Pro Dashboard v2 continue to be supported?](#existing)
-- [How do I move my history to the new version?](#migratedata)
-- [Is version 3 easier to install?](#ease)
-- [How will version 3 protect my database?](#protect)
-- [Do I need a license?](#license)
-- [What components are embedded? Are substitutions allowed?](#embed)
-- [Is Active Directory supported?](#ad)
-- [Has the interface changed?](#interface)
-- [Can I store all my data in Dashboard v3?](#datamount)
-- [Are vulnerability assessments supported?](#vuln)
-- [Does the installation support IIS?](#iis)
+- [Why should I use CIS-CAT Pro Dashboard?](#whyuse)
+- [Can I install Dashboard v3.0.0 on my existing Dashboard server?](#existing)
+- [Will CIS continue to support CIS-CAT Pro Dashboard 2.x?](#support)
+- [I’m using CIS-CAT Pro Dashboard 2.x version series. How do I move my historical assessment data to CIS-CAT Pro Dashboard 3.x version?](#migratedata)
+- [In my opinion, CIS-CAT Pro Dashboard 2.x was difficult to install, will this version be easier to install and upgrade?](#ease)
+- [Will CIS-CAT Pro Dashboard 3.x protect my database?](#protect)
+- [Do I need a license key to operate CIS-CAT Pro Dashboard 3.x?](#license)
+- [What major components will be embedded and how will CIS keep them up to date? Can I substitute different components such as a different database?](#embed)
+- [Will Dashboard 3.x support Active Directory and LDAP and LDAPS?](#ad)
+- [Has the user interface changed with Dashboard v3.0.0?](#interface)
+- [Can I use Dashboard to store all my historical assessment data?](#datamount)
+- [Will Vulnerability Assessments be supported in CIS-CAT Pro Dashboard 3.x?](#vuln)
+- [Will Dashboard 3.x support IIS?](#iis)
 
 
 
@@ -200,11 +200,11 @@ CIS-CAT Pro Dashboard version 3 is a major version release that is not backwards
 
 CIS-CAT Pro Dashboard version 3.x requires a new installation. It is not possible to migrate data imported into the previous version 2.x to version 3.x.
 
-## End of Life and Final Release Dashboard v 2.x
-
 ------------------
 
-** Version 2 of CIS-CAT Pro Dashboard has reached End of Life and its Final Release occurred in September 2022. It has been replaced with Dashboard v3.0.0 released in December 2022.**
+## End of Life and Final Release Dashboard v 2.x
+
+**Version 2 of CIS-CAT Pro Dashboard has reached End of Life and its Final Release occurred in September 2022. It has been replaced with Dashboard v3.0.0 released in December 2022.**
 
 Version 2.3.2 is the final release of CIS-CAT Pro Dashboard version 2 series. Dashboard version 3.0.0 will replace the 2.x versions, but the latest version will not be backwards compatible with version 2.x. A clean install of Dashboard version 3.0.0 is required as there are no upgrade or data migration options available from any previous 2.x version. Please read our [knowledge base article](https://cisecurity.atlassian.net/l/cp/mF6o97vs) to learn more. 
 
