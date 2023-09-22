@@ -246,7 +246,8 @@ The installer will detect a previous installation and prompt to update only the 
 
 **NOTE:** There is no upgrade or migration path from CIS-CAT Pro Dashboard version 2.x to version 3.x. Please read our FAQ and our [blog](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it) to learn more about CIS-CAT Pro changes.
 
-##Interactive Upgrade
+## Interactive Upgrade
+
 The interactive upgrade process uses the installer application.
 
 1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
@@ -257,7 +258,8 @@ The interactive upgrade process uses the installer application.
 	- **Update application only:** applies existing configuration, updates CIS-CAT application. No options to modify existing configurations.
 	- **Update application and/or configuration settings:** applies existing configuration with options to modify some settings, updates CIS-CAT application. Select **optional** Email or LDAP configuration to modify or initiate these functions.
 
-##Non-interactive Upgrade
+## Non-interactive Upgrade
+
 The non-interactive upgrade process can be executed with commands.
 
 1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
