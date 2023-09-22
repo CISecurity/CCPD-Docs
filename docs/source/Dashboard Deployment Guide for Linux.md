@@ -259,7 +259,10 @@ The interactive upgrade process uses the installer application.
 	- **Update application and/or configuration settings:** applies existing configuration with options to modify some settings, updates CIS-CAT application. Select **optional** Email or LDAP configuration to modify or initiate these functions.
 
 ## Non-interactive Upgrade
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7a1aff12624216e3abb0c6b9b478d1600aa268bd
 The non-interactive upgrade process can be executed with commands.
 
 1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
@@ -267,14 +270,14 @@ The non-interactive upgrade process can be executed with commands.
 3. Unzip the files
 4. Open the terminal
 5. Using command prompt, navigate to the location of CCPD_linux_Installer.sh
-6. Run sudo ./CCPD_linux_Installer.sh -q -varfile
+6. Run sudo ./CCPD_unix_Installer.sh -q -varfile
 7. Monitor installation completion
 	- While the command completes quickly, the actual installation will take the usual time to fully complete.
-	- Installation error files, if generated, will be generate in the location of the installation.exe
-		- CCPD_linux_Installer_error: generally null pointer exceptions
-		- installation.log: other errors with the installation
+	- Installation error files, if generated, will be generated in two possible locations:
+		- CCPD_unix_Installer_error located in the same folder as your CCPD_unix_Installer.sh file: Errors with input items
+		- installation.log located in the CCPD/.install4j folder after installation is completed: Errors with the installation
 		
-**Note:** Inconsistent issues could occur when updating values in the file manually such as from HTTP to HTTPS and vice versa. It is not recommended that the varfile be manually updated. Modifications to the installation should still occur via the interface. Variables in the files such as the checkboxes for email and LDAP are required to be present and indicated as “False”.
+**Note:** Inconsistent issues could occur when updating values in the file manually such as from HTTP to HTTPS and vice versa. It is not recommended that the varfile be manually updated. Modifications to the installation should still occur via the interface. Variables in the files such as the checkboxes for email and LDAP are required to be present and indicated as either "true" or "false" depending on if they should be checked or not.
 
 
 ------------------
