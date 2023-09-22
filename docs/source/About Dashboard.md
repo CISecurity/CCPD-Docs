@@ -34,6 +34,7 @@ Use of Dashboard is optional. Routine assessment are best performed with CIS-CAT
 - Navigate from a high level graphical overview of environmental compliance with CIS Benchmarks to individual assessment results that produce a compliance score
 - Perform on-demand, remote configuration assessment against a single, remote target system
 - Create exceptions to failed results and rescore overall averages
+- Export HTML reports with approved exceptions noted within the report along with rescored averages
 - Custom tag systems for easier exception application or overall compliance average grouping in graphical format
 
 
@@ -43,7 +44,7 @@ Use of Dashboard is optional. Routine assessment are best performed with CIS-CAT
 
 CIS-CAT Pro Dashboard is available to CIS SecureSuite Members. To learn more about becoming a CIS SecureSuite Member, visit our [website](https://www.cisecurity.org/). As a Member, organizations may navigate to [CIS WorkBench](https://workbench.cisecurity.org/dashboard) to obtain the CIS-CAT tools. 
 
-Once logged into to CIS WorkBench, navigate to `Downloads` and enter the tag of `CIS-CAT Dashboard`. The previous version of Dashboard version 2 will be available until January 2023, but is NOT recommended for new Members. CIS has deprecated this version. 
+Once logged into to CIS WorkBench, navigate to `Downloads` and enter the tag of `CIS-CAT Dashboard`. The previous version of Dashboard version 2 was available until January 2023. CIS has deprecated this version. 
 
 For CIS-CAT Pro Dashboard v3.0.0, select your preferred installation of [Microsoft Windows](https://workbench.cisecurity.org/files/2176) or [Linux](https://workbench.cisecurity.org/files/2174).
 
@@ -51,7 +52,7 @@ For CIS-CAT Pro Dashboard v3.0.0, select your preferred installation of [Microso
 
 ## Technology 
 
-CIS-CAT Pro Dashboard is a web application supported by a Grails Framework. All necessary components required to operate CIS-CAT Pro Dashboard are embedded. The installation, modification and upgrade process will be executed by utilizing the installer.
+CIS-CAT Pro Dashboard is a web application supported by a Grails Framework. All necessary components required to operate CIS-CAT Pro Dashboard are embedded. The intitial installation, modification and upgrade process can be executed by utilizing the installer application. Upgrades, when there are no system setting changes, may be completed with the installation application or via an automated process utilizing a varfile. Modifications to the installation must be completed using only the installer.
 
 Embedded components alleviates the challenges of requiring expertise in various applications. CIS-CAT will complete the base configuration for you. To ease support and maintenance, CIS-CAT will only officially support the delivered components.
 
@@ -65,14 +66,25 @@ Embedded components alleviates the challenges of requiring expertise in various 
 
 ## Security 
 
-CIS-CAT team utilizes best efforts to ensure that the CIS-CAT product are free from material vulnerabilities resulting from integrated third-party libraries with continuous use of  monitoring tools as part of the software build process. 
+###Development Process
+
+CIS-CAT team utilizes best efforts to ensure that the CIS-CAT product is free from material vulnerabilities resulting from integrated third-party libraries with continuous use of  monitoring tools as part of the software build process. Reasonable efforts are made to ensure the application mitigates risk of third-party library vulnerbilities. However, it's important to note that some detected vulnerabilites may still be present in the application for multiple reasons such as the vendor has not provided a non-vulnerable update, the vulnerability is a false positive, NIST has not yet completed analysis, etc. When a library is not updated, the software will deliver. The known vulnerabilities will be disclosed in the README.txt document within the bundle. Each release, CIS-CAT analyzes and updates this list and the libraries where possible.
+
+###Penetration Testing
+
 The Center for Internet Security performs annual penetration testing on eligible software products, which includes CIS-CAT. CIS-CAT mitigates risks with recommended solutions associated with penetration test findings assessed at and above a Medium.
+
+###SOC 2 Compliance
 
 The Center for Internet Security product engineering practices are SOC 2 certified.
 SOC 2 is a voluntary compliance standard for service organizations, developed by the American Institute of CPAs (AICPA), which specifies how organizations should manage customer data. The standard is based on the following Trust Services Criteria: security, availability, processing integrity, confidentiality, privacy.
 
+###Security Trained Engineers
+
 CIS-CAT's engineering team is populated with individuals educated and certified in cyber security best practices.
 The Center for Internet for Security develops cyber security best practices with our global community of cybersecurity experts. We implement these best practices within the organization. 
+
+###Software Bill of Materials (SBOM)
 
 CIS-CAT Pro Dashboard delivers with a Software Bill of Materials (SBOM). The the bill of materials is delivered in file formats of JSON and XML and are updated with each release of the products and placed in the "Documentation" folder. The files may also be downloaded separately on [CIS WorkBench](https://workbench.cisecurity.org/files?q=&tags=39&visibility=all).
 
@@ -83,13 +95,13 @@ The term “Software Bill of Materials” or “SBOM” means a formal record co
 
 ## Installation Overview 
 
-The installation application must be used to complete all install, upgrade, and installation modifications.
+The initial installation of the application must be completed using the packaged intaller application. Upgrades, when there are no system setting changes, may be completed with the installation application or via an automated process utilizing a varfile. Modifications to the installation must be completed using only the installer.
 The installation process will create two services that should remain running to support the application. On initial installation and upgrade, it can take several minutes for these services to start. These services are:
 
 - MariaDB (Linux: mariadbd.service in systemctl)
 - CCPD_Windows (Linux: CIS-CAT_Pro_Dashboard.service in systemctl)
 	
-By default the installation will be placed C:\Program Files\CCPD (Microsoft Windows) or /usr/local/CCPD (Ubuntu Linux). CIS recommends modifying contents and structure using only the installer as the upgrade or install process may fail. See below for additional notes on notable sections of the installation. 
+By default the installation will be placed C:\Program Files\CCPD (Microsoft Windows) or /usr/local/CCPD (Ubuntu Linux). CIS requires modifying contents and structure using only the installer as the upgrade or install process may fail. See below for additional notes on notable sections of the installation. 
 
 | Folder         |    Description |
 | -----------------------| ------------- |

@@ -240,11 +240,14 @@ You'll be prompted to change your password upon first login.
 
 ## Upgrade Process 
 
-Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades are applied utilizing the latest installer included in the downloaded CIS-CAT Pro Dashboard. On upgrade, the application will verify that the version installing is newer than the installed version and fail if this scenario is detected.
+Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades, when there are no system setting changes, may be completed with the installation application or via an automated process utilizing a varfile. Modifications to the installation must be completed using only the installer. On upgrade, the application will verify that the version installing is newer than the installed version and fail if this scenario is detected.
 
 The installer will detect a previous installation and prompt to update only the application or update/modify configuration changes. If no changes are required, updating only the application is the most efficient. Follow the basic steps below. 
 
 **NOTE:** There is no upgrade or migration path from CIS-CAT Pro Dashboard version 2.x to version 3.x. Please read our FAQ and our [blog](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it) to learn more about CIS-CAT Pro changes.
+
+##Interactive Upgrade
+The interactive upgrade process uses the installer application.
 
 1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
 2. Place the zipped file on the CIS-CAT Dashboard host server where CIS-CAT Pro Dashboard v3.x is installed
@@ -253,6 +256,24 @@ The installer will detect a previous installation and prompt to update only the 
 5. Select Standard or Custom Installation
 	- **Update application only:** applies existing configuration, updates CIS-CAT application. No options to modify existing configurations.
 	- **Update application and/or configuration settings:** applies existing configuration with options to modify some settings, updates CIS-CAT application. Select **optional** Email or LDAP configuration to modify or initiate these functions.
+
+##Non-interactive Upgrade
+The non-interactive upgrade process can be executed with commands.
+
+1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
+2. Place the zipped file on the CIS-CAT Dashboard host server where CIS-CAT Pro Dashboard v3.x is installed
+3. Unzip the files
+4. Open the terminal
+5. Using command prompt, navigate to the location of CCPD_linux_Installer.sh
+6. Run sudo ./CCPD_linux_Installer.sh -q -varfile
+7. Monitor installation completion
+	- While the command completes quickly, the actual installation will take the usual time to fully complete.
+	- Installation error files, if generated, will be generate in the location of the installation.exe
+		- CCPD_linux_Installer_error: generally null pointer exceptions
+		- installation.log: other errors with the installation
+		
+**Note:** Inconsistent issues could occur when updating values in the file manually such as from HTTP to HTTPS and vice versa. It is not recommended that the varfile be manually updated. Modifications to the installation should still occur via the interface. Variables in the files such as the checkboxes for email and LDAP are required to be present and indicated as “False”.
+
 
 ------------------
 

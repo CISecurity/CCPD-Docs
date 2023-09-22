@@ -66,6 +66,8 @@ If you have determined that there is no Java conflict, the host system's resourc
 
 For an initial CIS-CAT Pro Dashboard installation on Microsoft Windows, follow the basic steps below. CIS-CAT has observed an initial installation effort on a prepared server to complete in less than 10 minutes. As the installation process will effect the Java home environment variables on the machine, CIS-CAT recommends that other applications requiring a system-installed java run time environment (JRE) are not present on the same host.
 
+Upgrades, when there are no system setting changes, may be completed with the installation application or via an automated process utilizing a varfile (Non-interactive). Modifications to the installation must be completed using only the installer (Interactive). See the upgrade instructions.
+
 CIS-CAT Pro Dashboard requires a CIS SecureSuite license. Before initiating the installation process, download your organization's [SecureSuite license](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/SecureSuite%20License/). Obtain the CIS-CAT Pro Dashboard application from the [CIS WorkBench](https://cis-cat-pro-dashboard.readthedocs.io/en/latest/source/About%20Dashboard/#obtain-dashboard).
 
 - [Prepare for Installation](#PrepareInstallation)
@@ -294,11 +296,14 @@ You'll be prompted to change your password upon first login.
 ---------------------------
 
 ## Upgrade Process 
-Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades are applied utilizing the latest installer included in the downloaded CIS-CAT Pro Dashboard. On upgrade, the application will verify that the version installing is newer than the installed version and fail if this scenario is detected.
+Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS-CAT application and embedded components. Upgrades, when there are no system setting changes, may be completed with the installation application or via an automated process utilizing a varfile. Modifications to the installation must be completed using only the installer. On upgrade, the application will verify that the version installing is newer than the installed version and fail if this scenario is detected.
 
 The installer will detect a previous installation and prompt to update only the application or update/modify configuration changes. If no changes are required, updating only the application is the most efficient. Follow the basic steps below. 
 
 ](**NOTE:** There is no upgrade or migration path from CIS-CAT Pro Dashboard version 2.x to version 3.x. Please read our [FAQ](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/About%20Dashboard/#version-3-faq) and our [blog](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it) to learn more about CIS-CAT Pro changes.
+
+##Interactive Upgrade
+The interactive upgrade process uses the installer application.
 
 1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
 2. Place the zipped file on the CIS-CAT Dashboard host server where CIS-CAT Pro Dashboard v3.x is installed
@@ -311,6 +316,23 @@ The installer will detect a previous installation and prompt to update only the 
 6. Select `Yes` if prompted for permission to proceed with installation
 
 **NOTE:** Version 3 of CIS-CAT Pro Dashboard does NOT upgrade version 2. Version 3 requires a new installation.
+
+##Non-interactive Upgrade
+The non-interactive upgrade process can be executed with commands.
+
+1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
+2. Place the zipped file on the CIS-CAT Dashboard host server where CIS-CAT Pro Dashboard v3.x is installed
+3. Unzip the files
+4. Run Command Prompt as an Administrator
+5. Using command prompt, navigate to the location of CCPD_windows-x64_Installer.exe
+6. Run CCPD_windows-x64_Installer.exe -q -varfile 
+7. Monitor installation completion
+	- While the command completes quickly, the actual installation will take the usual time to fully complete.
+	- Installation error files, if generated, will be generate in the location of the installation.exe
+		- CCPD_windows-x64_Installer_error: generally null pointer exceptions
+		- installation.log: other errors with the installation
+		
+**Note:** Inconsistent issues could occur when updating values in the file manually such as from HTTP to HTTPS and vice versa. It is not recommended that the varfile be manually updated. Modifications to the installation should still occur via the interface. Variables in the files such as the checkboxes for email and LDAP are required to be present and indicated as “False”.
 
 ------------------
 
