@@ -300,7 +300,7 @@ Each release of CIS-CAT Pro Dashboard v3.x will contain upgrades to the main CIS
 
 The installer will detect a previous installation and prompt to update only the application or update/modify configuration changes. If no changes are required, updating only the application is the most efficient. Follow the basic steps below. 
 
-](**NOTE:** There is no upgrade or migration path from CIS-CAT Pro Dashboard version 2.x to version 3.x. Please read our [FAQ](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/About%20Dashboard/#version-3-faq) and our [blog](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it) to learn more about CIS-CAT Pro changes.
+**NOTE:** There is no upgrade or migration path from CIS-CAT Pro Dashboard version 2.x to version 3.x. Please read our [FAQ](https://cis-cat-pro-dashboard.readthedocs.io/en/stable/source/About%20Dashboard/#version-3-faq) and our [blog](https://www.cisecurity.org/insights/blog/cis-cat-pro-is-now-even-better-heres-how-weve-improved-it) to learn more about CIS-CAT Pro changes.
 
 ##Interactive Upgrade
 The interactive upgrade process uses the installer application.
@@ -317,7 +317,7 @@ The interactive upgrade process uses the installer application.
 
 **NOTE:** Version 3 of CIS-CAT Pro Dashboard does NOT upgrade version 2. Version 3 requires a new installation.
 
-##Non-interactive Upgrade
+## Non-interactive Upgrade
 The non-interactive upgrade process can be executed with commands.
 
 1. Download the latest CIS-CAT Pro Dashboard zip file from [CIS WorkBench](https://workbench.cisecurity.org/files), select the tag `CIS-CAT Dashboard`
@@ -328,11 +328,11 @@ The non-interactive upgrade process can be executed with commands.
 6. Run CCPD_windows-x64_Installer.exe -q -varfile 
 7. Monitor installation completion
 	- While the command completes quickly, the actual installation will take the usual time to fully complete.
-	- Installation error files, if generated, will be generate in the location of the installation.exe
-		- CCPD_windows-x64_Installer_error: generally null pointer exceptions
-		- installation.log: other errors with the installation
+	- Installation error files, if generated, will be generated in two possible locations:
+		- CCPD_windows-x64_Installer_error located in the same folder as your CCPD_windows-x64_Installer.exe file: Errors with input items
+		- installation.log located in the CCPD/.install4j folder after installation is completed: Errors with the installation 
 		
-**Note:** Inconsistent issues could occur when updating values in the file manually such as from HTTP to HTTPS and vice versa. It is not recommended that the varfile be manually updated. Modifications to the installation should still occur via the interface. Variables in the files such as the checkboxes for email and LDAP are required to be present and indicated as “False”.
+**Note:** Inconsistent issues could occur when updating values in the file manually such as from HTTP to HTTPS and vice versa. It is not recommended that the varfile be manually updated. Modifications to the installation should still occur via the interface. Variables in the files such as the checkboxes for email and LDAP are required to be present and indicated as either "true" or "false" depending on if they should be checked or not.
 
 ------------------
 
