@@ -3,6 +3,63 @@
 # CIS-CAT Pro Dashboard Change Log
 
 ----------------------
+## 3.3.0 
+October 30, 2023
+
+### Benchmarks
+
+- AlmaLinux OS 8 v3.0.0
+- Apple macOS 11 v4.0.0
+- Apple macOS 12 v3.0.0
+- Apple macOS 13 v2.0.0
+- Apple macOS 14 v1.0.0 
+- Debian Linux 11 STIG v1.0.0
+- Kubernetes v1.8.0
+- Microsoft Edge Benchmark v2.0.0
+- Microsoft IIS 10 v1.2.1
+- Microsoft Office Enterprise v1.1.0
+- Microsoft Windows Server 2012 v3.0.0
+- Microsoft Windows Server 2016 STIG v2.0.0
+- Microsoft Windows Server 2012 R2 v3.0.0
+- Oracle Linux 8 v3.0.0
+- Red Hat Enterprise Linux 8 v3.0.0
+- Rocky Linux 8 v1.1.0
+- Ubuntu Linux 20.04 LTS STIG v2.0.0
+
+The following CIS Benchmarks have been archived and are no longer officially supported. See the Coverage Guide for more information on CIS Benchmarks that have been archived. The “archive” terminology replaces the previous "end of life" terminology when referring to CIS Benchmarks removed from CIS-CAT.
+
+- Aliyun Linux 2
+- Centos Linux 6
+- Debian 9
+- Fedora 19
+- Oracle Linux 6
+- Red Hat Linux 6
+- Ubuntu 14.04
+- Ubuntu 16.04
+
+**Security**
+
+- Resolved security vulnerabilities present in embedded, third party dependencies:
+	- tomcat-embed.core and websocket from 9.0.76 to 9.0.82
+	- okio-jvm (2.8.0 to .4.0)
+	- spring-security-core (5.7.8 to 5.7.10)
+	- spring-security-crypto (5.7.8 to 5.7.10)
+	- spring-security-ldap (5.7.8 to 5.7.10)
+	- spring-security-web (5.7.8 to 5.7.10)
+	- Netty updates (buffer, codec, common, handler, resolver, transport) v4.1.74 to 4.1.99
+	- Jetty updates (client, http, io, util, websocket-client, websocket -common) v9.4.51 to 9.4.53
+	 
+**Application**
+
+- The database password stored in the configuration file that supports Dashboard is now obfuscated
+- The Standard upgrade process for Ubuntu Linux and Microsoft Windows now offer a non-interactive methods. Beneficial to Members who wish for automated processes to complete upgrades. See Instructions for Microsoft Windows and Ubuntu Linux.
+- Exported HTML reports now reflect excepted CIS Benchmark recommendations as “Excepted”. Scores are adjusted on the report to coincide with screen view scores.
+- Configuration assessment screens now updated to represent CIS Benchmark recommendations newly imported intentionally not mapped to a CIS Critical Control as “Explicitly Not Mapped” on upgrade
+- CIS-CAT Assessor license validator updated to be compatible with new CIS formats in addition to previous formats
+
+**Documentation**
+
+- The README.txt file updated to record suppressed third party dependent library vulnerabilities.
 
 ## 3.2.0 
 August 1, 2023

@@ -556,18 +556,16 @@ The screen can be manually refreshed by selecting the Job Status menu item or by
 ## Reports 
 CIS-CAT Pro Dashboard reports provide a few options to view CIS-CAT Assessment Results.  An individual configuration result view provides the same information as the HTML report generated from CIS-CAT Pro Assessor. The Dashboard views offer more flexibility in results presentation, including a CIS Controls-based view. The Dashboard also offers the ability to apply exceptions for benchmark recommendations.  Exceptions can be applied from the various result views. The remediation report provides a list of only the latest failed results for a target or group of targets.  The intent is for a remediator to print this report and use it to manually remediate desired configurations when they depart from a benchmark recommendation.  The complete Results Report will give an abbreviated version of the complete results for a system.  This is intended for an auditor to get a full picture of CIS compliance for a specific target or set of targets.
 
-### Assessment Results 
+## Assessment Results 
 
 The individual test results report provides a view of a selected target system's results when compared to expected benchmark states.  The display is aligned with the order of an HTML report generated from CIS-CAT Pro Assessor.
 
 
  View an assessment result by selecting `Reports` menu and select `Assessment Results Search` or `Assessment Results List`.  Select the `view` link to display the results for an individual assessment.  As an alternative,  navigate to an individual target system and select an assessment to view.  
 
-**Report Score:** Total Pass Results / Sum Results of (Pass + Fail + Error + Unknown). When active, Exception counts are removed from Scored Recommendation Total and affected result category (Pass, Fail, etc.) of related Section. As a result, they are also removed from the overall Report Score. When a recommendation is weighted, each individual result will be multiplied by the weight value (e.g.: (Pass * weight value), etc.) By default, all scores are weighted at 1. The weight can only be modified manually in the xccdf Benchmark content.
+**Report Score:** Total Pass Results / Sum Results of (Pass + Fail + Error + Unknown). When active, Exception counts are removed from Scored Recommendation Total and affected result category (Pass, Fail, etc.) of related Section. As a result, they are also removed from the overall Report Score. When a recommendation is weighted, each individual result will be multiplied by the weight value (e.g.: (Pass * weight value), etc.) By default, all scores are weighted at 1. 
 
-Report scores will match report scores as shown on CIS-CAT Pro Assessor v4 HTML reports as of CIS-CAT Pro Dashboard v2.1.0+ when there are no exceptions applied in the Dashboard for a particular result.
-
-![](img/ConfigurationAssessmentResults.png)
+![](img/ConfigurationReport.png)
 
 
 1. **Results View** 
@@ -586,6 +584,12 @@ Report scores will match report scores as shown on CIS-CAT Pro Assessor v4 HTML 
  
 3. **Exceptions List** <br/>Exceptions may be associated per target system, per tag associated with the selected target system, or per benchmark (global).<br/>
 	- List of active exceptions associated with the selected configuration result   
+ 
+ ### Export Results
+ 
+ Configuration results can be exported in HTML, csv, txt and XML. Exceptions active for the configuration report are reflected in the report in the column `Exc.` in the HTML report. The body of the report will label the excepted result as `Exception`. Excepted results that are in a `Pass` state will continue to be represented as a `Pass` on the exported HTML report and be counted in the overall score. `Fail` results that are excepted will be represented in the `Fail` column.
+ 
+ ![](img/ExceptionViewDash.png)
  
 ---------------------- 
 
