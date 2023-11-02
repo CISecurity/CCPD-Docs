@@ -262,6 +262,8 @@ The MariaDB that supports CIS-CAT Pro Dashboard has a native admin user with the
 
 ![](img/Installer_DBPass_new.png)
 
+On new installation and upgrade with CIS-CAT Pro Dashboard v3.3.0+, the database password will be encrypted. If a query is utilized to reset the database password, it is necessary to manually update the `ccpd-config.xml` and the v3.3.0+ must be executed again to re-encrypt the password.
+
 <a name="Final"></a>
 ### Final Installation Process 
 
